@@ -51,23 +51,46 @@ namespace ControlDantist
             // Выведим льготную категорию.
             this.label3.Text = Registr.GetPrivelegetCategory();
 
+            decimal balance = 0.0m;
+
+            if(balance == 0.0m)
+            {
+                this.labelLimit.Text = "";
+            }
+
+            /*
+
+            // Баланс денежных средств.
             BalanceDisplay bc = new BalanceDisplay();
 
-            // Имитация хранилища данных.
+            
+
+            // Количество израсходованных денежных средств.
             decimal limitMoney = bc.GetLimitPreferentyCategory(DateTime.Today.Year,this.Registr.GetPrivelegetCategory());// 600000;
 
+            // Количество денежных средств с ранее израсходованные + сумма реестра проектов договоров.
             IPrintBalance printBalance = new PrintBalance(limitMoney, Registr.SumContracts());
 
+            // Получим текущий год.
+            int year = DateTime.Now.Year; 
+
+            // Предполагаемый расход денежных средств с учетеом текущео реестра проектов договоров.
             var balanceRegistr = printBalance.PrintBalance();
 
-            if(printBalance.PrintBalance() < 0)
+            // Остаток денежных средств.
+            ReisedueMoney rm = new ReisedueMoney(Registr.GetPrivelegetCategory(),year );
+            decimal limitMoneySum = rm.PrintBalance();
+
+            decimal balance = Math.Round(limitMoneySum - balanceRegistr, 4);
+
+            if(balance < 0)
             {
-                this.labelLimit.Text = "Лимит исчерпан = " + balanceRegistr.ToString("c");
+                this.labelLimit.Text = "Лимит исчерпан = " + balance.ToString("c");
                 this.labelLimit.ForeColor = Color.Red;
             }
             else
             {
-                this.labelLimit.Text = "Лимит средств = " + balanceRegistr.ToString("c");
+                this.labelLimit.Text = "Лимит средств = " + balance.ToString("c");
             }
 
             if(this.Registr.FlagErrorRegionRegistr == true)
@@ -75,6 +98,8 @@ namespace ControlDantist
                 this.LabelError.Visible = true;
                 this.btnYes.Enabled = false;
             }
+
+            */
 
         }
 
@@ -97,6 +122,11 @@ namespace ControlDantist
         private void btnCancel_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void btnYes_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

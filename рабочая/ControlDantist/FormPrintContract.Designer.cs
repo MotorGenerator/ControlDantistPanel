@@ -80,6 +80,7 @@
             this.btnYes.TabIndex = 3;
             this.btnYes.Text = "ОК";
             this.btnYes.UseVisualStyleBackColor = true;
+            this.btnYes.Click += new System.EventHandler(this.btnYes_Click);
             // 
             // label3
             // 

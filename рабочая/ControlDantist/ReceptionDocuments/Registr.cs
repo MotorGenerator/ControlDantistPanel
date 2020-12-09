@@ -56,6 +56,10 @@ namespace ControlDantist.ReceptionDocuments
             return listContracts.Count();
         }
 
+        /// <summary>
+        /// Возвращает наименование льготной категории.
+        /// </summary>
+        /// <returns></returns>
         public string GetPrivelegetCategory()
         {
             return unloads.Values.First().ЛьготнаяКатегория.Trim();

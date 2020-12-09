@@ -753,6 +753,7 @@
     <Compile Include="ReceptionDocuments\PrintBalance.cs" />
     <Compile Include="ReceptionDocuments\PrintContract.cs" />
     <Compile Include="ReceptionDocuments\Registr.cs" />
+    <Compile Include="ReceptionDocuments\ReisedueMoney.cs" />
     <Compile Include="ReceptionDocuments\ValidateЛьготник.cs" />
     <Compile Include="Reports\AbstractFactory.cs" />
     <Compile Include="Reports\FindNumRegistr.cs" />

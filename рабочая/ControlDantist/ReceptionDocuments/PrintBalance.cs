@@ -22,7 +22,7 @@ namespace ControlDantist.ReceptionDocuments
         /// <returns></returns>
         decimal IPrintBalance.PrintBalance()
         {
-            return Math.Round(sumBalance - summRegistr, 4);
+            return Math.Round(sumBalance + summRegistr, 4);
         }
     }
 }

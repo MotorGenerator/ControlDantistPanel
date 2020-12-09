@@ -13,7 +13,7 @@ namespace ControlDantist.BalanceContract
     {
 
         /// <summary>
-        /// Лимит денежных средств по льготной категории.
+        /// Лимит израсходованных денежных средств по льготной категории.
         /// </summary>
         /// <param name="year"></param>
         /// <param name="namePreferencyCategory"></param>
@@ -21,6 +21,18 @@ namespace ControlDantist.BalanceContract
         public decimal GetLimitPreferentyCategory(int year, string namePreferencyCategory)
         {
             decimal sum = 0.0m;
+
+            string query = @"select ЛьготнаяКатегория.ЛьготнаяКатегория,SUM(Сумма) as 'Limit' from Договор
+                            inner join УслугиПоДоговору
+                            on Договор.id_договор = УслугиПоДоговору.id_договор
+                            inner join ЛьготнаяКатегория
+                            on ЛьготнаяКатегория.id_льготнойКатегории = Договор.id_льготнаяКатегория
+                            inner join ProjectRegistrFiles
+                            on Договор.idFileRegistProgect = ProjectRegistrFiles.IdProjectRegistr
+                            where ФлагПроверки = 1 and YEAR(ProjectRegistrFiles.[DateWriteLetter]) = " + year +" " +
+                            " and REPLACE(LTRIM(RTRIM(ЛьготнаяКатегория.ЛьготнаяКатегория)),' ','') = REPLACE(LTRIM(RTRIM('" + namePreferencyCategory + "')),' ','') "  +
+                            @"group by ЛьготнаяКатегория.ЛьготнаяКатегория
+                            order by ЛьготнаяКатегория asc";
 
             //string query = @"select Limit from ЛьготнаяКатегория
             //                inner join[dbo].[LimitPreferenceCategory]
@@ -31,25 +43,25 @@ namespace ControlDantist.BalanceContract
             //                ON [Year].intYear = [dbo].[LimittMoney].idYear
             //                where[Year].[Year] = " + year + " and REPLACE(LTRIM(RTRIM(ЛьготнаяКатегория.ЛьготнаяКатегория)),' ','') = REPLACE(LTRIM(RTRIM('" + namePreferencyCategory + "')),' ','') ";
 
-            string query = @"select Tab1.id_льготнойКатегории,LimitYear,SUM(СуммаДоговоров),LimitYear - SUM(СуммаДоговоров) as Limit  from(
-                            select ЛьготнаяКатегория.id_льготнойКатегории, Limit as LimitYear from ЛьготнаяКатегория
-                                                        inner join[dbo].[LimitPreferenceCategory]
-                                                        ON ЛьготнаяКатегория.id_льготнойКатегории = [dbo].[LimitPreferenceCategory].id_льготнойКатегории
-                                                        inner join[dbo].[LimittMoney]
-                                                        ON[dbo].[LimittMoney].idLimitMoney = [dbo].[LimitPreferenceCategory].idLimitMoney
-                                                        inner join[Year]
-                                                        ON[Year].intYear = [dbo].[LimittMoney].idYear
-                                                        where[Year].[Year] = " + DateTime.Today.Year + " and REPLACE(LTRIM(RTRIM(ЛьготнаяКатегория.ЛьготнаяКатегория)), ' ', '') = REPLACE(LTRIM(RTRIM('" + namePreferencyCategory + "')), ' ', '')) as Tab1 " +
-                                                        " left outer join( " +
-                                                        " select УслугиПоДоговору.Сумма as СуммаДоговоров,ЛьготнаяКатегория.id_льготнойКатегории from Договор " +
-                                                        " inner join ЛьготнаяКатегория " +
-                                                        " ON ЛьготнаяКатегория.id_льготнойКатегории = Договор.id_льготнаяКатегория " +
-                                                        " inner join УслугиПоДоговору " +
-                                                        " ON УслугиПоДоговору.id_договор = Договор.id_договор " +
-                                                        " where YEAR(Договор.ДатаЗаписиДоговора) = "+ DateTime.Today.Year +" and idFileRegistProgect is not null " +
-                                                        " and REPLACE(LTRIM(RTRIM(ЛьготнаяКатегория.ЛьготнаяКатегория)),' ','') = REPLACE(LTRIM(RTRIM('" + namePreferencyCategory + "')), ' ', '') ) as Tab2 " +
-                                                        " ON Tab1.id_льготнойКатегории = Tab2.id_льготнойКатегории " +
-                                                        " group by Tab1.id_льготнойКатегории,LimitYear ";
+            //string query = @"select Tab1.id_льготнойКатегории,LimitYear,SUM(СуммаДоговоров),LimitYear - SUM(СуммаДоговоров) as Limit  from(
+            //                select ЛьготнаяКатегория.id_льготнойКатегории, Limit as LimitYear from ЛьготнаяКатегория
+            //                                            inner join[dbo].[LimitPreferenceCategory]
+            //                                            ON ЛьготнаяКатегория.id_льготнойКатегории = [dbo].[LimitPreferenceCategory].id_льготнойКатегории
+            //                                            inner join[dbo].[LimittMoney]
+            //                                            ON[dbo].[LimittMoney].idLimitMoney = [dbo].[LimitPreferenceCategory].idLimitMoney
+            //                                            inner join[Year]
+            //                                            ON[Year].intYear = [dbo].[LimittMoney].idYear
+            //                                            where[Year].[Year] = " + DateTime.Today.Year + " and REPLACE(LTRIM(RTRIM(ЛьготнаяКатегория.ЛьготнаяКатегория)), ' ', '') = REPLACE(LTRIM(RTRIM('" + namePreferencyCategory + "')), ' ', '')) as Tab1 " +
+            //                                            " left outer join( " +
+            //                                            " select УслугиПоДоговору.Сумма as СуммаДоговоров,ЛьготнаяКатегория.id_льготнойКатегории from Договор " +
+            //                                            " inner join ЛьготнаяКатегория " +
+            //                                            " ON ЛьготнаяКатегория.id_льготнойКатегории = Договор.id_льготнаяКатегория " +
+            //                                            " inner join УслугиПоДоговору " +
+            //                                            " ON УслугиПоДоговору.id_договор = Договор.id_договор " +
+            //                                            " where YEAR(Договор.ДатаЗаписиДоговора) = "+ DateTime.Today.Year +" and idFileRegistProgect is not null " +
+            //                                            " and REPLACE(LTRIM(RTRIM(ЛьготнаяКатегория.ЛьготнаяКатегория)),' ','') = REPLACE(LTRIM(RTRIM('" + namePreferencyCategory + "')), ' ', '') ) as Tab2 " +
+            //                                            " ON Tab1.id_льготнойКатегории = Tab2.id_льготнойКатегории " +
+            //                                            " group by Tab1.id_льготнойКатегории,LimitYear ";
 
             DataTable tab1 = ТаблицаБД.GetTableSQL(query, "Limit");
 

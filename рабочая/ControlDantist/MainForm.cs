@@ -3805,6 +3805,7 @@ namespace ControlDantist
                 // Загружаемый реестр проектов договоров.
                 Registr registrContracts = new Registr(unload);
 
+                // Отобразим содержимое реестра в диалоговом окне и предложим записать его в БД.
                 IPrintContract printContract = new PrintContract(registrContracts);
                 bool flagWriteDB = printContract.PrintContractDraft();
 
