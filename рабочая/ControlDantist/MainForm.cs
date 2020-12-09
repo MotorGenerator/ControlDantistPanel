@@ -29,6 +29,8 @@ using ControlDantist.ValidateRegistrProject;
 using ControlDantist.WriteClassDB;
 using ControlDantist.Find;
 using ControlDantist.FindEsrnWoW;
+using ControlDantist.DataBaseContext;
+using ControlDantist.ReadRegistrProject;
 
 
 
@@ -3784,11 +3786,9 @@ namespace ControlDantist
 
             if (openFileDialog1.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
-
+                // Получили имя класса.
                 string fileName = openFileDialog1.FileName;
 
-                //try
-                //{
                 using (FileStream fstream = File.Open(fileName, FileMode.Open))
                 {
                     BinaryFormatter binaryFormatter = new BinaryFormatter();
@@ -3809,371 +3809,422 @@ namespace ControlDantist
                 IPrintContract printContract = new PrintContract(registrContracts);
                 bool flagWriteDB = printContract.PrintContractDraft();
 
+
+                var test = "";
+
                 if (flagWriteDB == true)
                 {
-                    // Репозиторий для доступа к БД.
-                    UnitDate unitDate = new UnitDate();
 
-                    // Откроем для теста окно сохранения проектов договоров.
-                    ReceptionContractsForm receptionContractsForm = new ReceptionContractsForm(unitDate);
+                    var listUnload = unload.Values.ToList<Unload>();
 
-                    receptionContractsForm.SaveProjectFIle = true;
-
-                    DialogResult dialogResult = receptionContractsForm.ShowDialog();
-
-                    if (dialogResult == DialogResult.OK) // && receptionContractsForm.FlagWriteRegistrBase == true)
+                    // Получим список проектов договоров.
+                    foreach (var unload in listUnload)
                     {
-
-                        #region Новый функционал
-
-                        //    // Запишем реестр проектов договоров.
-                        //    ProjectRegistrFiles projectRegistrFiles = new ProjectRegistrFiles();
-
-                        //    // Массив двоичных данных для хранения реестра проектов договоров.
-                        //    byte[] fileData;
-
-                        //    //// Запишем файл в битовый массив.
-                        //    //fileData = new byte[fstream.Length];
-
-                        //    //// Файл реестра в двоичном формате.
-                        //    //projectRegistrFiles.Registr = fileData;
-
-                        //// Для теста десериализуем.
-
-                        //BinaryFormatter bf = new BinaryFormatter();
-                        //using (MemoryStream ms = new MemoryStream())
-                        //{
-                        //    bf.Serialize(ms, unload);
-                        //    fileData = ms.ToArray();
-                        //}
-
-                        //MemoryStream stream2 = new MemoryStream(fileData);
-
-                        //BinaryFormatter binaryFormatter2 = new BinaryFormatter();
-                        //Dictionary<string, Unload>  unload2 = (Dictionary<string, Unload>)binaryFormatter2.Deserialize(stream2);
-
-                        //stream2.Close();
-
-
-
-
-                        //// Номер письма.
-                        //projectRegistrFiles.NumberLatter = receptionContractsForm.NumberLetter;
-
-                        //    // Дата письма.
-                        //    projectRegistrFiles.DateLetter = receptionContractsForm.DateLetter;
-
-                        //    // Id поликлинники.
-                        //    projectRegistrFiles.IdHospital = receptionContractsForm.IdHospital;
-
-                        //    // Получили реестр который нужно обновить.
-                        //    ProjectRegistrFiles prFiles = unitDate.ProjectRegistrFilesRepository.Find(projectRegistrFiles);
-
-                        //    if (prFiles == null)
-                        //    {
-                        //        string connectionString = "Data Source=10.159.102.68;Initial Catalog=Dentists;User ID=admin;Password=12a86SQL";
-
-                        //        using (SqlConnection con = new SqlConnection(connectionString))
-                        //        {
-                        //            // 
-                        //            con.Open();
-
-                        //            SqlTransaction sqlTransaction = con.BeginTransaction();
-                        //            unitDate.ProjectRegistrFilesRepository.InsertBinaryFIle(projectRegistrFiles, fileData, con, sqlTransaction);
-
-                        //            sqlTransaction.Commit();
-                        //        }
-                        //    }
-                        //    else
-                        //    {
-
-                        //    }
-                        #endregion
-
-                        #region Старый функционал
-
-                        // Установим уровни изоляции транзакций.
-                        var option = new System.Transactions.TransactionOptions();
-                        option.IsolationLevel = System.Transactions.IsolationLevel.Serializable;
-
-                        // Добавим льготника и адрес в БД.
-                        // Внесём данные в таблицу в единой транзакции.
-                        using (System.Transactions.TransactionScope scope = new System.Transactions.TransactionScope(System.Transactions.TransactionScopeOption.Required, option))
+                        using (var dc = new DContext(ConnectDB.ConnectionString()))
                         {
+                            // Прочитаем населенный пункт из реестра проектов договоров.
+                            DataTable tabSity = unload.НаселённыйПункт;
 
-                            Repository.DataClasses1DataContext dc = unitDate.DateContext;
+                            // Населенный пункт в которм прописан льготник.
+                            IReadRegistr<ТНаселённыйПункт> readНаселенныйПункт = new ReadНаселенныйПункт(dc, tabSity);
 
-                            var table = dc.ПоликлинникиИнн.Select(w => new ИннHosp { IdHosp = Convert.ToInt32(w.F1), ИНН = (double)w.F3 }).ToList();
+                            // Получим населенный пункт с ud нашей БД.
+                            ТНаселённыйПункт населённыйПункт = readНаселенныйПункт.Get();
 
-                            // Запишем реестр проектов договоров.
-                            ProjectRegistrFiles projectRegistrFiles = new ProjectRegistrFiles();
+                            // Получим льготную категорию.
+                            string льготнаяКатегория = unload.ЛьготнаяКатегория.Trim();
 
-                            // Текущий год.
-                            int year = DateTime.Today.Year;
+                            IReadRegistr<ТЛьготнаяКатегория> readRegistrLK = new ReadЛьготнаяКатегория(dc, льготнаяКатегория);
+                            ТЛьготнаяКатегория тЛьготнаяКатегория = readRegistrLK.Get();
 
-                            // Перменная для хранеия имени файла.
-                            StringBuilder nameFile = new StringBuilder();
+                            // Порочитаем из файла выгрузки все данные по льготнику.
+                            DataRow rw_Льготник = unload.Льготник.Rows[0];
 
-                            // Сотсавляющая года.
-                            nameFile.Append(year.ToString().Trim() + "_");
 
-                            // Сотсавляющая id поликлинники.
-                            nameFile.Append("ID_hospital_" + receptionContractsForm.IdHospital.ToString().Trim() + "_");
+                            //if (тЛьготнаяКатегория.id_льготнойКатегории != null)
 
-                            string nameFileRegistr = System.IO.Path.GetFileName(fileName);
 
-                            string pathDirectory = Path.GetDirectoryName(fileName);
-
-                            string newFileRegistrPostCopy = pathDirectory + @"\" + "+_" + nameFileRegistr;
-
-                            // Сотсавляющая года.
-                            nameFile.Append(nameFileRegistr.ToString().Trim());
-
-                            // Имя файла хранящегося на сервере.
-                            projectRegistrFiles.RegistrFileName = nameFile.ToString();
-
-                            // Номер письма.
-                            projectRegistrFiles.NumberLatter = receptionContractsForm.NumberLetter;
-
-                            // Дата письма.
-                            projectRegistrFiles.DateLetter = receptionContractsForm.DateLetter;
-
-                            // Id поликлинники.
-                            projectRegistrFiles.IdHospital = receptionContractsForm.IdHospital;
-
-                            // Запишем ФИО принявшего файл реестра.    
-                            projectRegistrFiles.logWriteFIle = MyAplicationIdentity.GetUses();
-
-                            // Дата записи письма.
-                            projectRegistrFiles.DateWriteLetter = (DateTime)DateTime.Now.Date;
-
-                            //Время.Дата(DateTime.Now.Date.ToShortDateString());
-
-                            // Получили реестр который нужно обновить.
-                            ProjectRegistrFiles prFiles = unitDate.ProjectRegistrFilesRepository.Find(projectRegistrFiles);
-
-                            if (prFiles == null)
-                            {
-
-                                // Копируем файл на сервер.
-                                unitDate.ProjectRegistrFilesRepository.Insert(projectRegistrFiles, fileName, newFileRegistrPostCopy);
-
-                                var id = projectRegistrFiles.IdProjectRegistr;
-
-                                // Запишем номера договоров хранящиеся в файле реестра проектов договоров.
-                                InsertNumbersContracts(unitDate, registrContracts.GetDisplayContract(), projectRegistrFiles.IdProjectRegistr);
-                            }
-                            else
-                            {
-                                //DialogResult dialogResult1 = MessageBox.Show("Файл реестра проектов договоров уже записан в БД. Обновить файл реестра?", "Внимание", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-
-                                //if (dialogResult1 == DialogResult.Yes)
-                                //{
-                                //    //// Загружаемый реестр проектов договоров.
-                                //    //Registr registrContractsUpdate = new Registr(unload);
-
-                                //    // Установим id редактируемого договора.
-                                //    projectRegistrFiles.IdProjectRegistr = prFiles.IdProjectRegistr;
-
-                                //    // Обновим файл реестра договоров.
-                                //    unitDate.ProjectRegistrFilesRepository.Update(projectRegistrFiles);
-
-                                //    // Получим номера договоров которые сейчас находятся в БД и которые нужно удалить для обновления.
-                                //    var contracts = unitDate.ListNumbersProgectsReestr.Select(prFiles.IdProjectRegistr);
-
-                                //    if (contracts.Count() > 0)
-                                //    {
-                                //        unitDate.ListNumbersProgectsReestr.DeleteAll(contracts);
-
-                                //        // Запишем номера договоров хранящиеся в файле реестра проектов договоров.
-                                //        //InsertNumbersContracts(unitDate, registrContractsUpdate.GetDisplayContract(), projectRegistrFiles.IdProjectRegistr);
-
-                                //        InsertNumbersContracts(unitDate, registrContracts.GetDisplayContract(), projectRegistrFiles.IdProjectRegistr);
-                                //    }
-
-                                //}
-                                //else
-                                //{
-                                //    return;
-                                //}
-                            }
-
-                            // Закроем файловый поток
-                            //fstream.Close();
-
-                            var listUnload = unload.Values.ToList<Unload>();
-
-                            // Получим список проектов договоров.
-                            foreach(var unload in listUnload)
-                            {
-                                // // Наименование населенного пункта.
-                                ISity sity = new NameSity();
-
-                                DataTable tabSity = unload.НаселённыйПункт;
-
-                                if (tabSity.Rows.Count > 0 && tabSity.Rows[0]["Наименование"] != DBNull.Value)
-                                {
-                                    // Получим наименование населенного пункта в котором проживает льготник.
-                                    sity.NameTown = tabSity.Rows[0]["Наименование"].ToString().Trim();
-                                }
-                                else
-                                {
-                                    sity.NameTown = "";
-                                }
-
-                                // Получим льготную категорию.
-                                Repository.ЛьготнаяКатегория льготнаяКатегория = unitDate.ЛьготнаяКатегорияRepository.GetЛьготнаяКатегория(unload.ЛьготнаяКатегория.Trim());
-
-                                // Порочитаем из файла выгрузки все данные по льготнику.
-                                DataRow rw_Льготник = unload.Льготник.Rows[0];
-
-                                Льготник personFull = new Льготник();
-
-                                personFull.Фамилия = rw_Льготник["Фамилия"].ToString().Trim();
-                                personFull.Имя = rw_Льготник["Имя"].ToString().Trim();
-                                personFull.Отчество = rw_Льготник["Отчество"].ToString().Trim();
-                                //personFull.DateBirtch = " Convert(datetime,'" + Время.Дата(Convert.ToDateTime(rw_Льготник["ДатаРождения"]).ToShortDateString().Trim()) + "',112)  ";
-                                personFull.ДатаРождения = Convert.ToDateTime(rw_Льготник["ДатаРождения"]);
-                                personFull.улица = rw_Льготник["улица"].ToString().Trim();
-                                personFull.НомерДома = rw_Льготник["НомерДома"].ToString().Trim();
-                                personFull.корпус = rw_Льготник["корпус"].ToString().Trim();
-                                personFull.НомерКвартиры = rw_Льготник["НомерКвартиры"].ToString().Trim();
-                                personFull.СерияПаспорта = rw_Льготник["СерияПаспорта"].ToString().Trim();
-                                personFull.НомерПаспорта = rw_Льготник["НомерПаспорта"].ToString().Trim();
-                                personFull.ДатаВыдачиПаспорта = Convert.ToDateTime(rw_Льготник["ДатаВыдачиПаспорта"]);
-                                personFull.КемВыданПаспорт = rw_Льготник["КемВыданПаспорт"].ToString().Trim();
-                                personFull.id_льготнойКатегории = льготнаяКатегория.id_льготнойКатегории;
-                                personFull.id_документ = (int)unload.ТипДокумента.Rows[0][0];//                      ",@idДокумент_" + iCount + " " +
-                                personFull.СерияДокумента = rw_Льготник["СерияДокумента"].ToString().Trim();
-                                personFull.НомерДокумента = rw_Льготник["НомерДокумента"].ToString().Trim();
-                                personFull.ДатаВыдачиДокумента = Convert.ToDateTime(rw_Льготник["ДатаВыдачиДокумента"]);
-                                personFull.КемВыданДокумент = rw_Льготник["КемВыданДокумент"].ToString().Trim();
-                                personFull.id_область = 1;//id области у нас по умолчанию 
-                                personFull.id_район = Convert.ToInt16(rw_Льготник["id_район"]);
-
-                                // Запишем id населенного пункта.
-                                var findSity = unitDate.НаселенныйПунктRepository.FiltrНаселенныйПункт(sity.NameTown);
-
-                                if (findSity != null)
-                                {
-                                    personFull.id_насПункт = findSity.id_насПункт;
-                                }
-                                else
-                                {
-                                    НаселённыйПункт населённыйПункт = new НаселённыйПункт();
-                                    населённыйПункт.Наименование = sity.NameTown;
-
-                                    // Запишем по новой населенный пункт.
-                                    unitDate.НаселенныйПунктRepository.Insert(населённыйПункт);
-
-                                    personFull.id_насПункт = населённыйПункт.id_насПункт;
-                                }
-
-                                // Запишем льготника в таблицу.
-                                unitDate.ЛьготникRepository.Insert(personFull);
-
-                                // Запишем договор.
-                                DataRow rowC = unload.Договор.Rows[0];
-
-                               ControlDantist.Repository.Договор contract = new ControlDantist.Repository.Договор();
-
-                                // Получим данные по поликлиннике.
-                                DataRow rowHosp = unload.Поликлинника.Rows[0];
-
-                                // Прочитам данные по поликлиннике.
-                                var hospitalИнн = table.Where(w => w.ИНН == Convert.ToDouble(rowHosp["ИНН"])).FirstOrDefault();
-
-                                // Получим id поликлинники.
-                                int idHospital = dc.Поликлинника.Where(w => w.ИНН.ToLower().Trim() == hospitalИнн.ИНН.ToString().Trim()).Max(w => w.id_поликлинника);
-
-                                    contract.НомерДоговора = rowC["НомерДоговора"].ToString();
-                                    contract.ДатаДоговора = Convert.ToDateTime("01.01.1900");
-                                    contract.ДатаАктаВыполненныхРабот = Convert.ToDateTime("01.01.1900");
-                                    contract.СуммаАктаВыполненныхРабот = 0.0m;
-                                    contract.id_льготнаяКатегория = льготнаяКатегория.id_льготнойКатегории;
-                                    contract.id_льготник = personFull.id_льготник;
-                                    contract.id_комитет = 1;
-                                    contract.id_поликлинника = idHospital;
-                                    contract.датаВозврата = null;
-                                    contract.ДатаЗаписиДоговора = DateTime.Now.Date;
-                                    contract.ДатаРеестра = null;
-                                    contract.ДатаСчётФактура = null;
-                                    contract.НомерРеестра = null;
-                                    contract.НомерСчётФактрура = null;
-                                    contract.Примечание = null;
-                                    contract.СуммаАктаВыполненныхРабот = 0.0m;
-                                    
-                                    contract.ФлагДопСоглашения = rowC["НомерДоговора"].ToString();
-                                    contract.ФлагНаличияАкта = false;
-                                    contract.ФлагНаличияДоговора = false;
-                                    contract.ФлагПроверки = false;
-                                    contract.флагСРН = null;
-                                    contract.флагУслуги = null;
-
-                                   
-                                    contract.flagАнулирован = false;
-                                    contract.flagОжиданиеПроверки = false;
-
-                                    // Id файла с реестром проектов договоров.
-                                    contract.idFileRegistProgect = projectRegistrFiles.IdProjectRegistr;
-
-                                    // Флаг анулирован.
-                                    contract.ФлагАнулирован = false;
-
-                                    // Флаг возврат на доработку.
-                                    contract.ФлагВозвратНаДоработку = false;
-
-                                    // Дата проверки.
-                                    contract.ДатаПроверки = null;
-
-                                    // Запишем ЛОГ кто записал.
-                                    contract.logWrite = MyAplicationIdentity.GetUses();
-
-                                    // Запишем данные по договору.
-                                    unitDate.ДоговорRepository.Insert(contract);
-
-                                    // Услуги по договору.
-                                    DataTable tabServices = unload.УслугиПоДоговору;
-
-                                    // Переменная для хранения строки запроса на добавление услуг в контракт.
-                                    StringBuilder servicesInsert = new StringBuilder();
-
-                                    List<IServicesContract> listServicesContract = new List<IServicesContract>();
-
-                                    // Сформируем запрос на добавление услуг.
-                                    foreach (DataRow row in tabServices.Rows)
-                                    {
-                                        Repository.УслугиПоДоговору services = new Repository.УслугиПоДоговору();
-                                        services.НаименованиеУслуги = row["НаименованиеУслуги"].ToString();
-                                        services.цена = Convert.ToDecimal(row["Цена"]);
-                                        services.Количество = Convert.ToInt32(row["Количество"]);
-                                        services.id_договор = contract.id_договор;
-                                        services.НомерПоПеречню = row["НомерПоПеречню"].ToString();
-                                        services.Сумма = Convert.ToDecimal(row["Сумма"]);
-                                        services.ТехЛист = Convert.ToInt16(row["ТехЛист"]);
-
-                                        unitDate.УслугиПоДоговоруRepository.Insert(services);
-                                    }
-
-                            }
-
-                            // Завершим транзакцию
-                            scope.Complete();
-
-                            #endregion
-                            MessageBox.Show("Файл проектов договоров в БД записан");
                         }
+
                     }
 
-                }
-                //}
-                //catch (Exception ex)
-                //{
-                //    MessageBox.Show(ex.Message + " Вероятно Вы открыли реестр который не является реестром проектов договоров.");
+                    //using (var dc = new DContext(ConnectDB.ConnectionString()))
+                    //{
+                    //    var asd = dc.ТабНаселенныйПункт.Select
 
-                //    return;
-                //}
+                    //    foreach(var it in asd)
+                    //    {
+
+                    //    }
+                    //}
+                }
             }
+
+            //        if (flagWriteDB == true)
+            //    {
+            //        // Репозиторий для доступа к БД.
+            //        UnitDate unitDate = new UnitDate();
+
+            //        // Откроем для теста окно сохранения проектов договоров.
+            //        ReceptionContractsForm receptionContractsForm = new ReceptionContractsForm(unitDate);
+
+            //        receptionContractsForm.SaveProjectFIle = true;
+
+            //        DialogResult dialogResult = receptionContractsForm.ShowDialog();
+
+            //        if (dialogResult == DialogResult.OK) // && receptionContractsForm.FlagWriteRegistrBase == true)
+            //        {
+
+            //            #region Новый функционал
+
+            //            //    // Запишем реестр проектов договоров.
+            //            //    ProjectRegistrFiles projectRegistrFiles = new ProjectRegistrFiles();
+
+            //            //    // Массив двоичных данных для хранения реестра проектов договоров.
+            //            //    byte[] fileData;
+
+            //            //    //// Запишем файл в битовый массив.
+            //            //    //fileData = new byte[fstream.Length];
+
+            //            //    //// Файл реестра в двоичном формате.
+            //            //    //projectRegistrFiles.Registr = fileData;
+
+            //            //// Для теста десериализуем.
+
+            //            //BinaryFormatter bf = new BinaryFormatter();
+            //            //using (MemoryStream ms = new MemoryStream())
+            //            //{
+            //            //    bf.Serialize(ms, unload);
+            //            //    fileData = ms.ToArray();
+            //            //}
+
+            //            //MemoryStream stream2 = new MemoryStream(fileData);
+
+            //            //BinaryFormatter binaryFormatter2 = new BinaryFormatter();
+            //            //Dictionary<string, Unload>  unload2 = (Dictionary<string, Unload>)binaryFormatter2.Deserialize(stream2);
+
+            //            //stream2.Close();
+
+
+
+
+            //            //// Номер письма.
+            //            //projectRegistrFiles.NumberLatter = receptionContractsForm.NumberLetter;
+
+            //            //    // Дата письма.
+            //            //    projectRegistrFiles.DateLetter = receptionContractsForm.DateLetter;
+
+            //            //    // Id поликлинники.
+            //            //    projectRegistrFiles.IdHospital = receptionContractsForm.IdHospital;
+
+            //            //    // Получили реестр который нужно обновить.
+            //            //    ProjectRegistrFiles prFiles = unitDate.ProjectRegistrFilesRepository.Find(projectRegistrFiles);
+
+            //            //    if (prFiles == null)
+            //            //    {
+            //            //        string connectionString = "Data Source=10.159.102.68;Initial Catalog=Dentists;User ID=admin;Password=12a86SQL";
+
+            //            //        using (SqlConnection con = new SqlConnection(connectionString))
+            //            //        {
+            //            //            // 
+            //            //            con.Open();
+
+            //            //            SqlTransaction sqlTransaction = con.BeginTransaction();
+            //            //            unitDate.ProjectRegistrFilesRepository.InsertBinaryFIle(projectRegistrFiles, fileData, con, sqlTransaction);
+
+            //            //            sqlTransaction.Commit();
+            //            //        }
+            //            //    }
+            //            //    else
+            //            //    {
+
+            //            //    }
+            //            #endregion
+
+            //            #region Старый функционал
+
+            //            // Установим уровни изоляции транзакций.
+            //            var option = new System.Transactions.TransactionOptions();
+            //            option.IsolationLevel = System.Transactions.IsolationLevel.Serializable;
+
+            //            // Добавим льготника и адрес в БД.
+            //            // Внесём данные в таблицу в единой транзакции.
+            //            using (System.Transactions.TransactionScope scope = new System.Transactions.TransactionScope(System.Transactions.TransactionScopeOption.Required, option))
+            //            {
+
+            //                Repository.DataClasses1DataContext dc = unitDate.DateContext;
+
+            //                var table = dc.ПоликлинникиИнн.Select(w => new ИннHosp { IdHosp = Convert.ToInt32(w.F1), ИНН = (double)w.F3 }).ToList();
+
+            //                // Запишем реестр проектов договоров.
+            //                ProjectRegistrFiles projectRegistrFiles = new ProjectRegistrFiles();
+
+            //                // Текущий год.
+            //                int year = DateTime.Today.Year;
+
+            //                // Перменная для хранеия имени файла.
+            //                StringBuilder nameFile = new StringBuilder();
+
+            //                // Сотсавляющая года.
+            //                nameFile.Append(year.ToString().Trim() + "_");
+
+            //                // Сотсавляющая id поликлинники.
+            //                nameFile.Append("ID_hospital_" + receptionContractsForm.IdHospital.ToString().Trim() + "_");
+
+            //                string nameFileRegistr = System.IO.Path.GetFileName(fileName);
+
+            //                string pathDirectory = Path.GetDirectoryName(fileName);
+
+            //                string newFileRegistrPostCopy = pathDirectory + @"\" + "+_" + nameFileRegistr;
+
+            //                // Сотсавляющая года.
+            //                nameFile.Append(nameFileRegistr.ToString().Trim());
+
+            //                // Имя файла хранящегося на сервере.
+            //                projectRegistrFiles.RegistrFileName = nameFile.ToString();
+
+            //                // Номер письма.
+            //                projectRegistrFiles.NumberLatter = receptionContractsForm.NumberLetter;
+
+            //                // Дата письма.
+            //                projectRegistrFiles.DateLetter = receptionContractsForm.DateLetter;
+
+            //                // Id поликлинники.
+            //                projectRegistrFiles.IdHospital = receptionContractsForm.IdHospital;
+
+            //                // Запишем ФИО принявшего файл реестра.    
+            //                projectRegistrFiles.logWriteFIle = MyAplicationIdentity.GetUses();
+
+            //                // Дата записи письма.
+            //                projectRegistrFiles.DateWriteLetter = (DateTime)DateTime.Now.Date;
+
+            //                //Время.Дата(DateTime.Now.Date.ToShortDateString());
+
+            //                // Получили реестр который нужно обновить.
+            //                ProjectRegistrFiles prFiles = unitDate.ProjectRegistrFilesRepository.Find(projectRegistrFiles);
+
+            //                if (prFiles == null)
+            //                {
+
+            //                    // Копируем файл на сервер.
+            //                    unitDate.ProjectRegistrFilesRepository.Insert(projectRegistrFiles, fileName, newFileRegistrPostCopy);
+
+            //                    var id = projectRegistrFiles.IdProjectRegistr;
+
+            //                    // Запишем номера договоров хранящиеся в файле реестра проектов договоров.
+            //                    InsertNumbersContracts(unitDate, registrContracts.GetDisplayContract(), projectRegistrFiles.IdProjectRegistr);
+            //                }
+            //                else
+            //                {
+            //                    //DialogResult dialogResult1 = MessageBox.Show("Файл реестра проектов договоров уже записан в БД. Обновить файл реестра?", "Внимание", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+            //                    //if (dialogResult1 == DialogResult.Yes)
+            //                    //{
+            //                    //    //// Загружаемый реестр проектов договоров.
+            //                    //    //Registr registrContractsUpdate = new Registr(unload);
+
+            //                    //    // Установим id редактируемого договора.
+            //                    //    projectRegistrFiles.IdProjectRegistr = prFiles.IdProjectRegistr;
+
+            //                    //    // Обновим файл реестра договоров.
+            //                    //    unitDate.ProjectRegistrFilesRepository.Update(projectRegistrFiles);
+
+            //                    //    // Получим номера договоров которые сейчас находятся в БД и которые нужно удалить для обновления.
+            //                    //    var contracts = unitDate.ListNumbersProgectsReestr.Select(prFiles.IdProjectRegistr);
+
+            //                    //    if (contracts.Count() > 0)
+            //                    //    {
+            //                    //        unitDate.ListNumbersProgectsReestr.DeleteAll(contracts);
+
+            //                    //        // Запишем номера договоров хранящиеся в файле реестра проектов договоров.
+            //                    //        //InsertNumbersContracts(unitDate, registrContractsUpdate.GetDisplayContract(), projectRegistrFiles.IdProjectRegistr);
+
+            //                    //        InsertNumbersContracts(unitDate, registrContracts.GetDisplayContract(), projectRegistrFiles.IdProjectRegistr);
+            //                    //    }
+
+            //                    //}
+            //                    //else
+            //                    //{
+            //                    //    return;
+            //                    //}
+            //                }
+
+            //                // Закроем файловый поток
+            //                //fstream.Close();
+
+            //                var listUnload = unload.Values.ToList<Unload>();
+
+            //                // Получим список проектов договоров.
+            //                foreach (var unload in listUnload)
+            //                {
+            //                    // // Наименование населенного пункта.
+            //                    ISity sity = new NameSity();
+
+            //                    DataTable tabSity = unload.НаселённыйПункт;
+
+            //                    if (tabSity.Rows.Count > 0 && tabSity.Rows[0]["Наименование"] != DBNull.Value)
+            //                    {
+            //                        // Получим наименование населенного пункта в котором проживает льготник.
+            //                        sity.NameTown = tabSity.Rows[0]["Наименование"].ToString().Trim();
+            //                    }
+            //                    else
+            //                    {
+            //                        sity.NameTown = "";
+            //                    }
+
+            //                    // Получим льготную категорию.
+            //                    Repository.ЛьготнаяКатегория льготнаяКатегория = unitDate.ЛьготнаяКатегорияRepository.GetЛьготнаяКатегория(unload.ЛьготнаяКатегория.Trim());
+
+            //                    // Порочитаем из файла выгрузки все данные по льготнику.
+            //                    DataRow rw_Льготник = unload.Льготник.Rows[0];
+
+            //                    Льготник personFull = new Льготник();
+
+            //                    personFull.Фамилия = rw_Льготник["Фамилия"].ToString().Trim();
+            //                    personFull.Имя = rw_Льготник["Имя"].ToString().Trim();
+            //                    personFull.Отчество = rw_Льготник["Отчество"].ToString().Trim();
+            //                    //personFull.DateBirtch = " Convert(datetime,'" + Время.Дата(Convert.ToDateTime(rw_Льготник["ДатаРождения"]).ToShortDateString().Trim()) + "',112)  ";
+            //                    personFull.ДатаРождения = Convert.ToDateTime(rw_Льготник["ДатаРождения"]);
+            //                    personFull.улица = rw_Льготник["улица"].ToString().Trim();
+            //                    personFull.НомерДома = rw_Льготник["НомерДома"].ToString().Trim();
+            //                    personFull.корпус = rw_Льготник["корпус"].ToString().Trim();
+            //                    personFull.НомерКвартиры = rw_Льготник["НомерКвартиры"].ToString().Trim();
+            //                    personFull.СерияПаспорта = rw_Льготник["СерияПаспорта"].ToString().Trim();
+            //                    personFull.НомерПаспорта = rw_Льготник["НомерПаспорта"].ToString().Trim();
+            //                    personFull.ДатаВыдачиПаспорта = Convert.ToDateTime(rw_Льготник["ДатаВыдачиПаспорта"]);
+            //                    personFull.КемВыданПаспорт = rw_Льготник["КемВыданПаспорт"].ToString().Trim();
+            //                    personFull.id_льготнойКатегории = льготнаяКатегория.id_льготнойКатегории;
+            //                    personFull.id_документ = (int)unload.ТипДокумента.Rows[0][0];//                      ",@idДокумент_" + iCount + " " +
+            //                    personFull.СерияДокумента = rw_Льготник["СерияДокумента"].ToString().Trim();
+            //                    personFull.НомерДокумента = rw_Льготник["НомерДокумента"].ToString().Trim();
+            //                    personFull.ДатаВыдачиДокумента = Convert.ToDateTime(rw_Льготник["ДатаВыдачиДокумента"]);
+            //                    personFull.КемВыданДокумент = rw_Льготник["КемВыданДокумент"].ToString().Trim();
+            //                    personFull.id_область = 1;//id области у нас по умолчанию 
+            //                    personFull.id_район = Convert.ToInt16(rw_Льготник["id_район"]);
+
+            //                    // Запишем id населенного пункта.
+            //                    var findSity = unitDate.НаселенныйПунктRepository.FiltrНаселенныйПункт(sity.NameTown);
+
+            //                    if (findSity != null)
+            //                    {
+            //                        personFull.id_насПункт = findSity.id_насПункт;
+            //                    }
+            //                    else
+            //                    {
+            //                        НаселённыйПункт населённыйПункт = new НаселённыйПункт();
+            //                        населённыйПункт.Наименование = sity.NameTown;
+
+            //                        // Запишем по новой населенный пункт.
+            //                        unitDate.НаселенныйПунктRepository.Insert(населённыйПункт);
+
+            //                        personFull.id_насПункт = населённыйПункт.id_насПункт;
+            //                    }
+
+            //                    // Запишем льготника в таблицу.
+            //                    unitDate.ЛьготникRepository.Insert(personFull);
+
+            //                    // Запишем договор.
+            //                    DataRow rowC = unload.Договор.Rows[0];
+
+            //                   ControlDantist.Repository.Договор contract = new ControlDantist.Repository.Договор();
+
+            //                    // Получим данные по поликлиннике.
+            //                    DataRow rowHosp = unload.Поликлинника.Rows[0];
+
+            //                    // Прочитам данные по поликлиннике.
+            //                    var hospitalИнн = table.Where(w => w.ИНН == Convert.ToDouble(rowHosp["ИНН"])).FirstOrDefault();
+
+            //                    // Получим id поликлинники.
+            //                    int idHospital = dc.Поликлинника.Where(w => w.ИНН.ToLower().Trim() == hospitalИнн.ИНН.ToString().Trim()).Max(w => w.id_поликлинника);
+
+            //                        contract.НомерДоговора = rowC["НомерДоговора"].ToString();
+            //                        contract.ДатаДоговора = Convert.ToDateTime("01.01.1900");
+            //                        contract.ДатаАктаВыполненныхРабот = Convert.ToDateTime("01.01.1900");
+            //                        contract.СуммаАктаВыполненныхРабот = 0.0m;
+            //                        contract.id_льготнаяКатегория = льготнаяКатегория.id_льготнойКатегории;
+            //                        contract.id_льготник = personFull.id_льготник;
+            //                        contract.id_комитет = 1;
+            //                        contract.id_поликлинника = idHospital;
+            //                        contract.датаВозврата = null;
+            //                        contract.ДатаЗаписиДоговора = DateTime.Now.Date;
+            //                        contract.ДатаРеестра = null;
+            //                        contract.ДатаСчётФактура = null;
+            //                        contract.НомерРеестра = null;
+            //                        contract.НомерСчётФактрура = null;
+            //                        contract.Примечание = null;
+            //                        contract.СуммаАктаВыполненныхРабот = 0.0m;
+                                    
+            //                        contract.ФлагДопСоглашения = rowC["НомерДоговора"].ToString();
+            //                        contract.ФлагНаличияАкта = false;
+            //                        contract.ФлагНаличияДоговора = false;
+            //                        contract.ФлагПроверки = false;
+            //                        contract.флагСРН = null;
+            //                        contract.флагУслуги = null;
+
+                                   
+            //                        contract.flagАнулирован = false;
+            //                        contract.flagОжиданиеПроверки = false;
+
+            //                        // Id файла с реестром проектов договоров.
+            //                        contract.idFileRegistProgect = projectRegistrFiles.IdProjectRegistr;
+
+            //                        // Флаг анулирован.
+            //                        contract.ФлагАнулирован = false;
+
+            //                        // Флаг возврат на доработку.
+            //                        contract.ФлагВозвратНаДоработку = false;
+
+            //                        // Дата проверки.
+            //                        contract.ДатаПроверки = null;
+
+            //                        // Запишем ЛОГ кто записал.
+            //                        contract.logWrite = MyAplicationIdentity.GetUses();
+
+            //                        // Запишем данные по договору.
+            //                        unitDate.ДоговорRepository.Insert(contract);
+
+            //                        // Услуги по договору.
+            //                        DataTable tabServices = unload.УслугиПоДоговору;
+
+            //                        // Переменная для хранения строки запроса на добавление услуг в контракт.
+            //                        StringBuilder servicesInsert = new StringBuilder();
+
+            //                        List<IServicesContract> listServicesContract = new List<IServicesContract>();
+
+            //                        // Сформируем запрос на добавление услуг.
+            //                        foreach (DataRow row in tabServices.Rows)
+            //                        {
+            //                            Repository.УслугиПоДоговору services = new Repository.УслугиПоДоговору();
+            //                            services.НаименованиеУслуги = row["НаименованиеУслуги"].ToString();
+            //                            services.цена = Convert.ToDecimal(row["Цена"]);
+            //                            services.Количество = Convert.ToInt32(row["Количество"]);
+            //                            services.id_договор = contract.id_договор;
+            //                            services.НомерПоПеречню = row["НомерПоПеречню"].ToString();
+            //                            services.Сумма = Convert.ToDecimal(row["Сумма"]);
+            //                            services.ТехЛист = Convert.ToInt16(row["ТехЛист"]);
+
+            //                            unitDate.УслугиПоДоговоруRepository.Insert(services);
+            //                        }
+
+            //                }
+
+            //                // Завершим транзакцию
+            //                scope.Complete();
+
+            //                #endregion
+            //                MessageBox.Show("Файл проектов договоров в БД записан");
+            //            }
+            //        }
+
+            //    }
+            //    //}
+            //    //catch (Exception ex)
+            //    //{
+            //    //    MessageBox.Show(ex.Message + " Вероятно Вы открыли реестр который не является реестром проектов договоров.");
+
+            //    //    return;
+            //    //}
+            //}
         }
 
         private void лимитДенежныхСредствToolStripMenuItem_Click(object sender, EventArgs e)
@@ -4748,7 +4799,7 @@ namespace ControlDantist
                                     }
                                     else
                                     {
-                                        НаселённыйПункт населённыйПункт = new НаселённыйПункт();
+                                        Repository.НаселённыйПункт населённыйПункт = new Repository.НаселённыйПункт();
                                         населённыйПункт.Наименование = sity.NameTown;
 
                                         // Запишем по новой населенный пункт.

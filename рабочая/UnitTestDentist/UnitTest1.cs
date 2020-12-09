@@ -7,11 +7,13 @@ using ControlDantist.Classes;
 using System.Collections.Generic;
 using System.Linq;
 using ControlDantist.ValidateRegistrProject;
-using DantistLibrary;
 using ControlDantist.ValidPersonContract;
 using System.Data;
 using System.Data.SqlClient;
-using System.Configuration;
+using ControlDantist.ReadRegistrProject;
+using ControlDantist.DataBaseContext;
+using ControlDantist.ReadRegistrProject;
+using System.Data.Entity;
 
 
 namespace UnitTestDentist
@@ -1103,6 +1105,51 @@ namespace UnitTestDentist
                 PrintContractsValidate договор = validContract.GetContract();
 
             }
+        }
+
+        [TestMethod]
+        public void WriteTaun()
+        {
+            // Создадим таблицу тип DataTable.
+            DataTable booksTable = new DataTable("НаселенныйПункт");
+            // создаем столбцы для таблицы Books
+            DataColumn idColumn = new DataColumn("Id", Type.GetType("System.Int32"));
+            idColumn.Unique = true; // столбец будет иметь уникальное значение
+            idColumn.AllowDBNull = false; // не может принимать null
+            idColumn.AutoIncrement = true; // будет автоинкрементироваться
+            idColumn.AutoIncrementSeed = 1; // начальное значение
+            idColumn.AutoIncrementStep = 1; // приращении при добавлении новой строки
+
+            DataColumn nameColumn = new DataColumn("Name", Type.GetType("System.String"));
+
+            booksTable.Columns.Add(idColumn);
+            booksTable.Columns.Add(nameColumn);
+
+            // Добавим запись.
+            DataRow row = booksTable.NewRow();
+
+            row["Id"] = 1;
+            row["Name"] = "Волгск";
+
+            booksTable.Rows.Add(row); // добавляем первую строку
+
+
+            // Прочитаем населенный пункт из реестра проектов договоров.
+            DataTable tabSity = booksTable;
+            DContext dc = new DContext(ConnectDB.ConnectionString());
+
+            ReadНаселенныйПункт readНаселенныйПункт = new ReadНаселенныйПункт(dc, tabSity);
+            ТНаселённыйПункт населённыйПункт = readНаселенныйПункт.GetТНаселённыйПункт();
+
+            
+
+            //using (var dc = new DContext(ConnectDB.ConnectionString()))
+            //{
+
+            //    // Населенный пункт в которм прописан льготник.
+            //    ReadНаселенныйПункт readНаселенныйПункт = new ReadНаселенныйПункт(dc, tabSity);
+            //    ТНаселённыйПункт населённыйПункт = readНаселенныйПункт.GetТНаселённыйПункт();
+            //}
         }
     }
 }

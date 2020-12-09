@@ -359,6 +359,13 @@
     <Compile Include="ClassValidRegions\PersonValidEsrn.cs" />
     <Compile Include="ClassValidRegions\ValidatePrefCategoryList.cs" />
     <Compile Include="ClassValidRegions\WriteSity.cs" />
+    <Compile Include="DataBaseContext\DContext.cs" />
+    <Compile Include="DataBaseContext\IDatarepository.cs" />
+    <Compile Include="DataBaseContext\IFind.cs" />
+    <Compile Include="DataBaseContext\RepositoryЛьготнаяКатегория.cs" />
+    <Compile Include="DataBaseContext\RepositoryНаселенныйПункт.cs" />
+    <Compile Include="DataBaseContext\ТЛьготнаяКатегория.cs" />
+    <Compile Include="DataBaseContext\ТНаселённыйПункт.cs" />
     <Compile Include="DataClasses1.cs">
       <DependentUpon>DataClasses1.dbml</DependentUpon>
     </Compile>
@@ -739,6 +746,10 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ReadRegistrProject\IReadRegistr.cs" />
+    <Compile Include="ReadRegistrProject\ReadЛьготнаяКатегория.cs" />
+    <Compile Include="ReadRegistrProject\ReadНаселенныйПункт.cs" />
+    <Compile Include="ReadRegistrProject\ReadНаселенныйПунктBase.cs" />
     <Compile Include="ReceptionContractsForm.cs">
       <SubType>Form</SubType>
     </Compile>
