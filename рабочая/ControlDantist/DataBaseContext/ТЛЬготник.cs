@@ -23,7 +23,7 @@ namespace ControlDantist.DataBaseContext
 
         [MaxLength(200)]
         public string улица { get; set; }
-        
+
         [MaxLength(10)]
         public string НомерДома { get; set; }
 
@@ -45,10 +45,13 @@ namespace ControlDantist.DataBaseContext
         public string КемВыданПаспорт { get; set; }
 
         public int id_льготнойКатегории { get; set; }
-        
+
         [ForeignKey("id_льготнойКатегории")]
         public ТЛьготнаяКатегория ТЛьготнаяКатегория { get; set; }
-        public ТТипДокумента ТТипДокумента { get; set; }
+        public int id_документ { get; set; }
+
+        [ForeignKey("id_документ")]
+        public ТТипДокумент ТТипДокумента { get; set; }
 
         [MaxLength(50)]
         public string СерияДокумента { get; set; }
@@ -63,16 +66,18 @@ namespace ControlDantist.DataBaseContext
 
         public int id_область { get; set; }
 
+        public int id_район { get; set; }
 
+        [ForeignKey("id_район")]
+        public ТРайонОбласти ТРайонОбласти { get; set; }
+        
+        public int id_насПункт { get; set; }
 
+        [ForeignKey("id_насПункт")]
+        public ТНаселённыйПункт ТНаселенныйПункт { get; set; }
 
-
-
-
-
-
-
-
+        [MaxLength(11)]
+        public string Снилс { get; set; }
 
     }
 }

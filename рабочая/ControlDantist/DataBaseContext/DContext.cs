@@ -24,5 +24,15 @@ namespace ControlDantist.DataBaseContext
         /// Таблица льготная категория.
         /// </summary>
         public DbSet<ТЛьготнаяКатегория> ТабЛьготнаяКатегория { get; set; }
+
+        /// <summary>
+        /// Таблица льготник.
+        /// </summary>
+        public DbSet<ТЛЬготник> ТабЛьгоготник { get; set; }
+
+        /// <summary>
+        /// Содержит тип документа.
+        /// </summary>
+        public DbSet<ТТипДокумент> ТабТипДокумент { get; set; }
     }
 }
