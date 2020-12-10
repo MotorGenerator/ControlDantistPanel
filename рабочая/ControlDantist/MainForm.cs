@@ -3871,7 +3871,13 @@ namespace ControlDantist
                             if (typeDoc != null)
                                 льготник.id_документ = typeDoc.id_документ;
 
-                            // Прочитаем данные по 
+                            // Получим данные по поликлиннике.
+                            DataRow rowHosp = unload.Поликлинника.Rows[0];
+
+                            string inn = rowHosp["ИНН"].ToString();
+
+                            IReadRegistr<ТПоликлинника> readHosp = new ReadRegistrHospital(dc, inn,rowHosp);
+                            ТПоликлинника hosp = readHosp.Get();
 
                             // Прочитаем данные по договору.
 

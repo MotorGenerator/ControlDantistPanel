@@ -39,5 +39,10 @@ namespace ControlDantist.DataBaseContext
         /// Содержит Фио глав врача.
         /// </summary>
         public DbSet<ТФиоГлавВрач> ТФиоГлавВрач { get; set; }
+
+        /// <summary>
+        /// Содержит Поликлиннику.
+        /// </summary>
+        public DbSet<ТПоликлинника> ТПоликлинника { get; set; }
     }
 }

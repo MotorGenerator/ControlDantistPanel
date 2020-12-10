@@ -364,11 +364,13 @@
     <Compile Include="DataBaseContext\IFind.cs" />
     <Compile Include="DataBaseContext\IGet.cs" />
     <Compile Include="DataBaseContext\ReadЛьготник.cs" />
+    <Compile Include="DataBaseContext\RepositoryГлавБух.cs" />
     <Compile Include="DataBaseContext\RepositoryЛьготнаяКатегория.cs" />
     <Compile Include="DataBaseContext\RepositoryНаселенныйПункт.cs" />
     <Compile Include="DataBaseContext\RepositoryТипДокумента.cs" />
     <Compile Include="DataBaseContext\RepositoryФиоГлавВрач.cs" />
     <Compile Include="DataBaseContext\RepozitoryЛьготник.cs" />
+    <Compile Include="DataBaseContext\ТГлавБух.cs" />
     <Compile Include="DataBaseContext\ТДоговор.cs" />
     <Compile Include="DataBaseContext\ТПоликлинника.cs" />
     <Compile Include="DataBaseContext\ТТипДокумент.cs" />
@@ -759,7 +761,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ReadRegistrProject\DataRowExtensions.cs" />
     <Compile Include="ReadRegistrProject\IReadRegistr.cs" />
+    <Compile Include="ReadRegistrProject\ReadRegistrHospital.cs" />
     <Compile Include="ReadRegistrProject\ReadГлавВрача.cs" />
+    <Compile Include="ReadRegistrProject\ReadДоговор.cs" />
     <Compile Include="ReadRegistrProject\ReadЛьготнаяКатегория.cs" />
     <Compile Include="ReadRegistrProject\ReadНаселенныйПункт.cs" />
     <Compile Include="ReadRegistrProject\ReadНаселенныйПунктBase.cs" />
