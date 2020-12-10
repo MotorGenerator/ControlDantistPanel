@@ -34,5 +34,10 @@ namespace ControlDantist.DataBaseContext
         /// Содержит тип документа.
         /// </summary>
         public DbSet<ТТипДокумент> ТабТипДокумент { get; set; }
+
+        /// <summary>
+        /// Содержит Фио глав врача.
+        /// </summary>
+        public DbSet<ТФиоГлавВрач> ТФиоГлавВрач { get; set; }
     }
 }

@@ -3797,8 +3797,6 @@ namespace ControlDantist
                     unload = (Dictionary<string, Unload>)binaryFormatter.Deserialize(fstream);
                 }
 
-                //fstream.Close();
-
                 // Список проектов договоров отображаемых в письме.
                 List<DisplayContract> listContracts = new List<DisplayContract>();
 
@@ -3809,12 +3807,9 @@ namespace ControlDantist
                 IPrintContract printContract = new PrintContract(registrContracts);
                 bool flagWriteDB = printContract.PrintContractDraft();
 
-
-                var test = "";
-
                 if (flagWriteDB == true)
                 {
-
+                    // Получаем список проектов договоров.
                     var listUnload = unload.Values.ToList<Unload>();
 
                     // Получим список проектов договоров.
@@ -3868,12 +3863,19 @@ namespace ControlDantist
                                 // Выберим Exception.
                             }
 
+                            // Прочитаем тип льготного документа.
                             IReadRegistr<ТТипДокумент> readTypeDoc = new ReadТипДокумента(dc, unload.ТипДокумента);
                             ТТипДокумент typeDoc = readTypeDoc.Get();
 
                             // Присвоим тип документа.
                             if (typeDoc != null)
                                 льготник.id_документ = typeDoc.id_документ;
+
+                            // Прочитаем данные по 
+
+                            // Прочитаем данные по договору.
+
+
 
 
                             //if (тЛьготнаяКатегория.id_льготнойКатегории != null)
