@@ -31,6 +31,7 @@ using ControlDantist.Find;
 using ControlDantist.FindEsrnWoW;
 using ControlDantist.DataBaseContext;
 using ControlDantist.ReadRegistrProject;
+using ControlDantist.ValidPersonContract;
 
 
 
@@ -3942,9 +3943,30 @@ namespace ControlDantist
                 }
             }
 
-            var test = packegeDateContract;
+            //var test = packegeDateContract;
 
-            var asdasd = "Test";
+            //List<PrintContractsValidate> listDoc = new List<PrintContractsValidate>();
+
+            ValidateContractPerson vclPrint = new ValidateContractPerson(packegeDateContract);
+            List<PrintContractsValidate> listDoc = vclPrint.GetContract();
+
+            if (listDoc.Count > 0)
+            {
+                WordReport wordPrint = new WordReport(listDoc);
+
+                DocPrint docPrint = new DocPrint(wordPrint);
+                docPrint.Execute();
+            }
+
+            var предохранитьель = "";
+
+            //// Проверим есть ли у данного льготника ещё заключенные договора.
+            //ValidContractForPerson validContract = new ValidContractForPerson(person.фамилия, person.имя, person.отчество.Do(x => x, ""), Convert.ToDateTime(person.датаРождения));
+            ////validContract.listContracts = listContracts;
+            //validContract.SetSqlConnection(con);
+            //validContract.SetSqlTransaction(transact);
+            //validContract.SetNumContract(numContract);
+            //PrintContractsValidate договор = validContract.GetContract();
 
 
 
