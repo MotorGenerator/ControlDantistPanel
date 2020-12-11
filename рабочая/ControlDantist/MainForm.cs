@@ -3789,12 +3789,22 @@ namespace ControlDantist
                 // Получили имя класса.
                 string fileName = openFileDialog1.FileName;
 
-                using (FileStream fstream = File.Open(fileName, FileMode.Open))
+                try
                 {
-                    BinaryFormatter binaryFormatter = new BinaryFormatter();
 
-                    // Получим из файла словарь с договорами.
-                    unload = (Dictionary<string, Unload>)binaryFormatter.Deserialize(fstream);
+                    using (FileStream fstream = File.Open(fileName, FileMode.Open))
+                    {
+                        BinaryFormatter binaryFormatter = new BinaryFormatter();
+
+                        // Получим из файла словарь с договорами.
+                        unload = (Dictionary<string, Unload>)binaryFormatter.Deserialize(fstream);
+                    }
+
+                }
+                catch
+                {
+                    MessageBox.Show("Файл не является реестром проекта договоров", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
                 }
 
                 // Список проектов договоров отображаемых в письме.
@@ -3879,8 +3889,20 @@ namespace ControlDantist
                             IReadRegistr<ТПоликлинника> readHosp = new ReadRegistrHospital(dc, inn,rowHosp);
                             ТПоликлинника hosp = readHosp.Get();
 
-                            // Прочитаем данные по договору.
+                            // Запишем договор.
+                            DataRow rowC = unload.Договор.Rows[0];
 
+                            // Прочитаем данные по договору.
+                            IReadRegistr<ТДоговор> readContract = new ReadДоговор(dc, rowC);
+                            ТДоговор тДоговорs = readContract.Get();
+
+                            // Услуги по договору.
+                            DataTable tabServices = unload.УслугиПоДоговору;
+
+                            ReadУслугиПоДоговору readУслугиДоговор = new ReadУслугиПоДоговору(tabServices);
+                            List<ТУслугиПоДоговору> listUSlug = readУслугиДоговор.Get();
+
+                            string asd = "Что то получилось";
 
 
 

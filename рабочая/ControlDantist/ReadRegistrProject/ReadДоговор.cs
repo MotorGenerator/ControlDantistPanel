@@ -34,26 +34,26 @@ namespace ControlDantist.ReadRegistrProject
             personFull.ФлагНаличияАкта = this.rPers.FieldOfDefault<bool>("ФлагНаличияАкта");
             personFull.id_льготник = this.rPers.FieldOfDefault<int>("id_льготник");
             personFull.ФлагДопСоглашения = this.rPers.FieldOfDefault<string>("ФлагДопСоглашения");
-            personFull.флагСРН = this.rPers.FieldOfDefault<bool>("флагСРН");
-            personFull.флагУслуги = this.rPers.FieldOfDefault<bool>("флагУслуги");
-            personFull.датаВозврата = this.rPers.FieldOfDefault<DateTime>("датаВозврата");
-            personFull.ДатаЗаписиДоговора = this.rPers.FieldOfDefault<DateTime>("ДатаЗаписиДоговора");
-            personFull.ФлагПроверки = this.rPers.FieldOfDefault<bool>("ФлагПроверки");
+            personFull.флагСРН = null;// this.rPers.FieldOfDefault<bool>("флагСРН");
+            personFull.флагУслуги = null;// this.rPers.FieldOfDefault<bool>("флагУслуги");
+            personFull.датаВозврата = null;//  this.rPers.FieldOfDefault<DateTime>("датаВозврата");
+            personFull.ДатаЗаписиДоговора = null; //this.rPers.FieldOfDefault<DateTime>("ДатаЗаписиДоговора");
+            personFull.ФлагПроверки = false; // this.rPers.FieldOfDefault<bool>("ФлагПроверки");
 
-            personFull.НомерРеестра = this.rPers.FieldOfDefault<string>("НомерРеестра");
-            personFull.ДатаРеестра = this.rPers.FieldOfDefault<DateTime>("ДатаРеестра");
-            personFull.НомерСчётФактрура = this.rPers.FieldOfDefault<string>("НомерСчётФактрура");
-            personFull.ДатаСчётФактура = this.rPers.FieldOfDefault<DateTime>("ДатаСчётФактура");
-            personFull.flagАнулирован = this.rPers.FieldOfDefault<bool>("flagАнулирован");
-            personFull.logWrite = this.rPers.FieldOfDefault<string>("logWrite");
-            personFull.flagОжиданиеПроверки = this.rPers.FieldOfDefault<bool>("flagОжиданиеПроверки");
+            personFull.НомерРеестра = null;// this.rPers.FieldOfDefault<string>("НомерРеестра");
+            personFull.ДатаРеестра = null;// this.rPers.FieldOfDefault<DateTime>("ДатаРеестра");
+            personFull.НомерСчётФактрура = null;// this.rPers.FieldOfDefault<string>("НомерСчётФактрура");
+            personFull.ДатаСчётФактура = null;// this.rPers.FieldOfDefault<DateTime>("ДатаСчётФактура");
+            personFull.flagАнулирован = false;// this.rPers.FieldOfDefault<bool>("flagАнулирован");
+            personFull.logWrite = null;// this.rPers.FieldOfDefault<string>("logWrite");
+            personFull.flagОжиданиеПроверки = false;// this.rPers.FieldOfDefault<bool>("flagОжиданиеПроверки");
 
-            personFull.idFileRegistProgect = this.rPers.FieldOfDefault<int>("idFileRegistProgect");
-            personFull.ФлагАнулирован = this.rPers.FieldOfDefault<bool>("ФлагАнулирован");
-            personFull.ФлагВозвратНаДоработку = this.rPers.FieldOfDefault<bool>("ФлагВозвратНаДоработку");
-            personFull.ДатаПроверки = this.rPers.FieldOfDefault<DateTime>("ДатаПроверки");
-            personFull.flag2020 = this.rPers.FieldOfDefault<bool>("flag2020");
-            personFull.flag2019AddWrite = this.rPers.FieldOfDefault<bool>("flag2019AddWrite");
+            personFull.idFileRegistProgect = 0;// this.rPers.FieldOfDefault<int>("idFileRegistProgect");
+            personFull.ФлагАнулирован = false;// this.rPers.FieldOfDefault<bool>("ФлагАнулирован");
+            personFull.ФлагВозвратНаДоработку = false;// this.rPers.FieldOfDefault<bool>("ФлагВозвратНаДоработку");
+            personFull.ДатаПроверки = null;// this.rPers.FieldOfDefault<DateTime>("ДатаПроверки");
+            personFull.flag2020 = false;// this.rPers.FieldOfDefault<bool>("flag2020");
+            personFull.flag2019AddWrite = false;// this.rPers.FieldOfDefault<bool>("flag2019AddWrite");
 
             return personFull;
         }

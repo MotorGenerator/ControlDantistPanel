@@ -44,5 +44,10 @@ namespace ControlDantist.DataBaseContext
         /// Содержит Поликлиннику.
         /// </summary>
         public DbSet<ТПоликлинника> ТПоликлинника { get; set; }
+
+        /// <summary>
+        /// Услуги по договору.
+        /// </summary>
+        public DbSet<ТУслугиПоДоговору> ТУслугиПоДоговору { get; set; }
     }
 }

@@ -48,23 +48,23 @@ namespace ControlDantist.DataBaseContext
         [MaxLength(50)]
         public string ФлагДопСоглашения { get; set; }
 
-        public bool флагСРН { get; set; }
+        public bool? флагСРН { get; set; }
 
-        public bool флагУслуги { get; set; }
+        public bool? флагУслуги { get; set; }
 
-        public DateTime датаВозврата { get; set; }
-        public DateTime ДатаЗаписиДоговора { get; set; }
+        public DateTime? датаВозврата { get; set; }
+        public DateTime? ДатаЗаписиДоговора { get; set; }
         public bool ФлагПроверки { get; set; }
 
         [MaxLength(30)]
         public string НомерРеестра { get; set; }
 
-        public DateTime ДатаРеестра { get; set; }
+        public DateTime? ДатаРеестра { get; set; }
 
         [MaxLength(30)]
         public string НомерСчётФактрура { get; set; }
 
-        public DateTime ДатаСчётФактура { get; set; }
+        public DateTime? ДатаСчётФактура { get; set; }
 
         public bool flagАнулирован { get; set; }
 
@@ -79,7 +79,7 @@ namespace ControlDantist.DataBaseContext
 
         public bool ФлагВозвратНаДоработку { get; set; }
 
-        public DateTime ДатаПроверки { get; set; }
+        public DateTime? ДатаПроверки { get; set; }
 
         public bool flag2020 { get; set; }
 

@@ -368,6 +368,7 @@
     <Compile Include="DataBaseContext\RepositoryЛьготнаяКатегория.cs" />
     <Compile Include="DataBaseContext\RepositoryНаселенныйПункт.cs" />
     <Compile Include="DataBaseContext\RepositoryТипДокумента.cs" />
+    <Compile Include="DataBaseContext\RepositoryУслугиПоДоговору.cs" />
     <Compile Include="DataBaseContext\RepositoryФиоГлавВрач.cs" />
     <Compile Include="DataBaseContext\RepozitoryЛьготник.cs" />
     <Compile Include="DataBaseContext\ТГлавБух.cs" />
@@ -378,6 +379,7 @@
     <Compile Include="DataBaseContext\ТЛьготнаяКатегория.cs" />
     <Compile Include="DataBaseContext\ТЛЬготник.cs" />
     <Compile Include="DataBaseContext\ТНаселённыйПункт.cs" />
+    <Compile Include="DataBaseContext\ТУслугиПоДоговору.cs" />
     <Compile Include="DataBaseContext\ТФиоГлавВрач.cs" />
     <Compile Include="DataClasses1.cs">
       <DependentUpon>DataClasses1.dbml</DependentUpon>
@@ -768,6 +770,7 @@
     <Compile Include="ReadRegistrProject\ReadНаселенныйПункт.cs" />
     <Compile Include="ReadRegistrProject\ReadНаселенныйПунктBase.cs" />
     <Compile Include="ReadRegistrProject\ReadТипДокумента.cs" />
+    <Compile Include="ReadRegistrProject\ReadУслугиПоДоговору.cs" />
     <Compile Include="ReceptionContractsForm.cs">
       <SubType>Form</SubType>
     </Compile>
