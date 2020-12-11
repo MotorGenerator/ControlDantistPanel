@@ -46,8 +46,9 @@ namespace ControlDantist.ValidPersonContract
                 string famili = it.Packecge.льготник.Фамилия.Trim();
                 string name = it.Packecge.льготник.Имя.Trim();
                 string surname = it.Packecge.льготник.Отчество.Trim();
+                DateTime dr = it.Packecge.льготник.ДатаРождения;
 
-                IValidatePersonContract validatePersonContract = new ValidatePersonForContract(famili, name, surname);
+                IValidatePersonContract validatePersonContract = new ValidatePersonForContract(famili, name, surname, dr);
                 string queryPC = validatePersonContract.Execute();
 
                 StringParametr stringParametr = new StringParametr();
