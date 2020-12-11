@@ -363,6 +363,8 @@
     <Compile Include="DataBaseContext\IDatarepository.cs" />
     <Compile Include="DataBaseContext\IFind.cs" />
     <Compile Include="DataBaseContext\IGet.cs" />
+    <Compile Include="DataBaseContext\ItemLibrary.cs" />
+    <Compile Include="DataBaseContext\PackageClass.cs" />
     <Compile Include="DataBaseContext\ReadЛьготник.cs" />
     <Compile Include="DataBaseContext\RepositoryГлавБух.cs" />
     <Compile Include="DataBaseContext\RepositoryЛьготнаяКатегория.cs" />

@@ -28,6 +28,7 @@ namespace ControlDantist.ReadRegistrProject
                 tu.НомерПоПеречню = row["НомерПоПеречню"].ToString();
                 tu.Сумма = Convert.ToDecimal(row["Сумма"]);
                 tu.ТехЛист = Convert.ToInt16(row["ТехЛист"]);
+                tu.цена = Convert.ToDecimal(row["цена"]);
                 tu.id_договор = 0;
 
                 list.Add(tu);
