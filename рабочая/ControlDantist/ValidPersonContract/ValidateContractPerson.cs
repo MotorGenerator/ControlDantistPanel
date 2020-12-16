@@ -23,8 +23,14 @@ namespace ControlDantist.ValidPersonContract
 
         public ValidateContractPerson(List<ItemLibrary> listRegistr)
         {
-            if(listRegistr != null && listRegistr.Count > 0)
-            this.listRegistr.AddRange(listRegistr);
+            if (listRegistr != null && listRegistr.Count > 0)
+            {
+                this.listRegistr.AddRange(listRegistr);
+            }
+            else
+            {
+                return;
+            }
 
             //contr = new PrintContractsValidate();
 

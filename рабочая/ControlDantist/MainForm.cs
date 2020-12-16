@@ -32,6 +32,8 @@ using ControlDantist.FindEsrnWoW;
 using ControlDantist.DataBaseContext;
 using ControlDantist.ReadRegistrProject;
 using ControlDantist.ValidPersonContract;
+using ControlDantist.RenameFile;
+using MyTask = System.Threading.Tasks;
 
 
 
@@ -3771,6 +3773,9 @@ namespace ControlDantist
 
         private void приёмToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            // Переменная для хранения имени файла.
+            string fileName = string.Empty;
+
             // Текущая директория приложения.
             Environment.CurrentDirectory = System.Windows.Forms.Application.StartupPath;
 
@@ -3791,7 +3796,7 @@ namespace ControlDantist
             if (openFileDialog1.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
                 // Получили имя класса.
-                string fileName = openFileDialog1.FileName;
+                fileName = openFileDialog1.FileName;
 
                 try
                 {
@@ -3802,6 +3807,7 @@ namespace ControlDantist
 
                         // Получим из файла словарь с договорами.
                         unload = (Dictionary<string, Unload>)binaryFormatter.Deserialize(fstream);
+                       
                     }
 
                 }
@@ -3831,6 +3837,169 @@ namespace ControlDantist
                     {
                         using (var dc = new DContext(ConnectDB.ConnectionString()))
                         {
+                            #region Пока не работает.
+                            //// Экземпляр хранилище данных из реестра.
+                            //ItemLibrary itemLibrary = new ItemLibrary();
+
+                            //// Класс с данными к договору.
+                            //PackageClass packege = new PackageClass();
+
+                            //var outer = MyTask.Task.Factory.StartNew(() =>
+                            //{
+
+                            //    // В отдельном потоке получаем населенный пункт.
+                            //    var outetThoun = MyTask.Task.Factory.StartNew(() =>
+                            //    {
+                            //        // Прочитаем населенный пункт из реестра проектов договоров.
+                            //        DataTable tabSity = unload.НаселённыйПункт;
+
+                            //        // Населенный пункт в которм прописан льготник.
+                            //        IReadRegistr<ТНаселённыйПункт> readНаселенныйПункт = new ReadНаселенныйПункт(dc, tabSity);
+
+                            //        // Получим населенный пункт с ud нашей БД.
+                            //        ТНаселённыйПункт thoun = readНаселенныйПункт.Get();
+
+                            //        // Упакуем название населенного пункта.
+                            //        packege.населённыйПункт = thoun;
+
+                            //        return thoun;
+
+                            //        // Синхронизируем выполнение внешней задачи с внутренней.
+                            //    }, MyTask.TaskCreationOptions.AttachedToParent);
+
+                            //    // Получим населенный пункт.
+                            //    ТНаселённыйПункт населённыйПункт = outetThoun.Result;
+
+                            //    // В отдельном потоке получаем льготную категорию.
+                            //    var outerLK = MyTask.Task.Factory.StartNew(() =>
+                            //    {
+                            //        // Получим льготную категорию.
+                            //        string льготнаяКатегория = unload.ЛьготнаяКатегория.Trim();
+
+                            //        IReadRegistr<ТЛьготнаяКатегория> readRegistrLK = new ReadЛьготнаяКатегория(dc, льготнаяКатегория);
+
+                            //        ТЛьготнаяКатегория lk = readRegistrLK.Get();
+
+                            //        // Упакуем льгоотную категорию.
+                            //        packege.тЛьготнаяКатегория = lk;
+
+                            //        return lk;
+
+                            //        // Синхронизируем выполнение внешней задачи с внутренней.
+                            //    }, MyTask.TaskCreationOptions.AttachedToParent);
+
+                            //    // Получим льготную категорию.
+                            //    ТЛьготнаяКатегория тЛьготнаяКатегория = outerLK.Result;
+
+                            //    // Читаем данные по льготнику.
+                            //    var outerPersonDate = MyTask.Task.Factory.StartNew(() =>
+                            //    {
+                            //        // Порочитаем из файла выгрузки все данные по льготнику.
+                            //        DataRow rw_Льготник = unload.Льготник.Rows[0];
+
+                            //        // Получим данные по льготнику из реестра проектов договров.
+                            //        IReadRegistr<ТЛЬготник> readPerson = new ReadЛьготник(dc, rw_Льготник);
+
+                            //        ТЛЬготник person = readPerson.Get();
+
+                            //        // Присвоим Льготнику id населенного пункта.
+                            //        if (населённыйПункт != null)
+                            //        {
+                            //            // Присвоим Льготнику id населенного пункта.
+                            //            person.id_насПункт = населённыйПункт.id_насПункт;
+                            //        }
+                            //        else
+                            //        {
+                            //            // Пока не знаю но какая то обработка.
+                            //            //Выкинуть exception.
+                            //        }
+
+                            //        // Присвоим Льготную категорию.
+                            //        if (тЛьготнаяКатегория != null)
+                            //        {
+                            //            person.id_льготнойКатегории = тЛьготнаяКатегория.id_льготнойКатегории;
+                            //        }
+                            //        else
+                            //        {
+                            //            // Выберим Exception.
+                            //        }
+
+                            //        // Упакуем льготника.
+                            //        packege.льготник = person;
+
+                            //        return person;
+
+                            //        // Синхронизируем вложенную задачу и внешную.
+                            //    }, MyTask.TaskCreationOptions.AttachedToParent);
+
+                            //    // Получим данные по льготнику.
+                            //    ТЛЬготник льготник = outerPersonDate.Result;
+
+                            //    // Получим данные по договору.
+                            //    var outerDoc = MyTask.Task.Factory.StartNew(() =>
+                            //    {
+                            //        // Прочитаем тип льготного документа.
+                            //        IReadRegistr<ТТипДокумент> readTypeDoc = new ReadТипДокумента(dc, unload.ТипДокумента);
+                            //        ТТипДокумент typeDoc = readTypeDoc.Get();
+
+                            //        // Упакуем тип документа.
+                            //        packege.ТипДокумента = typeDoc;
+
+                            //        // Присвоим тип документа.
+                            //        if (typeDoc != null)
+                            //            льготник.id_документ = typeDoc.id_документ;
+
+                            //    }, MyTask.TaskCreationOptions.AttachedToParent);
+
+                            //    // Данные по поликлиннике.
+                            //    var outtHospitl = MyTask.Task.Factory.StartNew(() =>
+                            //    {
+                            //        // Получим данные по поликлиннике.
+                            //        DataRow rowHosp = unload.Поликлинника.Rows[0];
+
+                            //        string inn = rowHosp["ИНН"].ToString();
+
+                            //        IReadRegistr<ТПоликлинника> readHosp = new ReadRegistrHospital(dc, inn, rowHosp);
+                            //        ТПоликлинника hosp = readHosp.Get();
+
+                            //        // Упакуем данные по поликлиннике.
+                            //        packege.hosp = hosp;
+
+                            //        // Синхранизируем внутренние и внешний поток.
+                            //    }, MyTask.TaskCreationOptions.AttachedToParent);
+
+                            //    var outerContract = MyTask.Task.Factory.StartNew(() =>
+                            //    {
+                            //        // Запишем договор.
+                            //        DataRow rowC = unload.Договор.Rows[0];
+
+                            //        // Прочитаем данные по договору.
+                            //        IReadRegistr<ТДоговор> readContract = new ReadДоговор(dc, rowC);
+                            //        ТДоговор тДоговор = readContract.Get();
+
+                            //        return тДоговор;
+
+                            //    }, MyTask.TaskCreationOptions.AttachedToParent);
+
+                            //    //var outerContract = MyTask.Task.Factory.StartNew(() =>
+                            //    //{
+                            //    //    // Услуги по договору.
+                            //    //    DataTable tabServices = unload.УслугиПоДоговору;
+
+                            //    //    ReadУслугиПоДоговору readУслугиДоговор = new ReadУслугиПоДоговору(tabServices);
+                            //    //    List<ТУслугиПоДоговору> listUSlug = readУслугиДоговор.Get();
+
+                            //    //    // Услуги по договору.
+                            //    //    packege.listUSlug = listUSlug;
+                            //    //})
+
+                            //});
+
+                            //// Дождемся окончания внешнего потока.
+                            //outer.Wait();
+
+                            #endregion
+
                             ItemLibrary itemLibrary = new ItemLibrary();
 
                             // Класс с данными к договору.
@@ -3852,10 +4021,10 @@ namespace ControlDantist
                             string льготнаяКатегория = unload.ЛьготнаяКатегория.Trim();
 
                             IReadRegistr<ТЛьготнаяКатегория> readRegistrLK = new ReadЛьготнаяКатегория(dc, льготнаяКатегория);
-                            
+
                             ТЛьготнаяКатегория тЛьготнаяКатегория = readRegistrLK.Get();
 
-                            // Упакуем льгоотную категорию.
+                            // Упакуем льготную категорию.
                             packege.тЛьготнаяКатегория = тЛьготнаяКатегория;
 
                             // Порочитаем из файла выгрузки все данные по льготнику.
@@ -3907,7 +4076,7 @@ namespace ControlDantist
 
                             string inn = rowHosp["ИНН"].ToString();
 
-                            IReadRegistr<ТПоликлинника> readHosp = new ReadRegistrHospital(dc, inn,rowHosp);
+                            IReadRegistr<ТПоликлинника> readHosp = new ReadRegistrHospital(dc, inn, rowHosp);
                             ТПоликлинника hosp = readHosp.Get();
 
                             // Упакуем данные по поликлиннике.
@@ -3943,34 +4112,103 @@ namespace ControlDantist
                 }
             }
 
-            //var test = packegeDateContract;
-
-            //List<PrintContractsValidate> listDoc = new List<PrintContractsValidate>();
-
+            
+            // Получим список договоров из файла реестра для документа для отображения повторных договоров.
             ValidateContractPerson vclPrint = new ValidateContractPerson(packegeDateContract);
             List<PrintContractsValidate> listDoc = vclPrint.GetContract();
 
-            if (listDoc.Count > 0)
+            // Если количество догооворов из файла реестра > 0.
+            if (listDoc != null && listDoc.Count > 0)
             {
+                try
+                {
+                    // Переименуем файл.
+                    string nameFile = System.IO.Path.GetFileName(fileName);
+
+                    string directoryName = System.IO.Path.GetDirectoryName(fileName);
+
+                    FileInfo file = new FileInfo(fileName);
+                    file.Rename(nameFile);
+                }
+                catch
+                {
+                    MessageBox.Show("Файл реестра проектов договоров не переименован","Ошибка",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                }
+
+                // Выведим список совподений договров на бумагу в Word.
                 WordReport wordPrint = new WordReport(listDoc);
 
                 DocPrint docPrint = new DocPrint(wordPrint);
                 docPrint.Execute();
             }
 
-            var предохранитьель = "";
+            // Если список договров больше 0 тогда проводим проверку в ЭСРН.
+            if (listDoc != null && listDoc.Count > 0)
+            {
 
-            //// Проверим есть ли у данного льготника ещё заключенные договора.
-            //ValidContractForPerson validContract = new ValidContractForPerson(person.фамилия, person.имя, person.отчество.Do(x => x, ""), Convert.ToDateTime(person.датаРождения));
-            ////validContract.listContracts = listContracts;
-            //validContract.SetSqlConnection(con);
-            //validContract.SetSqlTransaction(transact);
-            //validContract.SetNumContract(numContract);
-            //PrintContractsValidate договор = validContract.GetContract();
+                //// Проверим по базам ЭСРН.
+                //EsrnValidate esrnValidate = new EsrnValidate(договорs, льготнаяКатегория);
+
+                //var result = esrnValidate.ValidateList();
+
+                //// Для тест.
+                //result.Select(w => w.Value.flagValidEsrn = true);
+
+                //this.Hide();
+                ////Выведим результат проверки на экран
+                //FormValidOutEsrn formOutVal = new FormValidOutEsrn(result, инн);
+                //formOutVal.IdFileRegistr = idFile;
+
+                //formOutVal.Show();
+
+                //formOutVal.WindowState = FormWindowState.Normal;
+
+                //this.Close();
+
+                DialogResult result = MessageBox.Show("Начать проверку проектов договоров", "Внимание", MessageBoxButtons.OKCancel);
+
+                if (result == DialogResult.OK)
+                {
+                    EsrnPersonValidate esrnPersonValidate = new EsrnPersonValidate(packegeDateContract);
+                    esrnPersonValidate.Validate();
+
+                    // Проверка договоров по ЭСРН.
+                }
+            }
+
+
+
+
+
+            ////// Проверим по базам ЭСРН.
+            //EsrnValidate esrnValidate = new EsrnValidate(договорs, льготнаяКатегория);
+
+            //var result = esrnValidate.ValidateList();
+            /*
+                           // Для тест.
+                           result.Select(w => w.Value.flagValidEsrn = true);
+
+
+
+                           this.Hide();
+                           //Выведим результат проверки на экран
+                           FormValidOutEsrn formOutVal = new FormValidOutEsrn(result, инн);
+                           formOutVal.IdFileRegistr = idFile;
+
+                           formOutVal.Show();
+
+                           formOutVal.WindowState = FormWindowState.Normal;
+
+                           this.Close(); 
+                       */
+
+
 
 
 
         }
+
+
 
         private void лимитДенежныхСредствToolStripMenuItem_Click(object sender, EventArgs e)
         {

@@ -138,7 +138,7 @@ namespace ControlDantist.ValidateRegistrProject
                     // Льготная категория льготников прописанных в текущем реестре.
                     this.PreferenceCategory(this.льготнаяКатегория);
 
-                    // Запрос на поиск льготников по ЭСРН по фио, дате рождения номеру и дате выдачи документа.
+                    // Запрос на поиск льготников по ЭСРН по фио, дате рождения, номеру и дате выдачи документа.
                     string queryФИО = QueryValidate(listPersonValidEsrn);
 
                     SqlTransaction sqlTransaction = con.BeginTransaction();

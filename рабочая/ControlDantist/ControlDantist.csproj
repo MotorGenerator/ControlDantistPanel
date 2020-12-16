@@ -789,6 +789,7 @@
     <Compile Include="ReceptionDocuments\Registr.cs" />
     <Compile Include="ReceptionDocuments\ReisedueMoney.cs" />
     <Compile Include="ReceptionDocuments\ValidateЛьготник.cs" />
+    <Compile Include="RenameFile\ExtendedMethod.cs" />
     <Compile Include="Reports\AbstractFactory.cs" />
     <Compile Include="Reports\FindNumRegistr.cs" />
     <Compile Include="Reports\FindReestrInvoce.cs" />
@@ -872,7 +873,11 @@
     <Compile Include="UnpaidStatistic\QueryBalance.cs" />
     <Compile Include="UnpaidStatistic\ReportBalanceStatistic.cs" />
     <Compile Include="ValidateMedicalServices\ValidateServicesMedical.cs" />
+    <Compile Include="ValidateRegistrProject\BuilderQueryValidator.cs" />
+    <Compile Include="ValidateRegistrProject\EsrnPersonValidate.cs" />
     <Compile Include="ValidateRegistrProject\EsrnValidate.cs" />
+    <Compile Include="ValidateRegistrProject\IBuilderQueryValidate.cs" />
+    <Compile Include="ValidateRegistrProject\IEsrnValidate.cs" />
     <Compile Include="ValidateRegistrProject\IInvoice.cs" />
     <Compile Include="ValidateRegistrProject\IRegisterForPayment.cs" />
     <Compile Include="ValidateRegistrProject\IRegistrItem.cs" />
@@ -881,6 +886,7 @@
     <Compile Include="ValidateRegistrProject\RegistrProject.cs" />
     <Compile Include="ValidateRegistrProject\RegistrProjectContract.cs" />
     <Compile Include="ValidateRegistrProject\TestClass.cs" />
+    <Compile Include="ValidateRegistrProject\ValidatePrefCategoryList2.cs" />
     <Compile Include="ValidPersonContract\CompareContract.cs" />
     <Compile Include="ValidPersonContract\CompareContractForNumber.cs" />
     <Compile Include="ValidPersonContract\DocPrint.cs" />
