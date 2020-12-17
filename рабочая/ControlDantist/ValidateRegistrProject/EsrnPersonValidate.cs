@@ -59,12 +59,6 @@ namespace ControlDantist.ValidateRegistrProject
                     // Переменная для хранения льготной категории.
                     string cateroryPerson = string.Empty;
 
-                    // Прочитаем льгоную категорию из первого льготника.
-                    // Так как у нас реестры идут под каждого льготника.
-                    //cateroryPerson = this.list[0].Packecge.тЛьготнаяКатегория.ЛьготнаяКатегория;
-
-                    //IBuilderQueryValidate builderQueryValidate = 
-
                     // Проверим льготника по ФИО и номеру документа.
                     IEsrnValidate validatePrefCategoryList2 = new ValidatePrefCategoryList2(this.list);
 

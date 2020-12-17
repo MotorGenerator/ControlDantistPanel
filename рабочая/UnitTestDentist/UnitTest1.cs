@@ -1139,7 +1139,7 @@ namespace UnitTestDentist
             DContext dc = new DContext(ConnectDB.ConnectionString());
 
             ReadНаселенныйПункт readНаселенныйПункт = new ReadНаселенныйПункт(dc, tabSity);
-            ТНаселённыйПункт населённыйПункт = readНаселенныйПункт.GetТНаселённыйПункт();
+            ТНаселённыйПункт населённыйПункт = readНаселенныйПункт.Get();
 
             
 

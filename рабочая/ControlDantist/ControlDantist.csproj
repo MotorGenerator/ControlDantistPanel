@@ -415,6 +415,7 @@
     <Compile Include="DisplayRegistr\ResultValidEsrnDisplay.cs" />
     <Compile Include="ErrorHandlid\IWriteError.cs" />
     <Compile Include="ErrorHandlid\WriteErrorFileText.cs" />
+    <Compile Include="ExceptionClassess\ExceptionNoPreferentCategory.cs" />
     <Compile Include="FilesRegistr\FileRegistrCopy.cs" />
     <Compile Include="FiltrPersonForVipNet.cs">
       <SubType>Form</SubType>

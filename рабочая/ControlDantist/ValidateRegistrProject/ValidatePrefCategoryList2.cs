@@ -20,6 +20,10 @@ namespace ControlDantist.ValidateRegistrProject
             this.list = list;
         }
 
+        /// <summary>
+        /// Возвращает льготтную категорию реестра.
+        /// </summary>
+        /// <returns></returns>
         public string GetPreferentCategory()
         {
             return this.list?[0].Packecge?.тЛьготнаяКатегория?.ЛьготнаяКатегория?? "Категория_не_установлена";
@@ -59,14 +63,23 @@ namespace ControlDantist.ValidateRegistrProject
         {
             foreach (var itm in this.list)
             {
-                var person = itm?.Packecge?.льготник;
-                var contract = itm?.Packecge?.тДоговор;
+                // Получим данные о льготнике.
+                var person = itm?.Packecge?.льготник?? null;
 
-                string queryInsert = " insert into " + nameTempTable + " (id_договор,Фамилия,Имя,Отчество,ДатаРождения,СерияДокумента,НомерДокумента,ДатаВыдачиДокумента,СерияПаспорта,НомерПаспорта,ДатаВыдачиПаспорта) " +
-                                     " values(" + contract.id_договор + ",'" + person.Фамилия.Trim().ToLower() + "','" + person.Имя.Trim().ToLower() + "','" + person.Отчество.Trim().ToLower() + "','" + Время.Дата(person.ДатаРождения.ToShortDateString().Trim()) + "','" + person.СерияДокумента.Do(x => x, "").ToLower().Trim() + "','" + person.НомерДокумента.ToLower().Trim() + "','" + Время.Дата(person.ДатаВыдачиДокумента.ToString().Trim()) + "',  " +
-                                     " '" + person.СерияПаспорта.Trim().ToLower() + "','" + person.НомерПаспорта.Trim().ToLower() + "','" + Время.Дата(person.ДатаВыдачиПаспорта.ToShortDateString()) + "' ) ";
+                // Получим данные о договоре.
+                var contract = itm?.Packecge?.тДоговор?? null;
 
-                builderQuery.Append(queryInsert);
+                if (person != null && contract != null)
+                {
+                    //// Проверим заполненность полей льготника.
+                    //if(person.Фамилия != null &person.Имя != null)
+
+                    string queryInsert = " insert into " + nameTempTable + " (id_договор,Фамилия,Имя,Отчество,ДатаРождения,СерияДокумента,НомерДокумента,ДатаВыдачиДокумента,СерияПаспорта,НомерПаспорта,ДатаВыдачиПаспорта) " +
+                                         " values(" + contract.id_договор + ",'" + person.Фамилия.Trim().ToLower() + "','" + person.Имя.Trim().ToLower() + "','" + person.Отчество.Do(x=>x,"").Trim().ToLower() + "','" + Время.Дата(person.ДатаРождения.Date.ToShortDateString().Trim()) + "','" + person.СерияДокумента.Do(x => x, "").ToLower().Trim() + "','" + person.НомерДокумента.ToLower().Trim() + "','" + Время.Дата(person.ДатаВыдачиДокумента.Date.ToShortDateString().Trim()) + "',  " +
+                                         " '" + person.СерияПаспорта.Trim().ToLower() + "','" + person.НомерПаспорта.Trim().ToLower() + "','" + Время.Дата(person.ДатаВыдачиПаспорта.Date.ToShortDateString()) + "' ) ";
+
+                    builderQuery.Append(queryInsert);
+                }
             }
 
         }

@@ -1,11 +1,9 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 9.00
-# Visual Studio 2005
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30717.126
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ControlDantist", "ControlDantist\ControlDantist.csproj", "{73542E82-66C3-425C-93AE-0748A2FAAEC9}"
-	ProjectSection(WebsiteProperties) = preProject
-		Debug.AspNetCompiler.Debug = "True"
-		Release.AspNetCompiler.Debug = "False"
-	EndProjectSection
 EndProject
 Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "CheckDantist", "CheckDantist\CheckDantist.vdproj", "{86E97B56-A534-4669-AAA3-3A6E84AB403A}"
 	ProjectSection(WebsiteProperties) = preProject
@@ -36,5 +34,8 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {4D10E3CE-BCC5-4606-87E8-9D08786D69A1}
 	EndGlobalSection
 EndGlobal

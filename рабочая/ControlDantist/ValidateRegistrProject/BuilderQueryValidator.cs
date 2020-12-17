@@ -1,4 +1,5 @@
 ﻿using System.Text;
+using ControlDantist.ExceptionClassess;
 using System.Collections.Generic;
 using System.Linq;
 using ControlDantist.DataBaseContext;
@@ -28,30 +29,39 @@ namespace ControlDantist.ValidateRegistrProject
 
         public string Query()
         {
-
-            // Узнаем льготную актегорию.
-            //string category = string.Empty;
-
-            // Получим название льготной категории.
-            preferentKategory = this.validate.GetPreferentCategory();
-
             // Строка для хранения запроса к БД.
             StringBuilder builder = new StringBuilder();
 
-            // Формирование SQl запроса для поиска ВВС.
-            builder.Append(AddQuery("Ветеранвоеннойслужбы", " PPR_DOC.A_NAME in ('Удостоверение ветерана военной службы')"));
+            try
+            {
+                // Узнаем льготную актегорию.
+                //string category = string.Empty;
 
-            // Формирование SQl запроса для поиска ВТ.
-            builder.Append(AddQuery("Ветерантруда", " PPR_DOC.A_NAME in ('Удостоверение ветерана труда') "));
+                // Получим название льготной категории.
+                preferentKategory = this.validate.GetPreferentCategory();
 
-            // Формирование SQl запроса для поиска ВТ.
-            builder.Append(AddQuery("Тружениктыла", " PPR_DOC.A_NAME in ('Удостоверение о праве на льготы (отметка - ст.20)','Удостоверение ветерана ВОВ (отметка - ст.20)') "));
+                if (preferentKategory == "Категория_не_установлена")
+                    throw new ExceptionNoPreferentCategory();
 
-            // Формирование SQl запроса для поиска ВТСО.
-            builder.Append(AddQuery("ВетерантрудаСаратовскойобласти", " PPR_DOC.A_NAME in ('Удостоверение ветерана труда Саратовской области') "));
+                // Формирование SQl запроса для поиска ВВС.
+                builder.Append(AddQuery("Ветеранвоеннойслужбы", " PPR_DOC.A_NAME in ('Удостоверение ветерана военной службы')"));
 
-            // Формирование SQl запроса для поиска Реабелитированных.
-            builder.Append(AddQuery("Реабилитированныелица", " PPR_DOC.A_NAME in ('Свидетельство о праве на льготы для реабилитированных лиц','Справка о реабилитации' ) "));
+                // Формирование SQl запроса для поиска ВТ.
+                builder.Append(AddQuery("Ветерантруда", " PPR_DOC.A_NAME in ('Удостоверение ветерана труда') "));
+
+                // Формирование SQl запроса для поиска ВТ.
+                builder.Append(AddQuery("Тружениктыла", " PPR_DOC.A_NAME in ('Удостоверение о праве на льготы (отметка - ст.20)','Удостоверение ветерана ВОВ (отметка - ст.20)') "));
+
+                // Формирование SQl запроса для поиска ВТСО.
+                builder.Append(AddQuery("ВетерантрудаСаратовскойобласти", " PPR_DOC.A_NAME in ('Удостоверение ветерана труда Саратовской области') "));
+
+                // Формирование SQl запроса для поиска Реабелитированных.
+                builder.Append(AddQuery("Реабилитированныелица", " PPR_DOC.A_NAME in ('Свидетельство о праве на льготы для реабилитированных лиц','Справка о реабилитации' ) "));
+            }
+            catch(ExceptionNoPreferentCategory ex)
+            {
+                builder.Append("Категория_не_установлена");
+            }
 
 
             //// Проверим льготника по льготной категории.
@@ -98,7 +108,7 @@ namespace ControlDantist.ValidateRegistrProject
             string query = string.Empty;
 
             // Проверим льготника по льготной категории.
-            if (preferentKategory.ToLower().Trim().Replace(" ", string.Empty) == preferencCategory.ToLower().Trim())
+            if (preferentKategory.ToLower().Trim().Replace(" ", "") == preferencCategory.ToLower().Trim())
             {
                 string docPreferencyCategory = nameDoc;
 

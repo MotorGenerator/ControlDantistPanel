@@ -1,0 +1,3 @@
+F:\VS 2019 проекты\ControlDantistPanel\рабочая\ControlDantist\ControlDantist\obj\Debug\ControlDantist.csprojAssemblyReference.cache
+F:\VS 2019 проекты\ControlDantistPanel\рабочая\ControlDantist\ControlDantist\obj\Debug\ControlDantist.exe
+F:\VS 2019 проекты\ControlDantistPanel\рабочая\ControlDantist\ControlDantist\obj\Debug\ControlDantist.pdb
