@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using ControlDantist.DataBaseContext;
 using System.Text;
 using ControlDantist.Classes;
+using ControlDantist.ExceptionClassess;
 
 namespace ControlDantist.ValidateRegistrProject
 {
@@ -71,14 +72,18 @@ namespace ControlDantist.ValidateRegistrProject
 
                 if (person != null && contract != null)
                 {
+                    // Проверим заполненность полей льготника.
+                    ValidErrorPerson vrp = new ValidErrorPerson(person);
+
                     //// Проверим заполненность полей льготника.
-                    //if(person.Фамилия != null &person.Имя != null)
+                    if (vrp.Validate() == true)
+                    {
+                        string queryInsert = " insert into " + nameTempTable + " (id_договор,Фамилия,Имя,Отчество,ДатаРождения,СерияДокумента,НомерДокумента,ДатаВыдачиДокумента,СерияПаспорта,НомерПаспорта,ДатаВыдачиПаспорта) " +
+                                             " values(" + contract.id_договор + ",'" + person.Фамилия.Trim().ToLower() + "','" + person.Имя.Trim().ToLower() + "','" + person.Отчество.Do(x => x, "").Trim().ToLower() + "','" + Время.Дата(person.ДатаРождения.Date.ToShortDateString().Trim()) + "','" + person.СерияДокумента.Do(x => x, "").ToLower().Trim() + "','" + person.НомерДокумента.Do(x => x, "").ToLower().Trim() + "','" + Время.Дата(person.ДатаВыдачиДокумента.Date.ToShortDateString().Trim()) + "',  " +
+                                             " '" + person.СерияПаспорта.Do(x=>x,"").Trim().ToLower() + "','" + person.НомерПаспорта.Do(x=>x,"").Trim().ToLower() + "','" + Время.Дата(person.ДатаВыдачиПаспорта.Date.ToShortDateString()) + "' ) ";
 
-                    string queryInsert = " insert into " + nameTempTable + " (id_договор,Фамилия,Имя,Отчество,ДатаРождения,СерияДокумента,НомерДокумента,ДатаВыдачиДокумента,СерияПаспорта,НомерПаспорта,ДатаВыдачиПаспорта) " +
-                                         " values(" + contract.id_договор + ",'" + person.Фамилия.Trim().ToLower() + "','" + person.Имя.Trim().ToLower() + "','" + person.Отчество.Do(x=>x,"").Trim().ToLower() + "','" + Время.Дата(person.ДатаРождения.Date.ToShortDateString().Trim()) + "','" + person.СерияДокумента.Do(x => x, "").ToLower().Trim() + "','" + person.НомерДокумента.ToLower().Trim() + "','" + Время.Дата(person.ДатаВыдачиДокумента.Date.ToShortDateString().Trim()) + "',  " +
-                                         " '" + person.СерияПаспорта.Trim().ToLower() + "','" + person.НомерПаспорта.Trim().ToLower() + "','" + Время.Дата(person.ДатаВыдачиПаспорта.Date.ToShortDateString()) + "' ) ";
-
-                    builderQuery.Append(queryInsert);
+                        builderQuery.Append(queryInsert);
+                    }
                 }
             }
 

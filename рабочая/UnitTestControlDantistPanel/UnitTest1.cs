@@ -2,6 +2,9 @@
 using ControlDantist.DataBaseContext;
 using System.Collections.Generic;
 using ControlDantist.ValidateRegistrProject;
+using ControlDantist.ExceptionClassess;
+using ControlDantist.Classes;
+using System;
 
 
 namespace UnitTestControlDantistPanel
@@ -69,20 +72,36 @@ namespace UnitTestControlDantistPanel
         }
 
         [TestMethod]
-        public void TestТЛьготник()
+        public void TestValidErrorPerson()
         {
             // arrange.
+            List<ItemLibrary> list = new List<ItemLibrary>();
+
+
+            ItemLibrary itemLibrary = new ItemLibrary();
+
             ТЛЬготник person = new ТЛЬготник();
 
-            // ac
-            var _фамилия = person.Фамилия?:
+            person.Фамилия = "Иванов";
+            person.Имя = "Иван";
+
+            string s = person.Отчество.Do(w => w, "");
+
+            DateTime dr = new DateTime(1957, 1, 10);
+            person.ДатаРождения = dr;
+
+            DateTime dateDoc = new DateTime(2000, 1, 10);
+            person.ДатаВыдачиДокумента = dateDoc;
+
+            DateTime datePassword = new DateTime(2002, 3, 15);
+            person.ДатаВыдачиПаспорта = dateDoc;
+
+            // act.
+            ValidErrorPerson ver = new ValidErrorPerson(person);
 
 
-
-            var _фамилияТест = _фамилия;
-
-            // result.
-            Assert.IsNull(person.Фамилия);
+            Assert.IsTrue(ver.Validate());
+         
         }
 
     }

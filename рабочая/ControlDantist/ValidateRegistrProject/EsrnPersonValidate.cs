@@ -67,12 +67,37 @@ namespace ControlDantist.ValidateRegistrProject
                     // Переменная дя хранения строки запроса.
                     string queryФИО = string.Empty;
 
+                    // Строка SQL Запроса.
                     queryФИО = queryFindPersonToFioNumDoc.Query();
 
                     SqlTransaction sqlTransaction = con.BeginTransaction();
 
                     // Получим льготников найденных в ЭСРН по документам дающим право на получение льгот.
                     DataTable tabФИО = ТаблицаБД.GetTableSQL(queryФИО, "ФИО", con, sqlTransaction);
+
+                    IEsrnValidate validatePersonPassword = new ValidatePersonFioPassword(this.list);
+
+                    IBuilderQueryValidate queryFindPersonToPassword = new BuilderQueryValidator(validatePersonPassword);
+
+                    // Переменная дя хранения строки запроса.
+                    string queryФиоPassword = string.Empty;
+
+                    // Строка SQL Запроса.
+                    queryФиоPassword = queryFindPersonToPassword.Query();
+
+                    // Получим льготников найденных в ЭСРН по документам дающим право на получение льгот.
+                    DataTable tabФиоPassword = ТаблицаБД.GetTableSQL(queryФиоPassword, "ФиоPassword", con, sqlTransaction);
+
+
+                    if (tabФИО.Rows.Count > 1)
+                    {
+                        var test = tabФИО;
+                    }
+
+                    if(tabФиоPassword?.Rows?.Count > 1)
+                    {
+                        var test = tabФиоPassword;
+                    }
 
                     // Генерируем запрос на поиск льготников в ЭСРН по Фио и номеру паспората.
 

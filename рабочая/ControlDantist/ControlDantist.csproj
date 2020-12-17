@@ -416,6 +416,7 @@
     <Compile Include="ErrorHandlid\IWriteError.cs" />
     <Compile Include="ErrorHandlid\WriteErrorFileText.cs" />
     <Compile Include="ExceptionClassess\ExceptionNoPreferentCategory.cs" />
+    <Compile Include="ExceptionClassess\ValidErrorPerson.cs" />
     <Compile Include="FilesRegistr\FileRegistrCopy.cs" />
     <Compile Include="FiltrPersonForVipNet.cs">
       <SubType>Form</SubType>
@@ -887,6 +888,7 @@
     <Compile Include="ValidateRegistrProject\RegistrProject.cs" />
     <Compile Include="ValidateRegistrProject\RegistrProjectContract.cs" />
     <Compile Include="ValidateRegistrProject\TestClass.cs" />
+    <Compile Include="ValidateRegistrProject\ValidatePersonFioPassword.cs" />
     <Compile Include="ValidateRegistrProject\ValidatePrefCategoryList2.cs" />
     <Compile Include="ValidPersonContract\CompareContract.cs" />
     <Compile Include="ValidPersonContract\CompareContractForNumber.cs" />
