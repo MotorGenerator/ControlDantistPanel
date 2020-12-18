@@ -4045,6 +4045,7 @@ namespace ControlDantist
                             {
                                 // Пока не знаю но какая то обработка.
                                 //Выкинуть exception.
+                                
                             }
 
                             // Присвоим Льготную категорию.
@@ -4171,6 +4172,8 @@ namespace ControlDantist
                 {
                     EsrnPersonValidate esrnPersonValidate = new EsrnPersonValidate(packegeDateContract);
                     esrnPersonValidate.Validate();
+
+
 
                     // Проверка договоров по ЭСРН.
                     var itemResult = packegeDateContract;

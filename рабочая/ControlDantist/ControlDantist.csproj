@@ -373,6 +373,7 @@
     <Compile Include="DataBaseContext\RepositoryУслугиПоДоговору.cs" />
     <Compile Include="DataBaseContext\RepositoryФиоГлавВрач.cs" />
     <Compile Include="DataBaseContext\RepozitoryЛьготник.cs" />
+    <Compile Include="DataBaseContext\КлассификаторУслуг.cs" />
     <Compile Include="DataBaseContext\ТГлавБух.cs" />
     <Compile Include="DataBaseContext\ТДоговор.cs" />
     <Compile Include="DataBaseContext\ТПоликлинника.cs" />
@@ -757,6 +758,9 @@
     <Compile Include="MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="MedicalServices\IServices.cs" />
+    <Compile Include="MedicalServices\ServicesMedialContract.cs" />
+    <Compile Include="MedicalServices\ServicesMedicalHospital.cs" />
     <Compile Include="MyMessage.cs">
       <SubType>Form</SubType>
     </Compile>

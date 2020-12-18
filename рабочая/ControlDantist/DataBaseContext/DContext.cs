@@ -49,5 +49,10 @@ namespace ControlDantist.DataBaseContext
         /// Услуги по договору.
         /// </summary>
         public DbSet<ТУслугиПоДоговору> ТУслугиПоДоговору { get; set; }
+
+        /// <summary>
+        /// Услуги в госпиталя.
+        /// </summary>
+        public DbSet<КлассификаторУслуг> КлассификаторУслугs { get; set; }
     }
 }
