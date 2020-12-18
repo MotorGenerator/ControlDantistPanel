@@ -75,6 +75,7 @@ namespace ControlDantist.ValidateRegistrProject
                     // Получим льготников найденных в ЭСРН по документам дающим право на получение льгот.
                     DataTable tabФИО = ТаблицаБД.GetTableSQL(queryФИО, "ФИО", con, sqlTransaction);
 
+                    // Поиск по ФИО и паспорту.
                     IEsrnValidate validatePersonPassword = new ValidatePersonFioPassword(this.list);
 
                     IBuilderQueryValidate queryFindPersonToPassword = new BuilderQueryValidator(validatePersonPassword);
@@ -88,15 +89,24 @@ namespace ControlDantist.ValidateRegistrProject
                     // Получим льготников найденных в ЭСРН по документам дающим право на получение льгот.
                     DataTable tabФиоPassword = ТаблицаБД.GetTableSQL(queryФиоPassword, "ФиоPassword", con, sqlTransaction);
 
+                    // Словарь для хранения id договоров которые прошли проверку.
+                    Dictionary<int, int> idContracts = new Dictionary<int, int>();
 
-                    if (tabФИО.Rows.Count > 1)
+                    // Проверка список договоров.
+                    var listEsrnPerson = this.list;
+
+                    if (tabФИО?.Rows?.Count > 1)
                     {
-                        var test = tabФИО;
+                        // Пометим прошедших проверку.
+                        CompareRegistr compareRegistr = new CompareRegistr(this.list);
+                        compareRegistr.Compare(tabФИО);
                     }
 
                     if(tabФиоPassword?.Rows?.Count > 1)
                     {
-                        var test = tabФиоPassword;
+                        // Пометим прошедших проверку.
+                        CompareRegistr compareRegistr = new CompareRegistr(this.list);
+                        compareRegistr.Compare(tabФиоPassword);
                     }
 
                     // Генерируем запрос на поиск льготников в ЭСРН по Фио и номеру паспората.

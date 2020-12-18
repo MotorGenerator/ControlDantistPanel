@@ -5,7 +5,7 @@ using ControlDantist.ValidateRegistrProject;
 using ControlDantist.ExceptionClassess;
 using ControlDantist.Classes;
 using System;
-
+using System.Data;
 
 namespace UnitTestControlDantistPanel
 {
@@ -101,7 +101,81 @@ namespace UnitTestControlDantistPanel
 
 
             Assert.IsTrue(ver.Validate());
-         
+        }
+
+        [TestMethod]
+        public void TestCompareRegistr()
+        {
+            // arrange.
+            List<ItemLibrary> list = new List<ItemLibrary>();
+
+            // Список договоров.
+            ItemLibrary itemLibrary = new ItemLibrary();
+
+            // id договора.
+            ТДоговор contract = new ТДоговор();
+            contract.id_договор = 100;
+
+            // Пакет с данными реестра.
+            PackageClass packageClass = new PackageClass();
+            itemLibrary.Packecge = packageClass;
+
+            itemLibrary.Packecge.тДоговор = contract;
+
+            list.Add(itemLibrary);
+
+            // arrange result.
+            List<ItemLibrary> list2 = new List<ItemLibrary>();
+
+            // Список договоров.
+            ItemLibrary itemLibrary2 = new ItemLibrary();
+
+            // Пометим как прошедший проверку.
+            itemLibrary2.FlagValidateEsrn = true;
+
+            // id договора.
+            ТДоговор contract2 = new ТДоговор();
+            contract2.id_договор = 100;
+
+            // Пакет с данными реестра.
+            PackageClass packageClass2 = new PackageClass();
+
+            itemLibrary2.Packecge = packageClass2;
+
+            itemLibrary2.Packecge.тДоговор = contract2;
+
+            list2.Add(itemLibrary2);
+
+            // Создаем таблицу.
+            DataSet bookStore = new DataSet("BookStore");
+            DataTable booksTable = new DataTable("Books");
+            // добавляем таблицу в dataset
+            bookStore.Tables.Add(booksTable);
+
+            // создаем столбцы для таблицы Books
+            DataColumn idColumn = new DataColumn("id_договор", Type.GetType("System.Int32"));
+            idColumn.Unique = true; // столбец будет иметь уникальное значение
+            idColumn.AllowDBNull = false; // не может принимать null
+            idColumn.AutoIncrement = true; // будет автоинкрементироваться
+            idColumn.AutoIncrementSeed = 99; // начальное значение
+            idColumn.AutoIncrementStep = 1; // приращении при добавлении новой строки
+
+            booksTable.Columns.Add(idColumn);
+
+            DataRow dataRow = booksTable.NewRow();
+
+            DataRow row = booksTable.NewRow();
+            booksTable.Rows.Add(row); // добавляем первую строку
+
+            //dataRow["Id"] = 100;
+
+            // act.
+            CompareRegistr compareRegistr = new CompareRegistr(list);
+            compareRegistr.Compare(booksTable);
+
+            // result.
+            Assert.AreEqual(itemLibrary2.FlagValidateEsrn, itemLibrary.FlagValidateEsrn,"Проверка не прошла");
+
         }
 
     }

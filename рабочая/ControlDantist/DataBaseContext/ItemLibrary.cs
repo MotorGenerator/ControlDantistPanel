@@ -8,9 +8,14 @@ namespace ControlDantist.DataBaseContext
     public class ItemLibrary
     {
         /// <summary>
-        /// Номер кдоговора.
+        /// Номер договора.
         /// </summary>
         public string NumContract { get; set; }
+
+        /// <summary>
+        /// Флаг указывающий что договор прошёл проверку.
+        /// </summary>
+        public bool FlagValidateEsrn { get; set; }
 
         /// <summary>
         /// Пакет данных к договору.

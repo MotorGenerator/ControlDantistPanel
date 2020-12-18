@@ -121,8 +121,12 @@ namespace ControlDantist.ValidateRegistrProject
                                   " on WM_ADDRESS.OUID = WM_PERSONAL_CARD.A_REGFLAT " +
                                   " CROSS JOIN dbo.REGISTER_CONFIG  " +
                                   " where  WM_PERSONAL_CARD.A_PCSTATUS = 1 " +
-                                  " and " + nameDocPreferentCategory + " " +
-                                  " ) as Tab1 " +
+                                   //" and " + nameDocPreferentCategory + " " +
+                                   " and PPR_DOC.A_NAME in ('Удостоверение ветерана труда','Удостоверение ветерана труда Саратовской области', " +
+                                " 'Удостоверение о праве на льготы (отметка - ст.20)','Свидетельство о праве на льготы для реабилитированных лиц', " +
+                                " 'Справка о реабилитации','Свидетельство о праве на льготы для лиц, признанных пострадавшими от политических репрессий', " +
+                                " 'Справка о признании пострадавшим от политических репрессий','Удостоверение ветерана военной службы','Паспорт гражданина России') ) as Tab1 " + 
+                                  //" ) as Tab1 " +
                                   " inner join " + nameTempTable + " " +
                                     " on LOWER(RTRIM(LTRIM(Tab1.Фамилия))) = LOWER(RTRIM(LTRIM(" + nameTempTable + ".Фамилия))) " +
                                     " and LOWER(RTRIM(LTRIM(Tab1.Имя))) = LOWER(RTRIM(LTRIM(" + nameTempTable + ".Имя))) " +

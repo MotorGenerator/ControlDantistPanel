@@ -876,6 +876,7 @@
     <Compile Include="UnpaidStatistic\ReportBalanceStatistic.cs" />
     <Compile Include="ValidateMedicalServices\ValidateServicesMedical.cs" />
     <Compile Include="ValidateRegistrProject\BuilderQueryValidator.cs" />
+    <Compile Include="ValidateRegistrProject\CompareRegistr.cs" />
     <Compile Include="ValidateRegistrProject\EsrnPersonValidate.cs" />
     <Compile Include="ValidateRegistrProject\EsrnValidate.cs" />
     <Compile Include="ValidateRegistrProject\IBuilderQueryValidate.cs" />

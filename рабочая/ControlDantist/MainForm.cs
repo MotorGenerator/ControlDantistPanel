@@ -4146,7 +4146,7 @@ namespace ControlDantist
             if (listDoc != null && listDoc.Count > 0)
             {
 
-                //// Проверим по базам ЭСРН.
+                ////// Проверим по базам ЭСРН.
                 //EsrnValidate esrnValidate = new EsrnValidate(договорs, льготнаяКатегория);
 
                 //var result = esrnValidate.ValidateList();
@@ -4173,6 +4173,9 @@ namespace ControlDantist
                     esrnPersonValidate.Validate();
 
                     // Проверка договоров по ЭСРН.
+                    var itemResult = packegeDateContract;
+
+                    var stri = "";
                 }
             }
 
