@@ -34,7 +34,7 @@ using ControlDantist.ReadRegistrProject;
 using ControlDantist.ValidPersonContract;
 using ControlDantist.RenameFile;
 using MyTask = System.Threading.Tasks;
-
+using ControlDantist.MedicalServices;
 
 
 namespace ControlDantist
@@ -3793,6 +3793,8 @@ namespace ControlDantist
             // Данные из реестра проектов договора.
             List<ItemLibrary> packegeDateContract = new List<ItemLibrary>();
 
+
+
             if (openFileDialog1.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
                 // Получили имя класса.
@@ -4123,7 +4125,7 @@ namespace ControlDantist
             {
                 try
                 {
-                    // Переименуем файл.
+                    // Переименуем файл добавим .
                     string nameFile = System.IO.Path.GetFileName(fileName);
 
                     string directoryName = System.IO.Path.GetDirectoryName(fileName);
@@ -4170,13 +4172,32 @@ namespace ControlDantist
 
                 if (result == DialogResult.OK)
                 {
+                    // Осуществляем проверку договров по БД ЭСРН.
                     EsrnPersonValidate esrnPersonValidate = new EsrnPersonValidate(packegeDateContract);
                     esrnPersonValidate.Validate();
 
-
-
                     // Проверка договоров по ЭСРН.
                     var itemResult = packegeDateContract;
+
+                    // Подключимся к нашей БД.
+                    using (DContext dc = new DContext(ConnectDB.ConnectionString()))
+                    {
+                        // Медицинские услуги поликлинники.
+                        IServices<ControlDantist.DataBaseContext.ТВидУслуг> servicesHospital = new ServicesMedicalHospital(dc);
+
+                        //packegeDateContract.Where(w=>w.)
+
+                        // Реестр договоров.
+                        ReestrContract reestrContract = new ReestrContract(packegeDateContract);
+
+                        // Сравним список услуг договоров со списоком услуг в БД.
+                        ControlDantist.MedicalServices.ValidateMedicalServices validateMedServis = new MedicalServices.ValidateMedicalServices(reestrContract, servicesHospital);
+
+                        validateMedServis.ValidateServices();
+
+                    }
+
+                        
 
                     var stri = "";
                 }

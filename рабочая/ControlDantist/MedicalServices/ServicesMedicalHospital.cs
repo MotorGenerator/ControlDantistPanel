@@ -5,7 +5,10 @@ using ControlDantist.DataBaseContext;
 
 namespace ControlDantist.MedicalServices
 {
-    public class ServicesMedicalHospital : IServices<КлассификаторУслуг>
+    /// <summary>
+    /// Возвращает список медицинских услуг оказываемых поликлинникой.
+    /// </summary>
+    public class ServicesMedicalHospital : IServices<ТВидУслуг>
     {
         private DContext dc;
 
@@ -20,11 +23,11 @@ namespace ControlDantist.MedicalServices
         /// Возвращает список услуг поликлинники.
         /// </summary>
         /// <returns></returns>
-        public List<КлассификаторУслуг> ServicesMedical()
+        public List<ТВидУслуг> ServicesMedical()
         {
-            List<КлассификаторУслуг> listServices = new List<КлассификаторУслуг>();
+            List<ТВидУслуг> listServices = new List<ТВидУслуг>();
 
-            var list = dc.КлассификаторУслугs?.Where(w => w.id_поликлинника == this.idHospital)?.AsQueryable()?? null;
+            var list = dc.ТВидУслуг?.Where(w => w.id_поликлинника == this.idHospital)?.AsQueryable()?? null;
 
             if (list != null)
                 listServices.AddRange(list);

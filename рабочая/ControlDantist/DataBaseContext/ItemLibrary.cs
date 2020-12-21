@@ -18,6 +18,11 @@ namespace ControlDantist.DataBaseContext
         public bool FlagValidateEsrn { get; set; }
 
         /// <summary>
+        /// Флаг проверки медицинских услуг.
+        /// </summary>
+        public bool FlagValidateMedicalServices { get; set; }
+
+        /// <summary>
         /// Пакет данных к договору.
         /// </summary>
         public PackageClass Packecge { get; set; }

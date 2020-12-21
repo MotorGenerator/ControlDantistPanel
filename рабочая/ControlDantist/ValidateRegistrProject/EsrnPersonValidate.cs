@@ -31,10 +31,19 @@ namespace ControlDantist.ValidateRegistrProject
             //Пока закоментирован.
             //Получаем словарь со строками подключения к АИС ЭСРН.
             Dictionary<string, string> pullConnect = config.Select();
-            
+
             // Пройдемся по строкам подключения.
             foreach (KeyValuePair<string, string> dStringConnect in pullConnect)
             {
+                // Для теста.
+                string sKey = string.Empty;
+                sKey = dStringConnect.Key.Trim();
+                if(sKey.Trim() != "Балаковский".Trim())
+                {
+                    var sTestTestt = "";
+                    continue;
+                }
+
                 // Переменная хранит строку подключения к БД.
                 string sConnection = string.Empty;
                 sConnection = dStringConnect.Value.ToString().Trim();

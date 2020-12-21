@@ -14,7 +14,7 @@ namespace ControlDantist.DataBaseContext
 
         public int id_поликлинника { get; set; }
 
-        [ForeignKey("Поликлинника")]
+        [ForeignKey("id_поликлинника")]
         public ТПоликлинника ТПоликлинника { get; set; }
 
         public int? id_постановление { get; set; }

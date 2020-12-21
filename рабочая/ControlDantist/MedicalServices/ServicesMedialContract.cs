@@ -12,6 +12,7 @@ namespace ControlDantist.MedicalServices
     {
         private List<ItemLibrary> packegeDateContract;
 
+        // id договора.
         private int IdContract { get; set; }
 
         public ServicesMedialContract(List<ItemLibrary> packegeDateContract) //, int idContract)
@@ -21,7 +22,7 @@ namespace ControlDantist.MedicalServices
         }
 
         /// <summary>
-        /// Возвращает список проетов договоров.
+        /// Возвращает список проектов договоров поликлинники.
         /// </summary>
         /// <returns></returns>
         public List<ТУслугиПоДоговору> ServicesMedical()
