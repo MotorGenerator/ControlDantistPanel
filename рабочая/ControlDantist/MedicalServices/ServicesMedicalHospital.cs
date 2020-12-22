@@ -25,8 +25,10 @@ namespace ControlDantist.MedicalServices
         /// <returns></returns>
         public List<ТВидУслуг> ServicesMedical()
         {
+            // Создадим пустой список с услугами полклинники.
             List<ТВидУслуг> listServices = new List<ТВидУслуг>();
 
+            // Заполним список.
             var list = dc.ТВидУслуг?.Where(w => w.id_поликлинника == this.idHospital)?.AsQueryable()?? null;
 
             if (list != null)

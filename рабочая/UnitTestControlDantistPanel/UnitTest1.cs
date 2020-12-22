@@ -6,6 +6,7 @@ using ControlDantist.ExceptionClassess;
 using ControlDantist.Classes;
 using System;
 using System.Data;
+using ControlDantist.MedicalServices;
 
 namespace UnitTestControlDantistPanel
 {
@@ -175,6 +176,30 @@ namespace UnitTestControlDantistPanel
 
             // result.
             Assert.AreEqual(itemLibrary2.FlagValidateEsrn, itemLibrary.FlagValidateEsrn,"Проверка не прошла");
+        }
+
+        [TestMethod]
+        public void TestServicesMedical()
+        {
+            // arrang.
+
+            //DContext dc = new DContext(ConnectDB.ConnectionString());
+
+            //dc.ТВидУслуг = null;
+
+            //// act.
+
+            //ServicesMedicalHospital smh = new ServicesMedicalHospital(dc);
+
+            //smh.SetIdentificator(210);
+
+            //var listServicesMedical = smh.ServicesMedical();
+
+            List<ТВидУслуг> listResult = new List<ТВидУслуг>();
+
+            // result.
+           // Assert.AreEqual(listServicesMedical, listResult, "Тест не пройден");
+
 
         }
 

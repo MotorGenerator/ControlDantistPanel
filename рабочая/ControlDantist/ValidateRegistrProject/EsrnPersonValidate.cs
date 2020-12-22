@@ -87,6 +87,7 @@ namespace ControlDantist.ValidateRegistrProject
                     // Поиск по ФИО и паспорту.
                     IEsrnValidate validatePersonPassword = new ValidatePersonFioPassword(this.list);
 
+                    // Поиск по ФИО и номеру документа.
                     IBuilderQueryValidate queryFindPersonToPassword = new BuilderQueryValidator(validatePersonPassword);
 
                     // Переменная дя хранения строки запроса.

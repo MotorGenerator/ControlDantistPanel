@@ -23,7 +23,7 @@ namespace ControlDantist.ReadRegistrProject
         {
             ТПоликлинника hosp = new ТПоликлинника();
             
-            var rez = dc.ТПоликлинника.Where(w => w.ИНН == this.инн).FirstOrDefault();
+            var rez = dc.ТПоликлинника?.Where(w => w.ИНН == this.инн)?.OrderByDescending(w=>w.id_поликлинника)?.FirstOrDefault() ?? null; 
             if(rez != null)
             {
                 hosp = rez;

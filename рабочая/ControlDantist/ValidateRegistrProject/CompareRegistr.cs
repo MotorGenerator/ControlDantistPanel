@@ -33,9 +33,41 @@ namespace ControlDantist.ValidateRegistrProject
                     {
                         if (Convert.ToInt32(row["id_договор"]) == itm.Packecge.тДоговор.id_договор)
                         {
-                            if(itm.FlagValidateEsrn == false)
-                            // Пометим договор как прошедший проверку.
-                            itm.FlagValidateEsrn = true;
+                            // Пометим только договора которые не прошли проверку.
+                            if (itm.FlagValidateEsrn == false)
+                            {
+                                // Пометим договор как прошедший проверку.
+                                itm.FlagValidateEsrn = true;
+
+                                //if (dataTable.Rows.Contains("A_REGREGIONCODE") == true)
+                                //{
+                                    // id район области. Хотя скорее всего здесь не понадобиться.
+                                    if (row["A_REGREGIONCODE"] != DBNull.Value)
+                                    {
+                                        itm.Packecge.льготник.id_район = Convert.ToInt32(row["A_REGREGIONCODE"]);
+                                    }
+                                //}
+
+                                // Снилс.
+                                if (row["A_SNILS"] != DBNull.Value)
+                                {
+                                    itm.Packecge.льготник.Снилс = row["A_SNILS"].ToString().Trim();
+                                }
+
+                                // Дата рождения.
+                                if (row["дата выдачи"] != DBNull.Value)
+                                {
+                                    DateTime dr = Convert.ToDateTime(row["дата выдачи"]);
+
+                                    itm.Packecge.льготник.ДатаРождения = dr.Date;
+                                }
+
+                                if (row["Адрес"] != DBNull.Value)
+                                {
+                                    itm.AddressPerson = row["Адрес"].ToString();
+                                }    
+                            }
+
                         }
                     }
                 }

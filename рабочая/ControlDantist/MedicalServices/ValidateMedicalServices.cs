@@ -13,8 +13,14 @@ namespace ControlDantist.MedicalServices
     {
         private ReestrContract reestrContract;
 
+        // Переменная для хранения медицинских услуг полученных из нашей БД.
         private IServices<ТВидУслуг> servisHospital;
 
+        /// <summary>
+        /// Реестр с даннвми по контракту.
+        /// </summary>
+        /// <param name="reestrContract">Реестр с даннвми по контракту.</param>
+        /// <param name="servisHospital">Услуги по поликлиннике.</param>
         public ValidateMedicalServices(ReestrContract reestrContract, IServices<ТВидУслуг> servisHospital)
         {
             this.reestrContract = reestrContract;
@@ -47,6 +53,7 @@ namespace ControlDantist.MedicalServices
                 // Получим услуги поликлинники.
                 List<ТВидУслуг> listKU = servisHospital.ServicesMedical();
 
+                // Если список услуг поликлинники не пуст.
                 if (listKU.Count > 0)
                 {
                     foreach (var item in this.reestrContract.SetRegistServices())
@@ -57,21 +64,25 @@ namespace ControlDantist.MedicalServices
                         // Приведем списки к одному типу.
                         var listServicesHosp = listKU.Select(x => new УслугиПоДоговору { НаименованиеУслуги = x.ВидУслуги, цена = x.Цена }).ToList();
 
+                        //Сджойним усулуги по договру и услуги в поликлиннике.
                         var result = from x in item.Packecge.listUSlug
                                      join y in listServicesHosp
-                                     on new { X1 = x.НаименованиеУслуги, X2 = x.цена } equals new { X1 = y.НаименованиеУслуги, X2 = y.цена }
+                                     on new { X1 = x.НаименованиеУслуги.Trim().ToLower(), X2 = x.цена } equals new { X1 = y.НаименованиеУслуги.Trim().ToLower(), X2 = y.цена }
+                                     //on new { X1 = x.НаименованиеУслуги.Trim().ToLower().Replace(" ", "") } equals new { X1 = y.НаименованиеУслуги.Trim().ToLower().Replace(" ", "") }
                                      select new
                                      {
                                          x.НаименованиеУслуги,
                                          x.Сумма
                                      };
 
-                        // Если услуги в договоре совпали с услугами на сервере.
-                        if(result.Count() == countServices)
+
+                        // Если количество услуги в договоре совпало с Join 
+                        if (result.Count() == countServices)
                         {
                             // Считаем что договор прошёл проверку по медицинским услугам.
                             item.FlagValidateMedicalServices = true;
                         }
+
                     }
                 }
 

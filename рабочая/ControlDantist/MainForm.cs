@@ -4193,7 +4193,14 @@ namespace ControlDantist
                         // Сравним список услуг договоров со списоком услуг в БД.
                         ControlDantist.MedicalServices.ValidateMedicalServices validateMedServis = new MedicalServices.ValidateMedicalServices(reestrContract, servicesHospital);
 
+                        // Выполним сравнение услуг в договре с услугам записанными на нашем сервере.
                         validateMedServis.ValidateServices();
+
+                        var resultTest = packegeDateContract;
+
+                        var resultTrue = resultTest.Where(w => w.FlagValidateMedicalServices == true).ToList();
+
+                        string iTest = "";
 
                     }
 

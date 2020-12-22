@@ -27,5 +27,10 @@ namespace ControlDantist.DataBaseContext
         /// </summary>
         public PackageClass Packecge { get; set; }
 
+        /// <summary>
+        /// Адрес льготника для отображения в форме отображения результата проверки.
+        /// </summary>
+        public string AddressPerson { get; set; }
+
     }
 }
