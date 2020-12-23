@@ -101,7 +101,7 @@ namespace ControlDantist.ValidateRegistrProject
 
             InsertDateTempTable(stringBuilder);
 
-            string queryJoin = @"select  " + nameTempTable + ".id_договор, OUID,Tab1.Фамилия,Tab1.Имя,Tab1.Отчество,DOCUMENTSTYPE,DOCUMENTSERIES,DOCUMENTSNUMBER,ISSUEEXTENSIONSDATE,A_NAME,A_ADRTITLE,BIRTHDATE,A_SNILS from ( " +
+            string queryJoin = @"select  " + nameTempTable + ".id_договор, OUID,Tab1.Фамилия,Tab1.Имя,Tab1.Отчество,DOCUMENTSTYPE,DOCUMENTSERIES as 'Серия документа',DOCUMENTSNUMBER as 'Номер документа',ISSUEEXTENSIONSDATE as 'дата выдачи',A_NAME,A_ADRTITLE as 'Адрес',BIRTHDATE as 'ДатаРождения',A_SNILS,A_REGREGIONCODE from ( " +
                                "  select WM_PERSONAL_CARD.OUID, SPR_FIO_SURNAME.A_NAME as Фамилия,dbo.SPR_FIO_NAME.A_NAME as 'Имя',SPR_FIO_SECONDNAME.A_NAME as 'Отчество',WM_ACTDOCUMENTS.DOCUMENTSTYPE, " +
                                  " WM_ACTDOCUMENTS.DOCUMENTSERIES ,WM_ACTDOCUMENTS.DOCUMENTSNUMBER ,WM_ACTDOCUMENTS.ISSUEEXTENSIONSDATE ,PPR_DOC.A_NAME,WM_ADDRESS.A_ADRTITLE, " +
                                 " WM_PERSONAL_CARD.BIRTHDATE ,dbo.WM_PERSONAL_CARD.A_SNILS, dbo.REGISTER_CONFIG.A_REGREGIONCODE from dbo.WM_PERSONAL_CARD " +
@@ -135,6 +135,7 @@ namespace ControlDantist.ValidateRegistrProject
             stringBuilder.Append(queryJoin);
 
             return stringBuilder.ToString();
+             
         }
     }
 }

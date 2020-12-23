@@ -5,14 +5,23 @@ using System.Text;
 
 namespace ControlDantist.DisplayRegistr
 {
+    /// <summary>
+    /// Вспомогательный класс содержащий результат провреки договоров.
+    /// </summary>
     public class ResultValidEsrnDisplay
     {
+        /// <summary>
+        /// id договора по входящему реестру проректов договоров (id договора БД поликлинники)
+        /// </summary>
         public int IdContract { get; set; }
 
         public string НомерДоговора { get; set; }
 
         public string ФиоЛьготник { get; set; }
 
+        /// <summary>
+        /// Адрес льготника по ЭСРН.
+        /// </summary>
         public string Адрес { get; set; }
 
         public string СерияНомерУдостоверения { get; set; }

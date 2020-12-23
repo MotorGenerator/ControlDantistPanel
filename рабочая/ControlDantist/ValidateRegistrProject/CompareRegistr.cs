@@ -39,33 +39,61 @@ namespace ControlDantist.ValidateRegistrProject
                                 // Пометим договор как прошедший проверку.
                                 itm.FlagValidateEsrn = true;
 
-                                //if (dataTable.Rows.Contains("A_REGREGIONCODE") == true)
+                                //if (row["Имя"] != DBNull.Value)
                                 //{
-                                    // id район области. Хотя скорее всего здесь не понадобиться.
-                                    if (row["A_REGREGIONCODE"] != DBNull.Value)
-                                    {
-                                        itm.Packecge.льготник.id_район = Convert.ToInt32(row["A_REGREGIONCODE"]);
-                                    }
+                                //    val.Имя = row["Имя"].ToString();
                                 //}
 
-                                // Снилс.
-                                if (row["A_SNILS"] != DBNull.Value)
-                                {
-                                    itm.Packecge.льготник.Снилс = row["A_SNILS"].ToString().Trim();
-                                }
+                                //if (row["Отчество"] != DBNull.Value)
+                                //{
+                                //    val.Отчество = row["Отчество"].ToString();
+                                //}
 
-                                // Дата рождения.
-                                if (row["дата выдачи"] != DBNull.Value)
-                                {
-                                    DateTime dr = Convert.ToDateTime(row["дата выдачи"]);
+                                //if (row["Фамилия"] != DBNull.Value)
+                                //{
+                                //    val.Фамилия = row["Фамилия"].ToString();
+                                //}
 
-                                    itm.Packecge.льготник.ДатаРождения = dr.Date;
-                                }
+                                ////if (row["A_NAME"] != DBNull.Value)
+                                ////{
+                                ////    val.НазваниеДокумента = row["A_NAME"].ToString();
+                                ////}
 
+                                ////if (row["Серия документа"] != DBNull.Value)
+                                ////{
+                                ////    val.СерияДокумента = row["Серия документа"].ToString().Trim();
+                                ////}
+
+                                ////if (row["Номер документа"] != DBNull.Value)
+                                ////{
+                                ////    val.НомерДокумента = row["Номер документа"].ToString().Trim();
+                                ////}
+
+                                ////if (row["дата выдачи"] != DBNull.Value)
+                                ////{
+                                ////    val.ДатаВыдачиДокумента = Convert.ToDateTime(row["дата выдачи"]).ToShortDateString();
+                                ////}
+
+                                ////val.ДатаРождения = датаРождения;
+
+                                // Запишем адрес льготника найденного по ЭСРН.
                                 if (row["Адрес"] != DBNull.Value)
                                 {
-                                    itm.AddressPerson = row["Адрес"].ToString();
-                                }    
+                                    itm.AddressPerson = row["Адрес"].ToString().Trim();
+                                }
+
+                                //// Снилс льготника прочитанный из ЭСРН.
+                                //if (row["A_SNILS"] != DBNull.Value)
+                                //{
+                                //    vContract.SnilsPerson = row["A_SNILS"].ToString().Trim();
+                                //}
+
+                                //// ID района области где проживает льготник.
+                                //if (row["A_REGREGIONCODE"] != DBNull.Value)
+                                //{
+                                //    vContract.IdRegionEsrn = row["A_REGREGIONCODE"].ToString().Trim();
+                                //}
+
                             }
 
                         }

@@ -3790,11 +3790,10 @@ namespace ControlDantist
             // Путь к папке мой компьютер.
             openFileDialog1.InitialDirectory = "::{20D04FE0-3AEA-1069-A2D8-08002B30309D}";
 
-            // Данные из реестра проектов договора.
+            // Список для хранения данных из реестра проектов договора.
             List<ItemLibrary> packegeDateContract = new List<ItemLibrary>();
 
-
-
+            // Диалоговое окно для открытия файлов проектов договоров.
             if (openFileDialog1.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
                 // Получили имя класса.
@@ -4196,15 +4195,14 @@ namespace ControlDantist
                         // Выполним сравнение услуг в договре с услугам записанными на нашем сервере.
                         validateMedServis.ValidateServices();
 
-                        var resultTest = packegeDateContract;
-
-                        var resultTrue = resultTest.Where(w => w.FlagValidateMedicalServices == true).ToList();
-
-                        string iTest = "";
-
                     }
 
-                        
+                    // Отобразим результат проверки.
+                    FormValidOutEsrn formValid = new FormValidOutEsrn(packegeDateContract);
+
+                    // Откроем окно с результатами проверки.
+                    formValid.Show();
+
 
                     var stri = "";
                 }

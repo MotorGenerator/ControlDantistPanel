@@ -16,6 +16,7 @@ using ControlDantist.Classes;
 using ControlDantist.ValidPersonContract;
 using ControlDantist.LetterClassess;
 using DantistLibrary;
+using ControlDantist.DataBaseContext;
 
 
 namespace ControlDantist
@@ -25,6 +26,9 @@ namespace ControlDantist
         private Dictionary<string, PersonValidEsrn> dictionary;
 
         private string инн = string.Empty;
+
+        // Реестр с проетками договоров.
+        private IEnumerable<ItemLibrary> listProjectContrats;
 
         /// <summary>
         /// Id файла с ррестром файлов проектов договоров.
@@ -47,9 +51,18 @@ namespace ControlDantist
             }
         }
 
+        public FormValidOutEsrn(IEnumerable<ItemLibrary> listProjectContrats)
+        {
+            this.listProjectContrats = listProjectContrats;
+
+            InitializeComponent();
+        }
+
         private void FormValidOutEsrn_Load(object sender, EventArgs e)
         {
-            DisplayRegistrProject displayRegistrProject = new DisplayRegistrProject(dictionary);
+            //DisplayRegistrProject displayRegistrProject = new DisplayRegistrProject(dictionary);
+
+            DisplayRegistrProject displayRegistrProject = new DisplayRegistrProject(this.listProjectContrats);
 
             // 
             this.dataGridView1.DataSource = displayRegistrProject.GetRegistr();
@@ -98,19 +111,26 @@ namespace ControlDantist
             // Отображать данные по льготнику будем только у прошедших проверку.
             DataGridViewRow row = this.dataGridView1.CurrentRow;
 
+            // ПОлучим id договора.
             int idContract = Convert.ToInt32(row.Cells["IdContract"].Value);
 
+            // Номер договора.
+            string numContract = row.Cells["НомерДоговора"].Value.ToString();
+
+            // Если договор прошел проверку.
             if (Convert.ToBoolean(row.Cells["FlagValidEsrn"].Value) == true)
             {
-                DisplayResultValidate displayResultValidate = new DisplayResultValidate(idContract);
+                // Отобразим данные из договора.
+                DisplayResultValidate displayResultValidate = new DisplayResultValidate(numContract);
 
-                DatePersonForDisplay dp = displayResultValidate.GetFioPerson(this.dictionary);
+                DatePersonForDisplay dp = displayResultValidate.GetFioPerson(this.listProjectContrats.ToList());
 
                 this.txtЛьготник.Text = dp.Фио + " " + dp.ДатаРождения + " г. р.";
                 this.txtАдрес.Text =  dp.Адрес;
                 this.txtДокумент.Text = dp.Удостоверение;
             }
 
+            // Если договор не прошел проверку.
             if (Convert.ToBoolean(row.Cells["FlagValidServices"].Value) == false)
             {
                 // Выведим разницу в услугах у льготников которые не прошли проверку по услугам.
@@ -186,13 +206,16 @@ namespace ControlDantist
         private void dataGridView1_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
 
-            int idContract = Convert.ToInt32(this.dataGridView1.CurrentRow.Cells["IdContract"].Value);
+            //int idContract = Convert.ToInt32(this.dataGridView1.CurrentRow.Cells["IdContract"].Value);
 
             // Проверим значение флага проверки льготника по ЭСРН.
             bool flagValidEsrn = Convert.ToBoolean(this.dataGridView1.CurrentRow.Cells["FlagValidEsrn"].Value);
 
+            // Номер договора.
+            string numContract = this.dataGridView1.CurrentRow.Cells["НомерДоговора"].Value.ToString();
+
             // Получим текущий контракт.
-            var currContract = dictionary.Values.Where(w => w.IdContract == idContract).FirstOrDefault();
+            var currContract = listProjectContrats.Where(w => w.NumContract.Trim() == numContract.Trim()).FirstOrDefault();// dictionary.Values.Where(w => w.IdContract == idContract).FirstOrDefault();
 
             // Если Установлен флаг проверки в True.
             if (flagValidEsrn == true)
@@ -200,9 +223,9 @@ namespace ControlDantist
                 // Установим что льготнико прошел проверку.
                 if(currContract != null)
                 {
-                    currContract.flagValidEsrn = true;
-                    currContract.FlagValidPersonFioEsrn = true;
-                    currContract.FlagValidPersonPassword = true;
+                    currContract.FlagValidateEsrn = true;
+                    //currContract..FlagValidPersonFioEsrn = true;
+                    //currContract.FlagValidPersonPassword = true;
                 }
             }
             else
@@ -211,9 +234,9 @@ namespace ControlDantist
                 if (currContract != null)
                 {
                     // То установим, что льгоник не прошел проверку.
-                    currContract.flagValidEsrn = false;
-                    currContract.FlagValidPersonFioEsrn = false;
-                    currContract.FlagValidPersonPassword = false;
+                    currContract.FlagValidateEsrn = false;
+                    //currContract.FlagValidPersonFioEsrn = false;
+                    //currContract.FlagValidPersonPassword = false;
                 }
             }
 

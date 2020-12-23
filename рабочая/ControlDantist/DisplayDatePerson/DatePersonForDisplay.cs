@@ -7,6 +7,14 @@ namespace ControlDantist.DisplayDatePerson
 {
     public class DatePersonForDisplay
     {
+        public DatePersonForDisplay()
+        {
+            Фио = "";
+            Адрес = "";
+            Удостоверение = "";
+            ДатаРождения = "";
+        }
+
         public string Фио { get; set; }
 
         public string Адрес { get; set; }
