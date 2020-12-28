@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.Entity;
 using System.Data.SqlClient;
-using System.Drawing;
 using System.Linq;
-using System.Text;
+using System.Transactions;
 using System.Windows.Forms;
 using ControlDantist.ClassValidRegions;
 using ControlDantist.DisplayRegistr;
@@ -18,6 +18,7 @@ using ControlDantist.LetterClassess;
 using DantistLibrary;
 using ControlDantist.DataBaseContext;
 using ControlDantist.MedicalServices;
+
 
 
 
@@ -421,189 +422,199 @@ namespace ControlDantist
 
             string stest = "";
 
-            //// Данные для отчета о наличии договоров у льготников.
-            //List<PrintContractsValidate> listDoc = new List<PrintContractsValidate>();
+            // Выполним в единой транзакции запись проектов договоров.
+            using (DContext dc = new DContext(ConnectDB.ConnectionString()))
+            {
 
-            //List<ValidItemsContract> listContracts = new List<ValidItemsContract>();
+                using (var scope = new TransactionScope(TransactionScopeOption.Required, new TransactionOptions { IsolationLevel = System.Transactions.IsolationLevel.Serializable }))
+                {
 
-            ////Узнаем содержатся ли ещё договора у текущего льготника
-            //using (SqlConnection con = new SqlConnection(ConnectDB.ConnectionString()))
-            //{
-            //    con.Open();
+                }
+            }
 
-            //    SqlTransaction transact = con.BeginTransaction();
+                //// Данные для отчета о наличии договоров у льготников.
+                //List<PrintContractsValidate> listDoc = new List<PrintContractsValidate>();
 
-            //    // Пройдемся по всем договорам и проверим есть ли оплаченные.
-            //    foreach (DataGridViewRow row in this.dataGridView1.Rows)
-            //    {
-            //        // Получим номер догвора.
-            //        string numContract = row.Cells["НомерДоговора"].Value.ToString();
+                //List<ValidItemsContract> listContracts = new List<ValidItemsContract>();
 
-            //        //  Для ускорения вставляем старый код.
-            //        // узнаем есть ли на сервере такой номер договора который прошёл проверку
-            //        string queryNumDogServ = "select count(НомерДоговора) from Договор where LOWER(RTRIM(LTRIM(НомерДоговора))) = LOWER(RTRIM(LTRIM('" + numContract + "'))) and  ФлагПроверки = 'True' ";
+                ////Узнаем содержатся ли ещё договора у текущего льготника
+                //using (SqlConnection con = new SqlConnection(ConnectDB.ConnectionString()))
+                //{
+                //    con.Open();
 
-            //        //string queryNumDogServ = "select count(НомерДоговора) from Договор where LOWER(RTRIM(LTRIM(НомерДоговора))) = LOWER(RTRIM(LTRIM('" + numContract + "'))) ";
+                //    SqlTransaction transact = con.BeginTransaction();
 
-            //        // Таблица с результатами проверки.
-            //        DataTable tab = ТаблицаБД.GetTableSQL(queryNumDogServ, "ПроверкаДоговора", con, transact);
+                //    // Пройдемся по всем договорам и проверим есть ли оплаченные.
+                //    foreach (DataGridViewRow row in this.dataGridView1.Rows)
+                //    {
+                //        // Получим номер догвора.
+                //        string numContract = row.Cells["НомерДоговора"].Value.ToString();
 
-            //        // Получим ID контракта.
-            //        int idContract = Convert.ToInt32(row.Cells["IdContract"].Value);
+                //        //  Для ускорения вставляем старый код.
+                //        // узнаем есть ли на сервере такой номер договора который прошёл проверку
+                //        string queryNumDogServ = "select count(НомерДоговора) from Договор where LOWER(RTRIM(LTRIM(НомерДоговора))) = LOWER(RTRIM(LTRIM('" + numContract + "'))) and  ФлагПроверки = 'True' ";
 
-            //        //Тест коментарий снять 18.08.2020 года.
-            //        if (Convert.ToInt32(tab.Rows[0][0]) != 0)
-            //        {
-            //            // Выведим сообщение что такой льготник уже существует.
-            //            FormModalPerson fmp = new FormModalPerson();
-            //            fmp.NumContract = numContract;
-            //            fmp.ShowDialog();
+                //        //string queryNumDogServ = "select count(НомерДоговора) from Договор where LOWER(RTRIM(LTRIM(НомерДоговора))) = LOWER(RTRIM(LTRIM('" + numContract + "'))) ";
 
-            //            if (fmp.DialogResult == System.Windows.Forms.DialogResult.OK)
-            //            {
-            //                // Получим текущий договор.
-            //                var contract = dictionary.Values.Where(w => w.IdContract == idContract).FirstOrDefault();
+                //        // Таблица с результатами проверки.
+                //        DataTable tab = ТаблицаБД.GetTableSQL(queryNumDogServ, "ПроверкаДоговора", con, transact);
 
-            //                // Пометим договор как не прошщедший проверку.
-            //                contract.flagValidEsrn = false;
+                //        // Получим ID контракта.
+                //        int idContract = Convert.ToInt32(row.Cells["IdContract"].Value);
 
-            //                //если такой договор уже в БД существует то сразу переходим к другой итерации
-            //                continue;
-            //            }
-            //        }
+                //        //Тест коментарий снять 18.08.2020 года.
+                //        if (Convert.ToInt32(tab.Rows[0][0]) != 0)
+                //        {
+                //            // Выведим сообщение что такой льготник уже существует.
+                //            FormModalPerson fmp = new FormModalPerson();
+                //            fmp.NumContract = numContract;
+                //            fmp.ShowDialog();
 
+                //            if (fmp.DialogResult == System.Windows.Forms.DialogResult.OK)
+                //            {
+                //                // Получим текущий договор.
+                //                var contract = dictionary.Values.Where(w => w.IdContract == idContract).FirstOrDefault();
 
-            //        var person = dictionary.Values.Where(w => w.IdContract == idContract).FirstOrDefault();
+                //                // Пометим договор как не прошщедший проверку.
+                //                contract.flagValidEsrn = false;
 
-            //        if(Convert.ToBoolean(row.Cells["FlagSaveContract"].Value) == false)
-            //        {
-            //            // Пометим как не прошедший проверку.
-            //            person.flagValidEsrn = false;
-
-            //            // Пометим что договор отправлен на доработку.
-            //        }
+                //                //если такой договор уже в БД существует то сразу переходим к другой итерации
+                //                continue;
+                //            }
+                //        }
 
 
-            //        // Проверим есть ли у данного льготника ещё заключенные договора.
-            //        ValidContractForPerson validContract = new ValidContractForPerson(person.фамилия, person.имя, person.отчество.Do(x => x, ""), Convert.ToDateTime(person.датаРождения));
-            //        //validContract.listContracts = listContracts;
-            //        validContract.SetSqlConnection(con);
-            //        validContract.SetSqlTransaction(transact);
-            //        validContract.SetNumContract(numContract);
-            //        PrintContractsValidate договор = validContract.GetContract();
+                //        var person = dictionary.Values.Where(w => w.IdContract == idContract).FirstOrDefault();
 
-            //        listDoc.Add(договор);
+                //        if(Convert.ToBoolean(row.Cells["FlagSaveContract"].Value) == false)
+                //        {
+                //            // Пометим как не прошедший проверку.
+                //            person.flagValidEsrn = false;
 
-            //    }
+                //            // Пометим что договор отправлен на доработку.
+                //        }
 
-            //}
 
-            //if (listDoc.Count > 0)
-            //{
-            //    WordReport wordPrint = new WordReport(listDoc);
+                //        // Проверим есть ли у данного льготника ещё заключенные договора.
+                //        ValidContractForPerson validContract = new ValidContractForPerson(person.фамилия, person.имя, person.отчество.Do(x => x, ""), Convert.ToDateTime(person.датаРождения));
+                //        //validContract.listContracts = listContracts;
+                //        validContract.SetSqlConnection(con);
+                //        validContract.SetSqlTransaction(transact);
+                //        validContract.SetNumContract(numContract);
+                //        PrintContractsValidate договор = validContract.GetContract();
 
-            //    DocPrint docPrint = new DocPrint(wordPrint);
-            //    docPrint.Execute();
-            //}
+                //        listDoc.Add(договор);
 
-            //var предохранитьель = "";
+                //    }
 
-            ////Предложим запись в БД 
-            //FormDalogWriteBD formDialog = new FormDalogWriteBD();
-            //formDialog.ShowDialog();
+                //}
 
-            //if (formDialog.DialogResult == System.Windows.Forms.DialogResult.OK)
-            //{
+                //if (listDoc.Count > 0)
+                //{
+                //    WordReport wordPrint = new WordReport(listDoc);
 
-            //    // Установим уровни изоляции транзакций.
-            //    var option = new System.Transactions.TransactionOptions();
-            //    option.IsolationLevel = System.Transactions.IsolationLevel.Serializable;
+                //    DocPrint docPrint = new DocPrint(wordPrint);
+                //    docPrint.Execute();
+                //}
 
-            //    // Добавим льготника и адрес в БД.
-            //    // Внесём данные в таблицу в едино транзакции.
-            //    using (System.Transactions.TransactionScope scope = new System.Transactions.TransactionScope(System.Transactions.TransactionScopeOption.Required, option))
-            //    {
-            //        try
-            //        {
-            //            UnitDate unitDate = new UnitDate();
+                //var предохранитьель = "";
 
-            //            foreach (var itm in dictionary.Values)
-            //            {
+                ////Предложим запись в БД 
+                //FormDalogWriteBD formDialog = new FormDalogWriteBD();
+                //formDialog.ShowDialog();
 
-            //                var contract = unitDate.ДоговорRepository.SelectContract(itm.IdContract);
+                //if (formDialog.DialogResult == System.Windows.Forms.DialogResult.OK)
+                //{
 
-            //                // Льготник прошёл проверку.
-            //                if (itm.flagValidEsrn == true)
-            //                {
-            //                    // Файл прошёл проверку.
-            //                    contract.ФлагПроверки = true;
+                //    // Установим уровни изоляции транзакций.
+                //    var option = new System.Transactions.TransactionOptions();
+                //    option.IsolationLevel = System.Transactions.IsolationLevel.Serializable;
 
-            //                    // Флаг ожидания проверку и True так как файл проверен.
-            //                    contract.flagОжиданиеПроверки = true;
+                //    // Добавим льготника и адрес в БД.
+                //    // Внесём данные в таблицу в едино транзакции.
+                //    using (System.Transactions.TransactionScope scope = new System.Transactions.TransactionScope(System.Transactions.TransactionScopeOption.Required, option))
+                //    {
+                //        try
+                //        {
+                //            UnitDate unitDate = new UnitDate();
 
-            //                    // Дата записи договора при проверке.
-            //                    contract.ДатаЗаписиДоговора = (DateTime)DateTime.Now.Date;
+                //            foreach (var itm in dictionary.Values)
+                //            {
 
-            //                    // Дата проверки.
-            //                    contract.ДатаПроверки = (DateTime)DateTime.Now.Date;
+                //                var contract = unitDate.ДоговорRepository.SelectContract(itm.IdContract);
 
-            //                    // кто записал проверку.
-            //                    contract.logWrite = MyAplicationIdentity.GetUses();
+                //                // Льготник прошёл проверку.
+                //                if (itm.flagValidEsrn == true)
+                //                {
+                //                    // Файл прошёл проверку.
+                //                    contract.ФлагПроверки = true;
 
-            //                    // Отправим флаг на доработку.
-            //                    contract.ФлагВозвратНаДоработку = false;
-            //                }
-            //                else
-            //                {
-            //                    // Установим флаг ожидания провреки в true, так как файл уже проверен.
-            //                    contract.flagОжиданиеПроверки = true;
+                //                    // Флаг ожидания проверку и True так как файл проверен.
+                //                    contract.flagОжиданиеПроверки = true;
 
-            //                    // Отправим флаг на доработку.
-            //                    contract.ФлагВозвратНаДоработку = true;
+                //                    // Дата записи договора при проверке.
+                //                    contract.ДатаЗаписиДоговора = (DateTime)DateTime.Now.Date;
 
-            //                    // Установим флаг проверки как не прошедший проверку.
-            //                    contract.ФлагПроверки = false;
+                //                    // Дата проверки.
+                //                    contract.ДатаПроверки = (DateTime)DateTime.Now.Date;
 
-            //                    // Дата записи договора при проверке.
-            //                    contract.ДатаЗаписиДоговора = (DateTime)DateTime.Now.Date;
+                //                    // кто записал проверку.
+                //                    contract.logWrite = MyAplicationIdentity.GetUses();
 
-            //                    // Дата проверки.
-            //                    contract.ДатаПроверки = (DateTime)DateTime.Now.Date;
+                //                    // Отправим флаг на доработку.
+                //                    contract.ФлагВозвратНаДоработку = false;
+                //                }
+                //                else
+                //                {
+                //                    // Установим флаг ожидания провреки в true, так как файл уже проверен.
+                //                    contract.flagОжиданиеПроверки = true;
 
-            //                    // кто записал проверку.
-            //                    contract.logWrite = MyAplicationIdentity.GetUses();
-            //                }
+                //                    // Отправим флаг на доработку.
+                //                    contract.ФлагВозвратНаДоработку = true;
 
-            //                // Сохраним изменения в БД.
-            //                unitDate.ДоговорRepository.Update(contract);
+                //                    // Установим флаг проверки как не прошедший проверку.
+                //                    contract.ФлагПроверки = false;
 
-            //                ProjectRegistrFiles projectRegistrFiles = unitDate.ProjectRegistrFilesRepository.Select(this.IdFileRegistr).OrderByDescending(w=>w.IdProjectRegistr).FirstOrDefault();
+                //                    // Дата записи договора при проверке.
+                //                    contract.ДатаЗаписиДоговора = (DateTime)DateTime.Now.Date;
 
-            //                if (projectRegistrFiles != null)
-            //                {
-            //                    // Реестр прошёл проверку.
-            //                    projectRegistrFiles.flagValidateRegistr = true;
+                //                    // Дата проверки.
+                //                    contract.ДатаПроверки = (DateTime)DateTime.Now.Date;
 
-            //                    // Сохраним изменения в БД.
-            //                    unitDate.ProjectRegistrFilesRepository.Update(projectRegistrFiles);
-            //                }
+                //                    // кто записал проверку.
+                //                    contract.logWrite = MyAplicationIdentity.GetUses();
+                //                }
 
-            //            }
+                //                // Сохраним изменения в БД.
+                //                unitDate.ДоговорRepository.Update(contract);
 
-            //            // Завершим транзакцию.
-            //            scope.Complete();
+                //                ProjectRegistrFiles projectRegistrFiles = unitDate.ProjectRegistrFilesRepository.Select(this.IdFileRegistr).OrderByDescending(w=>w.IdProjectRegistr).FirstOrDefault();
 
-            //            MessageBox.Show("Договора сохранены");
-            //        }
-            //        catch (Exception ex)
-            //        {
-            //            MessageBox.Show(ex.Message);
-            //        }
-            //    }
-            //}
+                //                if (projectRegistrFiles != null)
+                //                {
+                //                    // Реестр прошёл проверку.
+                //                    projectRegistrFiles.flagValidateRegistr = true;
 
-            // Закрыл окно.
-            this.Close();
+                //                    // Сохраним изменения в БД.
+                //                    unitDate.ProjectRegistrFilesRepository.Update(projectRegistrFiles);
+                //                }
+
+                //            }
+
+                //            // Завершим транзакцию.
+                //            scope.Complete();
+
+                //            MessageBox.Show("Договора сохранены");
+                //        }
+                //        catch (Exception ex)
+                //        {
+                //            MessageBox.Show(ex.Message);
+                //        }
+                //    }
+                //}
+
+                // Закрыл окно.
+                this.Close();
         }
 
         /// <summary>

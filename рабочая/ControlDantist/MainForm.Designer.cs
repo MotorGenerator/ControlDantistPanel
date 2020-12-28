@@ -146,7 +146,7 @@ namespace ControlDantist
             // приёмToolStripMenuItem
             // 
             this.приёмToolStripMenuItem.Name = "приёмToolStripMenuItem";
-            this.приёмToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
+            this.приёмToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.приёмToolStripMenuItem.Text = "Приём";
             this.приёмToolStripMenuItem.Click += new System.EventHandler(this.приёмToolStripMenuItem_Click);
             // 
@@ -166,11 +166,13 @@ namespace ControlDantist
             this.реестрПроектовДоговоровToolStripMenuItem.Name = "реестрПроектовДоговоровToolStripMenuItem";
             this.реестрПроектовДоговоровToolStripMenuItem.Size = new System.Drawing.Size(226, 22);
             this.реестрПроектовДоговоровToolStripMenuItem.Text = "Реестр проектов договоров";
+            this.реестрПроектовДоговоровToolStripMenuItem.Visible = false;
+            this.реестрПроектовДоговоровToolStripMenuItem.Click += new System.EventHandler(this.реестрПроектовДоговоровToolStripMenuItem_Click);
             // 
             // найтиToolStripMenuItem
             // 
             this.найтиToolStripMenuItem.Name = "найтиToolStripMenuItem";
-            this.найтиToolStripMenuItem.Size = new System.Drawing.Size(108, 22);
+            this.найтиToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.найтиToolStripMenuItem.Text = "Найти";
             this.найтиToolStripMenuItem.Click += new System.EventHandler(this.найтиToolStripMenuItem_Click);
             // 
@@ -240,6 +242,7 @@ namespace ControlDantist
             this.уУстраняемКасякСАктамиToolStripMenuItem.Name = "уУстраняемКасякСАктамиToolStripMenuItem";
             this.уУстраняемКасякСАктамиToolStripMenuItem.Size = new System.Drawing.Size(308, 22);
             this.уУстраняемКасякСАктамиToolStripMenuItem.Text = "уУстраняем касяк с Актами";
+            this.уУстраняемКасякСАктамиToolStripMenuItem.Visible = false;
             this.уУстраняемКасякСАктамиToolStripMenuItem.Click += new System.EventHandler(this.уУстраняемКасякСАктамиToolStripMenuItem_Click);
             // 
             // стоматологическиеУслугиToolStripMenuItem

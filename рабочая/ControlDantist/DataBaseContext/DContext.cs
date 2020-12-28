@@ -13,6 +13,7 @@ namespace ControlDantist.DataBaseContext
         {
             // Запретим генерировать новую БД, подключемся к существующей.
             Database.SetInitializer<DContext>(null);
+            
         }
 
         /// <summary>
