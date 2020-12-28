@@ -762,6 +762,7 @@
     <Compile Include="MedicalServices\IServices.cs" />
     <Compile Include="MedicalServices\ReestrContract.cs" />
     <Compile Include="MedicalServices\ServicesMedialContract.cs" />
+    <Compile Include="MedicalServices\ServicesMedicalCompare.cs" />
     <Compile Include="MedicalServices\ServicesMedicalHospital.cs" />
     <Compile Include="MedicalServices\ValidateMedicalServices.cs" />
     <Compile Include="MyMessage.cs">

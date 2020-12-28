@@ -23,6 +23,11 @@ namespace ControlDantist.DataBaseContext
         public bool FlagValidateMedicalServices { get; set; }
 
         /// <summary>
+        /// Флаг указывающий что договор прошёл проверку.
+        /// </summary>
+        public bool FlagValidContract { get; set; }
+
+        /// <summary>
         /// Пакет данных к договору.
         /// </summary>
         public PackageClass Packecge { get; set; }

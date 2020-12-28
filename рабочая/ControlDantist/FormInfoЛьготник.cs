@@ -10,7 +10,7 @@ using DantistLibrary;
 using ControlDantist.Repository;
 using System.Collections.Generic;
 using System.Linq;
-using ControlDantist.Repository;
+using ControlDantist.DataBaseContext;
 
 namespace ControlDantist
 {
@@ -37,6 +37,11 @@ namespace ControlDantist
             }
         }
 
+        /// <summary>
+        /// Хранит сисок проектов договоров.
+        /// </summary>
+        public List<ItemLibrary> Contracts { get; set; }
+
         public FormInfoЛьготник()
         {
             InitializeComponent();
@@ -56,56 +61,77 @@ namespace ControlDantist
 
         private void FormInfoЛьготник_Load(object sender, EventArgs e)
         {
-            UnitDate unitDate = new UnitDate();
+            //UnitDate unitDate = new UnitDate();
 
-            FiltrRepositoryДоговор filtrRepositoryДоговор = new FiltrRepositoryДоговор(unitDate);
+            //FiltrRepositoryДоговор filtrRepositoryДоговор = new FiltrRepositoryДоговор(unitDate);
 
-            // ПОлучим текущий договор.
-            ControlDantist.Repository.Договор contract = unitDate.ДоговорRepository.FiltrДоговор(this.idContract);
+            //// ПОлучим текущий договор.
+            //ControlDantist.Repository.Договор contract = unitDate.ДоговорRepository.FiltrДоговор(this.idContract);
+
+            ItemLibrary contract = this.Contracts?.Where(w => w.Packecge?.тДоговор?.id_договор == this.idContract).FirstOrDefault();
 
             if (contract != null)
             {
 
-                if (contract != null)
-                {
-                    // Получим id льготника.
-                    int idPerson = (int)contract.id_льготник;
+                //// Получим id льготника.
+                //int idPerson = (int)contract.id_льготник;
 
-                    //var person = unitDate.ЛьготникRepository.Select(idPerson).FirstOrDefault();
-                    var person = unitDate.ЛьготникRepository.FiltrЛьготник(idPerson);
+                ////var person = unitDate.ЛьготникRepository.Select(idPerson).FirstOrDefault();
+                //var person = unitDate.ЛьготникRepository.FiltrЛьготник(idPerson);
+
+                // Получим данные по льготнику.
+                ТЛЬготник person = contract.Packecge?.льготник?? null;
 
                     if (person != null)
                     {
                         //Отобразим ФИО
                         this.lblF.Text = person.Фамилия.Trim();
                         this.lblNam.Text = person.Имя.Trim();
-                        this.lblFat.Text = person.Отчество.Trim() + " " + person.ДатаРождения.Value.ToShortDateString() +" г.р.";
+                        this.lblFat.Text = person.Отчество.Trim() + " " + person.ДатаРождения.ToShortDateString() +" г.р.";
 
                         //отобразим серию и номер документа дающегно парво на льготу
                         this.lblSeria.Text = person.СерияДокумента.Trim();
-                        this.lblPasport.Text = person.НомерДокумента.Trim() + " выдан " + person.ДатаВыдачиДокумента.Value.ToShortDateString();
+                        this.lblPasport.Text = person.НомерДокумента.Trim() + " выдан " + person.ДатаВыдачиДокумента.ToShortDateString();
 
                         //отобразим серию и номер паспрота льготника
                         this.lblSerPass.Text =person.СерияПаспорта.Trim();
-                        this.lblNumPass.Text = person.НомерПаспорта.Trim() + " выдан " + person.ДатаВыдачиПаспорта.Value.ToShortDateString();
+                        this.lblNumPass.Text = person.НомерПаспорта.Trim() + " выдан " + person.ДатаВыдачиПаспорта.ToShortDateString();
 
-                        var city = unitDate.НаселенныйПунктRepository.FiltrНаселенныйПункт((int)person.id_насПункт);
+                        // Получим населенный пункт.
+                        //var city = unitDate.НаселенныйПунктRepository.FiltrНаселенныйПункт((int)person.id_насПункт);
+                        ТНаселённыйПункт city = contract.Packecge?.населённыйПункт?? null;
 
-                        //отобразим адрес
-                        this.lblStreet.Text = "н.п. " + city.Наименование.Trim() + "  ул. " + person.улица.Trim();
-                        this.lblKorp.Text = "дом " + person.НомерДома;
-                        this.lblHous.Text = "корп. " + person.корпус;
-                        this.lblEpartment.Text = "кв. " + person.НомерКвартиры;
+                        if (city != null)
+                        {
+                            //отобразим адрес
+                            this.lblStreet.Text = "н.п. " + city.Наименование.Trim() + "  ул. " + person.улица.Trim();
+                            this.lblKorp.Text = "дом " + person.НомерДома;
+                            this.lblHous.Text = "корп. " + person.корпус;
+                            this.lblEpartment.Text = "кв. " + person.НомерКвартиры;
+                        }
+                        else
+                        {
+                            //отобразим адрес
+                            this.lblStreet.Text = "Нет данных";
+                            this.lblKorp.Text = "Нет данных";
+                            this.lblHous.Text = "Нет данных";
+                            this.lblEpartment.Text = "Нет данных";
+                        }
 
-                        var lk = unitDate.ЛьготнаяКатегорияRepository.Select((int)person.id_льготнойКатегории).FirstOrDefault();
+                        // Получим данные о льготной категории.
+                        ТЛьготнаяКатегория lk = contract.Packecge?.тЛьготнаяКатегория?? null;
+                            //var lk = unitDate.ЛьготнаяКатегорияRepository.Select((int)person.id_льготнойКатегории).FirstOrDefault();
 
                         if (lk != null)
                         {
                             //отобразим льготную категорию
-                            this.lblLK.Text = lk.ЛьготнаяКатегория1.Trim();
+                            this.lblLK.Text = lk.ЛьготнаяКатегория.Trim();
+                        }
+                        else
+                        {
+                            this.lblLK.Text = "Нет данных";
                         }
 
-                    }
                 }
 
             }

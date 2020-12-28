@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using ControlDantist.Classes;
 using System.Data;
+using ControlDantist.DataBaseContext;
 
 namespace ControlDantist.DisplayDatePerson
 {
@@ -13,9 +14,15 @@ namespace ControlDantist.DisplayDatePerson
     public class ShowDifference
     {
         private int idContract = 0;
-        public ShowDifference(int idContract)
+
+        private int idHospital = 0;
+
+        private DContext dc;
+
+        public ShowDifference(int idContract, int idHospital)
         {
             this.idContract = idContract;
+            this.idHospital = idHospital;
         }
 
         public List<ServicesError> Display()

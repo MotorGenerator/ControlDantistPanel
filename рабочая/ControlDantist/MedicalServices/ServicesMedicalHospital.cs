@@ -31,9 +31,11 @@ namespace ControlDantist.MedicalServices
             // Заполним список.
             var list = dc.ТВидУслуг?.Where(w => w.id_поликлинника == this.idHospital)?.AsQueryable()?? null;
 
+            // Если список услуг не пустой, тогда добавим услуги в 
             if (list != null)
                 listServices.AddRange(list);
 
+            // Если список с услугами из поликлинники пустй, тогда возвращаем пустой listServices (не null).
             return listServices;
         }
 
