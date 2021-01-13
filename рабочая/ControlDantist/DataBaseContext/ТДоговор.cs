@@ -73,7 +73,7 @@ namespace ControlDantist.DataBaseContext
 
         public bool flagОжиданиеПроверки { get; set; }
 
-        public int idFileRegistProgect { get; set; }
+        public int? idFileRegistProgect { get; set; }
 
         public bool ФлагАнулирован { get; set; }
 

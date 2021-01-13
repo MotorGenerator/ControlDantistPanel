@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="Dentists" Class="DataClasses1DataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=10.159.102.21;Initial Catalog=Dentists;User ID=admin_dantist" SettingsObjectName="ControlDantist.Properties.Settings" SettingsPropertyName="DentistsConnectionString" Provider="System.Data.SqlClient" />
+  <Connection Mode="AppSettings" ConnectionString="Data Source=10.159.102.21;Initial Catalog=Dentists;User ID=admin_dantist" SettingsObjectName="ControlDantist.Properties.Settings" SettingsPropertyName="DentistConnectionString" Provider="System.Data.SqlClient" />
   <Table Name="dbo.ListNumbersProgectsReestr" Member="ListNumbersProgectsReestr">
     <Type Name="ListNumbersProgectsReestr">
       <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />

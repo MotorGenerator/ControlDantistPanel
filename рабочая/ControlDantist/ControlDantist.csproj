@@ -374,6 +374,7 @@
     <Compile Include="DataBaseContext\RepositoryФиоГлавВрач.cs" />
     <Compile Include="DataBaseContext\RepozitoryЛьготник.cs" />
     <Compile Include="DataBaseContext\КлассификаторУслуг.cs" />
+    <Compile Include="DataBaseContext\ТАктВыполненныхРабот.cs" />
     <Compile Include="DataBaseContext\ТВидУслуг.cs" />
     <Compile Include="DataBaseContext\ТГлавБух.cs" />
     <Compile Include="DataBaseContext\ТДоговор.cs" />
@@ -835,6 +836,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DataClasses1.dbml</DependentUpon>
     </Compile>
+    <Compile Include="Repository\DataClasses2.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataClasses2.dbml</DependentUpon>
+    </Compile>
     <Compile Include="Repository\FakeRepository.cs" />
     <Compile Include="Repository\FiltrRepositoryГород.cs" />
     <Compile Include="Repository\FiltrRepositoryДоговор.cs" />
@@ -879,6 +885,7 @@
     <Compile Include="Repozirories\RepositoryViewPersonVipNet.cs" />
     <Compile Include="Repozirories\RepositoryViewPersonVipNet2.cs" />
     <Compile Include="Repozirories\UnitWork.cs" />
+    <Compile Include="Repozirories\WipNetRepository.cs" />
     <Compile Include="UnpaidStatistic\PreferencCategory.cs" />
     <Compile Include="UnpaidStatistic\QueryBalance.cs" />
     <Compile Include="UnpaidStatistic\ReportBalanceStatistic.cs" />
@@ -940,6 +947,10 @@
     <Compile Include="WriteClassess.cs" />
     <Compile Include="WriteClassDB\IЛьготник.cs" />
     <Compile Include="WriteClassDB\StringQuery.cs" />
+    <Compile Include="WriteDB\FindActForContract.cs" />
+    <Compile Include="WriteDB\IValidBD.cs" />
+    <Compile Include="WriteDB\PersonWriteDB.cs" />
+    <Compile Include="WriteDB\ProjectContract.cs" />
     <Compile Include="СhangeAkt.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -1212,6 +1223,14 @@
       <Generator>MSLinqToSQLGenerator</Generator>
       <LastGenOutput>DataClasses1.designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+    </None>
+    <None Include="Repository\DataClasses2.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>DataClasses2.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Repository\DataClasses2.dbml.layout">
+      <DependentUpon>DataClasses2.dbml</DependentUpon>
     </None>
     <None Include="Repozirories\DataClasses1.dbml">
       <Generator>MSLinqToSQLGenerator</Generator>

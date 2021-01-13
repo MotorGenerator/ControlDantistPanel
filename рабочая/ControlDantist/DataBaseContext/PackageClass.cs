@@ -45,5 +45,10 @@ namespace ControlDantist.DataBaseContext
         /// </summary>
         public ТТипДокумент ТипДокумента { get; set; }
 
+        /// <summary>
+        /// Наименование района области.
+        /// </summary>
+        public string НаименованиеРайонОбласти { get; set; }
+
     }
 }

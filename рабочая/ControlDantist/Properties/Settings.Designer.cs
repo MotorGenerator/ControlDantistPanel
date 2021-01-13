@@ -12,7 +12,7 @@ namespace ControlDantist.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "16.3.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "16.8.1.0")]
     internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
         
         private static Settings defaultInstance = ((Settings)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new Settings())));
@@ -20,6 +20,17 @@ namespace ControlDantist.Properties {
         public static Settings Default {
             get {
                 return defaultInstance;
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=10.159.102.21;Initial Catalog=Dentists;User ID=admin_dantist;Password" +
+            "=12A86Sql")]
+        public string DentistConnectionString {
+            get {
+                return ((string)(this["DentistConnectionString"]));
             }
         }
         
@@ -59,11 +70,10 @@ namespace ControlDantist.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=10.159.102.21;Initial Catalog=Dentists;User ID=admin_dantist;Password" +
-            "=12A86Sql")]
-        public string DentistConnectionString {
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=10.159.102.21;Initial Catalog=Dentists;User ID=sa")]
+        public string DentistsConnectionString3 {
             get {
-                return ((string)(this["DentistConnectionString"]));
+                return ((string)(this["DentistsConnectionString3"]));
             }
         }
     }

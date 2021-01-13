@@ -38,7 +38,8 @@ namespace ControlDantist.ValidateRegistrProject
                 // Для теста.
                 string sKey = string.Empty;
                 sKey = dStringConnect.Key.Trim();
-                if(sKey.Trim() != "Балаковский".Trim())
+                //if(sKey.Trim() != "Балаковский".Trim())//Ленинский
+                if (sKey.Trim() != "Ленинский".Trim())
                 {
                     var sTestTestt = "";
                     continue;

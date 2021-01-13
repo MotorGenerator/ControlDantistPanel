@@ -53,9 +53,9 @@ namespace ControlDantist.ValidPersonRegion
             //                " select id_льготник from Договор " +
             //                " where НомерДоговора = '" + numContracr + "') ) ";
 
-            string query = "select РайонОбласти from НаименованиеРайона " +
-                            "where id_район = "+ this.idRegion +" ";
-                            
+            string query = "select NameRegion from dbo.РайонОбласти " +
+                                     "where idRegion = " + this.idRegion + " ";
+
 
             DataTable tab = ТаблицаБД.GetTableSQL(query, "Район",con,transact);
 
@@ -83,7 +83,7 @@ namespace ControlDantist.ValidPersonRegion
             }
 
             // Получим наименвание района которое изначально пришло с проектом договора.
-            string nameRegionFile = tab.Rows[0]["РайонОбласти"].ToString();
+            string nameRegionFile = tab.Rows[0]["NameRegion"].ToString();
 
             //Тест стереть.
             //nameRegionFile = "Саратовская обл. Балаковскый р-н";

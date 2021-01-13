@@ -47,14 +47,21 @@ namespace ControlDantist.ReportVipNet
         {
             bool flagLetter = false;
 
+            //DataClasses2DataContext dataClasses2 = new DataClasses2DataContext();
+
+            ControlDantist.Repository.DataClasses2DataContext dc2 = new Repository.DataClasses2DataContext();
+
+            var persons = dc2.ViewPersonVipNet3.Where(w => w.id_район == this.IdRegion).ToList();
+
             // 
-            var persons = unit.RepositoryViewPersonVipNet2.GetDocs(this.IdRegion, this.DateStartPeriod.Date, this.DateEndPeriod.Date);
+            //var persons = unit.RepositoryViewPersonVipNet2.GetDocs(this.IdRegion, this.DateStartPeriod.Date, this.DateEndPeriod.Date);
 
             if (persons.Count() > 0)
             {
                 flagLetter = true;
 
-                ConvertToPerson(persons);
+                //ConvertToPerson(persons);
+                ConvertToPerson();
 
                 SaveFileDialog fileDialog = new SaveFileDialog();
 
@@ -95,9 +102,14 @@ namespace ControlDantist.ReportVipNet
         /// Конветрор для совместимости.
         /// </summary>
         /// <returns></returns>
-        private void ConvertToPerson(IEnumerable<ViewPersonVipNet2> listPersons)
+        //private void ConvertToPerson(IEnumerable<ViewPersonVipNet2> listPersons)
+        private void ConvertToPerson()
         {
-            foreach (var itm in listPersons)
+            ControlDantist.Repository.DataClasses2DataContext dc2 = new Repository.DataClasses2DataContext();
+
+            var persons = dc2.ViewPersonVipNet3.Where(w => w.id_район == this.IdRegion).ToList();
+
+            foreach (var itm in persons)
             {
                 Person person = new Person();
                 person.Region = itm.NameRegion;
@@ -117,7 +129,7 @@ namespace ControlDantist.ReportVipNet
 
                 person.Street = itm.Улица;
 
-                person.NumBobyBuilder = itm.Корпус;
+                person.NumBobyBuilder = itm.корпус;
 
                 person.NumHous = itm.НомерДома;
 

@@ -81,7 +81,7 @@ namespace ControlDantist.Repository
     #endregion
 		
 		public DataClasses1DataContext() : 
-				base(global::ControlDantist.Properties.Settings.Default.DentistsConnectionString, mappingSource)
+				base(global::ControlDantist.Properties.Settings.Default.DentistConnectionString, mappingSource)
 		{
 			OnCreated();
 		}

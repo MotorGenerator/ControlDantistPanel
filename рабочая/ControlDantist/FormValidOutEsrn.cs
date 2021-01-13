@@ -18,7 +18,7 @@ using ControlDantist.LetterClassess;
 using DantistLibrary;
 using ControlDantist.DataBaseContext;
 using ControlDantist.MedicalServices;
-
+using ControlDantist.WriteDB;
 
 
 
@@ -414,21 +414,148 @@ namespace ControlDantist
             svDel.Invoke(currContract);
 
         }
-
+       
         private void button1_Click(object sender, EventArgs e)
         {
-            // Проверим что мы записываем в БД.
-            var test = listProjectContrats;
+            // Получим список договоров из файла реестра для документа для отображения повторных договоров.
+            ValidateContractPerson vclPrint = new ValidateContractPerson(this.listProjectContrats.ToList());
+            List<PrintContractsValidate> listDoc = vclPrint.GetContract();
 
-            string stest = "";
+            // Если количество догооворов из файла реестра > 0.
+            if (listDoc != null && listDoc.Count > 0)
+            {
+                // Выведим список совподений договров на бумагу в Word.
+                WordReport wordPrint = new WordReport(listDoc);
+                
+                // Выведим список проектов договоров на печать.
+                DocPrint docPrint = new DocPrint(wordPrint);
+                docPrint.Execute();
+            }
+
+            // Вывидем диалоговое окно с предложением о записи проектов договоров.
+            //Предложим запись в БД 
+            FormDalogWriteBD formDialog = new FormDalogWriteBD();
+            formDialog.ShowDialog();
+
+            if (formDialog.DialogResult == System.Windows.Forms.DialogResult.Cancel)
+            {
+                return;
+            }
 
             // Выполним в единой транзакции запись проектов договоров.
             using (DContext dc = new DContext(ConnectDB.ConnectionString()))
             {
-
                 using (var scope = new TransactionScope(TransactionScopeOption.Required, new TransactionOptions { IsolationLevel = System.Transactions.IsolationLevel.Serializable }))
                 {
+                    try
+                    {
+                        // Проходимся по списку договоров.
+                        foreach (var itm in this.listProjectContrats)
+                        {
+                            // Номер договора.
+                            ТДоговор тДоговор = itm.Packecge.тДоговор;
 
+                            // Проверим есть ли у текущего договора акты выполненных работ.
+                            IValidBD<ТАктВыполненныхРабот> act = new FindActForContract(dc, тДоговор.НомерДоговора.Trim());
+
+                            // Если flagExesAct = true то писать в БД нельзя.
+                            bool flagExesAct = act.Validate();
+
+                            if(flagExesAct == true)
+                            {
+
+                                // Выведим сообщение что такой льготник уже существует.
+                                FormModalPerson fmp = new FormModalPerson();
+                                fmp.NumContract = act.Get()?.НомерАкта?? "Акт существует но номер не известен";
+                                fmp.ShowDialog();
+
+                                // Перейдес к следующей итерации.
+                                continue;
+                            }
+
+                            // Укажем прошел договор проверку или нет.
+                            тДоговор.ФлагПроверки = itm.FlagValidContract;
+
+                            // Льготник.
+                            ТЛЬготник тЛЬготник = itm.Packecge.льготник;
+
+                            IValidBD<ТДоговор> validBDcontract = new ProjectContract(dc,тДоговор);
+
+                            // Результат проверки можно писать в БД или нельзя.
+                            bool flagWriteContract = validBDcontract.Validate();
+
+                            // ПРоверим записан ли данный льготник из реестра проектов договров в БД.
+                            IValidBD<ТЛЬготник> validBPerson = new PersonWriteDB(dc,тЛЬготник);
+
+                            // Результат есть льготник в БД или его нет.
+                            bool flagWritePersonDB = validBPerson.Validate();
+
+                            // Если льготника в БД нет то флаг flagWritePersonDB указывает на разрешение записи в БД.
+                            if (flagWritePersonDB == true)
+                            {
+                                // Запишем договор в БД.
+                                dc.ТабЛьгоготник.Add(тЛЬготник);
+
+                                dc.SaveChanges();
+                            }
+
+
+                            // Если договора в БД нет.
+                            if (flagWriteContract == true)
+                            {
+                                ТЛЬготник person = validBPerson.Get();
+
+                                // Запишем id договора.
+                                тДоговор.id_льготник = validBPerson.Get()?.id_льготник ?? 0;
+
+                                // Установим временные параметры договора от 1 января 1900 года.
+                                тДоговор.ДатаДоговора = new DateTime(1900, 1, 1);
+                                тДоговор.ДатаАктаВыполненныхРабот = new DateTime(1900, 1, 1);
+                                тДоговор.ДатаРеестра = new DateTime(1900, 1, 1);
+                                тДоговор.ДатаСчётФактура = new DateTime(1900, 1, 1);
+                                тДоговор.датаВозврата =  new DateTime(1900, 1, 1);
+                                тДоговор.ДатаЗаписиДоговора = new DateTime(1900, 1, 1);
+                                тДоговор.ДатаПроверки = DateTime.Now;
+
+                                dc.ТДоговор.Add(тДоговор);
+
+                                dc.SaveChanges();
+
+                                // Запишем услуги по договору.
+                                foreach (var uslug in itm.Packecge.listUSlug)
+                                {
+                                    uslug.id_договор = тДоговор.id_договор;
+
+                                    dc.ТУслугиПоДоговору.Add(uslug);
+
+                                    dc.SaveChanges();
+                                }
+
+                            }
+                               
+                        }
+
+                        ////Предложим запись в БД 
+                        //FormDalogWriteBD formDialog = new FormDalogWriteBD();
+                        //formDialog.ShowDialog();
+
+                        //if (formDialog.DialogResult == System.Windows.Forms.DialogResult.OK)
+                        //{
+                            // Завершшим транзакцию.
+                            scope.Complete();
+
+                            MessageBox.Show("Данные записаны");
+                        //}
+
+                        
+                    }
+                    catch (Exception ex)
+                    {
+                        // Откатим транзакцию.
+                        scope.Dispose();
+
+                        MessageBox.Show("Ошибка в записи - " + ex.Message);
+                    }
                 }
             }
 

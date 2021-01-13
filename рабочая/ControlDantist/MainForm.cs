@@ -4440,10 +4440,10 @@ namespace ControlDantist
                 if (listDoc != null && listDoc.Count > 0)
                 {
 
-                    DialogResult result = MessageBox.Show("Начать проверку проектов договоров", "Внимание", MessageBoxButtons.OKCancel);
+                    //DialogResult result = MessageBox.Show("Начать проверку проектов договоров", "Внимание", MessageBoxButtons.OKCancel);
 
-                    if (result == DialogResult.OK)
-                    {
+                    //if (result == DialogResult.OK)
+                    //{
                         // Осуществляем проверку договров по БД ЭСРН.
                         EsrnPersonValidate esrnPersonValidate = new EsrnPersonValidate(packegeDateContract);
                         esrnPersonValidate.Validate();
@@ -4456,8 +4456,6 @@ namespace ControlDantist
                         {
                             // Медицинские услуги поликлинники.
                             IServices<ControlDantist.DataBaseContext.ТВидУслуг> servicesHospital = new ServicesMedicalHospital(dc);
-
-                            //packegeDateContract.Where(w=>w.)
 
                             // Реестр договоров.
                             ReestrContract reestrContract = new ReestrContract(packegeDateContract);
@@ -4476,7 +4474,7 @@ namespace ControlDantist
                         // Откроем окно с результатами проверки.
                         formValid.Show();
 
-                    }
+                    //}
                 }
 
 

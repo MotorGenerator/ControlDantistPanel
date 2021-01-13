@@ -60,5 +60,15 @@ namespace ControlDantist.DataBaseContext
         /// Услуги в поликлиннике.
         /// </summary>
         public DbSet<ТВидУслуг> ТВидУслуг { get; set; }
+
+        /// <summary>
+        /// Договор.
+        /// </summary>
+        public DbSet<ТДоговор> ТДоговор { get; set; }
+
+        /// <summary>
+        /// Акт выполненных работ.
+        /// </summary>
+        public DbSet<ТАктВыполненныхРабот> ТАктВыполненныхРабот { get; set; }
     }
 }

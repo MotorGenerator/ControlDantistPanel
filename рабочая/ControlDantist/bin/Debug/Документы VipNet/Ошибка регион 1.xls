@@ -77,46 +77,46 @@
       </s:Row>
       <s:Row>
         <s:Cell s:Index="1" s:StyleID="HeaderStyle2">
-          <s:Data s:Type="String">Хвалынский</s:Data>
+          <s:Data s:Type="String">Волжский</s:Data>
         </s:Cell>
         <s:Cell s:Index="2" s:StyleID="HeaderStyle2">
-          <s:Data s:Type="String">г. Маркс</s:Data>
+          <s:Data s:Type="String">г.Саратов</s:Data>
         </s:Cell>
         <s:Cell s:Index="3" s:StyleID="HeaderStyle2">
-          <s:Data s:Type="String">Фатюшкина</s:Data>
+          <s:Data s:Type="String">Богачева</s:Data>
         </s:Cell>
         <s:Cell s:Index="4" s:StyleID="HeaderStyle2">
-          <s:Data s:Type="String">Таисия</s:Data>
+          <s:Data s:Type="String">Анна</s:Data>
         </s:Cell>
         <s:Cell s:Index="5" s:StyleID="HeaderStyle2">
-          <s:Data s:Type="String">Васильевна</s:Data>
+          <s:Data s:Type="String">Кузьминична</s:Data>
         </s:Cell>
         <s:Cell s:Index="6" s:StyleID="HeaderStyle2">
-          <s:Data s:Type="String">22.11.1953</s:Data>
+          <s:Data s:Type="String">20.09.1952</s:Data>
         </s:Cell>
         <s:Cell s:Index="7" s:StyleID="HeaderStyle2">
-          <s:Data s:Type="String">пр. Строителей</s:Data>
+          <s:Data s:Type="String">им.Исаева Н.В.</s:Data>
         </s:Cell>
         <s:Cell s:Index="8" s:StyleID="HeaderStyle2">
-          <s:Data s:Type="String">25</s:Data>
+          <s:Data s:Type="String">23</s:Data>
         </s:Cell>
         <s:Cell s:Index="9" s:StyleID="HeaderStyle2">
           <s:Data s:Type="String" />
         </s:Cell>
         <s:Cell s:Index="10" s:StyleID="HeaderStyle2">
-          <s:Data s:Type="String">9</s:Data>
+          <s:Data s:Type="String">34</s:Data>
         </s:Cell>
         <s:Cell s:Index="11" s:StyleID="HeaderStyle2">
           <s:Data s:Type="String">64</s:Data>
         </s:Cell>
         <s:Cell s:Index="12" s:StyleID="HeaderStyle2">
-          <s:Data s:Type="String">2002017</s:Data>
+          <s:Data s:Type="String">029009</s:Data>
         </s:Cell>
         <s:Cell s:Index="13" s:StyleID="HeaderStyle2">
-          <s:Data s:Type="String">18151.00</s:Data>
+          <s:Data s:Type="String">43190.00</s:Data>
         </s:Cell>
         <s:Cell s:Index="14" s:StyleID="HeaderStyle2">
-          <s:Data s:Type="String">15.05.2018</s:Data>
+          <s:Data s:Type="String">13.01.2021</s:Data>
         </s:Cell>
       </s:Row>
     </s:Table>
