@@ -204,7 +204,7 @@ namespace ControlDantist
         {
             string query = string.Empty;
 
-            if (this.textBox1.Text.Trim() == "8/6815")
+            if (this.textBox1.Text.Trim() == "8/7471")
             {
                 var asd = "";
             }
@@ -237,13 +237,14 @@ namespace ControlDantist
                 StringParametr stringParametr2019Add = new StringParametr();
                 stringParametr2019Add.Query = query2019Add;
 
+                // Пока скроем поиск льготников в основной таблице за 2019 год.
                 //  Поиск номера договора за 2019 год по обычным таблицам.
-                IFindPerson findPerson2019 = new FindContract2019(numContract);
-                string query2019 = findPerson2019.Query();
+                //IFindPerson findPerson2019 = new FindContract2019(numContract);
+                //string query2019 = findPerson2019.Query();
 
 
-                StringParametr stringParametr2019 = new StringParametr();
-                stringParametr2019.Query = query2019;
+                //StringParametr stringParametr2019 = new StringParametr();
+                //stringParametr2019.Query = query2019;
 
                 // Поиск номера договора позже 2019 года.
                 IFindPerson fintPersonAftar2019 = new FindPersonAftar2019(numContract);
@@ -252,6 +253,14 @@ namespace ControlDantist
                 StringParametr stringParametr2019Aftar = new StringParametr();
                 stringParametr2019Aftar.Query = query2019Aftar;
 
+                // Поиск договора по таблицам 2021 года.
+                IFindPerson findPerson2021 = new FindPersonAftar(numContract);
+                string query2021 = findPerson2021.Query();
+
+                StringParametr stringParametr2021 = new StringParametr();
+                stringParametr2021.Query = query2021;
+
+
                 // Выполним запрос до 2019 года.
                 listTempDisplay.AddRange(ExecuteQuery(stringParametr));
 
@@ -259,26 +268,17 @@ namespace ControlDantist
                 listTempDisplay.AddRange(ExecuteQuery(stringParametr2019Add));
 
                 // Выполним запрос 2019 года.
-                listTempDisplay.AddRange(ExecuteQuery(stringParametr2019));
+                //listTempDisplay.AddRange(ExecuteQuery(stringParametr2019));
 
                 // Выполним запрос больше 2019 года.
                 listTempDisplay.AddRange(ExecuteQuery(stringParametr2019Aftar));
 
+                // Выполним запрос 2021.
+                listTempDisplay.AddRange(ExecuteQuery(stringParametr2021));
+
                 var listRes = CompareContractForNumber.Compare(listTempDisplay);
 
                 listDisplay.AddRange(listRes);
-
-                //showResultPerson = new ShowResultPerson(findPerson);
-
-                //// Заполним список результатами поиска.
-                //listDisplay.AddRange(showResultPerson.DisplayDate());
-
-                //var test = listDisplay.GroupBy(w => w.НомерДоговора);
-
-                //foreach(var t in test)
-                //{
-                //    var atest = t;
-                //}
 
             }
             //else
@@ -301,11 +301,11 @@ namespace ControlDantist
                 StringParametr stringParametr2019Add = new StringParametr();
                 stringParametr2019Add.Query = query2019Add;
 
-                IFindPerson findPerson2019 = new FindContract2019NoValid(this.textBox1.Text);
-                string query2019 = findPerson2019.Query();
+                //IFindPerson findPerson2019 = new FindContract2019NoValid(this.textBox1.Text);
+                //string query2019 = findPerson2019.Query();
 
-                StringParametr stringParametr2019 = new StringParametr();
-                stringParametr2019.Query = query2019;
+                //StringParametr stringParametr2019 = new StringParametr();
+                //stringParametr2019.Query = query2019;
 
                 // Поиск номера договора позже 2019 года.
                 IFindPerson fintPersonAftar2019 = new FindPersonAftar2019NoValid(this.textBox1.Text);
@@ -314,6 +314,13 @@ namespace ControlDantist
                 StringParametr stringParametr2019Aftar = new StringParametr();
                 stringParametr2019Aftar.Query = query2019Aftar;
 
+                // Поиск льготников по таблицам 2021 года.
+                IFindPerson findPersonNoValid = new FindPersonNoValid(this.textBox1.Text);
+                string queryNoValid2021 = findPersonNoValid.Query();
+
+                StringParametr stringParametrFindNoValid2021 = new StringParametr();
+                stringParametrFindNoValid2021.Query = queryNoValid2021;
+
                 // Выполним запрос до 2019 года.
                 listTempDisplay.AddRange(ExecuteQuery(stringParametr));
 
@@ -321,32 +328,17 @@ namespace ControlDantist
                 listTempDisplay.AddRange(ExecuteQuery(stringParametr2019Add));
 
                 // Выполним запрос 2019 года.
-                listTempDisplay.AddRange(ExecuteQuery(stringParametr2019));
+                //listTempDisplay.AddRange(ExecuteQuery(stringParametr2019));
 
                 // Выполним запрос больше 2019 года.
                 listTempDisplay.AddRange(ExecuteQuery(stringParametr2019Aftar));
 
-
-                //// Выполним запрос больше 2019 года.
-                //listTempDisplay.AddRange(ExecuteQuery(stringParametr2019Aftar));
+                // Выполним запрос 2021 года.
+                listTempDisplay.AddRange(ExecuteQuery(stringParametrFindNoValid2021));
 
                 var listRes = CompareContractForNumber.Compare(listTempDisplay);
 
                 listDisplay.AddRange(listRes);
-
-
-                //// Поиск льготника непрошедшего проверку по номеру договора. 
-                //IFindPerson findPersonByNumberContractNoValid = new FindPersonByNumberNoValid(this.textBox1.Text);
-
-
-                //showResultPerson = new ShowResultPerson(findPersonByNumberContractNoValid);
-
-                //var test2 = findPersonByNumberContractNoValid.Query();
-
-                //// Заполним список результатами поиска.  
-                //listDisplay.AddRange(showResultPerson.DisplayDate());
-
-                //var test = listDisplay.GroupBy(w => w.НомерДоговора);
             }
 
             if (this.FlagValid == false && this.FlagCheck == true)
@@ -655,7 +647,7 @@ namespace ControlDantist
         private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             //получим индекс столбца
-              int i = e.ColumnIndex;
+            int i = e.ColumnIndex;
 
             //переменная хранит таблицу с данными о контракте
             DataTable tabContract;
@@ -672,38 +664,7 @@ namespace ControlDantist
             id_договор = Convert.ToInt32(this.dataGridView1.CurrentRow.Cells["id_договор"].Value);
 
             //flag2019AddWrite = Convert.ToBoolean(this.dataGridView1.CurrentRow.Cells["flag2019AddWrite"].Value);
-           int flarYear = Convert.ToInt32(this.dataGridView1.CurrentRow.Cells["Год"].Value);
-
-            if(flarYear == 2019)
-            {
-                flag2019AddWrite = true;
-            }
-
-            // Флаг поиска через id.
-            //bool flagFindForId = false;
-
-            /*
-            if (this.dataGridView1.Columns.Contains("flag2019AddWrite") == true)
-            {
-                if (this.dataGridView1.CurrentRow.Cells["flag2019AddWrite"].Value != DBNull.Value)
-                {
-
-                    var flagTest = this.dataGridView1.CurrentRow.Cells["flag2019AddWrite"].Value;
-
-                    // Получим из какой таблицы брать данные.
-                    flag2019AddWrite = Convert.ToBoolean(this.dataGridView1.CurrentRow.Cells["flag2019AddWrite"].Value);
-
-                }
-                else
-                {
-                    flagFindForId = true;
-                }
-            }
-            else
-            {
-                flagFindForId = true;
-            }
-            */
+            int flarYear = Convert.ToInt32(this.dataGridView1.CurrentRow.Cells["Год"].Value);
 
             // Переменная хранит текст запроса по услугам.
             string queruContract = string.Empty;
@@ -711,51 +672,60 @@ namespace ControlDantist
             // Переменная хранит текст запроса по договору.
             string queruPerson = string.Empty;
 
-            // Поиск по Фамилиии и имени
-            if (this.textBox2.Text != "" && this.txtИмя.Text != "" && flag2019AddWrite == false)
+            // Если договор раньше 2019 года или равен 2020 году.
+            if (flarYear < 2019 || flarYear == 2020)
             {
-                // Получим данные по услугам к договору.
-                queruContract = "SELECT УслугиПоДоговору.НаименованиеУслуги, УслугиПоДоговору.цена, " +
-                                       "УслугиПоДоговору.Количество, УслугиПоДоговору.Сумма " +
-                                       "FROM Договор INNER JOIN " +
-                                       "УслугиПоДоговору ON Договор.id_договор = УслугиПоДоговору.id_договор " +
-                                       "where Договор.id_договор = " + id_договор + " ";
+                // Поиск по номеру договора.
+                if (this.textBox2.Text == "" && this.txtИмя.Text == "")
+                {
+                    // Получим данные по услугам к договору.
+                    queruContract = "SELECT УслугиПоДоговоруАрхив.НаименованиеУслуги, УслугиПоДоговоруАрхив.цена, " +
+                                           "УслугиПоДоговоруАрхив.Количество, УслугиПоДоговоруАрхив.Сумма " +
+                                           "FROM ДоговорАрхив INNER JOIN " +
+                                           "УслугиПоДоговоруАрхив ON ДоговорАрхив.id_договор = УслугиПоДоговоруАрхив.id_договор " +
+                                           "where ДоговорАрхив.id_договор = " + id_договор + " ";
 
-                //Получим данные по договору.
-                queruPerson = "SELECT top 1 Договор.НомерДоговора, Договор.ДатаДоговора, Льготник.Фамилия, Льготник.Имя, Льготник.Отчество, " +
-                                       "Льготник.ДатаРождения, Льготник.улица, Льготник.НомерДома, Льготник.корпус, Льготник.НомерКвартиры, " +
-                                       "Льготник.СерияПаспорта, Льготник.НомерПаспорта, Льготник.СерияДокумента, Льготник.НомерДокумента, " +
-                                       "Льготник.ДатаВыдачиДокумента, Льготник.ДатаВыдачиПаспорта,Договор.ФлагПроверки " +
-                                       "FROM Договор INNER JOIN " +
-                                       "УслугиПоДоговору ON Договор.id_договор = УслугиПоДоговору.id_договор " +
-                                       "INNER JOIN Льготник ON dbo.Договор.id_льготник = dbo.Льготник.id_льготник " +
-                                       "where Договор.id_договор = " + id_договор + " ";
-            }
-            else if(this.textBox2.Text != "" && this.txtИмя.Text != "" && flag2019AddWrite == true)
-            {
-                // Получим данные по договору.
-                queruPerson = @" SELECT top 1 ДоговорAdd.НомерДоговора, ДоговорAdd.ДатаДоговора, ЛьготникAdd.Фамилия, ЛьготникAdd.Имя, 
-                                                ЛьготникAdd.Отчество, ЛьготникAdd.ДатаРождения, ЛьготникAdd.улица, ЛьготникAdd.НомерДома, 
-                                                ЛьготникAdd.корпус, ЛьготникAdd.НомерКвартиры, ЛьготникAdd.СерияПаспорта, ЛьготникAdd.НомерПаспорта, 
-                                                ЛьготникAdd.СерияДокумента, ЛьготникAdd.НомерДокумента, ЛьготникAdd.ДатаВыдачиДокумента, 
-                                                ЛьготникAdd.ДатаВыдачиПаспорта,ДоговорAdd.ФлагПроверки FROM ДоговорAdd
-                                                INNER JOIN УслугиПоДоговору
-                                                ON ДоговорAdd.id_договор = УслугиПоДоговору.id_договор
-                                                INNER JOIN ЛьготникAdd
-                                                ON dbo.ДоговорAdd.id_льготник = dbo.ЛьготникAdd.id_льготник " +
-                                               "where ДоговорAdd.id_договор = " + id_договор + " ";
+                    //Получим данные по договору.
+                    queruPerson = "SELECT top 1 ДоговорАрхив.НомерДоговора, ДоговорАрхив.ДатаДоговора, ЛьготникАрхив.Фамилия, ЛьготникАрхив.Имя, ЛьготникАрхив.Отчество, " +
+                                           "ЛьготникАрхив.ДатаРождения, ЛьготникАрхив.улица, ЛьготникАрхив.НомерДома, ЛьготникАрхив.корпус, ЛьготникАрхив.НомерКвартиры, " +
+                                           "ЛьготникАрхив.СерияПаспорта, ЛьготникАрхив.НомерПаспорта, ЛьготникАрхив.СерияДокумента, ЛьготникАрхив.НомерДокумента, " +
+                                           "ЛьготникАрхив.ДатаВыдачиДокумента, ЛьготникАрхив.ДатаВыдачиПаспорта,ДоговорАрхив.ФлагПроверки " +
+                                           "FROM ДоговорАрхив INNER JOIN " +
+                                           "УслугиПоДоговоруАрхив ON ДоговорАрхив.id_договор = УслугиПоДоговоруАрхив.id_договор " +
+                                           "INNER JOIN ЛьготникАрхив ON dbo.ДоговорАрхив.id_льготник = dbo.ЛьготникАрхив.id_льготник " +
+                                           "where ДоговорАрхив.id_договор = " + id_договор + " ";
+                }
+                else if(this.textBox2.Text != "")
+                {
+                    // Поиск по Фамилии.
+                    // Получим данные по услугам к договору.
+                    queruContract = "SELECT УслугиПоДоговоруАрхив.НаименованиеУслуги, УслугиПоДоговоруАрхив.цена, " +
+                                           "УслугиПоДоговоруАрхив.Количество, УслугиПоДоговоруАрхив.Сумма " +
+                                           "FROM ДоговорАрхив INNER JOIN " +
+                                           "УслугиПоДоговоруАрхив ON ДоговорАрхив.id_договор = УслугиПоДоговоруАрхив.id_договор " +
+                                           "where ДоговорАрхив.id_договор = " + id_договор + " ";
 
-                // Получим данные по услугам к договору.
-                queruContract = "SELECT УслугиПоДоговоруAdd.НаименованиеУслуги, УслугиПоДоговоруAdd.цена, " +
-                                       "УслугиПоДоговоруAdd.Количество, УслугиПоДоговоруAdd.Сумма " +
-                                       "FROM ДоговорAdd INNER JOIN " +
-                                       "УслугиПоДоговоруAdd ON ДоговорAdd.id_договор = УслугиПоДоговоруAdd.id_договор " +
-                                       "where ДоговорAdd.id_договор = " + id_договор + " ";
+                    //Получим данные по договору.
+                    queruPerson = "SELECT top 1 ДоговорАрхив.НомерДоговора, ДоговорАрхив.ДатаДоговора, ЛьготникАрхив.Фамилия, ЛьготникАрхив.Имя, ЛьготникАрхив.Отчество, " +
+                                           "ЛьготникАрхив.ДатаРождения, ЛьготникАрхив.улица, ЛьготникАрхив.НомерДома, ЛьготникАрхив.корпус, ЛьготникАрхив.НомерКвартиры, " +
+                                           "ЛьготникАрхив.СерияПаспорта, ЛьготникАрхив.НомерПаспорта, ЛьготникАрхив.СерияДокумента, ЛьготникАрхив.НомерДокумента, " +
+                                           "ЛьготникАрхив.ДатаВыдачиДокумента, ЛьготникАрхив.ДатаВыдачиПаспорта,ДоговорАрхив.ФлагПроверки " +
+                                           "FROM ДоговорАрхив INNER JOIN " +
+                                           "УслугиПоДоговоруАрхив ON ДоговорАрхив.id_договор = УслугиПоДоговоруАрхив.id_договор " +
+                                           "INNER JOIN ЛьготникАрхив ON dbo.ДоговорАрхив.id_льготник = dbo.ЛьготникАрхив.id_льготник " +
+                                           "where ДоговорАрхив.id_договор = " + id_договор + " ";// and ДоговорAdd.НомерДоговора = '" + this.textBox1.Text + "' ";
+
+                }
             }
-            else if(this.textBox2.Text != "" && this.txtИмя.Text == "" && flag2019AddWrite == true)
+
+            if(flarYear == 2019)
             {
-                // Получим данные по договору.
-                queruPerson = @" SELECT top 1 ДоговорAdd.НомерДоговора, ДоговорAdd.ДатаДоговора, ЛьготникAdd.Фамилия, ЛьготникAdd.Имя, 
+                //flag2019AddWrite = true;
+                // Поиск по номеру договора в 2019 году.
+                if (this.textBox2.Text == "" && this.txtИмя.Text == "")
+                {
+                    // Получим данные по договору.
+                    queruPerson = @" SELECT top 1 ДоговорAdd.НомерДоговора, ДоговорAdd.ДатаДоговора, ЛьготникAdd.Фамилия, ЛьготникAdd.Имя, 
                                                 ЛьготникAdd.Отчество, ЛьготникAdd.ДатаРождения, ЛьготникAdd.улица, ЛьготникAdd.НомерДома, 
                                                 ЛьготникAdd.корпус, ЛьготникAdd.НомерКвартиры, ЛьготникAdd.СерияПаспорта, ЛьготникAdd.НомерПаспорта, 
                                                 ЛьготникAdd.СерияДокумента, ЛьготникAdd.НомерДокумента, ЛьготникAdd.ДатаВыдачиДокумента, 
@@ -764,130 +734,162 @@ namespace ControlDantist
                                                 ON ДоговорAdd.id_договор = УслугиПоДоговоруAdd.id_договор
                                                 INNER JOIN ЛьготникAdd
                                                 ON dbo.ДоговорAdd.id_льготник = dbo.ЛьготникAdd.id_льготник " +
-                                               "where ДоговорAdd.id_договор = " + id_договор + " ";
+                                                "where ДоговорAdd.id_договор = " + id_договор + " ";
 
-                // Получим данные по услугам к договору.
-                queruContract = "SELECT УслугиПоДоговоруAdd.НаименованиеУслуги, УслугиПоДоговоруAdd.цена, " +
-                                       "УслугиПоДоговоруAdd.Количество, УслугиПоДоговоруAdd.Сумма " +
-                                       "FROM ДоговорAdd INNER JOIN " +
-                                       "УслугиПоДоговоруAdd ON ДоговорAdd.id_договор = УслугиПоДоговоруAdd.id_договор " +
-                                       "where ДоговорAdd.id_договор = " + id_договор + " ";
+                    // Получим данные по услугам к договору.
+                    queruContract = "SELECT УслугиПоДоговоруAdd.НаименованиеУслуги, УслугиПоДоговоруAdd.цена, " +
+                                           "УслугиПоДоговоруAdd.Количество, УслугиПоДоговоруAdd.Сумма " +
+                                           "FROM ДоговорAdd INNER JOIN " +
+                                           "УслугиПоДоговоруAdd ON ДоговорAdd.id_договор = УслугиПоДоговоруAdd.id_договор " +
+                                           "where ДоговорAdd.id_договор = " + id_договор + " ";
+                }
+
             }
-            else if (this.textBox2.Text != "" && this.txtИмя.Text == "" && flag2019AddWrite == false)
+
+            if(flarYear > 2020)
             {
-                // Получим данные по договору.
-                queruPerson = @" SELECT top 1 Договор.НомерДоговора, Договор.ДатаДоговора, Льготник.Фамилия, Льготник.Имя, 
-                                                Льготник.Отчество, Льготник.ДатаРождения, Льготник.улица, Льготник.НомерДома, 
-                                                Льготник.корпус, Льготник.НомерКвартиры, Льготник.СерияПаспорта, Льготник.НомерПаспорта, 
-                                                Льготник.СерияДокумента, Льготник.НомерДокумента, Льготник.ДатаВыдачиДокумента, 
-                                                Льготник.ДатаВыдачиПаспорта,Договор.ФлагПроверки FROM Договор
-                                                INNER JOIN УслугиПоДоговору
-                                                ON Договор.id_договор = УслугиПоДоговору.id_договор
-                                                INNER JOIN Льготник
-                                                ON dbo.Договор.id_льготник = dbo.Льготник.id_льготник " +
+                if (this.textBox2.Text == "" && this.txtИмя.Text == "")
+                {
+                    // Получим данные по договору.
+                    queruPerson = @" SELECT top 1 Договор.НомерДоговора, Договор.ДатаДоговора, Льготник.Фамилия, Льготник.Имя, 
+                                                    Льготник.Отчество, Льготник.ДатаРождения, Льготник.улица, Льготник.НомерДома, 
+                                                    Льготник.корпус, Льготник.НомерКвартиры, Льготник.СерияПаспорта, Льготник.НомерПаспорта, 
+                                                    Льготник.СерияДокумента, Льготник.НомерДокумента, Льготник.ДатаВыдачиДокумента, 
+                                                    Льготник.ДатаВыдачиПаспорта,Договор.ФлагПроверки FROM Договор
+                                                    INNER JOIN УслугиПоДоговору
+                                                    ON Договор.id_договор = УслугиПоДоговору.id_договор
+                                                    INNER JOIN Льготник
+                                                    ON dbo.Договор.id_льготник = dbo.Льготник.id_льготник " +
                                                "where Договор.id_договор = " + id_договор + " ";
 
-                // Получим данные по услугам к договору.
-                queruContract = "SELECT УслугиПоДоговору.НаименованиеУслуги, УслугиПоДоговору.цена, " +
-                                       "УслугиПоДоговору.Количество, УслугиПоДоговору.Сумма " +
-                                       "FROM Договор INNER JOIN " +
-                                       "УслугиПоДоговору ON Договор.id_договор = УслугиПоДоговору.id_договор " +
-                                       "where Договор.id_договор = " + id_договор + " ";
-            }
-            else if(flag2019AddWrite == true && this.textBox1.Text != "")
-            {
-                // Получим данные по услугам к договору.
-                queruContract = "SELECT УслугиПоДоговоруAdd.НаименованиеУслуги, УслугиПоДоговоруAdd.цена, " +
-                                       "УслугиПоДоговоруAdd.Количество, УслугиПоДоговоруAdd.Сумма " +
-                                       "FROM ДоговорAdd INNER JOIN " +
-                                       "УслугиПоДоговоруAdd ON ДоговорAdd.id_договор = УслугиПоДоговоруAdd.id_договор " +
-                                       "where ДоговорAdd.id_договор = " + id_договор + " ";
-
-
-                queruPerson = @" SELECT top 1 ДоговорAdd.НомерДоговора, ДоговорAdd.ДатаДоговора, ЛьготникAdd.Фамилия, ЛьготникAdd.Имя, 
-                                                ЛьготникAdd.Отчество, ЛьготникAdd.ДатаРождения, ЛьготникAdd.улица, ЛьготникAdd.НомерДома, 
-                                                ЛьготникAdd.корпус, ЛьготникAdd.НомерКвартиры, ЛьготникAdd.СерияПаспорта, ЛьготникAdd.НомерПаспорта, 
-                                                ЛьготникAdd.СерияДокумента, ЛьготникAdd.НомерДокумента, ЛьготникAdd.ДатаВыдачиДокумента, 
-                                                ЛьготникAdd.ДатаВыдачиПаспорта,ДоговорAdd.ФлагПроверки FROM ДоговорAdd
-                                                INNER JOIN УслугиПоДоговоруAdd
-                                                ON ДоговорAdd.id_договор = УслугиПоДоговоруAdd.id_договор
-                                                INNER JOIN ЛьготникAdd
-                                                ON dbo.ДоговорAdd.id_льготник = dbo.ЛьготникAdd.id_льготник " +
-                                               "where ДоговорAdd.id_договор = " + id_договор + " and ДоговорAdd.НомерДоговора = '" + this.textBox1.Text + "' ";
-            }
-            else if(flag2019AddWrite == false &&  this.textBox1.Text != "")
-            {
-                //Получим данные по договору 
-                queruContract = "SELECT УслугиПоДоговору.НаименованиеУслуги, УслугиПоДоговору.цена, " +
-                                       "УслугиПоДоговору.Количество, УслугиПоДоговору.Сумма " +
-                                       "FROM Договор INNER JOIN " +
-                                       "УслугиПоДоговору ON Договор.id_договор = УслугиПоДоговору.id_договор " +
-                                       "where Договор.id_договор = " + id_договор + " ";
-
-                queruPerson = "SELECT top 1 Договор.НомерДоговора, Договор.ДатаДоговора, Льготник.Фамилия, Льготник.Имя, Льготник.Отчество, " +
-                                       "Льготник.ДатаРождения, Льготник.улица, Льготник.НомерДома, Льготник.корпус, Льготник.НомерКвартиры, " +
-                                       "Льготник.СерияПаспорта, Льготник.НомерПаспорта, Льготник.СерияДокумента, Льготник.НомерДокумента, " +
-                                       "Льготник.ДатаВыдачиДокумента, Льготник.ДатаВыдачиПаспорта,Договор.ФлагПроверки " +
-                                       "FROM Договор INNER JOIN " +
-                                       "УслугиПоДоговору ON Договор.id_договор = УслугиПоДоговору.id_договор " +
-                                       "INNER JOIN Льготник ON dbo.Договор.id_льготник = dbo.Льготник.id_льготник " +
-                                       "where Договор.id_договор = " + id_договор + " and Договор.НомерДоговора = '" + this.textBox1.Text + "' ";
+                    // Получим данные по услугам к договору.
+                    queruContract = "SELECT УслугиПоДоговору.НаименованиеУслуги, УслугиПоДоговору.цена, " +
+                                           "УслугиПоДоговору.Количество, УслугиПоДоговору.Сумма " +
+                                           "FROM Договор INNER JOIN " +
+                                           "УслугиПоДоговору ON Договор.id_договор = УслугиПоДоговору.id_договор " +
+                                           "where Договор.id_договор = " + id_договор + " ";
+                }
             }
 
 
 
 
-            ////Получим данные по договору 
-            //string queruContract = "SELECT УслугиПоДоговору.НаименованиеУслуги, УслугиПоДоговору.цена, " +
-            //                       "УслугиПоДоговору.Количество, УслугиПоДоговору.Сумма " +
-            //                       "FROM Договор INNER JOIN " +
-            //                       "УслугиПоДоговору ON Договор.id_договор = УслугиПоДоговору.id_договор " +
-            //                       "where Договор.id_договор = " + id_договор + " ";
+            //else if(this.textBox2.Text != "" && this.txtИмя.Text != "" && flag2019AddWrite == true)
+            //{
+            //    // Получим данные по договору.
+            //    queruPerson = @" SELECT top 1 ДоговорAdd.НомерДоговора, ДоговорAdd.ДатаДоговора, ЛьготникAdd.Фамилия, ЛьготникAdd.Имя, 
+            //                                    ЛьготникAdd.Отчество, ЛьготникAdd.ДатаРождения, ЛьготникAdd.улица, ЛьготникAdd.НомерДома, 
+            //                                    ЛьготникAdd.корпус, ЛьготникAdd.НомерКвартиры, ЛьготникAdd.СерияПаспорта, ЛьготникAdd.НомерПаспорта, 
+            //                                    ЛьготникAdd.СерияДокумента, ЛьготникAdd.НомерДокумента, ЛьготникAdd.ДатаВыдачиДокумента, 
+            //                                    ЛьготникAdd.ДатаВыдачиПаспорта,ДоговорAdd.ФлагПроверки FROM ДоговорAdd
+            //                                    INNER JOIN УслугиПоДоговору
+            //                                    ON ДоговорAdd.id_договор = УслугиПоДоговору.id_договор
+            //                                    INNER JOIN ЛьготникAdd
+            //                                    ON dbo.ДоговорAdd.id_льготник = dbo.ЛьготникAdd.id_льготник " +
+            //                                   "where ДоговорAdd.id_договор = " + id_договор + " ";
 
-            //string queruPerson = "SELECT top 1 Договор.НомерДоговора, Договор.ДатаДоговора, Льготник.Фамилия, Льготник.Имя, Льготник.Отчество, " +
-            //                       "Льготник.ДатаРождения, Льготник.улица, Льготник.НомерДома, Льготник.корпус, Льготник.НомерКвартиры, " +
-            //                       "Льготник.СерияПаспорта, Льготник.НомерПаспорта, Льготник.СерияДокумента, Льготник.НомерДокумента, " +
-            //                       "Льготник.ДатаВыдачиДокумента, Льготник.ДатаВыдачиПаспорта " +
-            //                       "FROM Договор INNER JOIN " +
-            //                       "УслугиПоДоговору ON Договор.id_договор = УслугиПоДоговору.id_договор " +
-            //                       "INNER JOIN Льготник ON dbo.Договор.id_льготник = dbo.Льготник.id_льготник " +
-            //                       "where Договор.id_договор = " + id_договор + " and Договор.НомерДоговора = '" + this.textBox1.Text + "' ";
+            //    // Получим данные по услугам к договору.
+            //    queruContract = "SELECT УслугиПоДоговоруAdd.НаименованиеУслуги, УслугиПоДоговоруAdd.цена, " +
+            //                           "УслугиПоДоговоруAdd.Количество, УслугиПоДоговоруAdd.Сумма " +
+            //                           "FROM ДоговорAdd INNER JOIN " +
+            //                           "УслугиПоДоговоруAdd ON ДоговорAdd.id_договор = УслугиПоДоговоруAdd.id_договор " +
+            //                           "where ДоговорAdd.id_договор = " + id_договор + " ";
+            //}
+            //else if(this.textBox2.Text != "" && this.txtИмя.Text == "" && flag2019AddWrite == true)
+            //{
+            //    // Получим данные по договору.
+            //    queruPerson = @" SELECT top 1 ДоговорAdd.НомерДоговора, ДоговорAdd.ДатаДоговора, ЛьготникAdd.Фамилия, ЛьготникAdd.Имя, 
+            //                                    ЛьготникAdd.Отчество, ЛьготникAdd.ДатаРождения, ЛьготникAdd.улица, ЛьготникAdd.НомерДома, 
+            //                                    ЛьготникAdd.корпус, ЛьготникAdd.НомерКвартиры, ЛьготникAdd.СерияПаспорта, ЛьготникAdd.НомерПаспорта, 
+            //                                    ЛьготникAdd.СерияДокумента, ЛьготникAdd.НомерДокумента, ЛьготникAdd.ДатаВыдачиДокумента, 
+            //                                    ЛьготникAdd.ДатаВыдачиПаспорта,ДоговорAdd.ФлагПроверки FROM ДоговорAdd
+            //                                    INNER JOIN УслугиПоДоговоруAdd
+            //                                    ON ДоговорAdd.id_договор = УслугиПоДоговоруAdd.id_договор
+            //                                    INNER JOIN ЛьготникAdd
+            //                                    ON dbo.ДоговорAdd.id_льготник = dbo.ЛьготникAdd.id_льготник " +
+            //                                   "where ДоговорAdd.id_договор = " + id_договор + " ";
+
+            //    // Получим данные по услугам к договору.
+            //    queruContract = "SELECT УслугиПоДоговоруAdd.НаименованиеУслуги, УслугиПоДоговоруAdd.цена, " +
+            //                           "УслугиПоДоговоруAdd.Количество, УслугиПоДоговоруAdd.Сумма " +
+            //                           "FROM ДоговорAdd INNER JOIN " +
+            //                           "УслугиПоДоговоруAdd ON ДоговорAdd.id_договор = УслугиПоДоговоруAdd.id_договор " +
+            //                           "where ДоговорAdd.id_договор = " + id_договор + " ";
+            //}
+            //else if (this.textBox2.Text != "" && this.txtИмя.Text == "" && flag2019AddWrite == false)
+            //{
+            //    // Получим данные по договору.
+            //    queruPerson = @" SELECT top 1 Договор.НомерДоговора, Договор.ДатаДоговора, Льготник.Фамилия, Льготник.Имя, 
+            //                                    Льготник.Отчество, Льготник.ДатаРождения, Льготник.улица, Льготник.НомерДома, 
+            //                                    Льготник.корпус, Льготник.НомерКвартиры, Льготник.СерияПаспорта, Льготник.НомерПаспорта, 
+            //                                    Льготник.СерияДокумента, Льготник.НомерДокумента, Льготник.ДатаВыдачиДокумента, 
+            //                                    Льготник.ДатаВыдачиПаспорта,Договор.ФлагПроверки FROM Договор
+            //                                    INNER JOIN УслугиПоДоговору
+            //                                    ON Договор.id_договор = УслугиПоДоговору.id_договор
+            //                                    INNER JOIN Льготник
+            //                                    ON dbo.Договор.id_льготник = dbo.Льготник.id_льготник " +
+            //                                   "where Договор.id_договор = " + id_договор + " ";
+
+            //    // Получим данные по услугам к договору.
+            //    queruContract = "SELECT УслугиПоДоговору.НаименованиеУслуги, УслугиПоДоговору.цена, " +
+            //                           "УслугиПоДоговору.Количество, УслугиПоДоговору.Сумма " +
+            //                           "FROM Договор INNER JOIN " +
+            //                           "УслугиПоДоговору ON Договор.id_договор = УслугиПоДоговору.id_договор " +
+            //                           "where Договор.id_договор = " + id_договор + " ";
+            //}
+            //else if(flag2019AddWrite == true && this.textBox1.Text != "")
+            //{
+            //    // Получим данные по услугам к договору.
+            //    queruContract = "SELECT УслугиПоДоговоруAdd.НаименованиеУслуги, УслугиПоДоговоруAdd.цена, " +
+            //                           "УслугиПоДоговоруAdd.Количество, УслугиПоДоговоруAdd.Сумма " +
+            //                           "FROM ДоговорAdd INNER JOIN " +
+            //                           "УслугиПоДоговоруAdd ON ДоговорAdd.id_договор = УслугиПоДоговоруAdd.id_договор " +
+            //                           "where ДоговорAdd.id_договор = " + id_договор + " ";
+
+
+            //    queruPerson = @" SELECT top 1 ДоговорAdd.НомерДоговора, ДоговорAdd.ДатаДоговора, ЛьготникAdd.Фамилия, ЛьготникAdd.Имя, 
+            //                           ЛьготникAdd.Отчество, ЛьготникAdd.ДатаРождения, ЛьготникAdd.улица, ЛьготникAdd.НомерДома, 
+            //                           ЛьготникAdd.корпус, ЛьготникAdd.НомерКвартиры, ЛьготникAdd.СерияПаспорта, ЛьготникAdd.НомерПаспорта, 
+            //                           ЛьготникAdd.СерияДокумента, ЛьготникAdd.НомерДокумента, ЛьготникAdd.ДатаВыдачиДокумента, 
+            //                           ЛьготникAdd.ДатаВыдачиПаспорта,ДоговорAdd.ФлагПроверки FROM ДоговорAdd
+            //                           INNER JOIN УслугиПоДоговоруAdd
+            //                           ON ДоговорAdd.id_договор = УслугиПоДоговоруAdd.id_договор
+            //                           INNER JOIN ЛьготникAdd
+            //                           ON dbo.ДоговорAdd.id_льготник = dbo.ЛьготникAdd.id_льготник " +
+            //                           " where ДоговорAdd.id_договор = " + id_договор + " and ДоговорAdd.НомерДоговора = '" + this.textBox1.Text + "' ";
+            //}
+            //else if(flag2019AddWrite == false &&  this.textBox1.Text != "")
+            //{
+            //    //Получим данные по договору 
+            //    queruContract = "SELECT УслугиПоДоговору.НаименованиеУслуги, УслугиПоДоговору.цена, " +
+            //                           "УслугиПоДоговору.Количество, УслугиПоДоговору.Сумма " +
+            //                           "FROM Договор INNER JOIN " +
+            //                           "УслугиПоДоговору ON Договор.id_договор = УслугиПоДоговору.id_договор " +
+            //                           "where Договор.id_договор = " + id_договор + " ";
+
+            //    queruPerson = "SELECT top 1 Договор.НомерДоговора, Договор.ДатаДоговора, Льготник.Фамилия, Льготник.Имя, Льготник.Отчество, " +
+            //                           "Льготник.ДатаРождения, Льготник.улица, Льготник.НомерДома, Льготник.корпус, Льготник.НомерКвартиры, " +
+            //                           "Льготник.СерияПаспорта, Льготник.НомерПаспорта, Льготник.СерияДокумента, Льготник.НомерДокумента, " +
+            //                           "Льготник.ДатаВыдачиДокумента, Льготник.ДатаВыдачиПаспорта,Договор.ФлагПроверки " +
+            //                           "FROM Договор INNER JOIN " +
+            //                           "УслугиПоДоговору ON Договор.id_договор = УслугиПоДоговору.id_договор " +
+            //                           "INNER JOIN Льготник ON dbo.Договор.id_льготник = dbo.Льготник.id_льготник " +
+            //                           "where Договор.id_договор = " + id_договор + " and Договор.НомерДоговора = '" + this.textBox1.Text + "' ";
+            //}
+
+
+
+
 
             using (SqlConnection con = new SqlConnection(ConnectDB.ConnectionString()))
-                    {
-                        con.Open();
-                        SqlTransaction transact = con.BeginTransaction();
+            {
+                  con.Open();
+                  SqlTransaction transact = con.BeginTransaction();
 
-                        tabContract = ТаблицаБД.GetTableSQL(queruContract, "Договор", con, transact);
+                  tabContract = ТаблицаБД.GetTableSQL(queruContract, "Договор", con, transact);
 
-                        tabPerson = ТаблицаБД.GetTableSQL(queruPerson, "Льготник", con, transact);
-
-                        //if (tabPerson.Rows.Count == 0)
-                        //{
-                        //    string queruPersonAdd = @" SELECT top 1 ДоговорAdd.НомерДоговора, ДоговорAdd.ДатаДоговора, ЛьготникAdd.Фамилия, ЛьготникAdd.Имя, 
-                        //                        ЛьготникAdd.Отчество, ЛьготникAdd.ДатаРождения, ЛьготникAdd.улица, ЛьготникAdd.НомерДома, 
-                        //                        ЛьготникAdd.корпус, ЛьготникAdd.НомерКвартиры, ЛьготникAdd.СерияПаспорта, ЛьготникAdd.НомерПаспорта, 
-                        //                        ЛьготникAdd.СерияДокумента, ЛьготникAdd.НомерДокумента, ЛьготникAdd.ДатаВыдачиДокумента, 
-                        //                        ЛьготникAdd.ДатаВыдачиПаспорта FROM ДоговорAdd
-                        //                        INNER JOIN УслугиПоДоговору
-                        //                        ON ДоговорAdd.id_договор = УслугиПоДоговору.id_договор
-                        //                        INNER JOIN ЛьготникAdd
-                        //                        ON dbo.ДоговорAdd.id_льготник = dbo.ЛьготникAdd.id_льготник " +
-                        //                        "where ДоговорAdd.id_договор = " + id_договор + " and ДоговорAdd.НомерДоговора = '" + this.textBox1.Text + "' ";
-
-                        //    tabPerson = ТаблицаБД.GetTableSQL(queruPersonAdd, "ЛьготникAdd", con, transact);
-
-                        //    //Получим данные по договору
-                        //    string queruContractAdd = "SELECT УслугиПоДоговоруAdd.НаименованиеУслуги, УслугиПоДоговоруAdd.цена, " +
-                        //                           "УслугиПоДоговоруAdd.Количество, УслугиПоДоговоруAdd.Сумма " +
-                        //                           "FROM ДоговорAdd INNER JOIN " +
-                        //                           "УслугиПоДоговоруAdd ON ДоговорAdd.id_договор = УслугиПоДоговоруAdd.id_договор " +
-                        //                           "where ДоговорAdd.id_договор = " + id_договор + " ";
-
-                        //    tabContract = ТаблицаБД.GetTableSQL(queruContractAdd, "Договор", con, transact);
-                        //}
-
-                    }
+                  tabPerson = ТаблицаБД.GetTableSQL(queruPerson, "Льготник", con, transact);
+            }
                 //}
 
                 FormDispContract fdc = new FormDispContract();
@@ -1554,12 +1556,12 @@ namespace ControlDantist
                     StringParametr stringParametr2019Add = new StringParametr();
                     stringParametr2019Add.Query = query2019Add;
 
-                    // Поиск льготников по таблицам БД 2019 год.
-                    IFindPerson findPerson2019 = new FindPerson2019(personFamili);
-                    string query2019 = findPerson2019.Query();
+                    //// Поиск льготников по таблицам БД 2019 год.
+                    //IFindPerson findPerson2019 = new FindPerson2019(personFamili);
+                    //string query2019 = findPerson2019.Query();
 
-                    StringParametr stringParametr2019 = new StringParametr();
-                    stringParametr2019.Query = query2019;
+                    //StringParametr stringParametr2019 = new StringParametr();
+                    //stringParametr2019.Query = query2019;
 
                     // Поиск льгот ника по позже 2019 года.
                     IFindPerson findPerson2019Afftar = new FIndPersonFamili2019Aftar(personFamili);
@@ -1568,6 +1570,14 @@ namespace ControlDantist
                     StringParametr stringParametr2019Aftar = new StringParametr();
                     stringParametr2019Aftar.Query = query2019Aftar;
 
+                    // Поиск льготника прошедшего проверку по фмаилии в 2021 году.
+                    FindPersonFamilyValidTrue2021 findPersonFamilyValidTrue2021 = new FindPersonFamilyValidTrue2021(personFamili);
+                    string queryFindPerson2021FamilyTrue = findPersonFamilyValidTrue2021.Query();
+
+                    StringParametr stringfindPersonFamilyValidTrue2021 = new StringParametr();
+                    stringfindPersonFamilyValidTrue2021.Query = queryFindPerson2021FamilyTrue;
+
+
                     // Выполнинм поиск льготников до 2019 года.
                     ExecuteFind(stringParametr);
 
@@ -1575,10 +1585,12 @@ namespace ControlDantist
                     ExecuteFind(stringParametr2019Add);
 
                     // Выполнинм поиск льготников 2019 по таблицам базы данных года.
-                    ExecuteFind(stringParametr2019);
+                    //ExecuteFind(stringParametr2019);
 
                     // Выполнинм поиск льготников после 2019 по таблицам базы данных года.
                     ExecuteFind(stringParametr2019Aftar);
+
+                    ExecuteFind(stringfindPersonFamilyValidTrue2021);
 
                     flagExecute = true;
 
@@ -1615,12 +1627,12 @@ namespace ControlDantist
                     StringParametr stringParametr2019Add = new StringParametr();
                     stringParametr2019Add.Query = query2019Add;
 
-                    // Поиск льготников по таблицам БД 2019 год.
-                    IFindPerson findPerson2019 = new FindPersonFio2019(personFamili, personName);
-                    string query2019 = findPerson2019.Query();
+                    //// Поиск льготников по таблицам БД 2019 год.
+                    //IFindPerson findPerson2019 = new FindPersonFio2019(personFamili, personName);
+                    //string query2019 = findPerson2019.Query();
 
-                    StringParametr stringParametr2019 = new StringParametr();
-                    stringParametr2019.Query = query2019;
+                    //StringParametr stringParametr2019 = new StringParametr();
+                    //stringParametr2019.Query = query2019;
 
                     // Поиск льгот ника по позже 2019 года.
                     IFindPerson findPerson2019Afftar = new FIndPersonFio2019Aftar(personFamili, personName);
@@ -1629,6 +1641,13 @@ namespace ControlDantist
                     StringParametr stringParametr2019Aftar = new StringParametr();
                     stringParametr2019Aftar.Query = query2019Aftar;
 
+                    IFindPerson findPersonFio2021 = new FindPersonFioValidate2021(personFamili, personName);
+                    string query2021Fio = findPersonFio2021.Query();
+
+                    StringParametr stringParametrfindPersonFio2021 = new StringParametr();
+                    stringParametrfindPersonFio2021.Query = query2019Aftar;
+
+
                     // Выполнинм поиск льготников до 2019 года.
                     ExecuteFind(stringParametr);
 
@@ -1636,10 +1655,12 @@ namespace ControlDantist
                     ExecuteFind(stringParametr2019Add);
 
                     // Выполнинм поиск льготников 2019 по таблицам базы данных года.
-                    ExecuteFind(stringParametr2019);
+                    //ExecuteFind(stringParametr2019);
 
                     // Выполнинм поиск льготников после 2019 по таблицам базы данных года.
                     ExecuteFind(stringParametr2019Aftar);
+
+                    ExecuteFind(stringParametrfindPersonFio2021);
 
                     flagExecute = true;
                 }
@@ -1670,12 +1691,12 @@ namespace ControlDantist
                     StringParametr stringParametr2019Add = new StringParametr();
                     stringParametr2019Add.Query = query2019Add;
 
-                    // Поиск льготников по таблицам БД 2019 год.
-                    IFindPerson findPerson2019 = new FindPersonFamili2019NoValid(personFamili);
-                    string query2019 = findPerson2019.Query();
+                    //// Поиск льготников по таблицам БД 2019 год.
+                    //IFindPerson findPerson2019 = new FindPersonFamili2019NoValid(personFamili);
+                    //string query2019 = findPerson2019.Query();
 
-                    StringParametr stringParametr2019 = new StringParametr();
-                    stringParametr2019.Query = query2019;
+                    //StringParametr stringParametr2019 = new StringParametr();
+                    //stringParametr2019.Query = query2019;
 
                     // Поиск льгот ника по позже 2019 года.
                     IFindPerson findPerson2019Afftar = new FIndPersonFamili2019AftarNoValid(personFamili);
@@ -1684,6 +1705,12 @@ namespace ControlDantist
                     StringParametr stringParametr2019Aftar = new StringParametr();
                     stringParametr2019Aftar.Query = query2019Aftar;
 
+                    IFindPerson findPersonFamiliNoValid2021 = new IFindPersonFamiliNoValid2021(personFamili);
+                    string queryFamiliNoValid2021 = findPersonFamiliNoValid2021.Query();
+
+                    StringParametr stringParametrFamiliNoValid2021 = new StringParametr();
+                    stringParametrFamiliNoValid2021.Query = queryFamiliNoValid2021;
+
                     // Выполнинм поиск льготников до 2019 года.
                     ExecuteFind(stringParametr);
 
@@ -1691,10 +1718,12 @@ namespace ControlDantist
                     ExecuteFind(stringParametr2019Add);
 
                     // Выполнинм поиск льготников 2019 по таблицам базы данных года.
-                    ExecuteFind(stringParametr2019);
+                    //ExecuteFind(stringParametr2019);
 
                     // Выполнинм поиск льготников после 2019 по таблицам базы данных года.
                     ExecuteFind(stringParametr2019Aftar);
+
+                    ExecuteFind(stringParametrFamiliNoValid2021);
 
                     flagExecute = true;
 

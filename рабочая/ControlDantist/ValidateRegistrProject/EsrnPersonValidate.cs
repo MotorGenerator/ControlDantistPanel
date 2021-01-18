@@ -39,11 +39,10 @@ namespace ControlDantist.ValidateRegistrProject
                 string sKey = string.Empty;
                 sKey = dStringConnect.Key.Trim();
                 //if(sKey.Trim() != "Балаковский".Trim())//Ленинский
-                if (sKey.Trim() != "Ленинский".Trim())
-                {
-                    var sTestTestt = "";
-                    continue;
-                }
+                //{
+                //    var sTestTestt = "";
+                //    continue;
+                //}
 
                 // Переменная хранит строку подключения к БД.
                 string sConnection = string.Empty;

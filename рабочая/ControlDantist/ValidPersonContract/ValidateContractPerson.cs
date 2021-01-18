@@ -54,6 +54,7 @@ namespace ControlDantist.ValidPersonContract
                 string surname = it.Packecge.льготник.Отчество.Trim();
                 DateTime dr = it.Packecge.льготник.ДатаРождения;
 
+                // Проверка договоров по таблицам 2021 года.
                 IValidatePersonContract validatePersonContract = new ValidatePersonForContract(famili, name, surname, dr);
                 string queryPC = validatePersonContract.Execute();
 
@@ -61,6 +62,19 @@ namespace ControlDantist.ValidPersonContract
                 stringParametr.Query = queryPC;
 
                 BuildingSpike(stringParametr, it.NumContract.Trim(), contr);
+
+                // Возможно придется стирать
+
+                    // Проверка договоров по таблице Архив.
+                    IValidatePersonContract validatePersonContractArchiv = new ValidatePersonContractArchiv(famili, name, surname, dr);
+                    string queryPcArchiv = validatePersonContractArchiv.Execute();
+
+                    StringParametr stringParametrArchiv = new StringParametr();
+                    stringParametrArchiv.Query = queryPcArchiv;
+
+                    BuildingSpike(stringParametrArchiv, it.NumContract.Trim(), contr);
+
+                // КОнец.
 
                 // Запишем данные по договору.
                 contr.НомерТекущийДоговор = it.NumContract;
@@ -108,11 +122,11 @@ namespace ControlDantist.ValidPersonContract
                 if (DBNull.Value != row["НомерДоговора"])
                 {
 
-                    if (numContract.Trim() == row["НомерДоговора"].ToString().Trim())
-                    {
-                        // Перейдем к следующей итерации.
-                        continue;
-                    }
+                    //if (numContract.Trim() == row["НомерДоговора"].ToString().Trim())
+                    //{
+                    //    // Перейдем к следующей итерации.
+                    //    continue;
+                    //}
 
                     listNumDog.Append('\n' + " " + row["НомерДоговора"].ToString().Trim());// + " от " + Convert.ToDateTime(row["ДатаЗаписиДоговора"]).ToShortDateString().Trim());
 

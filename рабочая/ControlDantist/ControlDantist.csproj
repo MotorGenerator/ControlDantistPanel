@@ -449,6 +449,7 @@
     <Compile Include="Find\FindContractTo2019.cs" />
     <Compile Include="Find\FindContractTo2019NoValid.cs" />
     <Compile Include="Find\FindPerson2019.cs" />
+    <Compile Include="Find\FindPersonAftar.cs" />
     <Compile Include="Find\FindPersonAftar2019.cs" />
     <Compile Include="Find\FindPersonAftar2019NoValid.cs" />
     <Compile Include="Find\FindPersonByFamiliName.cs" />
@@ -463,6 +464,8 @@
     <Compile Include="Find\FindPersonFamiliTableAddNoValid.cs" />
     <Compile Include="Find\FindPersonFamiliTo2019.cs" />
     <Compile Include="Find\FindPersonFamiliTo2019NoValid.cs" />
+    <Compile Include="Find\FindPersonFamily2021.cs" />
+    <Compile Include="Find\FindPersonFamilyValidTrue2021.cs" />
     <Compile Include="Find\FindPersonFio2019.cs" />
     <Compile Include="Find\FIndPersonFio2019Aftar.cs" />
     <Compile Include="Find\FIndPersonFio2019AftarNoValid.cs" />
@@ -471,12 +474,16 @@
     <Compile Include="Find\FindPersonFioTableAddNoValid.cs" />
     <Compile Include="Find\FindPersonFioTo2019.cs" />
     <Compile Include="Find\FindPersonFioTo2019NoValid.cs" />
+    <Compile Include="Find\FindPersonFioValidate2021.cs" />
+    <Compile Include="Find\FindPersonFioValidTrue2021.cs" />
     <Compile Include="Find\FindPersonFirstNameNameNoValid.cs" />
     <Compile Include="Find\FindPersonForNumberLetter.cs" />
+    <Compile Include="Find\FindPersonNoValid.cs" />
     <Compile Include="Find\FindPersonNumContract.cs" />
     <Compile Include="Find\FindPersonNumContractItem.cs" />
     <Compile Include="Find\FindPerson_FI.cs" />
     <Compile Include="Find\IFindPerson.cs" />
+    <Compile Include="Find\IFindPersonFamiliNoValid2021.cs" />
     <Compile Include="Fire\FireHelp.cs" />
     <Compile Include="Fire\HelpFireЛьготнаяКатегория.cs" />
     <Compile Include="Fire\IFireExecute.cs" />
@@ -917,6 +924,7 @@
     <Compile Include="ValidPersonContract\Valid2019.cs" />
     <Compile Include="ValidPersonContract\Valid2019TabAdd.cs" />
     <Compile Include="ValidPersonContract\ValidAfter2019.cs" />
+    <Compile Include="ValidPersonContract\ValidatePersonContractArchiv.cs" />
     <Compile Include="ValidPersonContract\ValidatePersonForContract.cs" />
     <Compile Include="ValidPersonContract\ValidateContractPerson.cs" />
     <Compile Include="ValidPersonContract\ValidContractForPerson.cs" />

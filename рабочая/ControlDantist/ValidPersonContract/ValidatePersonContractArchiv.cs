@@ -3,7 +3,7 @@ using ControlDantist.Classes;
 
 namespace ControlDantist.ValidPersonContract
 {
-    public class ValidatePersonForContract : IValidatePersonContract
+    public class ValidatePersonContractArchiv : IValidatePersonContract
     {
         private string famili = string.Empty;
         private string name = string.Empty;
@@ -11,7 +11,7 @@ namespace ControlDantist.ValidPersonContract
         private DateTime dateBirth;
         //private string query = string.Empty;
 
-        public ValidatePersonForContract(string famili, string name, string secondName, DateTime dateBirth)//, string query)
+        public ValidatePersonContractArchiv(string famili, string name, string secondName, DateTime dateBirth)//, string query)
         {
             this.famili = famili ?? throw new ArgumentNullException(nameof(famili));
             this.name = name ?? throw new ArgumentNullException(nameof(name));
@@ -20,6 +20,7 @@ namespace ControlDantist.ValidPersonContract
             //this.query = query ?? throw new ArgumentNullException(nameof(query));
         }
 
+
         public string Execute()
         {
             return @"declare @FistName nvarchar(100)
@@ -27,15 +28,15 @@ namespace ControlDantist.ValidPersonContract
                             declare @Surname nvarchar(100)
                             declare @DR date
                             set @FistName = '" + this.famili + "' " +
-                            " set @Name = '"+ name +"' " +
-                            " set @Surname = '"+ this.secondName +"' " +
-                            "set @DR = '"+ Время.Дата(this.dateBirth.ToShortDateString()) + "' " +
-                            @" select НомерДоговора, Договор.ДатаДоговора from Льготник
-                            inner join Договор
-                            on Льготник.id_льготник = Договор.id_льготник
+                            " set @Name = '" + name + "' " +
+                            " set @Surname = '" + this.secondName + "' " +
+                            "set @DR = '" + Время.Дата(this.dateBirth.ToShortDateString()) + "' " +
+                            @" select НомерДоговора, ДоговорАрхив.ДатаДоговора from ЛьготникАрхив
+                            inner join ДоговорАрхив
+                            on ЛьготникАрхив.id_льготник = ДоговорАрхив.id_льготник
                             --inner join АктВыполненныхРабот
                             --on АктВыполненныхРабот.id_договор = Договор.id_договор
-                             where Договор.ФлагПроверки = 1 and LOWER(RTRIM(LTRIM([Фамилия]))) = LOWER(LTRIM(RTRIM(@FistName))) and LOWER(LTRIM(RTRIM(Имя))) = LOWER(LTRIM(RTRIM(@Name))) 
+                             where ДоговорАрхив.ФлагПроверки = 1 and LOWER(RTRIM(LTRIM([Фамилия]))) = LOWER(LTRIM(RTRIM(@FistName))) and LOWER(LTRIM(RTRIM(Имя))) = LOWER(LTRIM(RTRIM(@Name))) 
                             and((LOWER(LTRIM(RTRIM(Отчество))) = LOWER(LTRIM(RTRIM(@Surname)))) or Отчество is null) and ДатаРождения = @DR
                             union
                             select НомерДоговора,ДоговорAdd.ДатаДоговора from ЛьготникAdd
@@ -46,7 +47,6 @@ namespace ControlDantist.ValidPersonContract
                              where ДоговорAdd.ФлагПроверки = 1 and LOWER(RTRIM(LTRIM([Фамилия]))) = LOWER(LTRIM(RTRIM(@FistName))) 
                             and LOWER(LTRIM(RTRIM(Имя))) = LOWER(LTRIM(RTRIM(@Name))) 
                             and((LOWER(LTRIM(RTRIM(Отчество))) = LOWER(LTRIM(RTRIM(@Surname)))) or Отчество is null) and ДатаРождения = @DR";
-
         }
     }
 }

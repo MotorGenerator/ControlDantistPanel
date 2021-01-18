@@ -214,13 +214,9 @@ namespace ControlDantist.Classes
                 myCell14.Index = 14;
                 //cellFG.MergeAcross = 1;
                 myCell14.StyleID = "HeaderStyle2";
-
-               
             }
 
             book.Save(filename);
-
-           
         }
     }
 }
