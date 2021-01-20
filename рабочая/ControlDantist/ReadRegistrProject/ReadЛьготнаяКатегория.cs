@@ -25,7 +25,7 @@ namespace ControlDantist.ReadRegistrProject
 
             if (tabLK != "")
             {
-                var tlk = dc.ТабЛьготнаяКатегория.Where(w => w.ЛьготнаяКатегория == tabLK).FirstOrDefault();
+                var tlk = dc.ТабЛьготнаяКатегория.Where(w => w.ЛьготнаяКатегория.Trim().ToLower() == tabLK.Trim().ToLower()).FirstOrDefault();
 
                 if(tlk != null)
                 {

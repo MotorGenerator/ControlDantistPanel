@@ -3,6 +3,7 @@ using System.Data.SqlClient;
 using System.Collections.Generic;
 using ControlDantist.Classes;
 using ControlDantist.DataBaseContext;
+using System.Threading;
 
 namespace ControlDantist.ValidateRegistrProject
 {
@@ -11,6 +12,8 @@ namespace ControlDantist.ValidateRegistrProject
         private bool flagError = false;
 
         private List<ItemLibrary> list;
+
+        static Mutex mutexObj = new Mutex();
         public EsrnPersonValidate(List<ItemLibrary> list)
         {
             if (list != null && list.Count > 0)
@@ -35,6 +38,8 @@ namespace ControlDantist.ValidateRegistrProject
             // Пройдемся по строкам подключения.
             foreach (KeyValuePair<string, string> dStringConnect in pullConnect)
             {
+                mutexObj.WaitOne();
+
                 // Для теста.
                 string sKey = string.Empty;
                 sKey = dStringConnect.Key.Trim();
@@ -123,6 +128,8 @@ namespace ControlDantist.ValidateRegistrProject
 
                     //validatePrefCategoryList2.FindPersonsFioDoc()
                 }
+
+                mutexObj.ReleaseMutex();
 
             }
         }

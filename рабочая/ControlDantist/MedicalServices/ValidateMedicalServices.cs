@@ -61,6 +61,13 @@ namespace ControlDantist.MedicalServices
                         // Получим количество услуг в договоре.
                         int countServices = item.Packecge.listUSlug.Count();
 
+                        // Группируем услуги в проекте договоров.
+                        var resultGroupContract = from r in item.Packecge.listUSlug
+                                                  group r by new { р1 = r.НаименованиеУслуги.Trim(), р2 = r.Сумма } into g
+                                          //group r by new { р1 = r.НаименованиеУслуги.Trim(), р2 = r.Сумма } into g
+                                          select g.Key;
+
+
                         // Приведем списки к одному типу.
                         var listServicesHosp = listKU.Select(x => new УслугиПоДоговору { НаименованиеУслуги = x.ВидУслуги, цена = x.Цена }).ToList();
 
@@ -75,14 +82,24 @@ namespace ControlDantist.MedicalServices
                                          x.Сумма
                                      };
 
+                        // Количество услуг в договоре сгруппированное.
+                        int iCountContract = resultGroupContract.Count();
+
+                        // Сгруппируем услуги.
+                        var resultGroup = from r in result
+                                group r by new { р1 = r.НаименованиеУслуги.Trim(), р2 = r.Сумма } into g
+                                          //group r by new { р1 = r.НаименованиеУслуги.Trim(), р2 = r.Сумма } into g
+                                select g.Key;
+
+                        // Группируем количество улуг в Join.
+                        int countJoin = resultGroup.Count();
 
                         // Если количество услуги в договоре совпало с Join 
-                        if (result.Count() == countServices)
+                        if (iCountContract == countJoin)
                         {
                             // Считаем что договор прошёл проверку по медицинским услугам.
                             item.FlagValidateMedicalServices = true;
                         }
-
                     }
                 }
 

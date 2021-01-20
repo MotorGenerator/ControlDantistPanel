@@ -214,7 +214,7 @@ namespace ControlDantist
                         }
                     }
                 }
-                    
+
 
                 //// Выведим разницу в услугах у льготников которые не прошли проверку по услугам.
                 //ShowDifference showDifference = new ShowDifference(idContract);
@@ -222,7 +222,7 @@ namespace ControlDantist
                 //// 
                 //var list = showDifference.Display();
 
-                //if(list != null && list.Count > 0)
+                //if (list != null && list.Count > 0)
                 //{
                 //    this.dataError.DataSource = list;
 
@@ -241,7 +241,7 @@ namespace ControlDantist
                 //    this.txtДокумент.Text = "";
                 //}
 
-                // Покажем услуги которых нет на сервере.
+                //// Покажем услуги которых нет на сервере.
 
             }
 
@@ -249,13 +249,26 @@ namespace ControlDantist
 
         private void btnDist_Click(object sender, EventArgs e)
         {
-            foreach(DataGridViewRow row in this.dataGridView1.Rows)
+            // Обьявим переменную типа делегат.
+            SetValidToReestr svDel;
+
+            // Прсвим выполняемый метод.
+            svDel = SetValidateContract;
+
+            foreach (DataGridViewRow row in this.dataGridView1.Rows)
             {
                 string numContract = row.Cells["НомерДоговора"].Value.ToString();
 
                 if (Convert.ToBoolean(row.Cells["FlagValidEsrn"].Value) == true && (Convert.ToBoolean(row.Cells["FlagValidServices"].Value) == true))
                 {
                     row.Cells["FlagSaveContract"].Value = true;
+
+                    // Получим текущий контракт.
+                    var currContract = listProjectContrats.Where(w => w.NumContract.Trim() == numContract.Trim()).FirstOrDefault();
+
+                    // Выполним метод.
+                    svDel.Invoke(currContract);
+
                 }
                 else
                 {

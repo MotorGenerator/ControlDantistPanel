@@ -82,7 +82,7 @@ namespace ControlDantist.Find
 
                     if (contracts.Count() > 0)
                     {
-                        foreach (var it in contracts.OrderByDescending(x => x.id_договор).Take(1))
+                        foreach (var it in contracts)//.OrderByDescending(x => x.id_договор).Take(1))
                         {
                             list.Add(it);
                             continue;

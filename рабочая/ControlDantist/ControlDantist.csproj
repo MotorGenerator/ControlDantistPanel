@@ -470,6 +470,7 @@
     <Compile Include="Find\FIndPersonFio2019Aftar.cs" />
     <Compile Include="Find\FIndPersonFio2019AftarNoValid.cs" />
     <Compile Include="Find\FindPersonFio2019NoValid.cs" />
+    <Compile Include="Find\FindPersonFioNoValid2021.cs" />
     <Compile Include="Find\FindPersonFioTableAdd.cs" />
     <Compile Include="Find\FindPersonFioTableAddNoValid.cs" />
     <Compile Include="Find\FindPersonFioTo2019.cs" />
@@ -484,6 +485,14 @@
     <Compile Include="Find\FindPerson_FI.cs" />
     <Compile Include="Find\IFindPerson.cs" />
     <Compile Include="Find\IFindPersonFamiliNoValid2021.cs" />
+    <Compile Include="Find\IQueryFind.cs" />
+    <Compile Include="Find\QueryContract2021.cs" />
+    <Compile Include="Find\QueryContractAdd.cs" />
+    <Compile Include="Find\QueryFindContractBefor2019.cs" />
+    <Compile Include="Find\QueryFindIdContractBefore2019.cs" />
+    <Compile Include="Find\QueryPerson2021.cs" />
+    <Compile Include="Find\QueryPersonAdd.cs" />
+    <Compile Include="Find\QueryPersonBefor2019_a.cs" />
     <Compile Include="Fire\FireHelp.cs" />
     <Compile Include="Fire\HelpFireЛьготнаяКатегория.cs" />
     <Compile Include="Fire\IFireExecute.cs" />
