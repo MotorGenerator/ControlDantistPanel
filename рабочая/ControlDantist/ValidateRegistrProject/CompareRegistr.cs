@@ -25,22 +25,28 @@ namespace ControlDantist.ValidateRegistrProject
         /// <param name="dataTable"></param>
         public void Compare(DataTable dataTableFio, DataTable dataTableDoc)
         {
-            if (dataTableFio?.Rows?.Count > 0)
+             if (dataTableFio?.Rows?.Count > 0)
             {
+                // Пройдемся по записям таблицы с ФИО и паспортом.
                 foreach (DataRow row in dataTableFio.Rows)
                 {
+                    // Берем запись из реестра.
                     foreach (var itm in packegeDateContract)
                     {
+                        // Если запись из реестра равна записи из ФИО с паспортом
                         if (Convert.ToInt32(row["id_договор"]) == itm.Packecge.тДоговор.id_договор)
                         {
+                            // Тогда берем запись из реестра еще раз.
                             foreach(DataRow rowDoc in dataTableDoc.Rows)
                             {
+                                // И данную запись сравниваем с записью из таблицы ФИО номер документа.
                                 if(Convert.ToInt32(rowDoc["id_договор"]) == itm.Packecge.тДоговор.id_договор)
                                 {
                                     // Пометим только договора которые не прошли проверку.
                                     if (itm.FlagValidateEsrn == false)
                                     {
-                                        // Пометим договор как прошедший проверку.
+                                        // Пометим договор как прошедший проверку при условии что данный
+                                        // договор есть и в тпблице ФИОПаспорт и ФИО номерДокумента
                                         itm.FlagValidateEsrn = true;
 
                                          // Запишем адрес льготника найденного по ЭСРН.
