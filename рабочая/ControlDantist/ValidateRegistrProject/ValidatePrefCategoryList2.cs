@@ -145,7 +145,8 @@ namespace ControlDantist.ValidateRegistrProject
                                     " on LOWER(RTRIM(LTRIM(Tab1.Фамилия))) = LOWER(RTRIM(LTRIM(" + nameTempTable + ".Фамилия))) " +
                                     " and LOWER(RTRIM(LTRIM(Tab1.Имя))) = LOWER(RTRIM(LTRIM(" + nameTempTable + ".Имя))) " +
                                     " and((LOWER(RTRIM(LTRIM(Tab1.Отчество))) = LOWER(RTRIM(LTRIM(" + nameTempTable + ".Отчество))) or " + nameTempTable + ".Отчество is NULL)) " +
-                                     " and CONVERT(char(10), Tab1.BIRTHDATE, 112) = CONVERT(char(10), LOWER(RTRIM(LTRIM(" + nameTempTable + ".ДатаРождения))), 112) " + //112
+                                     //" and CONVERT(char(10), Tab1.BIRTHDATE, 112) = CONVERT(char(10), LOWER(RTRIM(LTRIM(" + nameTempTable + ".ДатаРождения))), 112) " + //112
+                                      " and CONVERT(char(10), Tab1.BIRTHDATE, 112) = CONVERT(char(10), " + nameTempTable + ".ДатаРождения, 112) " + //112
                                     " and LOWER(RTRIM(LTRIM(Tab1.DOCUMENTSERIES))) = LOWER(RTRIM(LTRIM(" + nameTempTable + ".СерияДокумента))) " +
                                     " and LOWER(RTRIM(LTRIM(Tab1.DOCUMENTSNUMBER))) = LOWER(RTRIM(LTRIM(" + nameTempTable + ".НомерДокумента))) ";
                                     //+

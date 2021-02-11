@@ -44,10 +44,10 @@ namespace ControlDantist.ValidateRegistrProject
                 string sKey = string.Empty;
                 sKey = dStringConnect.Key.Trim();
 
-                if (sKey.Trim() != "Хвалынский".Trim())//Ленинский
+                if (sKey.Trim() != "Балаковский".Trim())
                 {
                     var sTestTestt = "";
-                    continue;
+                    //continue;
                 }
                 else
                 {
@@ -120,8 +120,9 @@ namespace ControlDantist.ValidateRegistrProject
                     //CompareRegistr compareRegistr = new CompareRegistr(this.list);
                     //compareRegistr.Compare(tabФИО, tabФиоPassword);
 
-                    if (tabФИО?.Rows?.Count > 1 && tabФиоPassword?.Rows?.Count > 1)
-                    {
+                    //if (tabФИО?.Rows?.Count > 1 && tabФиоPassword?.Rows?.Count > 1)
+                        if (tabФИО?.Rows?.Count > 1 || tabФиоPassword?.Rows?.Count > 1)
+                        {
                         // Пометим прошедших проверку.
                         CompareRegistr compareRegistr = new CompareRegistr(this.list);
                         compareRegistr.Compare(tabФИО, tabФиоPassword);

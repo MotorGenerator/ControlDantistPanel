@@ -62,17 +62,26 @@ namespace ControlDantist.Classes
         /// <returns></returns>
         static public DataTable GetTableSQL(string query, string nameTable, SqlConnection con, SqlTransaction transact)
         {
-            // Выполним команду в единой транзакции.
-            SqlCommand com = new SqlCommand(query, con);
-            com.CommandTimeout = 0;
-            com.Transaction = transact;
-
-            // Настроим адаптер данных.
-            SqlDataAdapter da = new SqlDataAdapter(com);
-
             // Заполним таблицу данными.
             DataSet ds = new DataSet();
-            da.Fill(ds, nameTable);
+
+            try
+            {
+                // Выполним команду в единой транзакции.
+                SqlCommand com = new SqlCommand(query, con);
+                com.CommandTimeout = 0;
+                com.Transaction = transact;
+
+                // Настроим адаптер данных.
+                SqlDataAdapter da = new SqlDataAdapter(com);
+
+                // Заполним таблицу данными.
+                da.Fill(ds, nameTable);
+            }
+            catch
+            {
+
+            }
 
             return ds.Tables[nameTable];
         }
