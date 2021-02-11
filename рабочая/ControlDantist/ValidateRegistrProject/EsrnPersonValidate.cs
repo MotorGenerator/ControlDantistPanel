@@ -43,11 +43,16 @@ namespace ControlDantist.ValidateRegistrProject
                 // Для теста.
                 string sKey = string.Empty;
                 sKey = dStringConnect.Key.Trim();
-                //if(sKey.Trim() != "Балаковский".Trim())//Ленинский
-                //{
-                //    var sTestTestt = "";
-                //    continue;
-                //}
+
+                if (sKey.Trim() != "Хвалынский".Trim())//Ленинский
+                {
+                    var sTestTestt = "";
+                    continue;
+                }
+                else
+                {
+                    var testConnecrt = "Хвалынск";
+                }
 
                 // Переменная хранит строку подключения к БД.
                 string sConnection = string.Empty;
@@ -75,6 +80,7 @@ namespace ControlDantist.ValidateRegistrProject
 
                     // Проверим льготника по ФИО и номеру документа.
                     IEsrnValidate validatePrefCategoryList2 = new ValidatePrefCategoryList2(this.list);
+
 
                     IBuilderQueryValidate queryFindPersonToFioNumDoc = new BuilderQueryValidator(validatePrefCategoryList2);
 
@@ -110,19 +116,23 @@ namespace ControlDantist.ValidateRegistrProject
                     // Проверка список договоров.
                     var listEsrnPerson = this.list;
 
-                    if (tabФИО?.Rows?.Count > 1)
+                    //// Пометим прошедших проверку.
+                    //CompareRegistr compareRegistr = new CompareRegistr(this.list);
+                    //compareRegistr.Compare(tabФИО, tabФиоPassword);
+
+                    if (tabФИО?.Rows?.Count > 1 && tabФиоPassword?.Rows?.Count > 1)
                     {
                         // Пометим прошедших проверку.
                         CompareRegistr compareRegistr = new CompareRegistr(this.list);
-                        compareRegistr.Compare(tabФИО);
+                        compareRegistr.Compare(tabФИО, tabФиоPassword);
                     }
 
-                    if(tabФиоPassword?.Rows?.Count > 1)
-                    {
-                        // Пометим прошедших проверку.
-                        CompareRegistr compareRegistr = new CompareRegistr(this.list);
-                        compareRegistr.Compare(tabФиоPassword);
-                    }
+                    //if(tabФиоPassword?.Rows?.Count > 1)
+                    //{
+                    //    // Пометим прошедших проверку.
+                    //    CompareRegistr compareRegistr = new CompareRegistr(this.list);
+                    //    compareRegistr.Compare(tabФиоPassword);
+                    //}
 
                     // Генерируем запрос на поиск льготников в ЭСРН по Фио и номеру паспората.
 

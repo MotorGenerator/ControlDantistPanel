@@ -19,5 +19,15 @@ namespace ControlDantist.Classes
             return BeginDateSQL;
         }
 
+        /// <summary>
+        /// Возвращает дату в текущем часовом поясее.
+        /// </summary>
+        /// <param name="date"></param>
+        /// <returns></returns>
+        public static DateTime LocalDate(DateTime date)
+        {
+            return date.ToLocalTime().Date;
+        }
+
     }
 }

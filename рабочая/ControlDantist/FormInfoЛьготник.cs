@@ -87,15 +87,15 @@ namespace ControlDantist
                         //Отобразим ФИО
                         this.lblF.Text = person.Фамилия.Trim();
                         this.lblNam.Text = person.Имя.Trim();
-                        this.lblFat.Text = person.Отчество.Trim() + " " + person.ДатаРождения.ToShortDateString() +" г.р.";
+                    this.lblFat.Text = person.Отчество.Trim() + " " + person.ДатаРождения.ToShortDateString() +" г.р.";
 
                         //отобразим серию и номер документа дающегно парво на льготу
                         this.lblSeria.Text = person.СерияДокумента.Trim();
-                        this.lblPasport.Text = person.НомерДокумента.Trim() + " выдан " + person.ДатаВыдачиДокумента.ToShortDateString();
+                    this.lblPasport.Text = person.НомерДокумента.Trim() + " выдан " + person.ДатаВыдачиДокумента.ToShortDateString();
 
                         //отобразим серию и номер паспрота льготника
                         this.lblSerPass.Text =person.СерияПаспорта.Trim();
-                        this.lblNumPass.Text = person.НомерПаспорта.Trim() + " выдан " + person.ДатаВыдачиПаспорта.ToShortDateString();
+                    this.lblNumPass.Text = person.НомерПаспорта.Trim() + " выдан " +  person.ДатаВыдачиПаспорта.ToShortDateString();
 
                         // Получим населенный пункт.
                         //var city = unitDate.НаселенныйПунктRepository.FiltrНаселенныйПункт((int)person.id_насПункт);

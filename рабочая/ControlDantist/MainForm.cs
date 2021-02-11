@@ -223,7 +223,7 @@ namespace ControlDantist
                         //Получим на сервере данные по договору и сравним их с получиными данными и с данными на льготника
 
                         //Запишем дату договора
-                        string датаДоговора = Convert.ToDateTime(rowControlReestrДоговор["ДатаДоговора"]).ToShortDateString();
+                        string датаДоговора = Convert.ToDateTime(rowControlReestrДоговор["ДатаДоговора"]).ToLocalTime().ToShortDateString();
 
 
                         //запишем дату и номер договора в реестр
@@ -236,7 +236,7 @@ namespace ControlDantist
                         string номерАкта = rowControlReestrАкт["НомерАкта"].ToString();
 
                         //Запишем дату акта оказанных услуг
-                        string датаАкта = Convert.ToDateTime(rowControlReestrАкт["ДатаПодписания"]).ToShortDateString();
+                        string датаАкта = Convert.ToDateTime(rowControlReestrАкт["ДатаПодписания"]).ToLocalTime().ToShortDateString();
 
                         //Создадим экземпляр класса DisplayReestr
                         DisplayReestr dispR = new DisplayReestr();
@@ -258,7 +258,7 @@ namespace ControlDantist
                         string номерДокумента = rowПравоЛьготы["НомерДокумента"].ToString();
 
                         //Запишем дату договора
-                        string датаДокумента = Convert.ToDateTime(rowПравоЛьготы["ДатаВыдачиДокумента"]).ToShortDateString();
+                        string датаДокумента = Convert.ToDateTime(rowПравоЛьготы["ДатаВыдачиДокумента"]).ToLocalTime().ToShortDateString();
 
                         rControl.ДокументЛьгота = серия + " " + номерДокумента + " " + датаДокумента;
 
@@ -349,8 +349,8 @@ namespace ControlDantist
                                 }
 
                                 //дата рожддения
-                                string датРожд = Convert.ToDateTime(rowЛьготник["ДатаРождения"]).ToShortDateString();
-                                if (датРожд != Convert.ToDateTime(rowFIO["ДатаРождения"]).ToShortDateString())
+                                string датРожд = Convert.ToDateTime(rowЛьготник["ДатаРождения"]).ToLocalTime().ToShortDateString();
+                                if (датРожд != Convert.ToDateTime(rowFIO["ДатаРождения"]).ToLocalTime().ToShortDateString())
                                 {
                                     //ошибка
                                     dispR.FlagError = false;
@@ -427,9 +427,9 @@ namespace ControlDantist
 
                                 //ДатаВыдачиПаспорта
                                 //string датаВыдачиПаспорта =  rowЛьготник["ДатаВыдачиПаспорта"].ToString().Trim();
-                                string датаВыдачиПаспорта = Convert.ToDateTime(rowЛьготник["ДатаВыдачиПаспорта"]).ToShortDateString();
+                                string датаВыдачиПаспорта = Convert.ToDateTime(rowЛьготник["ДатаВыдачиПаспорта"]).ToLocalTime().ToShortDateString();
                                 //if (датаВыдачиПаспорта != rowFIO["ДатаВыдачиПаспорта"].ToString().Trim())
-                                if (датаВыдачиПаспорта != Convert.ToDateTime(rowFIO["ДатаВыдачиПаспорта"]).ToShortDateString())
+                                if (датаВыдачиПаспорта != Convert.ToDateTime(rowFIO["ДатаВыдачиПаспорта"]).ToLocalTime().ToShortDateString())
                                 {
                                     //ошибка
                                     dispR.FlagError = false;
@@ -473,8 +473,8 @@ namespace ControlDantist
 
                                 //дата выдачи документа
                                 //string датаВыдачиДокумента = rowЛьготник["ДатаВыдачиДокумента"].ToString().Trim();
-                                string датаВыдачиДокумента = Convert.ToDateTime(rowЛьготник["ДатаВыдачиДокумента"]).ToShortDateString();//.ToString().Trim();
-                                if (датаВыдачиДокумента != Convert.ToDateTime(rowFIO["ДатаВыдачиДокумента"]).ToShortDateString())// rowFIO["ДатаВыдачиДокумента"].ToString().Trim())
+                                string датаВыдачиДокумента = Convert.ToDateTime(rowЛьготник["ДатаВыдачиДокумента"]).ToLocalTime().ToShortDateString();//.ToString().Trim();
+                                if (датаВыдачиДокумента != Convert.ToDateTime(rowFIO["ДатаВыдачиДокумента"]).ToLocalTime().ToShortDateString())// rowFIO["ДатаВыдачиДокумента"].ToString().Trim())
                                 {
                                     //ошибка
                                     dispR.FlagError = false;
@@ -4359,6 +4359,15 @@ namespace ControlDantist
 
                         // Упакуем льготника.
                         packege.льготник = льготник;
+
+                        // Дата рождения льготника в виде строки.
+                        itemLibrary.DateBirdthPerson = unload.DateBirdthPerson;
+
+                        // Дата Выдачи документа в виде строки.
+                        itemLibrary.DateDoc = unload.DateDoc;
+
+                        // Дата паспорта в виде строки.
+                        itemLibrary.DatePassword = unload.DatePassword;
 
                         // Прочитаем тип льготного документа.
                         IReadRegistr<ТТипДокумент> readTypeDoc = new ReadТипДокумента(dc, unload.ТипДокумента);

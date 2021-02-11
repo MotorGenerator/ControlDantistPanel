@@ -67,6 +67,15 @@ namespace ControlDantist.ValidateRegistrProject
                 // Получим данные о льготнике.
                 var person = itm?.Packecge?.льготник?? null;
 
+                // Дата рождения льготников.
+                string dateBirthPerson = itm?.DateBirdthPerson ?? "";
+
+                // Дата выдачи документа.
+                string dateDoc = itm?.DateDoc ?? "";
+
+                // Дата выдачи паспорта.
+                string datePassword = itm?.DatePassword ?? "";
+
                 // Получим данные о договоре.
                 var contract = itm?.Packecge?.тДоговор?? null;
 
@@ -80,7 +89,11 @@ namespace ControlDantist.ValidateRegistrProject
                     {
                         string queryInsert = " insert into " + nameTempTable + " (id_договор,Фамилия,Имя,Отчество,ДатаРождения,СерияДокумента,НомерДокумента,ДатаВыдачиДокумента,СерияПаспорта,НомерПаспорта,ДатаВыдачиПаспорта) " +
                                              " values(" + contract.id_договор + ",'" + person.Фамилия.Trim().ToLower() + "','" + person.Имя.Trim().ToLower() + "','" + person.Отчество.Do(x => x, "").Trim().ToLower() + "','" + Время.Дата(person.ДатаРождения.Date.ToShortDateString().Trim()) + "','" + person.СерияДокумента.Do(x => x, "").ToLower().Trim() + "','" + person.НомерДокумента.Do(x => x, "").ToLower().Trim() + "','" + Время.Дата(person.ДатаВыдачиДокумента.Date.ToShortDateString().Trim()) + "',  " +
-                                             " '" + person.СерияПаспорта.Do(x=>x,"").Trim().ToLower() + "','" + person.НомерПаспорта.Do(x=>x,"").Trim().ToLower() + "','" + Время.Дата(person.ДатаВыдачиПаспорта.Date.ToShortDateString()) + "' ) ";
+                                             " '" + person.СерияПаспорта.Do(x => x, "").Replace(" ","").Trim().ToLower() + "','" + person.НомерПаспорта.Do(x => x, "").Trim().ToLower() + "','" + Время.Дата(person.ДатаВыдачиПаспорта.Date.ToShortDateString()) + "' ) ";
+
+                        //string queryInsert = " insert into " + nameTempTable + " (id_договор,Фамилия,Имя,Отчество,ДатаРождения,СерияДокумента,НомерДокумента,ДатаВыдачиДокумента,СерияПаспорта,НомерПаспорта,ДатаВыдачиПаспорта) " +
+                        //                     " values(" + contract.id_договор + ",'" + person.Фамилия.Trim().ToLower() + "','" + person.Имя.Trim().ToLower() + "','" + person.Отчество.Do(x => x, "").Trim().ToLower() + "','" + Время.Дата(dateBirthPerson.Trim()) + "','" + person.СерияДокумента.Do(x => x, "").ToLower().Trim() + "','" + person.НомерДокумента.Do(x => x, "").ToLower().Trim() + "','" + Время.Дата(dateDoc.Trim()) + "',  " +
+                        //                     " '" + person.СерияПаспорта.Do(x => x, "").Trim().ToLower() + "','" + person.НомерПаспорта.Do(x => x, "").Trim().ToLower() + "','" + Время.Дата(datePassword.Trim()) + "' ) ";
 
                         builderQuery.Append(queryInsert);
                     }
@@ -103,7 +116,7 @@ namespace ControlDantist.ValidateRegistrProject
             InsertDateTempTable(stringBuilder);
 
 
-            string queryJoin =  @"select  " + nameTempTable + ".id_договор, OUID,Tab1.Фамилия,Tab1.Имя,Tab1.Отчество,DOCUMENTSTYPE,DOCUMENTSERIES as 'Серия документа',DOCUMENTSNUMBER as 'Номер документа',ISSUEEXTENSIONSDATE as 'дата выдачи',A_NAME,A_ADRTITLE as 'Адрес',BIRTHDATE as 'ДатаРождения',A_SNILS,A_REGREGIONCODE from( " +
+            string queryJoin = @"select  " + nameTempTable + ".id_договор, OUID,Tab1.Фамилия,Tab1.Имя,Tab1.Отчество,DOCUMENTSTYPE,DOCUMENTSERIES as 'Серия документа',DOCUMENTSNUMBER as 'Номер документа',ISSUEEXTENSIONSDATE as 'дата выдачи',A_NAME,A_ADRTITLE as 'Адрес',BIRTHDATE as 'ДатаРождения',A_SNILS,A_REGREGIONCODE from( " +
                                 " select WM_PERSONAL_CARD.OUID, SPR_FIO_SURNAME.A_NAME as Фамилия,dbo.SPR_FIO_NAME.A_NAME as 'Имя',SPR_FIO_SECONDNAME.A_NAME as 'Отчество',WM_ACTDOCUMENTS.DOCUMENTSTYPE, " +
                                 " WM_ACTDOCUMENTS.DOCUMENTSERIES ,WM_ACTDOCUMENTS.DOCUMENTSNUMBER ,WM_ACTDOCUMENTS.ISSUEEXTENSIONSDATE ,PPR_DOC.A_NAME,WM_ADDRESS.A_ADRTITLE, " +
                                 " WM_PERSONAL_CARD.BIRTHDATE ,dbo.WM_PERSONAL_CARD.A_SNILS, dbo.REGISTER_CONFIG.A_REGREGIONCODE from dbo.WM_PERSONAL_CARD " +
@@ -120,21 +133,23 @@ namespace ControlDantist.ValidateRegistrProject
                                   " join WM_ADDRESS " +
                                   " on WM_ADDRESS.OUID = WM_PERSONAL_CARD.A_REGFLAT " +
                                   " CROSS JOIN dbo.REGISTER_CONFIG  " +
-                                  " where  WM_PERSONAL_CARD.A_PCSTATUS = 1 " +
+                                   //" where  WM_PERSONAL_CARD.A_PCSTATUS = 1 " +
                                    //" and " + nameDocPreferentCategory + " " +
-                                   " and PPR_DOC.A_NAME in ('Удостоверение ветерана труда','Удостоверение ветерана труда Саратовской области', " +
+                                   //" and PPR_DOC.A_NAME in ('Удостоверение ветерана труда','Удостоверение ветерана труда Саратовской области', " +
+                                   " where PPR_DOC.A_NAME in ('Удостоверение ветерана труда','Удостоверение ветерана труда Саратовской области', " +
                                 " 'Удостоверение о праве на льготы (отметка - ст.20)','Свидетельство о праве на льготы для реабилитированных лиц', " +
                                 " 'Справка о реабилитации','Свидетельство о праве на льготы для лиц, признанных пострадавшими от политических репрессий', " +
-                                " 'Справка о признании пострадавшим от политических репрессий','Удостоверение ветерана военной службы','Паспорт гражданина России') ) as Tab1 " + 
+                                " 'Справка о признании пострадавшим от политических репрессий','Удостоверение ветерана военной службы','Паспорт гражданина России') ) as Tab1 " +
                                   //" ) as Tab1 " +
                                   " inner join " + nameTempTable + " " +
                                     " on LOWER(RTRIM(LTRIM(Tab1.Фамилия))) = LOWER(RTRIM(LTRIM(" + nameTempTable + ".Фамилия))) " +
                                     " and LOWER(RTRIM(LTRIM(Tab1.Имя))) = LOWER(RTRIM(LTRIM(" + nameTempTable + ".Имя))) " +
                                     " and((LOWER(RTRIM(LTRIM(Tab1.Отчество))) = LOWER(RTRIM(LTRIM(" + nameTempTable + ".Отчество))) or " + nameTempTable + ".Отчество is NULL)) " +
-                                     " and CONVERT(char(10), LOWER(RTRIM(LTRIM(Tab1.BIRTHDATE))), 104) = CONVERT(char(10), LOWER(RTRIM(LTRIM(" + nameTempTable + ".ДатаРождения))), 104) " +
+                                     " and CONVERT(char(10), Tab1.BIRTHDATE, 112) = CONVERT(char(10), LOWER(RTRIM(LTRIM(" + nameTempTable + ".ДатаРождения))), 112) " + //112
                                     " and LOWER(RTRIM(LTRIM(Tab1.DOCUMENTSERIES))) = LOWER(RTRIM(LTRIM(" + nameTempTable + ".СерияДокумента))) " +
-                                    " and LOWER(RTRIM(LTRIM(Tab1.DOCUMENTSNUMBER))) = LOWER(RTRIM(LTRIM(" + nameTempTable + ".НомерДокумента))) " +
-                                    "and CONVERT(char(10), Tab1.ISSUEEXTENSIONSDATE, 104) = CONVERT(char(10), " + nameTempTable + ".ДатаВыдачиДокумента, 104) ";
+                                    " and LOWER(RTRIM(LTRIM(Tab1.DOCUMENTSNUMBER))) = LOWER(RTRIM(LTRIM(" + nameTempTable + ".НомерДокумента))) ";
+                                    //+
+                                    //"and CONVERT(char(10), Tab1.ISSUEEXTENSIONSDATE, 104) = CONVERT(char(10), " + nameTempTable + ".ДатаВыдачиДокумента, 104) ";
             // " and CONVERT(char(10), LOWER(RTRIM(LTRIM(Tab1.ISSUEEXTENSIONSDATE))), 104) = CONVERT(char(10), LOWER(RTRIM(LTRIM(" + nameTempTable + ".ДатаВыдачиДокумента))), 104) ";"
 
             //string queryJoin = @"select  " + nameTempTable + ".id_договор, OUID,Tab1.Фамилия,Tab1.Имя,Tab1.Отчество,DOCUMENTSTYPE,DOCUMENTSERIES,DOCUMENTSNUMBER,ISSUEEXTENSIONSDATE,A_NAME,A_ADRTITLE,BIRTHDATE,A_SNILS from ( " +

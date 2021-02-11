@@ -146,14 +146,14 @@ namespace ControlDantist.ValidPersonContract
 
                 }
 
-                if (DBNull.Value != row["ДатаДоговора"])
+                if (DBNull.Value != row["ДатаАктаВыполненныхРабот"])
                 {
-                    if (Convert.ToDateTime(row["ДатаДоговора"]).ToShortDateString().Trim() != "01.01.1900".Trim())
+                    if (Convert.ToDateTime(row["ДатаАктаВыполненныхРабот"]).ToShortDateString().Trim() != "01.01.1900".Trim())
                     {
-                        listNumDog.Append(" от - " + Convert.ToDateTime(row["ДатаДоговора"]).ToShortDateString() + "; ");
+                        listNumDog.Append(" от - " + Convert.ToDateTime(row["ДатаАктаВыполненныхРабот"]).ToShortDateString() + "; ");
 
                         // Дата подписания договора.
-                        validItemsContract.DateContract = Convert.ToDateTime(row["ДатаДоговора"]).ToShortDateString();
+                        validItemsContract.DateContract = Convert.ToDateTime(row["ДатаАктаВыполненныхРабот"]).ToShortDateString();
                     }
                     else
                     {

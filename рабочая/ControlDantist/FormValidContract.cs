@@ -1812,12 +1812,12 @@ namespace ControlDantist
                     StringParametr stringParametr2019Aftar = new StringParametr();
                     stringParametr2019Aftar.Query = query2019Aftar;
 
-                    //// Поиск льготника по Фамилии и имени в таблицах 2021.
-                    //IFindPerson findPerson2021FioNoValid = new FindPersonFioNoValid2021(personFamili, personName);
-                    //string queryFindPersonFio2021NoValid = findPerson2021FioNoValid.Query();
+                    // Поиск льготника по Фамилии и имени в таблицах 2021.
+                    IFindPerson findPerson2021FioNoValid = new FindPersonFioNoValid2021(personFamili, personName);
+                    string queryFindPersonFio2021NoValid = findPerson2021FioNoValid.Query();
 
-                    //StringParametr stringfindPerson2021FioNoValid = new StringParametr();
-                    //stringfindPerson2021FioNoValid.Query = queryFindPersonFio2021NoValid;
+                    StringParametr stringfindPerson2021FioNoValid = new StringParametr();
+                    stringfindPerson2021FioNoValid.Query = queryFindPersonFio2021NoValid;
 
                     // Выполнинм поиск льготников до 2019 года.
                     ExecuteFind(stringParametr);
@@ -1826,7 +1826,7 @@ namespace ControlDantist
                     ExecuteFind(stringParametr2019Add);
 
                     // Выполнинм поиск льготников 2019 по таблицам базы данных года.
-                    ExecuteFind(stringParametr2019);
+                    //ExecuteFind(stringParametr2019);
 
                     // Выполнинм поиск льготников после 2019 по таблицам базы данных 2020 года.
                     ExecuteFind(stringParametr2019Aftar);
@@ -2001,9 +2001,6 @@ namespace ControlDantist
                     }
 
                 }
-
-
-                var asd = listPerson;
 
                 if (flagExecute == false)
                 {
@@ -2262,18 +2259,18 @@ namespace ControlDantist
                                "where id_договор = @id) ";
                 }
 
-                //// Выполним запрос.
-                //using (SqlConnection con = new SqlConnection(ConnectDB.ConnectionString()))
-                //{
-                //    con.Open();
-                //    SqlTransaction transact = con.BeginTransaction();
-                    
+                // Выполним запрос.
+                using (SqlConnection con = new SqlConnection(ConnectDB.ConnectionString()))
+                {
+                    con.Open();
+                    SqlTransaction transact = con.BeginTransaction();
 
-                //    ExecuteQuery.Execute(query, con, transact);
+                    // Выполним Sql Запрос.
+                    Classes.ExecuteQuery.Execute(query, con, transact);
 
-                //    // Завершим транзакцию.
-                //    transact.Commit();
-                //}
+                    // Завершим транзакцию.
+                    transact.Commit();
+                }
 
                 this.textBox2.Text = "Обновление";
 

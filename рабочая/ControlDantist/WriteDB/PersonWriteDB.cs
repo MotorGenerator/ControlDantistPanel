@@ -27,10 +27,10 @@ namespace ControlDantist.WriteDB
 
         public bool Validate()
         {
-                // Флаг указывает что возмождна ли запись льгогтника.
+             // Флаг указывает что возмождна ли запись льгогтника.
              bool flagExesWritePerson = false;
 
-            // Если вдруг у льготника нет отчества.
+             // Если вдруг у льготника нет отчества.
              if (person.Отчество == null)
              {
                 person.Отчество = "";

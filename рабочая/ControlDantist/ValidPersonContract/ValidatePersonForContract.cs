@@ -30,7 +30,7 @@ namespace ControlDantist.ValidPersonContract
                             " set @Name = '"+ name +"' " +
                             " set @Surname = '"+ this.secondName +"' " +
                             "set @DR = '"+ Время.Дата(this.dateBirth.ToShortDateString()) + "' " +
-                            @" select НомерДоговора, Договор.ДатаДоговора from Льготник
+                            @" select НомерДоговора, Договор.ДатаАктаВыполненныхРабот from Льготник
                             inner join Договор
                             on Льготник.id_льготник = Договор.id_льготник
                             --inner join АктВыполненныхРабот

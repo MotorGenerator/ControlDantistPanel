@@ -75,12 +75,26 @@ namespace ControlDantist.ValidateRegistrProject
                     // Проверим заполненность полей льготника.
                     ValidErrorPerson vrp = new ValidErrorPerson(person);
 
+                    // Строка с датой рождения льготника.
+                    string stringDateBirthPerson = itm?.DateBirdthPerson ?? "";
+
+                    // Строка с датой выдачи документа.
+                    string strDateDoc = itm?.DateDoc ?? "";
+
+                    // Строка с датой выдачи паспорта.
+                    string strDatePassword = itm?.DatePassword ?? "";
+
                     //// Проверим заполненность полей льготника.
                     if (vrp.Validate() == true)
                     {
+                        //string queryInsert = " insert into " + nameTempTable + " (id_договор,Фамилия,Имя,Отчество,ДатаРождения,СерияДокумента,НомерДокумента,ДатаВыдачиДокумента,СерияПаспорта,НомерПаспорта,ДатаВыдачиПаспорта) " +
+                        //                     " values(" + contract.id_договор + ",'" + person.Фамилия.Trim().ToLower() + "','" + person.Имя.Trim().ToLower() + "','" + person.Отчество.Do(x => x, "").Trim().ToLower() + "','" + Время.Дата(stringDateBirthPerson.Trim()) + "','" + person.СерияДокумента.Do(x => x, "").ToLower().Trim() + "','" + person.НомерДокумента.Do(x => x, "").ToLower().Trim() + "','" + Время.Дата(strDateDoc.Trim()) + "',  " +
+                        //                     " '" + person.СерияПаспорта.Do(x => x, "").Trim().ToLower() + "','" + person.НомерПаспорта.Do(x => x, "").Trim().ToLower() + "','" + Время.Дата(strDatePassword.Trim()) + "' ) ";
+
+
                         string queryInsert = " insert into " + nameTempTable + " (id_договор,Фамилия,Имя,Отчество,ДатаРождения,СерияДокумента,НомерДокумента,ДатаВыдачиДокумента,СерияПаспорта,НомерПаспорта,ДатаВыдачиПаспорта) " +
-                                             " values(" + contract.id_договор + ",'" + person.Фамилия.Trim().ToLower() + "','" + person.Имя.Trim().ToLower() + "','" + person.Отчество.Do(x => x, "").Trim().ToLower() + "','" + Время.Дата(person.ДатаРождения.Date.ToShortDateString().Trim()) + "','" + person.СерияДокумента.Do(x => x, "").ToLower().Trim() + "','" + person.НомерДокумента.Do(x => x, "").ToLower().Trim() + "','" + Время.Дата(person.ДатаВыдачиДокумента.Date.ToShortDateString().Trim()) + "',  " +
-                                             " '" + person.СерияПаспорта.Do(x => x, "").Trim().ToLower() + "','" + person.НомерПаспорта.Do(x => x, "").Trim().ToLower() + "','" + Время.Дата(person.ДатаВыдачиПаспорта.Date.ToShortDateString()) + "' ) ";
+                                             " values(" + contract.id_договор + ",'" + person.Фамилия.Trim().ToLower() + "','" + person.Имя.Trim().ToLower() + "','" + person.Отчество.Do(x => x, "").Trim().ToLower() + "','" + Время.Дата(person.ДатаРождения.ToShortDateString().Trim()) + "','" + person.СерияДокумента.Do(x => x, "").ToLower().Trim() + "','" + person.НомерДокумента.Do(x => x, "").ToLower().Trim() + "','" + Время.Дата(person.ДатаВыдачиДокумента.ToShortDateString().Trim()) + "',  " +
+                                             " '" + person.СерияПаспорта.Do(x => x, "").Replace(" ","").Trim().ToLower() + "','" + person.НомерПаспорта.Do(x => x, "").Trim().ToLower() + "','" + Время.Дата(person.ДатаВыдачиПаспорта.ToShortDateString().Trim()) + "' ) ";
 
                         builderQuery.Append(queryInsert);
                     }
@@ -127,10 +141,10 @@ namespace ControlDantist.ValidateRegistrProject
                                 " on LOWER(RTRIM(LTRIM(Tab1.Фамилия))) = LOWER(RTRIM(LTRIM(" + nameTempTable + ".Фамилия))) " +
                                  " and LOWER(RTRIM(LTRIM(Tab1.Имя))) = LOWER(RTRIM(LTRIM(" + nameTempTable + ".Имя))) " +
                                  " and((LOWER(RTRIM(LTRIM(Tab1.Отчество))) = LOWER(RTRIM(LTRIM(" + nameTempTable + ".Отчество))) or  " + nameTempTable + ".Отчество is NULL)) " +
-                                 " and REPLACE(CONVERT(char(10), LOWER(RTRIM(LTRIM(Tab1.BIRTHDATE))), 104),' ','') = REPLACE(CONVERT(char(10), LOWER(RTRIM(LTRIM( " + nameTempTable + ".ДатаРождения))), 104), ' ','') " +
+                                 " and CONVERT(char(10), Tab1.BIRTHDATE, 112) = REPLACE(CONVERT(char(10), LOWER(RTRIM(LTRIM( " + nameTempTable + ".ДатаРождения))), 112), ' ','') " +
                                  " and REPLACE(LOWER(RTRIM(LTRIM(Tab1.DOCUMENTSERIES))),' ','') = REPLACE(LOWER(RTRIM(LTRIM( " + nameTempTable + ".СерияПаспорта))),' ','') " +
-                                 " and LOWER(RTRIM(LTRIM(Tab1.DOCUMENTSNUMBER))) = LOWER(RTRIM(LTRIM( " + nameTempTable + ".НомерПаспорта))) " +
-                                 " and CONVERT(char(10), LOWER(RTRIM(LTRIM(Tab1.ISSUEEXTENSIONSDATE))), 104) = CONVERT(char(10), LOWER(RTRIM(LTRIM( " + nameTempTable + ".ДатаВыдачиПаспорта))), 104) ";
+                                 " and LOWER(RTRIM(LTRIM(Tab1.DOCUMENTSNUMBER))) = LOWER(RTRIM(LTRIM( " + nameTempTable + ".НомерПаспорта))) ";// +
+                                 //" and CONVERT(char(10), LOWER(RTRIM(LTRIM(Tab1.ISSUEEXTENSIONSDATE))), 104) = CONVERT(char(10), LOWER(RTRIM(LTRIM( " + nameTempTable + ".ДатаВыдачиПаспорта))), 104) ";
 
             stringBuilder.Append(queryJoin);
 

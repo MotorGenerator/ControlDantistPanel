@@ -627,7 +627,7 @@ namespace ControlDantist
                     if (unloadValid.IdRegionEsrn != null)
                     {
                         // Получим ID район области.
-                        unloadSave.IdRegionEsrn = unloadValid.IdRegionEsrn;
+                        //unloadSave.IdRegionEsrn = unloadValid.IdRegionEsrn;
                     
 
                         // Присвоим ID района области для списка который пойдет под запись в БД.
@@ -636,7 +636,7 @@ namespace ControlDantist
                     }
 
                     // Получим СНИЛС льготника прошедшего проверку.
-                    unloadSave.SnilsPerson = unloadValid.SnilsPerson;
+                    //unloadSave.SnilsPerson = unloadValid.SnilsPerson;
 
                     // Установим флаг в TRUE о том что проект прошёл проверку
                     unloadSave.FalgWrite = true;

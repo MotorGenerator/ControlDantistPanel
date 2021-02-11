@@ -407,7 +407,7 @@ namespace ControlDantist.Reports
              сellCount10.StyleID = "HeaderStyle2";
 
             // Сумма лимита.
-             decimal sumYear = 377577400;
+             decimal sumYear = 403132200;
              //decimal sumYear = 352398530;
 
              WorksheetCell сellCount11 = rowCount.Cells.Add(Math.Round(sumYear/1000,6).ToString());

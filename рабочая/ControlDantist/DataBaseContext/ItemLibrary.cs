@@ -37,5 +37,20 @@ namespace ControlDantist.DataBaseContext
         /// </summary>
         public string AddressPerson { get; set; }
 
+        /// <summary>
+        /// Дата рождения льготника.
+        /// </summary>
+        public string DateBirdthPerson { get; set; }
+
+        /// <summary>
+        /// Дата выдачи паспорта.
+        /// </summary>
+        public string DateDoc { get; set; }
+
+        /// <summary>
+        /// Дата выдачи паспорта.
+        /// </summary>
+        public string DatePassword { get; set; }
+
     }
 }

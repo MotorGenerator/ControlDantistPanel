@@ -417,6 +417,7 @@ namespace ControlDantist
                 }
             }
 
+            // Установим флаг прошедшего проверку.
             // Обьявим переменную типа делегат.
             SetValidToReestr svDel;
 
@@ -460,8 +461,8 @@ namespace ControlDantist
             {
                 using (var scope = new TransactionScope(TransactionScopeOption.Required, new TransactionOptions { IsolationLevel = System.Transactions.IsolationLevel.Serializable }))
                 {
-                    try
-                    {
+                    //try
+                    //{
                         // Проходимся по списку договоров.
                         foreach (var itm in this.listProjectContrats)
                         {
@@ -492,10 +493,21 @@ namespace ControlDantist
                             // Льготник.
                             ТЛЬготник тЛЬготник = itm.Packecge.льготник;
 
+                            //// Установим дату рождения льготника.
+                            //тЛЬготник.ДатаРождения = Convert.ToDateTime(itm.DateBirdthPerson).Date;
+
+                            //// Дата выдачи паспорта.
+                            //тЛЬготник.ДатаВыдачиПаспорта = Convert.ToDateTime(itm.DatePassword).Date;
+
+                            //// Дата выдачи документа.
+                            //тЛЬготник.ДатаВыдачиДокумента = Convert.ToDateTime(itm.DateDoc).Date;
+
                             IValidBD<ТДоговор> validBDcontract = new ProjectContract(dc,тДоговор);
 
                             // Результат проверки можно писать в БД или нельзя.
                             bool flagWriteContract = validBDcontract.Validate();
+
+                            // Проверим 
 
                             // ПРоверим записан ли данный льготник из реестра проектов договров в БД.
                             IValidBD<ТЛЬготник> validBPerson = new PersonWriteDB(dc,тЛЬготник);
@@ -530,6 +542,10 @@ namespace ControlDantist
                                 тДоговор.ДатаЗаписиДоговора = DateTime.Now;
                                 тДоговор.ДатаПроверки = DateTime.Now;
 
+                            // id поликлинники.
+                            тДоговор.id_поликлинника = itm.Packecge.hosp?.id_поликлинника ?? 0;
+
+
                                 dc.ТДоговор.Add(тДоговор);
 
                                 dc.SaveChanges();
@@ -561,14 +577,14 @@ namespace ControlDantist
                         //}
 
                         
-                    }
-                    catch (Exception ex)
-                    {
-                        // Откатим транзакцию.
-                        scope.Dispose();
+                    //}
+                    //catch (Exception ex)
+                    //{
+                    //    // Откатим транзакцию.
+                    //    scope.Dispose();
 
-                        MessageBox.Show("Ошибка в записи - " + ex.Message);
-                    }
+                    //    MessageBox.Show("Ошибка в записи - " + ex.Message);
+                    //}
                 }
             }
 

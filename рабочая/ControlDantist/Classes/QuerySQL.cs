@@ -234,12 +234,13 @@ namespace ControlDantist.Classes
                           "on WM_ADDRESS.OUID = WM_PERSONAL_CARD.A_REGFLAT " +
                           "CROSS JOIN dbo.REGISTER_CONFIG " +
                           "where LOWER(LTRIM(RTRIM(SPR_FIO_SURNAME.A_NAME))) = '" + фамили€.ToLower().Trim() + "' and LOWER(RTRIM(LTRIM(SPR_FIO_NAME.A_NAME))) = '" + им€.ToLower().Trim() + "' and LOWER(RTRIM(LTRIM(SPR_FIO_SECONDNAME.A_NAME))) = '" + отчество.ToLower().Trim() + "' " +
-                //"and CONVERT(char(10), WM_PERSONAL_CARD.BIRTHDATE, 104) = '" + дата–ождени€ + "'  " +
+                          //"and CONVERT(char(10), WM_PERSONAL_CARD.BIRTHDATE, 104) = '" + дата–ождени€ + "'  " +
                           "and PPR_DOC.A_NAME in ('”достоверение ветерана труда','”достоверение ветерана труда —аратовской области','”достоверение о праве на льготы (отметка - ст.20)','—видетельство о праве на льготы дл€ реабилитированных лиц','—правка о реабилитации','—видетельство о праве на льготы дл€ лиц, признанных пострадавшими от политических репрессий','—правка о признании пострадавшим от политических репрессий','”достоверение ветерана военной службы','ѕаспорт гражданина –оссии') " +
-                //"and (WM_ACTDOCUMENTS.DOCUMENTSERIES = '" + сери€ƒокумента + "' and WM_ACTDOCUMENTS.DOCUMENTSNUMBER = '" + номерƒокумента + "') " + // -- документ
+                          //"and (WM_ACTDOCUMENTS.DOCUMENTSERIES = '" + сери€ƒокумента + "' and WM_ACTDOCUMENTS.DOCUMENTSNUMBER = '" + номерƒокумента + "') " + // -- документ
                           "and (LOWER(RTRIM(LTRIM(WM_ACTDOCUMENTS.DOCUMENTSERIES))) = '" + сери€ѕаспорта.ToLower().Trim() + "' and LOWER(RTRIM(LTRIM(WM_ACTDOCUMENTS.DOCUMENTSNUMBER))) = '" + номерѕаспорта.ToLower().Trim() + "') " + //-- паспорт
-                          "and (LOWER(RTRIM(LTRIM(CONVERT(char(10), WM_ACTDOCUMENTS.ISSUEEXTENSIONSDATE, 112)))) = '" + дата¬ыдачиѕаспорта.ToLower().Trim() + "') " +
-                          "and WM_PERSONAL_CARD.A_PCSTATUS = 1 ";
+                          "and (LOWER(RTRIM(LTRIM(CONVERT(char(10), WM_ACTDOCUMENTS.ISSUEEXTENSIONSDATE, 112)))) = '" + дата¬ыдачиѕаспорта.ToLower().Trim() + "') ";
+                          //+
+                          //"and WM_PERSONAL_CARD.A_PCSTATUS = 1 ";
 
             return query;
         }

@@ -33,14 +33,14 @@ namespace ControlDantist.Repozirories
                     itm.ПропускнаяСпособностьГод = 0;
                 }
 
-                if (row["Очередность за 2019 год"] != DBNull.Value)
-                {
-                    itm.ОчередностьГод = Convert.ToInt16(row["Очередность за 2019 год"]);
-                }
-                else
-                {
-                    itm.ОчередностьГод = 0;
-                }
+                //if (row["Очередность за 2019 год"] != DBNull.Value)
+                //{
+                //    itm.ОчередностьГод = Convert.ToInt16(row["Очередность за 2019 год"]);
+                //}
+                //else
+                //{
+                //    itm.ОчередностьГод = 0;
+                //}
 
                 if (row["количество заключенных договоров"] != DBNull.Value)
                 {
@@ -63,9 +63,9 @@ namespace ControlDantist.Repozirories
 
                 itm.SerialNumber = Convert.ToInt16(row["SerialNumber"]);
 
-                if (row["кол-во договоров находящихся в деле"] != DBNull.Value)
+                if (row["количество договоров находящихся в деле"] != DBNull.Value)
                 {
-                    itm.КоличествоДоговоровВДеле = Convert.ToInt16(row["кол-во договоров находящихся в деле"]);
+                    itm.КоличествоДоговоровВДеле = Convert.ToInt16(row["количество договоров находящихся в деле"]);
                 }
                 else
                 {
@@ -81,9 +81,9 @@ namespace ControlDantist.Repozirories
                     itm.СуммаДоговоровВДеле = 0.0m;
                 }
 
-                if (row["кол-во договоров поступивших на оплату"] != DBNull.Value)
+                if (row["количество договоров поступивших на оплату"] != DBNull.Value)
                 {
-                    itm.КоличествоДоговоровПоступившихНаОплату = Convert.ToInt16(row["кол-во договоров поступивших на оплату"]);
+                    itm.КоличествоДоговоровПоступившихНаОплату = Convert.ToInt16(row["количество договоров поступивших на оплату"]);
                 }
 
                 if (row["сумма договоро поступивщих на оплату"] != DBNull.Value)

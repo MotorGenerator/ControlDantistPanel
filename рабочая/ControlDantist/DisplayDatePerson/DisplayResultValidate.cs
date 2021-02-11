@@ -47,6 +47,7 @@ namespace ControlDantist.DisplayDatePerson
 
             if (numContracts!= null)
             {
+
                 dp.Адрес = numContracts.AddressPerson;
                 dp.ДатаРождения = numContracts.Packecge.льготник.ДатаРождения.ToShortDateString();
                 dp.Фио = numContracts.Packecge.льготник.Фамилия.Trim() + " " + numContracts.Packecge.льготник.Имя.Trim() + " " + numContracts.Packecge.льготник.Отчество ?? "";

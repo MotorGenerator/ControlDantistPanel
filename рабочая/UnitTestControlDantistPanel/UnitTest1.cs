@@ -171,8 +171,8 @@ namespace UnitTestControlDantistPanel
             //dataRow["Id"] = 100;
 
             // act.
-            CompareRegistr compareRegistr = new CompareRegistr(list);
-            compareRegistr.Compare(booksTable);
+            //CompareRegistr compareRegistr = new CompareRegistr(list);
+            //compareRegistr.Compare(booksTable);
 
             // result.
             Assert.AreEqual(itemLibrary2.FlagValidateEsrn, itemLibrary.FlagValidateEsrn,"Проверка не прошла");

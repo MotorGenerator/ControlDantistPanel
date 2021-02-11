@@ -63,43 +63,6 @@ namespace ControlDantist.ValidateRegistrProject
                 builder.Append("Категория_не_установлена");
             }
 
-
-            //// Проверим льготника по льготной категории.
-            //if (preferentKategory.ToLower().Trim().Replace(" ", string.Empty) == "Ветеранвоеннойслужбы".ToLower().Trim())
-            //{
-            //    string docPreferencyCategory = " PPR_DOC.A_NAME in ('Удостоверение ветерана военной службы')";
-
-            //    queryФИО = this.validate.FindPersons(docPreferencyCategory);
-            //}
-
-            //// Проверим льготника по льготной категории.
-            //if (preferentKategory.ToLower().Trim().Replace(" ", string.Empty) == "Ветерантруда".ToLower().Trim())
-            //{
-            //    string docPreferencyCategory = " PPR_DOC.A_NAME in ('Удостоверение ветерана труда') ";
-            //    queryФИО = this.validate.FindPersons(docPreferencyCategory);
-            //}
-
-            //// Проверим льготника по льготной категории.
-            //if (preferentKategory.ToLower().Trim().Replace(" ", string.Empty) == "Тружениктыла".ToLower().Trim())
-            //{
-            //    string docPreferencyCategory = " PPR_DOC.A_NAME in ('Удостоверение о праве на льготы (отметка - ст.20)','Удостоверение ветерана ВОВ (отметка - ст.20)') ";
-            //    queryФИО = this.validate.FindPersons(docPreferencyCategory);
-            //}
-
-            //// Проверим льготника по льготной категории.
-            //if (preferentKategory.ToLower().Trim().Replace(" ", string.Empty) == "ВетерантрудаСаратовскойобласти".ToLower().Trim())
-            //{
-            //    string docPreferencyCategory = " PPR_DOC.A_NAME in ('Удостоверение ветерана труда Саратовской области') ";
-            //    queryФИО = this.validate.FindPersons(docPreferencyCategory);
-            //}
-
-            //// Проверим льготника по льготной категории.
-            //if (preferentKategory.ToLower().Trim().Replace(" ", string.Empty) == "Реабилитированныелица".ToLower().Trim())
-            //{
-            //    string docPreferencyCategory = " PPR_DOC.A_NAME in ('Свидетельство о праве на льготы для реабилитированных лиц','Справка о реабилитации' ) ";//,'Свидетельство о праве на льготы для лиц, признанных пострадавшими от политических репрессий','Справка о признании пострадавшим от политических репрессий') ";
-            //    queryФИО = this.validate.FindPersons(docPreferencyCategory);
-            //}
-
             return builder.ToString();
         }
 

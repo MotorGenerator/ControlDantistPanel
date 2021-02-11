@@ -1,0 +1,2 @@
+F:\VS 2019 проекты\ControlDantistPanel\рабочая\UnitTestControlDantistPanel\obj\Release\UnitTestControlDantistPanel.csprojAssemblyReference.cache
+F:\VS 2019 проекты\ControlDantistPanel\рабочая\UnitTestControlDantistPanel\obj\Release\UnitTestControlDantistPanel.csproj.CoreCompileInputs.cache
