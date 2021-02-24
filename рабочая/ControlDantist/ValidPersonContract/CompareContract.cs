@@ -18,7 +18,7 @@ namespace ControlDantist.ValidPersonContract
 
             //var iCount = groupCont3.Count();
 
-            var groupCont = listContract.GroupBy(w => new { w.CurrentNumContract, w.NumContract});
+            var groupCont = listContract.Where(w=>w.DateContract != null).GroupBy(w => new { w.CurrentNumContract, w.NumContract});
 
             // Пройдемся по группе.
             foreach (var itms in groupCont)

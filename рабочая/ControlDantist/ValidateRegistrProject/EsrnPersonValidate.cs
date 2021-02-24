@@ -48,8 +48,10 @@ namespace ControlDantist.ValidateRegistrProject
                 // /К нужному району.
                 //if (sKey.Trim() != "Новобурасский".Trim())
                 //{
-                //    var sTestTestt = "";
-                //    //continue;
+
+                // Отключим проверку договоров по ЭСРН.
+                //var sTestTestt = "";
+                //continue;
                 //}
                 //else
                 //{

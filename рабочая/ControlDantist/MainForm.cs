@@ -189,7 +189,7 @@ namespace ControlDantist
                         ErrorReestr errorReestr = new ErrorReestr();
 
                         string лгт = un.Льготник.Rows[0][1].ToString();
-                        if (лгт == "Мельник")
+                        if (лгт == "Минаева")
                         {
                             string s = "test";
                         }

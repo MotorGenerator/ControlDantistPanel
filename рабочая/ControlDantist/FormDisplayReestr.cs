@@ -415,8 +415,11 @@ namespace ControlDantist
                             {
                                 foreach (Unload u in un)
                                 {
+
                                     //list.Add(u);
                                     dtFile = u.Льготник;
+
+                                    dtFile.Rows[0]["ДатаРождения"] = Convert.ToDateTime(u.Льготник.Rows[0]["ДатаРождения"]).ToLocalTime();
                                 }
 
                                 if (un.Count() == 0)
@@ -440,6 +443,8 @@ namespace ControlDantist
                                     {
                                         //list.Add(u);
                                         dtFile = u.Льготник;
+
+                                        dtFile.Rows[0]["ДатаРождения"] = Convert.ToDateTime(u.Льготник.Rows[0]["ДатаРождения"]).ToLocalTime();
                                     }
 
                                     if (un.Count() == 0)

@@ -303,19 +303,19 @@
             // сохранитьДоговорToolStripMenuItem
             // 
             this.сохранитьДоговорToolStripMenuItem.Name = "сохранитьДоговорToolStripMenuItem";
-            this.сохранитьДоговорToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
+            this.сохранитьДоговорToolStripMenuItem.Size = new System.Drawing.Size(183, 22);
             this.сохранитьДоговорToolStripMenuItem.Text = "Сохранить Договор";
             // 
             // проверкаУслугToolStripMenuItem
             // 
             this.проверкаУслугToolStripMenuItem.Name = "проверкаУслугToolStripMenuItem";
-            this.проверкаУслугToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
+            this.проверкаУслугToolStripMenuItem.Size = new System.Drawing.Size(183, 22);
             this.проверкаУслугToolStripMenuItem.Text = "Проверка Услуг";
             // 
             // проверкаЭСРНToolStripMenuItem
             // 
             this.проверкаЭСРНToolStripMenuItem.Name = "проверкаЭСРНToolStripMenuItem";
-            this.проверкаЭСРНToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
+            this.проверкаЭСРНToolStripMenuItem.Size = new System.Drawing.Size(183, 22);
             this.проверкаЭСРНToolStripMenuItem.Text = "Проверка ЭСРН";
             // 
             // снятьГалочкиToolStripMenuItem

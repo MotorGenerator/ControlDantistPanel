@@ -21,8 +21,14 @@ namespace ControlDantist.ValidPersonContract
 
             CompareContract.Compare(this.listContract);
 
+            int iCountTest = 0;
+
             foreach(var itm in CompareContract.Compare(this.listContract))
             {
+                iCountTest++;
+
+                var itmNumber = itm.NumContract;
+
                 if (itm.DateContract != null)
                 {
                     if (itm.DateContract.Trim() != "01.01.1900".Trim())
@@ -35,6 +41,8 @@ namespace ControlDantist.ValidPersonContract
                     }
                 }
             }
+
+            var testResult = iCountTest;
 
             return builder.ToString();
         }
