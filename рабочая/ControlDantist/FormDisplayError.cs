@@ -68,11 +68,11 @@ namespace ControlDantist
 
             this.label14.Text = "паспорт: " + rs["СерияПаспорта"].ToString().Trim() + "  " + rs["НомерПаспорта"].ToString().Trim();
             this.label15.Text = "выдан: " + rs["КемВыданПаспорт"].ToString().Trim();
-            this.label16.Text = "дата выдачи: " + Convert.ToDateTime(rs["ДатаВыдачиПаспорта"]).ToShortDateString();
+            this.label16.Text = "дата выдачи: " + Convert.ToDateTime(rs["ДатаВыдачиПаспорта"]).ToLocalTime().ToShortDateString();
 
             this.label17.Text = "документ: " + rs["СерияДокумента"].ToString().Trim() + " " + rs["НомерДокумента"].ToString().Trim();
             this.label18.Text = "выдан: " + rs["КемВыданДокумент"].ToString().Trim();
-            this.label19.Text = "дата выдачи: " + Convert.ToDateTime(rs["ДатаВыдачиДокумента"]).ToShortDateString();
+            this.label19.Text = "дата выдачи: " + Convert.ToDateTime(rs["ДатаВыдачиДокумента"]).ToLocalTime().ToShortDateString();
 
 
             if (this.DtFile.Rows.Count > 0)
@@ -91,11 +91,11 @@ namespace ControlDantist
 
                 this.label23.Text = "паспорт: " + rf["СерияПаспорта"].ToString().Trim() + "  " + rf["НомерПаспорта"].ToString().Trim();
                 this.label22.Text = "выдан: " + rf["КемВыданПаспорт"].ToString().Trim();
-                this.label21.Text = "дата выдачи: " + Convert.ToDateTime(rf["ДатаВыдачиПаспорта"]).ToShortDateString();
+                this.label21.Text = "дата выдачи: " + Convert.ToDateTime(rf["ДатаВыдачиПаспорта"]).ToLocalTime().ToShortDateString();
 
                 this.label20.Text = "документ: " + rf["СерияДокумента"].ToString().Trim() + " " + rf["НомерДокумента"].ToString().Trim();
                 this.label6.Text = "выдан: " + rf["КемВыданДокумент"].ToString().Trim();
-                this.label4.Text = "дата выдачи: " + Convert.ToDateTime(rf["ДатаВыдачиДокумента"]).ToShortDateString();
+                this.label4.Text = "дата выдачи: " + Convert.ToDateTime(rf["ДатаВыдачиДокумента"]).ToLocalTime().ToShortDateString();
             }
             else
             {

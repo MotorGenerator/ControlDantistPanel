@@ -96,23 +96,40 @@ namespace ControlDantist.ValidPersonContract
             }
 
             // Сгруппируем полученный результат по номеру договора и по номеру акта.
-            var groupPerson = list.GroupBy(w => new { w.НомерДоговора, w.НомерАкта });
+            var groupPerson = list.GroupBy(w => new { НомерДоговора = w.НомерДоговора, НомерАкта = w.НомерАкта, Год = w.Год });
 
-            // Пройдемся по группе.
-            foreach (var itms in groupPerson)
+            // Если в группе есть запись от 2019 года, тогда ее и берем в качестве основной.
+            var countPerson = groupPerson.SelectMany(w => w).Where(w => w.Год == 2019);
+
+            // Проверим есть ли записи за 2019 год.
+            if (countPerson.Count() > 0)
             {
+                var itm = countPerson.OrderByDescending(w => w.id_договор)?.Take(1)?.FirstOrDefault();
 
-                // Если в группе больше одной записи.
-                if (itms.Count() > 1)
+                if (itm != null)
                 {
-                    // Отсортируем групу по возрастанию флага.
-                    var itm = itms.OrderByDescending(w => w.Год).Take(1);
-
-                    listRezult.AddRange(itm);
+                    listRezult.Add(itm);
                 }
-                else
+            }
+            else
+            {
+                // Если записей за 2019 год нет тогда.
+                // Пройдемся по группе.
+                foreach (var itms in groupPerson)
                 {
-                    listRezult.AddRange(itms);
+
+                    // Если в группе больше одной записи.
+                    if (itms.Count() > 1)
+                    {
+                        // Отсортируем групу по возрастанию флага.
+                        var itm = itms.OrderByDescending(w => w.Год).Take(1);
+
+                        listRezult.AddRange(itm);
+                    }
+                    else
+                    {
+                        listRezult.AddRange(itms);
+                    }
                 }
             }
 

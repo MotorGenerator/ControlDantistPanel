@@ -445,6 +445,13 @@ namespace ControlDantist
                                         dtFile = u.Льготник;
 
                                         dtFile.Rows[0]["ДатаРождения"] = Convert.ToDateTime(u.Льготник.Rows[0]["ДатаРождения"]).ToLocalTime();
+
+                                       // Откорректируем дату выдачи паспорта.
+                                       dtFile.Rows[0]["ДатаВыдачиПаспорта"] = Convert.ToDateTime(u.Льготник.Rows[0]["ДатаВыдачиПаспорта"]).ToLocalTime();
+
+                                        // Откорректируем с учетом часового пояся дату выдачи документа.
+                                        dtFile.Rows[0]["ДатаВыдачиДокумента"] = Convert.ToDateTime(u.Льготник.Rows[0]["ДатаВыдачиДокумента"]).ToLocalTime();
+
                                     }
 
                                     if (un.Count() == 0)

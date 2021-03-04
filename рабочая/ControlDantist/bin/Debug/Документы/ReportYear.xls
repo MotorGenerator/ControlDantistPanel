@@ -49,7 +49,7 @@
       <s:Column s:Width="80" />
       <s:Row>
         <s:Cell s:Index="1" s:MergeAcross="10" s:StyleID="HeaderStyle2">
-          <s:Data s:Type="String">Оперативная информация по вопросу бесплатного зубопротезирования на 29.01.2021</s:Data>
+          <s:Data s:Type="String">Оперативная информация по вопросу бесплатного зубопротезирования на 25.02.2021</s:Data>
         </s:Cell>
       </s:Row>
       <s:Row>
@@ -147,16 +147,16 @@
           <s:Data s:Type="String">2800</s:Data>
         </s:Cell>
         <s:Cell s:Index="5" s:StyleID="HeaderStyle3">
-          <s:Data s:Type="String">91</s:Data>
+          <s:Data s:Type="String">161</s:Data>
         </s:Cell>
         <s:Cell s:Index="6" s:StyleID="HeaderStyle2">
-          <s:Data s:Type="String">1698,0080</s:Data>
+          <s:Data s:Type="String">3047,4210</s:Data>
         </s:Cell>
         <s:Cell s:Index="7" s:StyleID="HeaderStyle2">
-          <s:Data s:Type="String" />
+          <s:Data s:Type="String">26</s:Data>
         </s:Cell>
         <s:Cell s:Index="8" s:StyleID="HeaderStyle2">
-          <s:Data s:Type="String" />
+          <s:Data s:Type="String">392,2540</s:Data>
         </s:Cell>
         <s:Cell s:Index="9" s:StyleID="HeaderStyle2">
           <s:Data s:Type="String" />
@@ -182,16 +182,16 @@
           <s:Data s:Type="String">3200</s:Data>
         </s:Cell>
         <s:Cell s:Index="5" s:StyleID="HeaderStyle3">
-          <s:Data s:Type="String">85</s:Data>
+          <s:Data s:Type="String">406</s:Data>
         </s:Cell>
         <s:Cell s:Index="6" s:StyleID="HeaderStyle2">
-          <s:Data s:Type="String">1742,5200</s:Data>
+          <s:Data s:Type="String">9359,0750</s:Data>
         </s:Cell>
         <s:Cell s:Index="7" s:StyleID="HeaderStyle2">
-          <s:Data s:Type="String" />
+          <s:Data s:Type="String">70</s:Data>
         </s:Cell>
         <s:Cell s:Index="8" s:StyleID="HeaderStyle2">
-          <s:Data s:Type="String" />
+          <s:Data s:Type="String">1535,0350</s:Data>
         </s:Cell>
         <s:Cell s:Index="9" s:StyleID="HeaderStyle2">
           <s:Data s:Type="String" />
@@ -217,16 +217,16 @@
           <s:Data s:Type="String">2091</s:Data>
         </s:Cell>
         <s:Cell s:Index="5" s:StyleID="HeaderStyle3">
-          <s:Data s:Type="String">98</s:Data>
+          <s:Data s:Type="String">181</s:Data>
         </s:Cell>
         <s:Cell s:Index="6" s:StyleID="HeaderStyle2">
-          <s:Data s:Type="String">3078,6300</s:Data>
+          <s:Data s:Type="String">6202,6000</s:Data>
         </s:Cell>
         <s:Cell s:Index="7" s:StyleID="HeaderStyle2">
-          <s:Data s:Type="String" />
+          <s:Data s:Type="String">58</s:Data>
         </s:Cell>
         <s:Cell s:Index="8" s:StyleID="HeaderStyle2">
-          <s:Data s:Type="String" />
+          <s:Data s:Type="String">1861,2500</s:Data>
         </s:Cell>
         <s:Cell s:Index="9" s:StyleID="HeaderStyle2">
           <s:Data s:Type="String" />
@@ -252,16 +252,16 @@
           <s:Data s:Type="String">1300</s:Data>
         </s:Cell>
         <s:Cell s:Index="5" s:StyleID="HeaderStyle3">
-          <s:Data s:Type="String">25</s:Data>
+          <s:Data s:Type="String">87</s:Data>
         </s:Cell>
         <s:Cell s:Index="6" s:StyleID="HeaderStyle2">
-          <s:Data s:Type="String">568,1500</s:Data>
+          <s:Data s:Type="String">2181,0800</s:Data>
         </s:Cell>
         <s:Cell s:Index="7" s:StyleID="HeaderStyle2">
-          <s:Data s:Type="String" />
+          <s:Data s:Type="String">14</s:Data>
         </s:Cell>
         <s:Cell s:Index="8" s:StyleID="HeaderStyle2">
-          <s:Data s:Type="String" />
+          <s:Data s:Type="String">325,5000</s:Data>
         </s:Cell>
         <s:Cell s:Index="9" s:StyleID="HeaderStyle2">
           <s:Data s:Type="String" />
@@ -287,16 +287,16 @@
           <s:Data s:Type="String">1200</s:Data>
         </s:Cell>
         <s:Cell s:Index="5" s:StyleID="HeaderStyle3">
-          <s:Data s:Type="String">30</s:Data>
+          <s:Data s:Type="String">146</s:Data>
         </s:Cell>
         <s:Cell s:Index="6" s:StyleID="HeaderStyle2">
-          <s:Data s:Type="String">620,4050</s:Data>
+          <s:Data s:Type="String">3482,8350</s:Data>
         </s:Cell>
         <s:Cell s:Index="7" s:StyleID="HeaderStyle2">
-          <s:Data s:Type="String" />
+          <s:Data s:Type="String">12</s:Data>
         </s:Cell>
         <s:Cell s:Index="8" s:StyleID="HeaderStyle2">
-          <s:Data s:Type="String" />
+          <s:Data s:Type="String">268,1490</s:Data>
         </s:Cell>
         <s:Cell s:Index="9" s:StyleID="HeaderStyle2">
           <s:Data s:Type="String" />
@@ -322,16 +322,16 @@
           <s:Data s:Type="String">1300</s:Data>
         </s:Cell>
         <s:Cell s:Index="5" s:StyleID="HeaderStyle3">
-          <s:Data s:Type="String">18</s:Data>
+          <s:Data s:Type="String">67</s:Data>
         </s:Cell>
         <s:Cell s:Index="6" s:StyleID="HeaderStyle2">
-          <s:Data s:Type="String">409,2700</s:Data>
+          <s:Data s:Type="String">1449,9600</s:Data>
         </s:Cell>
         <s:Cell s:Index="7" s:StyleID="HeaderStyle2">
-          <s:Data s:Type="String" />
+          <s:Data s:Type="String">6</s:Data>
         </s:Cell>
         <s:Cell s:Index="8" s:StyleID="HeaderStyle2">
-          <s:Data s:Type="String" />
+          <s:Data s:Type="String">176,1100</s:Data>
         </s:Cell>
         <s:Cell s:Index="9" s:StyleID="HeaderStyle2">
           <s:Data s:Type="String" />
@@ -363,10 +363,10 @@
           <s:Data s:Type="String">355,0290</s:Data>
         </s:Cell>
         <s:Cell s:Index="7" s:StyleID="HeaderStyle2">
-          <s:Data s:Type="String" />
+          <s:Data s:Type="String">9</s:Data>
         </s:Cell>
         <s:Cell s:Index="8" s:StyleID="HeaderStyle2">
-          <s:Data s:Type="String" />
+          <s:Data s:Type="String">180,0470</s:Data>
         </s:Cell>
         <s:Cell s:Index="9" s:StyleID="HeaderStyle2">
           <s:Data s:Type="String" />
@@ -497,10 +497,10 @@
           <s:Data s:Type="String">250</s:Data>
         </s:Cell>
         <s:Cell s:Index="5" s:StyleID="HeaderStyle3">
-          <s:Data s:Type="String" />
+          <s:Data s:Type="String">17</s:Data>
         </s:Cell>
         <s:Cell s:Index="6" s:StyleID="HeaderStyle2">
-          <s:Data s:Type="String" />
+          <s:Data s:Type="String">165,8340</s:Data>
         </s:Cell>
         <s:Cell s:Index="7" s:StyleID="HeaderStyle2">
           <s:Data s:Type="String" />
@@ -532,16 +532,16 @@
           <s:Data s:Type="String">200</s:Data>
         </s:Cell>
         <s:Cell s:Index="5" s:StyleID="HeaderStyle3">
-          <s:Data s:Type="String">18</s:Data>
+          <s:Data s:Type="String">25</s:Data>
         </s:Cell>
         <s:Cell s:Index="6" s:StyleID="HeaderStyle2">
-          <s:Data s:Type="String">322,0570</s:Data>
+          <s:Data s:Type="String">420,9280</s:Data>
         </s:Cell>
         <s:Cell s:Index="7" s:StyleID="HeaderStyle2">
-          <s:Data s:Type="String" />
+          <s:Data s:Type="String">17</s:Data>
         </s:Cell>
         <s:Cell s:Index="8" s:StyleID="HeaderStyle2">
-          <s:Data s:Type="String" />
+          <s:Data s:Type="String">290,1890</s:Data>
         </s:Cell>
         <s:Cell s:Index="9" s:StyleID="HeaderStyle2">
           <s:Data s:Type="String" />
@@ -567,16 +567,16 @@
           <s:Data s:Type="String">2000</s:Data>
         </s:Cell>
         <s:Cell s:Index="5" s:StyleID="HeaderStyle3">
-          <s:Data s:Type="String">81</s:Data>
+          <s:Data s:Type="String">201</s:Data>
         </s:Cell>
         <s:Cell s:Index="6" s:StyleID="HeaderStyle2">
-          <s:Data s:Type="String">2229,2220</s:Data>
+          <s:Data s:Type="String">5504,7330</s:Data>
         </s:Cell>
         <s:Cell s:Index="7" s:StyleID="HeaderStyle2">
-          <s:Data s:Type="String" />
+          <s:Data s:Type="String">34</s:Data>
         </s:Cell>
         <s:Cell s:Index="8" s:StyleID="HeaderStyle2">
-          <s:Data s:Type="String" />
+          <s:Data s:Type="String">868,0470</s:Data>
         </s:Cell>
         <s:Cell s:Index="9" s:StyleID="HeaderStyle2">
           <s:Data s:Type="String" />
@@ -637,16 +637,16 @@
           <s:Data s:Type="String">950</s:Data>
         </s:Cell>
         <s:Cell s:Index="5" s:StyleID="HeaderStyle3">
-          <s:Data s:Type="String">44</s:Data>
+          <s:Data s:Type="String">109</s:Data>
         </s:Cell>
         <s:Cell s:Index="6" s:StyleID="HeaderStyle2">
-          <s:Data s:Type="String">794,6660</s:Data>
+          <s:Data s:Type="String">1941,8770</s:Data>
         </s:Cell>
         <s:Cell s:Index="7" s:StyleID="HeaderStyle2">
-          <s:Data s:Type="String" />
+          <s:Data s:Type="String">65</s:Data>
         </s:Cell>
         <s:Cell s:Index="8" s:StyleID="HeaderStyle2">
-          <s:Data s:Type="String" />
+          <s:Data s:Type="String">1169,1180</s:Data>
         </s:Cell>
         <s:Cell s:Index="9" s:StyleID="HeaderStyle2">
           <s:Data s:Type="String" />
@@ -672,16 +672,16 @@
           <s:Data s:Type="String">170</s:Data>
         </s:Cell>
         <s:Cell s:Index="5" s:StyleID="HeaderStyle3">
-          <s:Data s:Type="String" />
+          <s:Data s:Type="String">25</s:Data>
         </s:Cell>
         <s:Cell s:Index="6" s:StyleID="HeaderStyle2">
-          <s:Data s:Type="String" />
+          <s:Data s:Type="String">324,4430</s:Data>
         </s:Cell>
         <s:Cell s:Index="7" s:StyleID="HeaderStyle2">
-          <s:Data s:Type="String" />
+          <s:Data s:Type="String">18</s:Data>
         </s:Cell>
         <s:Cell s:Index="8" s:StyleID="HeaderStyle2">
-          <s:Data s:Type="String" />
+          <s:Data s:Type="String">237,7440</s:Data>
         </s:Cell>
         <s:Cell s:Index="9" s:StyleID="HeaderStyle2">
           <s:Data s:Type="String" />
@@ -707,16 +707,16 @@
           <s:Data s:Type="String">1165</s:Data>
         </s:Cell>
         <s:Cell s:Index="5" s:StyleID="HeaderStyle3">
-          <s:Data s:Type="String">25</s:Data>
+          <s:Data s:Type="String">68</s:Data>
         </s:Cell>
         <s:Cell s:Index="6" s:StyleID="HeaderStyle2">
-          <s:Data s:Type="String">574,3530</s:Data>
+          <s:Data s:Type="String">1530,7410</s:Data>
         </s:Cell>
         <s:Cell s:Index="7" s:StyleID="HeaderStyle2">
-          <s:Data s:Type="String">14</s:Data>
+          <s:Data s:Type="String">38</s:Data>
         </s:Cell>
         <s:Cell s:Index="8" s:StyleID="HeaderStyle2">
-          <s:Data s:Type="String">369,4560</s:Data>
+          <s:Data s:Type="String">925,2080</s:Data>
         </s:Cell>
         <s:Cell s:Index="9" s:StyleID="HeaderStyle2">
           <s:Data s:Type="String" />
@@ -742,10 +742,10 @@
           <s:Data s:Type="String">50</s:Data>
         </s:Cell>
         <s:Cell s:Index="5" s:StyleID="HeaderStyle3">
-          <s:Data s:Type="String" />
+          <s:Data s:Type="String">4</s:Data>
         </s:Cell>
         <s:Cell s:Index="6" s:StyleID="HeaderStyle2">
-          <s:Data s:Type="String" />
+          <s:Data s:Type="String">111,4200</s:Data>
         </s:Cell>
         <s:Cell s:Index="7" s:StyleID="HeaderStyle2">
           <s:Data s:Type="String" />
@@ -812,16 +812,16 @@
           <s:Data s:Type="String">250</s:Data>
         </s:Cell>
         <s:Cell s:Index="5" s:StyleID="HeaderStyle3">
-          <s:Data s:Type="String">18</s:Data>
+          <s:Data s:Type="String">20</s:Data>
         </s:Cell>
         <s:Cell s:Index="6" s:StyleID="HeaderStyle2">
-          <s:Data s:Type="String">229,56885</s:Data>
+          <s:Data s:Type="String">228,73458</s:Data>
         </s:Cell>
         <s:Cell s:Index="7" s:StyleID="HeaderStyle2">
-          <s:Data s:Type="String" />
+          <s:Data s:Type="String">15</s:Data>
         </s:Cell>
         <s:Cell s:Index="8" s:StyleID="HeaderStyle2">
-          <s:Data s:Type="String" />
+          <s:Data s:Type="String">167,94207</s:Data>
         </s:Cell>
         <s:Cell s:Index="9" s:StyleID="HeaderStyle2">
           <s:Data s:Type="String" />
@@ -847,10 +847,10 @@
           <s:Data s:Type="String">200</s:Data>
         </s:Cell>
         <s:Cell s:Index="5" s:StyleID="HeaderStyle3">
-          <s:Data s:Type="String">5</s:Data>
+          <s:Data s:Type="String" />
         </s:Cell>
         <s:Cell s:Index="6" s:StyleID="HeaderStyle2">
-          <s:Data s:Type="String">125,1200</s:Data>
+          <s:Data s:Type="String" />
         </s:Cell>
         <s:Cell s:Index="7" s:StyleID="HeaderStyle2">
           <s:Data s:Type="String" />
@@ -882,10 +882,10 @@
           <s:Data s:Type="String">192</s:Data>
         </s:Cell>
         <s:Cell s:Index="5" s:StyleID="HeaderStyle3">
-          <s:Data s:Type="String" />
+          <s:Data s:Type="String">11</s:Data>
         </s:Cell>
         <s:Cell s:Index="6" s:StyleID="HeaderStyle2">
-          <s:Data s:Type="String" />
+          <s:Data s:Type="String">181,1500</s:Data>
         </s:Cell>
         <s:Cell s:Index="7" s:StyleID="HeaderStyle2">
           <s:Data s:Type="String" />
@@ -952,10 +952,10 @@
           <s:Data s:Type="String">250</s:Data>
         </s:Cell>
         <s:Cell s:Index="5" s:StyleID="HeaderStyle3">
-          <s:Data s:Type="String">13</s:Data>
+          <s:Data s:Type="String">50</s:Data>
         </s:Cell>
         <s:Cell s:Index="6" s:StyleID="HeaderStyle2">
-          <s:Data s:Type="String">204,3900</s:Data>
+          <s:Data s:Type="String">738,1700</s:Data>
         </s:Cell>
         <s:Cell s:Index="7" s:StyleID="HeaderStyle2">
           <s:Data s:Type="String" />
@@ -987,16 +987,16 @@
           <s:Data s:Type="String">1600</s:Data>
         </s:Cell>
         <s:Cell s:Index="5" s:StyleID="HeaderStyle3">
-          <s:Data s:Type="String">52</s:Data>
+          <s:Data s:Type="String">85</s:Data>
         </s:Cell>
         <s:Cell s:Index="6" s:StyleID="HeaderStyle2">
-          <s:Data s:Type="String">1424,3350</s:Data>
+          <s:Data s:Type="String">2343,3100</s:Data>
         </s:Cell>
         <s:Cell s:Index="7" s:StyleID="HeaderStyle2">
-          <s:Data s:Type="String" />
+          <s:Data s:Type="String">34</s:Data>
         </s:Cell>
         <s:Cell s:Index="8" s:StyleID="HeaderStyle2">
-          <s:Data s:Type="String" />
+          <s:Data s:Type="String">865,8700</s:Data>
         </s:Cell>
         <s:Cell s:Index="9" s:StyleID="HeaderStyle2">
           <s:Data s:Type="String" />
@@ -1022,10 +1022,10 @@
           <s:Data s:Type="String">240</s:Data>
         </s:Cell>
         <s:Cell s:Index="5" s:StyleID="HeaderStyle3">
-          <s:Data s:Type="String" />
+          <s:Data s:Type="String">4</s:Data>
         </s:Cell>
         <s:Cell s:Index="6" s:StyleID="HeaderStyle2">
-          <s:Data s:Type="String" />
+          <s:Data s:Type="String">64,0840</s:Data>
         </s:Cell>
         <s:Cell s:Index="7" s:StyleID="HeaderStyle2">
           <s:Data s:Type="String" />
@@ -1092,10 +1092,10 @@
           <s:Data s:Type="String">105</s:Data>
         </s:Cell>
         <s:Cell s:Index="5" s:StyleID="HeaderStyle3">
-          <s:Data s:Type="String" />
+          <s:Data s:Type="String">10</s:Data>
         </s:Cell>
         <s:Cell s:Index="6" s:StyleID="HeaderStyle2">
-          <s:Data s:Type="String" />
+          <s:Data s:Type="String">179,1200</s:Data>
         </s:Cell>
         <s:Cell s:Index="7" s:StyleID="HeaderStyle2">
           <s:Data s:Type="String" />
@@ -1127,10 +1127,10 @@
           <s:Data s:Type="String">540</s:Data>
         </s:Cell>
         <s:Cell s:Index="5" s:StyleID="HeaderStyle3">
-          <s:Data s:Type="String" />
+          <s:Data s:Type="String">40</s:Data>
         </s:Cell>
         <s:Cell s:Index="6" s:StyleID="HeaderStyle2">
-          <s:Data s:Type="String" />
+          <s:Data s:Type="String">495,8040</s:Data>
         </s:Cell>
         <s:Cell s:Index="7" s:StyleID="HeaderStyle2">
           <s:Data s:Type="String" />
@@ -1162,10 +1162,10 @@
           <s:Data s:Type="String">120</s:Data>
         </s:Cell>
         <s:Cell s:Index="5" s:StyleID="HeaderStyle3">
-          <s:Data s:Type="String" />
+          <s:Data s:Type="String">7</s:Data>
         </s:Cell>
         <s:Cell s:Index="6" s:StyleID="HeaderStyle2">
-          <s:Data s:Type="String" />
+          <s:Data s:Type="String">72,3790</s:Data>
         </s:Cell>
         <s:Cell s:Index="7" s:StyleID="HeaderStyle2">
           <s:Data s:Type="String" />
@@ -1197,10 +1197,10 @@
           <s:Data s:Type="String">96</s:Data>
         </s:Cell>
         <s:Cell s:Index="5" s:StyleID="HeaderStyle3">
-          <s:Data s:Type="String" />
+          <s:Data s:Type="String">9</s:Data>
         </s:Cell>
         <s:Cell s:Index="6" s:StyleID="HeaderStyle2">
-          <s:Data s:Type="String" />
+          <s:Data s:Type="String">144,5880</s:Data>
         </s:Cell>
         <s:Cell s:Index="7" s:StyleID="HeaderStyle2">
           <s:Data s:Type="String" />
@@ -1267,10 +1267,10 @@
           <s:Data s:Type="String">400</s:Data>
         </s:Cell>
         <s:Cell s:Index="5" s:StyleID="HeaderStyle3">
-          <s:Data s:Type="String">27</s:Data>
+          <s:Data s:Type="String">49</s:Data>
         </s:Cell>
         <s:Cell s:Index="6" s:StyleID="HeaderStyle2">
-          <s:Data s:Type="String">270,4380</s:Data>
+          <s:Data s:Type="String">447,6040</s:Data>
         </s:Cell>
         <s:Cell s:Index="7" s:StyleID="HeaderStyle2">
           <s:Data s:Type="String" />
@@ -1337,10 +1337,10 @@
           <s:Data s:Type="String">360</s:Data>
         </s:Cell>
         <s:Cell s:Index="5" s:StyleID="HeaderStyle3">
-          <s:Data s:Type="String" />
+          <s:Data s:Type="String">26</s:Data>
         </s:Cell>
         <s:Cell s:Index="6" s:StyleID="HeaderStyle2">
-          <s:Data s:Type="String" />
+          <s:Data s:Type="String">582,0240</s:Data>
         </s:Cell>
         <s:Cell s:Index="7" s:StyleID="HeaderStyle2">
           <s:Data s:Type="String" />
@@ -1372,16 +1372,16 @@
           <s:Data s:Type="String">168</s:Data>
         </s:Cell>
         <s:Cell s:Index="5" s:StyleID="HeaderStyle3">
-          <s:Data s:Type="String">6</s:Data>
+          <s:Data s:Type="String">14</s:Data>
         </s:Cell>
         <s:Cell s:Index="6" s:StyleID="HeaderStyle2">
-          <s:Data s:Type="String">119,9100</s:Data>
+          <s:Data s:Type="String">285,1900</s:Data>
         </s:Cell>
         <s:Cell s:Index="7" s:StyleID="HeaderStyle2">
-          <s:Data s:Type="String" />
+          <s:Data s:Type="String">8</s:Data>
         </s:Cell>
         <s:Cell s:Index="8" s:StyleID="HeaderStyle2">
-          <s:Data s:Type="String" />
+          <s:Data s:Type="String">158,3700</s:Data>
         </s:Cell>
         <s:Cell s:Index="9" s:StyleID="HeaderStyle2">
           <s:Data s:Type="String" />
@@ -1442,10 +1442,10 @@
           <s:Data s:Type="String">280</s:Data>
         </s:Cell>
         <s:Cell s:Index="5" s:StyleID="HeaderStyle3">
-          <s:Data s:Type="String">3</s:Data>
+          <s:Data s:Type="String">29</s:Data>
         </s:Cell>
         <s:Cell s:Index="6" s:StyleID="HeaderStyle2">
-          <s:Data s:Type="String">19,9200</s:Data>
+          <s:Data s:Type="String">259,2500</s:Data>
         </s:Cell>
         <s:Cell s:Index="7" s:StyleID="HeaderStyle2">
           <s:Data s:Type="String" />
@@ -1582,10 +1582,10 @@
           <s:Data s:Type="String">60</s:Data>
         </s:Cell>
         <s:Cell s:Index="5" s:StyleID="HeaderStyle3">
-          <s:Data s:Type="String" />
+          <s:Data s:Type="String">4</s:Data>
         </s:Cell>
         <s:Cell s:Index="6" s:StyleID="HeaderStyle2">
-          <s:Data s:Type="String" />
+          <s:Data s:Type="String">45,9260</s:Data>
         </s:Cell>
         <s:Cell s:Index="7" s:StyleID="HeaderStyle2">
           <s:Data s:Type="String" />
@@ -1617,10 +1617,10 @@
           <s:Data s:Type="String">324</s:Data>
         </s:Cell>
         <s:Cell s:Index="5" s:StyleID="HeaderStyle3">
-          <s:Data s:Type="String" />
+          <s:Data s:Type="String">29</s:Data>
         </s:Cell>
         <s:Cell s:Index="6" s:StyleID="HeaderStyle2">
-          <s:Data s:Type="String" />
+          <s:Data s:Type="String">364,3610</s:Data>
         </s:Cell>
         <s:Cell s:Index="7" s:StyleID="HeaderStyle2">
           <s:Data s:Type="String" />
@@ -1652,10 +1652,10 @@
           <s:Data s:Type="String">500</s:Data>
         </s:Cell>
         <s:Cell s:Index="5" s:StyleID="HeaderStyle3">
-          <s:Data s:Type="String" />
+          <s:Data s:Type="String">18</s:Data>
         </s:Cell>
         <s:Cell s:Index="6" s:StyleID="HeaderStyle2">
-          <s:Data s:Type="String" />
+          <s:Data s:Type="String">196,8190</s:Data>
         </s:Cell>
         <s:Cell s:Index="7" s:StyleID="HeaderStyle2">
           <s:Data s:Type="String" />
@@ -1687,10 +1687,10 @@
           <s:Data s:Type="String">3300</s:Data>
         </s:Cell>
         <s:Cell s:Index="5" s:StyleID="HeaderStyle3">
-          <s:Data s:Type="String">176</s:Data>
+          <s:Data s:Type="String">278</s:Data>
         </s:Cell>
         <s:Cell s:Index="6" s:StyleID="HeaderStyle2">
-          <s:Data s:Type="String">2644,0280</s:Data>
+          <s:Data s:Type="String">4116,1790</s:Data>
         </s:Cell>
         <s:Cell s:Index="7" s:StyleID="HeaderStyle2">
           <s:Data s:Type="String" />
@@ -1757,16 +1757,16 @@
           <s:Data s:Type="String">27901</s:Data>
         </s:Cell>
         <s:Cell s:Index="5" s:StyleID="HeaderStyle2">
-          <s:Data s:Type="String">834</s:Data>
+          <s:Data s:Type="String">2199</s:Data>
         </s:Cell>
         <s:Cell s:Index="6" s:StyleID="HeaderStyle2">
-          <s:Data s:Type="String">17430,01985</s:Data>
+          <s:Data s:Type="String">46822,66858</s:Data>
         </s:Cell>
         <s:Cell s:Index="7" s:StyleID="HeaderStyle2">
-          <s:Data s:Type="String">14</s:Data>
+          <s:Data s:Type="String">424</s:Data>
         </s:Cell>
         <s:Cell s:Index="8" s:StyleID="HeaderStyle2">
-          <s:Data s:Type="String">369,4560</s:Data>
+          <s:Data s:Type="String">9420,83307</s:Data>
         </s:Cell>
         <s:Cell s:Index="9" s:StyleID="HeaderStyle2">
           <s:Data s:Type="String" />

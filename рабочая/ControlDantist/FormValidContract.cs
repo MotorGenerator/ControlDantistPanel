@@ -204,7 +204,7 @@ namespace ControlDantist
         {
             string query = string.Empty;
 
-            if (this.textBox1.Text.Trim() == "8/7471")
+            if (this.textBox1.Text.Trim() == "5/8785")
             {
                 var asd = "";
             }
@@ -239,12 +239,12 @@ namespace ControlDantist
 
                 // Пока скроем поиск льготников в основной таблице за 2019 год.
                 //  Поиск номера договора за 2019 год по обычным таблицам.
-                //IFindPerson findPerson2019 = new FindContract2019(numContract);
-                //string query2019 = findPerson2019.Query();
+                IFindPerson findPerson2019 = new FindContract2019(numContract);
+                string query2019 = findPerson2019.Query();
 
 
-                //StringParametr stringParametr2019 = new StringParametr();
-                //stringParametr2019.Query = query2019;
+                StringParametr stringParametr2019 = new StringParametr();
+                stringParametr2019.Query = query2019;
 
                 // Поиск номера договора позже 2019 года.
                 IFindPerson fintPersonAftar2019 = new FindPersonAftar2019(numContract);
@@ -268,7 +268,7 @@ namespace ControlDantist
                 listTempDisplay.AddRange(ExecuteQuery(stringParametr2019Add));
 
                 // Выполним запрос 2019 года.
-                //listTempDisplay.AddRange(ExecuteQuery(stringParametr2019));
+                listTempDisplay.AddRange(ExecuteQuery(stringParametr2019));
 
                 // Выполним запрос больше 2019 года.
                 listTempDisplay.AddRange(ExecuteQuery(stringParametr2019Aftar));
@@ -278,7 +278,14 @@ namespace ControlDantist
 
                 var listRes = CompareContractForNumber.Compare(listTempDisplay);
 
+                // Временный список договоров.
+                //List<ValideContract> listDisplayTemp = new List<ValideContract>();
+
+                //listDisplayTemp.AddRange(listRes);
+
                 listDisplay.AddRange(listRes);
+
+                
 
             }
             //else
@@ -2005,6 +2012,10 @@ namespace ControlDantist
                 if (flagExecute == false)
                 {
                     this.dataGridView1.DataSource = listPerson;
+
+
+                    this.dataGridView1.Columns[1].SortMode = DataGridViewColumnSortMode.Automatic;
+
                 }
                 else
                 {
@@ -2076,6 +2087,10 @@ namespace ControlDantist
                         dataGridView1.Rows[i].DefaultCellStyle.BackColor = Color.Red;
                     }
                 }
+
+
+                this.dataGridView1.Columns[1].SortMode = DataGridViewColumnSortMode.Automatic;
+
 
             }
         }
