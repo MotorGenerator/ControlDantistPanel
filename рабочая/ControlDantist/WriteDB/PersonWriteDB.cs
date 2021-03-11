@@ -37,7 +37,7 @@ namespace ControlDantist.WriteDB
              }
 
              // Поиск льготника.
-             var persons = dc.ТабЛьгоготник.Where(w => w.Фамилия.Trim().ToLower() == person.Фамилия.Trim().ToLower() && w.Имя.Trim().ToLower() == person.Имя.ToLower().Trim() && w.Отчество.Trim().ToLower() == person.Отчество.Trim().ToLower()).OrderByDescending(w=>w.id_льготник).FirstOrDefault();
+             var persons = dc.ТабЛьгоготник.Where(w => w.Фамилия.Trim().ToLower() == person.Фамилия.Trim().ToLower() && w.Имя.Trim().ToLower() == person.Имя.ToLower().Trim() && w.Отчество.Trim().ToLower() == person.Отчество.Trim().ToLower() && w.ДатаРождения == person.ДатаРождения).OrderByDescending(w=>w.id_льготник).FirstOrDefault();
 
             // Если льготников нет в БД значит его можно писать в БД.
             if (persons != null)

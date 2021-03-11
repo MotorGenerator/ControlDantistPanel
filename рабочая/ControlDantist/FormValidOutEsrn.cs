@@ -493,16 +493,21 @@ namespace ControlDantist
                             // Льготник.
                             ТЛЬготник тЛЬготник = itm.Packecge.льготник;
 
-                            //// Установим дату рождения льготника.
-                            //тЛЬготник.ДатаРождения = Convert.ToDateTime(itm.DateBirdthPerson).Date;
+                            if(itm.Packecge.льготник.Фамилия == "Семенова")
+                            {
+                                var asd = "";
+                            }
 
-                            //// Дата выдачи паспорта.
-                            //тЛЬготник.ДатаВыдачиПаспорта = Convert.ToDateTime(itm.DatePassword).Date;
+                            // Установим дату рождения льготника.
+                            тЛЬготник.ДатаРождения = Convert.ToDateTime(itm.DateBirdthPerson).Date;
 
-                            //// Дата выдачи документа.
-                            //тЛЬготник.ДатаВыдачиДокумента = Convert.ToDateTime(itm.DateDoc).Date;
+                            // Дата выдачи паспорта.
+                            тЛЬготник.ДатаВыдачиПаспорта = Convert.ToDateTime(itm.DatePassword).Date;
 
-                            IValidBD<ТДоговор> validBDcontract = new ProjectContract(dc,тДоговор);
+                            // Дата выдачи документа.
+                            тЛЬготник.ДатаВыдачиДокумента = Convert.ToDateTime(itm.DateDoc).Date;
+
+                        IValidBD<ТДоговор> validBDcontract = new ProjectContract(dc,тДоговор);
 
                             // Результат проверки можно писать в БД или нельзя.
                             bool flagWriteContract = validBDcontract.Validate();
