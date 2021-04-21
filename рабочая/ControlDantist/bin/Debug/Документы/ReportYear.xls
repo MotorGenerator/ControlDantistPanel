@@ -49,7 +49,7 @@
       <s:Column s:Width="80" />
       <s:Row>
         <s:Cell s:Index="1" s:MergeAcross="10" s:StyleID="HeaderStyle2">
-          <s:Data s:Type="String">Оперативная информация по вопросу бесплатного зубопротезирования на 25.02.2021</s:Data>
+          <s:Data s:Type="String">Оперативная информация по вопросу бесплатного зубопротезирования на 21.04.2021</s:Data>
         </s:Cell>
       </s:Row>
       <s:Row>
@@ -147,16 +147,16 @@
           <s:Data s:Type="String">2800</s:Data>
         </s:Cell>
         <s:Cell s:Index="5" s:StyleID="HeaderStyle3">
-          <s:Data s:Type="String">161</s:Data>
+          <s:Data s:Type="String">360</s:Data>
         </s:Cell>
         <s:Cell s:Index="6" s:StyleID="HeaderStyle2">
-          <s:Data s:Type="String">3047,4210</s:Data>
+          <s:Data s:Type="String">6678,9000</s:Data>
         </s:Cell>
         <s:Cell s:Index="7" s:StyleID="HeaderStyle2">
-          <s:Data s:Type="String">26</s:Data>
+          <s:Data s:Type="String">156</s:Data>
         </s:Cell>
         <s:Cell s:Index="8" s:StyleID="HeaderStyle2">
-          <s:Data s:Type="String">392,2540</s:Data>
+          <s:Data s:Type="String">2811,0140</s:Data>
         </s:Cell>
         <s:Cell s:Index="9" s:StyleID="HeaderStyle2">
           <s:Data s:Type="String" />
@@ -182,16 +182,16 @@
           <s:Data s:Type="String">3200</s:Data>
         </s:Cell>
         <s:Cell s:Index="5" s:StyleID="HeaderStyle3">
-          <s:Data s:Type="String">406</s:Data>
+          <s:Data s:Type="String">1050</s:Data>
         </s:Cell>
         <s:Cell s:Index="6" s:StyleID="HeaderStyle2">
-          <s:Data s:Type="String">9359,0750</s:Data>
+          <s:Data s:Type="String">25448,6200</s:Data>
         </s:Cell>
         <s:Cell s:Index="7" s:StyleID="HeaderStyle2">
-          <s:Data s:Type="String">70</s:Data>
+          <s:Data s:Type="String">507</s:Data>
         </s:Cell>
         <s:Cell s:Index="8" s:StyleID="HeaderStyle2">
-          <s:Data s:Type="String">1535,0350</s:Data>
+          <s:Data s:Type="String">11416,4650</s:Data>
         </s:Cell>
         <s:Cell s:Index="9" s:StyleID="HeaderStyle2">
           <s:Data s:Type="String" />
@@ -217,16 +217,16 @@
           <s:Data s:Type="String">2091</s:Data>
         </s:Cell>
         <s:Cell s:Index="5" s:StyleID="HeaderStyle3">
-          <s:Data s:Type="String">181</s:Data>
+          <s:Data s:Type="String">407</s:Data>
         </s:Cell>
         <s:Cell s:Index="6" s:StyleID="HeaderStyle2">
-          <s:Data s:Type="String">6202,6000</s:Data>
+          <s:Data s:Type="String">14066,1450</s:Data>
         </s:Cell>
         <s:Cell s:Index="7" s:StyleID="HeaderStyle2">
-          <s:Data s:Type="String">58</s:Data>
+          <s:Data s:Type="String">224</s:Data>
         </s:Cell>
         <s:Cell s:Index="8" s:StyleID="HeaderStyle2">
-          <s:Data s:Type="String">1861,2500</s:Data>
+          <s:Data s:Type="String">7400,7100</s:Data>
         </s:Cell>
         <s:Cell s:Index="9" s:StyleID="HeaderStyle2">
           <s:Data s:Type="String" />
@@ -252,16 +252,16 @@
           <s:Data s:Type="String">1300</s:Data>
         </s:Cell>
         <s:Cell s:Index="5" s:StyleID="HeaderStyle3">
-          <s:Data s:Type="String">87</s:Data>
+          <s:Data s:Type="String">265</s:Data>
         </s:Cell>
         <s:Cell s:Index="6" s:StyleID="HeaderStyle2">
-          <s:Data s:Type="String">2181,0800</s:Data>
+          <s:Data s:Type="String">6846,3200</s:Data>
         </s:Cell>
         <s:Cell s:Index="7" s:StyleID="HeaderStyle2">
-          <s:Data s:Type="String">14</s:Data>
+          <s:Data s:Type="String">160</s:Data>
         </s:Cell>
         <s:Cell s:Index="8" s:StyleID="HeaderStyle2">
-          <s:Data s:Type="String">325,5000</s:Data>
+          <s:Data s:Type="String">4096,1800</s:Data>
         </s:Cell>
         <s:Cell s:Index="9" s:StyleID="HeaderStyle2">
           <s:Data s:Type="String" />
@@ -287,16 +287,16 @@
           <s:Data s:Type="String">1200</s:Data>
         </s:Cell>
         <s:Cell s:Index="5" s:StyleID="HeaderStyle3">
-          <s:Data s:Type="String">146</s:Data>
+          <s:Data s:Type="String">288</s:Data>
         </s:Cell>
         <s:Cell s:Index="6" s:StyleID="HeaderStyle2">
-          <s:Data s:Type="String">3482,8350</s:Data>
+          <s:Data s:Type="String">7414,6450</s:Data>
         </s:Cell>
         <s:Cell s:Index="7" s:StyleID="HeaderStyle2">
-          <s:Data s:Type="String">12</s:Data>
+          <s:Data s:Type="String">152</s:Data>
         </s:Cell>
         <s:Cell s:Index="8" s:StyleID="HeaderStyle2">
-          <s:Data s:Type="String">268,1490</s:Data>
+          <s:Data s:Type="String">3584,8350</s:Data>
         </s:Cell>
         <s:Cell s:Index="9" s:StyleID="HeaderStyle2">
           <s:Data s:Type="String" />
@@ -322,16 +322,16 @@
           <s:Data s:Type="String">1300</s:Data>
         </s:Cell>
         <s:Cell s:Index="5" s:StyleID="HeaderStyle3">
-          <s:Data s:Type="String">67</s:Data>
+          <s:Data s:Type="String">214</s:Data>
         </s:Cell>
         <s:Cell s:Index="6" s:StyleID="HeaderStyle2">
-          <s:Data s:Type="String">1449,9600</s:Data>
+          <s:Data s:Type="String">5039,1800</s:Data>
         </s:Cell>
         <s:Cell s:Index="7" s:StyleID="HeaderStyle2">
-          <s:Data s:Type="String">6</s:Data>
+          <s:Data s:Type="String">117</s:Data>
         </s:Cell>
         <s:Cell s:Index="8" s:StyleID="HeaderStyle2">
-          <s:Data s:Type="String">176,1100</s:Data>
+          <s:Data s:Type="String">2788,4000</s:Data>
         </s:Cell>
         <s:Cell s:Index="9" s:StyleID="HeaderStyle2">
           <s:Data s:Type="String" />
@@ -357,16 +357,16 @@
           <s:Data s:Type="String">550</s:Data>
         </s:Cell>
         <s:Cell s:Index="5" s:StyleID="HeaderStyle3">
-          <s:Data s:Type="String">19</s:Data>
+          <s:Data s:Type="String">53</s:Data>
         </s:Cell>
         <s:Cell s:Index="6" s:StyleID="HeaderStyle2">
-          <s:Data s:Type="String">355,0290</s:Data>
+          <s:Data s:Type="String">1085,9880</s:Data>
         </s:Cell>
         <s:Cell s:Index="7" s:StyleID="HeaderStyle2">
-          <s:Data s:Type="String">9</s:Data>
+          <s:Data s:Type="String">53</s:Data>
         </s:Cell>
         <s:Cell s:Index="8" s:StyleID="HeaderStyle2">
-          <s:Data s:Type="String">180,0470</s:Data>
+          <s:Data s:Type="String">1085,9880</s:Data>
         </s:Cell>
         <s:Cell s:Index="9" s:StyleID="HeaderStyle2">
           <s:Data s:Type="String" />
@@ -381,6 +381,41 @@
       <s:Row>
         <s:Cell s:Index="1" s:StyleID="StyleAlignmentLeft">
           <s:Data s:Type="String">8</s:Data>
+        </s:Cell>
+        <s:Cell s:Index="2" s:StyleID="StyleAlignmentLeft">
+          <s:Data s:Type="String">г. Саратов</s:Data>
+        </s:Cell>
+        <s:Cell s:Index="3" s:StyleID="StyleAlignmentLeft">
+          <s:Data s:Type="String">ГУЗ "Саратовская городская клиническая больница №1 им. Ю.Я. Гордеева"</s:Data>
+        </s:Cell>
+        <s:Cell s:Index="4" s:StyleID="HeaderStyle2">
+          <s:Data s:Type="String">0</s:Data>
+        </s:Cell>
+        <s:Cell s:Index="5" s:StyleID="HeaderStyle3">
+          <s:Data s:Type="String">4</s:Data>
+        </s:Cell>
+        <s:Cell s:Index="6" s:StyleID="HeaderStyle2">
+          <s:Data s:Type="String">63,7000</s:Data>
+        </s:Cell>
+        <s:Cell s:Index="7" s:StyleID="HeaderStyle2">
+          <s:Data s:Type="String" />
+        </s:Cell>
+        <s:Cell s:Index="8" s:StyleID="HeaderStyle2">
+          <s:Data s:Type="String" />
+        </s:Cell>
+        <s:Cell s:Index="9" s:StyleID="HeaderStyle2">
+          <s:Data s:Type="String" />
+        </s:Cell>
+        <s:Cell s:Index="10" s:StyleID="HeaderStyle2">
+          <s:Data s:Type="String" />
+        </s:Cell>
+        <s:Cell s:Index="11" s:StyleID="HeaderStyle2">
+          <s:Data s:Type="String" />
+        </s:Cell>
+      </s:Row>
+      <s:Row>
+        <s:Cell s:Index="1" s:StyleID="StyleAlignmentLeft">
+          <s:Data s:Type="String">9</s:Data>
         </s:Cell>
         <s:Cell s:Index="2" s:StyleID="StyleAlignmentLeft">
           <s:Data s:Type="String">г. Саратов</s:Data>
@@ -415,7 +450,7 @@
       </s:Row>
       <s:Row>
         <s:Cell s:Index="1" s:StyleID="StyleAlignmentLeft">
-          <s:Data s:Type="String">9</s:Data>
+          <s:Data s:Type="String">10</s:Data>
         </s:Cell>
         <s:Cell s:Index="2" s:StyleID="StyleAlignmentLeft">
           <s:Data s:Type="String">Александровогайский</s:Data>
@@ -427,16 +462,16 @@
           <s:Data s:Type="String">120</s:Data>
         </s:Cell>
         <s:Cell s:Index="5" s:StyleID="HeaderStyle3">
-          <s:Data s:Type="String" />
+          <s:Data s:Type="String">22</s:Data>
         </s:Cell>
         <s:Cell s:Index="6" s:StyleID="HeaderStyle2">
-          <s:Data s:Type="String" />
+          <s:Data s:Type="String">223,1840</s:Data>
         </s:Cell>
         <s:Cell s:Index="7" s:StyleID="HeaderStyle2">
-          <s:Data s:Type="String" />
+          <s:Data s:Type="String">12</s:Data>
         </s:Cell>
         <s:Cell s:Index="8" s:StyleID="HeaderStyle2">
-          <s:Data s:Type="String" />
+          <s:Data s:Type="String">132,7180</s:Data>
         </s:Cell>
         <s:Cell s:Index="9" s:StyleID="HeaderStyle2">
           <s:Data s:Type="String" />
@@ -450,7 +485,7 @@
       </s:Row>
       <s:Row>
         <s:Cell s:Index="1" s:StyleID="StyleAlignmentLeft">
-          <s:Data s:Type="String">10</s:Data>
+          <s:Data s:Type="String">11</s:Data>
         </s:Cell>
         <s:Cell s:Index="2" s:StyleID="StyleAlignmentLeft">
           <s:Data s:Type="String">Аркадакский</s:Data>
@@ -485,7 +520,7 @@
       </s:Row>
       <s:Row>
         <s:Cell s:Index="1" s:StyleID="StyleAlignmentLeft">
-          <s:Data s:Type="String">11</s:Data>
+          <s:Data s:Type="String">12</s:Data>
         </s:Cell>
         <s:Cell s:Index="2" s:StyleID="StyleAlignmentLeft">
           <s:Data s:Type="String">Аткарский</s:Data>
@@ -497,51 +532,16 @@
           <s:Data s:Type="String">250</s:Data>
         </s:Cell>
         <s:Cell s:Index="5" s:StyleID="HeaderStyle3">
-          <s:Data s:Type="String">17</s:Data>
+          <s:Data s:Type="String">45</s:Data>
         </s:Cell>
         <s:Cell s:Index="6" s:StyleID="HeaderStyle2">
-          <s:Data s:Type="String">165,8340</s:Data>
+          <s:Data s:Type="String">441,5360</s:Data>
         </s:Cell>
         <s:Cell s:Index="7" s:StyleID="HeaderStyle2">
-          <s:Data s:Type="String" />
+          <s:Data s:Type="String">26</s:Data>
         </s:Cell>
         <s:Cell s:Index="8" s:StyleID="HeaderStyle2">
-          <s:Data s:Type="String" />
-        </s:Cell>
-        <s:Cell s:Index="9" s:StyleID="HeaderStyle2">
-          <s:Data s:Type="String" />
-        </s:Cell>
-        <s:Cell s:Index="10" s:StyleID="HeaderStyle2">
-          <s:Data s:Type="String" />
-        </s:Cell>
-        <s:Cell s:Index="11" s:StyleID="HeaderStyle2">
-          <s:Data s:Type="String" />
-        </s:Cell>
-      </s:Row>
-      <s:Row>
-        <s:Cell s:Index="1" s:StyleID="StyleAlignmentLeft">
-          <s:Data s:Type="String">12</s:Data>
-        </s:Cell>
-        <s:Cell s:Index="2" s:StyleID="StyleAlignmentLeft">
-          <s:Data s:Type="String">Базарно-Карабулакский</s:Data>
-        </s:Cell>
-        <s:Cell s:Index="3" s:StyleID="StyleAlignmentLeft">
-          <s:Data s:Type="String">ГУЗ СО «Базарно-Карабулакская районная больница»</s:Data>
-        </s:Cell>
-        <s:Cell s:Index="4" s:StyleID="HeaderStyle2">
-          <s:Data s:Type="String">200</s:Data>
-        </s:Cell>
-        <s:Cell s:Index="5" s:StyleID="HeaderStyle3">
-          <s:Data s:Type="String">25</s:Data>
-        </s:Cell>
-        <s:Cell s:Index="6" s:StyleID="HeaderStyle2">
-          <s:Data s:Type="String">420,9280</s:Data>
-        </s:Cell>
-        <s:Cell s:Index="7" s:StyleID="HeaderStyle2">
-          <s:Data s:Type="String">17</s:Data>
-        </s:Cell>
-        <s:Cell s:Index="8" s:StyleID="HeaderStyle2">
-          <s:Data s:Type="String">290,1890</s:Data>
+          <s:Data s:Type="String">263,6840</s:Data>
         </s:Cell>
         <s:Cell s:Index="9" s:StyleID="HeaderStyle2">
           <s:Data s:Type="String" />
@@ -558,25 +558,25 @@
           <s:Data s:Type="String">13</s:Data>
         </s:Cell>
         <s:Cell s:Index="2" s:StyleID="StyleAlignmentLeft">
-          <s:Data s:Type="String">Балаковский</s:Data>
+          <s:Data s:Type="String">Базарно-Карабулакский</s:Data>
         </s:Cell>
         <s:Cell s:Index="3" s:StyleID="StyleAlignmentLeft">
-          <s:Data s:Type="String">ГАУЗ СО «Балаковская стоматологическая поликлинника»</s:Data>
+          <s:Data s:Type="String">ГУЗ СО «Базарно-Карабулакская районная больница»</s:Data>
         </s:Cell>
         <s:Cell s:Index="4" s:StyleID="HeaderStyle2">
-          <s:Data s:Type="String">2000</s:Data>
+          <s:Data s:Type="String">200</s:Data>
         </s:Cell>
         <s:Cell s:Index="5" s:StyleID="HeaderStyle3">
-          <s:Data s:Type="String">201</s:Data>
+          <s:Data s:Type="String">63</s:Data>
         </s:Cell>
         <s:Cell s:Index="6" s:StyleID="HeaderStyle2">
-          <s:Data s:Type="String">5504,7330</s:Data>
+          <s:Data s:Type="String">1103,4010</s:Data>
         </s:Cell>
         <s:Cell s:Index="7" s:StyleID="HeaderStyle2">
-          <s:Data s:Type="String">34</s:Data>
+          <s:Data s:Type="String">38</s:Data>
         </s:Cell>
         <s:Cell s:Index="8" s:StyleID="HeaderStyle2">
-          <s:Data s:Type="String">868,0470</s:Data>
+          <s:Data s:Type="String">666,0650</s:Data>
         </s:Cell>
         <s:Cell s:Index="9" s:StyleID="HeaderStyle2">
           <s:Data s:Type="String" />
@@ -591,6 +591,41 @@
       <s:Row>
         <s:Cell s:Index="1" s:StyleID="StyleAlignmentLeft">
           <s:Data s:Type="String">14</s:Data>
+        </s:Cell>
+        <s:Cell s:Index="2" s:StyleID="StyleAlignmentLeft">
+          <s:Data s:Type="String">Балаковский</s:Data>
+        </s:Cell>
+        <s:Cell s:Index="3" s:StyleID="StyleAlignmentLeft">
+          <s:Data s:Type="String">ГАУЗ СО «Балаковская стоматологическая поликлинника»</s:Data>
+        </s:Cell>
+        <s:Cell s:Index="4" s:StyleID="HeaderStyle2">
+          <s:Data s:Type="String">2000</s:Data>
+        </s:Cell>
+        <s:Cell s:Index="5" s:StyleID="HeaderStyle3">
+          <s:Data s:Type="String">480</s:Data>
+        </s:Cell>
+        <s:Cell s:Index="6" s:StyleID="HeaderStyle2">
+          <s:Data s:Type="String">11784,1010</s:Data>
+        </s:Cell>
+        <s:Cell s:Index="7" s:StyleID="HeaderStyle2">
+          <s:Data s:Type="String">277</s:Data>
+        </s:Cell>
+        <s:Cell s:Index="8" s:StyleID="HeaderStyle2">
+          <s:Data s:Type="String">6942,6850</s:Data>
+        </s:Cell>
+        <s:Cell s:Index="9" s:StyleID="HeaderStyle2">
+          <s:Data s:Type="String" />
+        </s:Cell>
+        <s:Cell s:Index="10" s:StyleID="HeaderStyle2">
+          <s:Data s:Type="String" />
+        </s:Cell>
+        <s:Cell s:Index="11" s:StyleID="HeaderStyle2">
+          <s:Data s:Type="String" />
+        </s:Cell>
+      </s:Row>
+      <s:Row>
+        <s:Cell s:Index="1" s:StyleID="StyleAlignmentLeft">
+          <s:Data s:Type="String">15</s:Data>
         </s:Cell>
         <s:Cell s:Index="2" s:StyleID="StyleAlignmentLeft">
           <s:Data s:Type="String">Балаковский</s:Data>
@@ -625,7 +660,7 @@
       </s:Row>
       <s:Row>
         <s:Cell s:Index="1" s:StyleID="StyleAlignmentLeft">
-          <s:Data s:Type="String">15</s:Data>
+          <s:Data s:Type="String">16</s:Data>
         </s:Cell>
         <s:Cell s:Index="2" s:StyleID="StyleAlignmentLeft">
           <s:Data s:Type="String">Балашовский</s:Data>
@@ -637,51 +672,16 @@
           <s:Data s:Type="String">950</s:Data>
         </s:Cell>
         <s:Cell s:Index="5" s:StyleID="HeaderStyle3">
-          <s:Data s:Type="String">109</s:Data>
+          <s:Data s:Type="String">203</s:Data>
         </s:Cell>
         <s:Cell s:Index="6" s:StyleID="HeaderStyle2">
-          <s:Data s:Type="String">1941,8770</s:Data>
+          <s:Data s:Type="String">3784,9650</s:Data>
         </s:Cell>
         <s:Cell s:Index="7" s:StyleID="HeaderStyle2">
-          <s:Data s:Type="String">65</s:Data>
+          <s:Data s:Type="String">203</s:Data>
         </s:Cell>
         <s:Cell s:Index="8" s:StyleID="HeaderStyle2">
-          <s:Data s:Type="String">1169,1180</s:Data>
-        </s:Cell>
-        <s:Cell s:Index="9" s:StyleID="HeaderStyle2">
-          <s:Data s:Type="String" />
-        </s:Cell>
-        <s:Cell s:Index="10" s:StyleID="HeaderStyle2">
-          <s:Data s:Type="String" />
-        </s:Cell>
-        <s:Cell s:Index="11" s:StyleID="HeaderStyle2">
-          <s:Data s:Type="String" />
-        </s:Cell>
-      </s:Row>
-      <s:Row>
-        <s:Cell s:Index="1" s:StyleID="StyleAlignmentLeft">
-          <s:Data s:Type="String">16</s:Data>
-        </s:Cell>
-        <s:Cell s:Index="2" s:StyleID="StyleAlignmentLeft">
-          <s:Data s:Type="String">Балтайский</s:Data>
-        </s:Cell>
-        <s:Cell s:Index="3" s:StyleID="StyleAlignmentLeft">
-          <s:Data s:Type="String">ГУЗ СО «Балтайская районная больница»</s:Data>
-        </s:Cell>
-        <s:Cell s:Index="4" s:StyleID="HeaderStyle2">
-          <s:Data s:Type="String">170</s:Data>
-        </s:Cell>
-        <s:Cell s:Index="5" s:StyleID="HeaderStyle3">
-          <s:Data s:Type="String">25</s:Data>
-        </s:Cell>
-        <s:Cell s:Index="6" s:StyleID="HeaderStyle2">
-          <s:Data s:Type="String">324,4430</s:Data>
-        </s:Cell>
-        <s:Cell s:Index="7" s:StyleID="HeaderStyle2">
-          <s:Data s:Type="String">18</s:Data>
-        </s:Cell>
-        <s:Cell s:Index="8" s:StyleID="HeaderStyle2">
-          <s:Data s:Type="String">237,7440</s:Data>
+          <s:Data s:Type="String">3784,9650</s:Data>
         </s:Cell>
         <s:Cell s:Index="9" s:StyleID="HeaderStyle2">
           <s:Data s:Type="String" />
@@ -698,25 +698,25 @@
           <s:Data s:Type="String">17</s:Data>
         </s:Cell>
         <s:Cell s:Index="2" s:StyleID="StyleAlignmentLeft">
-          <s:Data s:Type="String">Вольский</s:Data>
+          <s:Data s:Type="String">Балтайский</s:Data>
         </s:Cell>
         <s:Cell s:Index="3" s:StyleID="StyleAlignmentLeft">
-          <s:Data s:Type="String">ГУЗ СО «Вольская стоматологическая поликлинника»</s:Data>
+          <s:Data s:Type="String">ГУЗ СО «Балтайская районная больница»</s:Data>
         </s:Cell>
         <s:Cell s:Index="4" s:StyleID="HeaderStyle2">
-          <s:Data s:Type="String">1165</s:Data>
+          <s:Data s:Type="String">170</s:Data>
         </s:Cell>
         <s:Cell s:Index="5" s:StyleID="HeaderStyle3">
-          <s:Data s:Type="String">68</s:Data>
+          <s:Data s:Type="String">75</s:Data>
         </s:Cell>
         <s:Cell s:Index="6" s:StyleID="HeaderStyle2">
-          <s:Data s:Type="String">1530,7410</s:Data>
+          <s:Data s:Type="String">946,1910</s:Data>
         </s:Cell>
         <s:Cell s:Index="7" s:StyleID="HeaderStyle2">
-          <s:Data s:Type="String">38</s:Data>
+          <s:Data s:Type="String">59</s:Data>
         </s:Cell>
         <s:Cell s:Index="8" s:StyleID="HeaderStyle2">
-          <s:Data s:Type="String">925,2080</s:Data>
+          <s:Data s:Type="String">741,7530</s:Data>
         </s:Cell>
         <s:Cell s:Index="9" s:StyleID="HeaderStyle2">
           <s:Data s:Type="String" />
@@ -733,25 +733,25 @@
           <s:Data s:Type="String">18</s:Data>
         </s:Cell>
         <s:Cell s:Index="2" s:StyleID="StyleAlignmentLeft">
-          <s:Data s:Type="String">Воскресенский</s:Data>
+          <s:Data s:Type="String">Вольский</s:Data>
         </s:Cell>
         <s:Cell s:Index="3" s:StyleID="StyleAlignmentLeft">
-          <s:Data s:Type="String">ГУЗ СО "Воскресенская районная больница"</s:Data>
+          <s:Data s:Type="String">ГУЗ СО «Вольская стоматологическая поликлинника»</s:Data>
         </s:Cell>
         <s:Cell s:Index="4" s:StyleID="HeaderStyle2">
-          <s:Data s:Type="String">50</s:Data>
+          <s:Data s:Type="String">1165</s:Data>
         </s:Cell>
         <s:Cell s:Index="5" s:StyleID="HeaderStyle3">
-          <s:Data s:Type="String">4</s:Data>
+          <s:Data s:Type="String">140</s:Data>
         </s:Cell>
         <s:Cell s:Index="6" s:StyleID="HeaderStyle2">
-          <s:Data s:Type="String">111,4200</s:Data>
+          <s:Data s:Type="String">3455,0690</s:Data>
         </s:Cell>
         <s:Cell s:Index="7" s:StyleID="HeaderStyle2">
-          <s:Data s:Type="String" />
+          <s:Data s:Type="String">122</s:Data>
         </s:Cell>
         <s:Cell s:Index="8" s:StyleID="HeaderStyle2">
-          <s:Data s:Type="String" />
+          <s:Data s:Type="String">2946,6720</s:Data>
         </s:Cell>
         <s:Cell s:Index="9" s:StyleID="HeaderStyle2">
           <s:Data s:Type="String" />
@@ -768,25 +768,25 @@
           <s:Data s:Type="String">19</s:Data>
         </s:Cell>
         <s:Cell s:Index="2" s:StyleID="StyleAlignmentLeft">
-          <s:Data s:Type="String">Дергачевский</s:Data>
+          <s:Data s:Type="String">Воскресенский</s:Data>
         </s:Cell>
         <s:Cell s:Index="3" s:StyleID="StyleAlignmentLeft">
-          <s:Data s:Type="String">ГУЗ СО «Дергачевская районная больница»</s:Data>
+          <s:Data s:Type="String">ГУЗ СО "Воскресенская районная больница"</s:Data>
         </s:Cell>
         <s:Cell s:Index="4" s:StyleID="HeaderStyle2">
-          <s:Data s:Type="String">275</s:Data>
+          <s:Data s:Type="String">50</s:Data>
         </s:Cell>
         <s:Cell s:Index="5" s:StyleID="HeaderStyle3">
-          <s:Data s:Type="String" />
+          <s:Data s:Type="String">8</s:Data>
         </s:Cell>
         <s:Cell s:Index="6" s:StyleID="HeaderStyle2">
-          <s:Data s:Type="String" />
+          <s:Data s:Type="String">241,7300</s:Data>
         </s:Cell>
         <s:Cell s:Index="7" s:StyleID="HeaderStyle2">
-          <s:Data s:Type="String" />
+          <s:Data s:Type="String">8</s:Data>
         </s:Cell>
         <s:Cell s:Index="8" s:StyleID="HeaderStyle2">
-          <s:Data s:Type="String" />
+          <s:Data s:Type="String">241,7300</s:Data>
         </s:Cell>
         <s:Cell s:Index="9" s:StyleID="HeaderStyle2">
           <s:Data s:Type="String" />
@@ -803,25 +803,25 @@
           <s:Data s:Type="String">20</s:Data>
         </s:Cell>
         <s:Cell s:Index="2" s:StyleID="StyleAlignmentLeft">
-          <s:Data s:Type="String">Духовницкий</s:Data>
+          <s:Data s:Type="String">Дергачевский</s:Data>
         </s:Cell>
         <s:Cell s:Index="3" s:StyleID="StyleAlignmentLeft">
-          <s:Data s:Type="String">ГУЗ СО «Духовницкая районная больница»</s:Data>
+          <s:Data s:Type="String">ГУЗ СО «Дергачевская районная больница»</s:Data>
         </s:Cell>
         <s:Cell s:Index="4" s:StyleID="HeaderStyle2">
-          <s:Data s:Type="String">250</s:Data>
+          <s:Data s:Type="String">275</s:Data>
         </s:Cell>
         <s:Cell s:Index="5" s:StyleID="HeaderStyle3">
-          <s:Data s:Type="String">20</s:Data>
+          <s:Data s:Type="String">41</s:Data>
         </s:Cell>
         <s:Cell s:Index="6" s:StyleID="HeaderStyle2">
-          <s:Data s:Type="String">228,73458</s:Data>
+          <s:Data s:Type="String">546,8640</s:Data>
         </s:Cell>
         <s:Cell s:Index="7" s:StyleID="HeaderStyle2">
-          <s:Data s:Type="String">15</s:Data>
+          <s:Data s:Type="String" />
         </s:Cell>
         <s:Cell s:Index="8" s:StyleID="HeaderStyle2">
-          <s:Data s:Type="String">167,94207</s:Data>
+          <s:Data s:Type="String" />
         </s:Cell>
         <s:Cell s:Index="9" s:StyleID="HeaderStyle2">
           <s:Data s:Type="String" />
@@ -838,25 +838,25 @@
           <s:Data s:Type="String">21</s:Data>
         </s:Cell>
         <s:Cell s:Index="2" s:StyleID="StyleAlignmentLeft">
-          <s:Data s:Type="String">Екатериновский</s:Data>
+          <s:Data s:Type="String">Духовницкий</s:Data>
         </s:Cell>
         <s:Cell s:Index="3" s:StyleID="StyleAlignmentLeft">
-          <s:Data s:Type="String">ГУЗ СО «Екатериновская районная больница»</s:Data>
+          <s:Data s:Type="String">ГУЗ СО «Духовницкая районная больница»</s:Data>
         </s:Cell>
         <s:Cell s:Index="4" s:StyleID="HeaderStyle2">
-          <s:Data s:Type="String">200</s:Data>
+          <s:Data s:Type="String">250</s:Data>
         </s:Cell>
         <s:Cell s:Index="5" s:StyleID="HeaderStyle3">
-          <s:Data s:Type="String" />
+          <s:Data s:Type="String">42</s:Data>
         </s:Cell>
         <s:Cell s:Index="6" s:StyleID="HeaderStyle2">
-          <s:Data s:Type="String" />
+          <s:Data s:Type="String">530,96583</s:Data>
         </s:Cell>
         <s:Cell s:Index="7" s:StyleID="HeaderStyle2">
-          <s:Data s:Type="String" />
+          <s:Data s:Type="String">27</s:Data>
         </s:Cell>
         <s:Cell s:Index="8" s:StyleID="HeaderStyle2">
-          <s:Data s:Type="String" />
+          <s:Data s:Type="String">327,50823</s:Data>
         </s:Cell>
         <s:Cell s:Index="9" s:StyleID="HeaderStyle2">
           <s:Data s:Type="String" />
@@ -873,25 +873,25 @@
           <s:Data s:Type="String">22</s:Data>
         </s:Cell>
         <s:Cell s:Index="2" s:StyleID="StyleAlignmentLeft">
-          <s:Data s:Type="String">Ершовский</s:Data>
+          <s:Data s:Type="String">Екатериновский</s:Data>
         </s:Cell>
         <s:Cell s:Index="3" s:StyleID="StyleAlignmentLeft">
-          <s:Data s:Type="String">ГУЗ СО «Ершовская районная больница»</s:Data>
+          <s:Data s:Type="String">ГУЗ СО «Екатериновская районная больница»</s:Data>
         </s:Cell>
         <s:Cell s:Index="4" s:StyleID="HeaderStyle2">
-          <s:Data s:Type="String">192</s:Data>
+          <s:Data s:Type="String">200</s:Data>
         </s:Cell>
         <s:Cell s:Index="5" s:StyleID="HeaderStyle3">
-          <s:Data s:Type="String">11</s:Data>
+          <s:Data s:Type="String">50</s:Data>
         </s:Cell>
         <s:Cell s:Index="6" s:StyleID="HeaderStyle2">
-          <s:Data s:Type="String">181,1500</s:Data>
+          <s:Data s:Type="String">1260,1940</s:Data>
         </s:Cell>
         <s:Cell s:Index="7" s:StyleID="HeaderStyle2">
-          <s:Data s:Type="String" />
+          <s:Data s:Type="String">31</s:Data>
         </s:Cell>
         <s:Cell s:Index="8" s:StyleID="HeaderStyle2">
-          <s:Data s:Type="String" />
+          <s:Data s:Type="String">760,4510</s:Data>
         </s:Cell>
         <s:Cell s:Index="9" s:StyleID="HeaderStyle2">
           <s:Data s:Type="String" />
@@ -906,6 +906,41 @@
       <s:Row>
         <s:Cell s:Index="1" s:StyleID="StyleAlignmentLeft">
           <s:Data s:Type="String">23</s:Data>
+        </s:Cell>
+        <s:Cell s:Index="2" s:StyleID="StyleAlignmentLeft">
+          <s:Data s:Type="String">Ершовский</s:Data>
+        </s:Cell>
+        <s:Cell s:Index="3" s:StyleID="StyleAlignmentLeft">
+          <s:Data s:Type="String">ГУЗ СО «Ершовская районная больница»</s:Data>
+        </s:Cell>
+        <s:Cell s:Index="4" s:StyleID="HeaderStyle2">
+          <s:Data s:Type="String">192</s:Data>
+        </s:Cell>
+        <s:Cell s:Index="5" s:StyleID="HeaderStyle3">
+          <s:Data s:Type="String">38</s:Data>
+        </s:Cell>
+        <s:Cell s:Index="6" s:StyleID="HeaderStyle2">
+          <s:Data s:Type="String">656,1000</s:Data>
+        </s:Cell>
+        <s:Cell s:Index="7" s:StyleID="HeaderStyle2">
+          <s:Data s:Type="String">9</s:Data>
+        </s:Cell>
+        <s:Cell s:Index="8" s:StyleID="HeaderStyle2">
+          <s:Data s:Type="String">141,9000</s:Data>
+        </s:Cell>
+        <s:Cell s:Index="9" s:StyleID="HeaderStyle2">
+          <s:Data s:Type="String" />
+        </s:Cell>
+        <s:Cell s:Index="10" s:StyleID="HeaderStyle2">
+          <s:Data s:Type="String" />
+        </s:Cell>
+        <s:Cell s:Index="11" s:StyleID="HeaderStyle2">
+          <s:Data s:Type="String" />
+        </s:Cell>
+      </s:Row>
+      <s:Row>
+        <s:Cell s:Index="1" s:StyleID="StyleAlignmentLeft">
+          <s:Data s:Type="String">24</s:Data>
         </s:Cell>
         <s:Cell s:Index="2" s:StyleID="StyleAlignmentLeft">
           <s:Data s:Type="String">Ивантеевский</s:Data>
@@ -940,7 +975,7 @@
       </s:Row>
       <s:Row>
         <s:Cell s:Index="1" s:StyleID="StyleAlignmentLeft">
-          <s:Data s:Type="String">24</s:Data>
+          <s:Data s:Type="String">25</s:Data>
         </s:Cell>
         <s:Cell s:Index="2" s:StyleID="StyleAlignmentLeft">
           <s:Data s:Type="String">Калининский</s:Data>
@@ -952,51 +987,16 @@
           <s:Data s:Type="String">250</s:Data>
         </s:Cell>
         <s:Cell s:Index="5" s:StyleID="HeaderStyle3">
-          <s:Data s:Type="String">50</s:Data>
+          <s:Data s:Type="String">95</s:Data>
         </s:Cell>
         <s:Cell s:Index="6" s:StyleID="HeaderStyle2">
-          <s:Data s:Type="String">738,1700</s:Data>
+          <s:Data s:Type="String">1473,0550</s:Data>
         </s:Cell>
         <s:Cell s:Index="7" s:StyleID="HeaderStyle2">
-          <s:Data s:Type="String" />
+          <s:Data s:Type="String">24</s:Data>
         </s:Cell>
         <s:Cell s:Index="8" s:StyleID="HeaderStyle2">
-          <s:Data s:Type="String" />
-        </s:Cell>
-        <s:Cell s:Index="9" s:StyleID="HeaderStyle2">
-          <s:Data s:Type="String" />
-        </s:Cell>
-        <s:Cell s:Index="10" s:StyleID="HeaderStyle2">
-          <s:Data s:Type="String" />
-        </s:Cell>
-        <s:Cell s:Index="11" s:StyleID="HeaderStyle2">
-          <s:Data s:Type="String" />
-        </s:Cell>
-      </s:Row>
-      <s:Row>
-        <s:Cell s:Index="1" s:StyleID="StyleAlignmentLeft">
-          <s:Data s:Type="String">25</s:Data>
-        </s:Cell>
-        <s:Cell s:Index="2" s:StyleID="StyleAlignmentLeft">
-          <s:Data s:Type="String">Красноармейский</s:Data>
-        </s:Cell>
-        <s:Cell s:Index="3" s:StyleID="StyleAlignmentLeft">
-          <s:Data s:Type="String">МУП «Стоматологическая поликлиника Красноармейского муниципального района Саратовской области»</s:Data>
-        </s:Cell>
-        <s:Cell s:Index="4" s:StyleID="HeaderStyle2">
-          <s:Data s:Type="String">1600</s:Data>
-        </s:Cell>
-        <s:Cell s:Index="5" s:StyleID="HeaderStyle3">
-          <s:Data s:Type="String">85</s:Data>
-        </s:Cell>
-        <s:Cell s:Index="6" s:StyleID="HeaderStyle2">
-          <s:Data s:Type="String">2343,3100</s:Data>
-        </s:Cell>
-        <s:Cell s:Index="7" s:StyleID="HeaderStyle2">
-          <s:Data s:Type="String">34</s:Data>
-        </s:Cell>
-        <s:Cell s:Index="8" s:StyleID="HeaderStyle2">
-          <s:Data s:Type="String">865,8700</s:Data>
+          <s:Data s:Type="String">338,2850</s:Data>
         </s:Cell>
         <s:Cell s:Index="9" s:StyleID="HeaderStyle2">
           <s:Data s:Type="String" />
@@ -1013,25 +1013,25 @@
           <s:Data s:Type="String">26</s:Data>
         </s:Cell>
         <s:Cell s:Index="2" s:StyleID="StyleAlignmentLeft">
-          <s:Data s:Type="String">Краснокутский</s:Data>
+          <s:Data s:Type="String">Красноармейский</s:Data>
         </s:Cell>
         <s:Cell s:Index="3" s:StyleID="StyleAlignmentLeft">
-          <s:Data s:Type="String">ГУЗ СО «Краснокутская районная больница»</s:Data>
+          <s:Data s:Type="String">МУП «Стоматологическая поликлиника Красноармейского муниципального района Саратовской области»</s:Data>
         </s:Cell>
         <s:Cell s:Index="4" s:StyleID="HeaderStyle2">
-          <s:Data s:Type="String">240</s:Data>
+          <s:Data s:Type="String">1600</s:Data>
         </s:Cell>
         <s:Cell s:Index="5" s:StyleID="HeaderStyle3">
-          <s:Data s:Type="String">4</s:Data>
+          <s:Data s:Type="String">168</s:Data>
         </s:Cell>
         <s:Cell s:Index="6" s:StyleID="HeaderStyle2">
-          <s:Data s:Type="String">64,0840</s:Data>
+          <s:Data s:Type="String">4510,5850</s:Data>
         </s:Cell>
         <s:Cell s:Index="7" s:StyleID="HeaderStyle2">
-          <s:Data s:Type="String" />
+          <s:Data s:Type="String">115</s:Data>
         </s:Cell>
         <s:Cell s:Index="8" s:StyleID="HeaderStyle2">
-          <s:Data s:Type="String" />
+          <s:Data s:Type="String">3194,4550</s:Data>
         </s:Cell>
         <s:Cell s:Index="9" s:StyleID="HeaderStyle2">
           <s:Data s:Type="String" />
@@ -1046,6 +1046,41 @@
       <s:Row>
         <s:Cell s:Index="1" s:StyleID="StyleAlignmentLeft">
           <s:Data s:Type="String">27</s:Data>
+        </s:Cell>
+        <s:Cell s:Index="2" s:StyleID="StyleAlignmentLeft">
+          <s:Data s:Type="String">Краснокутский</s:Data>
+        </s:Cell>
+        <s:Cell s:Index="3" s:StyleID="StyleAlignmentLeft">
+          <s:Data s:Type="String">ГУЗ СО «Краснокутская районная больница»</s:Data>
+        </s:Cell>
+        <s:Cell s:Index="4" s:StyleID="HeaderStyle2">
+          <s:Data s:Type="String">240</s:Data>
+        </s:Cell>
+        <s:Cell s:Index="5" s:StyleID="HeaderStyle3">
+          <s:Data s:Type="String">29</s:Data>
+        </s:Cell>
+        <s:Cell s:Index="6" s:StyleID="HeaderStyle2">
+          <s:Data s:Type="String">476,2800</s:Data>
+        </s:Cell>
+        <s:Cell s:Index="7" s:StyleID="HeaderStyle2">
+          <s:Data s:Type="String">6</s:Data>
+        </s:Cell>
+        <s:Cell s:Index="8" s:StyleID="HeaderStyle2">
+          <s:Data s:Type="String">102,3820</s:Data>
+        </s:Cell>
+        <s:Cell s:Index="9" s:StyleID="HeaderStyle2">
+          <s:Data s:Type="String" />
+        </s:Cell>
+        <s:Cell s:Index="10" s:StyleID="HeaderStyle2">
+          <s:Data s:Type="String" />
+        </s:Cell>
+        <s:Cell s:Index="11" s:StyleID="HeaderStyle2">
+          <s:Data s:Type="String" />
+        </s:Cell>
+      </s:Row>
+      <s:Row>
+        <s:Cell s:Index="1" s:StyleID="StyleAlignmentLeft">
+          <s:Data s:Type="String">28</s:Data>
         </s:Cell>
         <s:Cell s:Index="2" s:StyleID="StyleAlignmentLeft">
           <s:Data s:Type="String">Краснопартизанский</s:Data>
@@ -1080,7 +1115,7 @@
       </s:Row>
       <s:Row>
         <s:Cell s:Index="1" s:StyleID="StyleAlignmentLeft">
-          <s:Data s:Type="String">28</s:Data>
+          <s:Data s:Type="String">29</s:Data>
         </s:Cell>
         <s:Cell s:Index="2" s:StyleID="StyleAlignmentLeft">
           <s:Data s:Type="String">Лысогорский</s:Data>
@@ -1092,51 +1127,16 @@
           <s:Data s:Type="String">105</s:Data>
         </s:Cell>
         <s:Cell s:Index="5" s:StyleID="HeaderStyle3">
-          <s:Data s:Type="String">10</s:Data>
+          <s:Data s:Type="String">16</s:Data>
         </s:Cell>
         <s:Cell s:Index="6" s:StyleID="HeaderStyle2">
-          <s:Data s:Type="String">179,1200</s:Data>
+          <s:Data s:Type="String">295,4400</s:Data>
         </s:Cell>
         <s:Cell s:Index="7" s:StyleID="HeaderStyle2">
-          <s:Data s:Type="String" />
+          <s:Data s:Type="String">4</s:Data>
         </s:Cell>
         <s:Cell s:Index="8" s:StyleID="HeaderStyle2">
-          <s:Data s:Type="String" />
-        </s:Cell>
-        <s:Cell s:Index="9" s:StyleID="HeaderStyle2">
-          <s:Data s:Type="String" />
-        </s:Cell>
-        <s:Cell s:Index="10" s:StyleID="HeaderStyle2">
-          <s:Data s:Type="String" />
-        </s:Cell>
-        <s:Cell s:Index="11" s:StyleID="HeaderStyle2">
-          <s:Data s:Type="String" />
-        </s:Cell>
-      </s:Row>
-      <s:Row>
-        <s:Cell s:Index="1" s:StyleID="StyleAlignmentLeft">
-          <s:Data s:Type="String">29</s:Data>
-        </s:Cell>
-        <s:Cell s:Index="2" s:StyleID="StyleAlignmentLeft">
-          <s:Data s:Type="String">Марксовский</s:Data>
-        </s:Cell>
-        <s:Cell s:Index="3" s:StyleID="StyleAlignmentLeft">
-          <s:Data s:Type="String">ГУЗ СО «Марксовская районная больница»</s:Data>
-        </s:Cell>
-        <s:Cell s:Index="4" s:StyleID="HeaderStyle2">
-          <s:Data s:Type="String">540</s:Data>
-        </s:Cell>
-        <s:Cell s:Index="5" s:StyleID="HeaderStyle3">
-          <s:Data s:Type="String">40</s:Data>
-        </s:Cell>
-        <s:Cell s:Index="6" s:StyleID="HeaderStyle2">
-          <s:Data s:Type="String">495,8040</s:Data>
-        </s:Cell>
-        <s:Cell s:Index="7" s:StyleID="HeaderStyle2">
-          <s:Data s:Type="String" />
-        </s:Cell>
-        <s:Cell s:Index="8" s:StyleID="HeaderStyle2">
-          <s:Data s:Type="String" />
+          <s:Data s:Type="String">77,1400</s:Data>
         </s:Cell>
         <s:Cell s:Index="9" s:StyleID="HeaderStyle2">
           <s:Data s:Type="String" />
@@ -1153,25 +1153,25 @@
           <s:Data s:Type="String">30</s:Data>
         </s:Cell>
         <s:Cell s:Index="2" s:StyleID="StyleAlignmentLeft">
-          <s:Data s:Type="String">Новобурасский</s:Data>
+          <s:Data s:Type="String">Марксовский</s:Data>
         </s:Cell>
         <s:Cell s:Index="3" s:StyleID="StyleAlignmentLeft">
-          <s:Data s:Type="String">ГУЗ СО «Новобурасская районная больница»</s:Data>
+          <s:Data s:Type="String">ГУЗ СО «Марксовская районная больница»</s:Data>
         </s:Cell>
         <s:Cell s:Index="4" s:StyleID="HeaderStyle2">
-          <s:Data s:Type="String">120</s:Data>
+          <s:Data s:Type="String">540</s:Data>
         </s:Cell>
         <s:Cell s:Index="5" s:StyleID="HeaderStyle3">
-          <s:Data s:Type="String">7</s:Data>
+          <s:Data s:Type="String">121</s:Data>
         </s:Cell>
         <s:Cell s:Index="6" s:StyleID="HeaderStyle2">
-          <s:Data s:Type="String">72,3790</s:Data>
+          <s:Data s:Type="String">1485,1160</s:Data>
         </s:Cell>
         <s:Cell s:Index="7" s:StyleID="HeaderStyle2">
-          <s:Data s:Type="String" />
+          <s:Data s:Type="String">85</s:Data>
         </s:Cell>
         <s:Cell s:Index="8" s:StyleID="HeaderStyle2">
-          <s:Data s:Type="String" />
+          <s:Data s:Type="String">1061,4660</s:Data>
         </s:Cell>
         <s:Cell s:Index="9" s:StyleID="HeaderStyle2">
           <s:Data s:Type="String" />
@@ -1188,25 +1188,25 @@
           <s:Data s:Type="String">31</s:Data>
         </s:Cell>
         <s:Cell s:Index="2" s:StyleID="StyleAlignmentLeft">
-          <s:Data s:Type="String">Новоузенский</s:Data>
+          <s:Data s:Type="String">Новобурасский</s:Data>
         </s:Cell>
         <s:Cell s:Index="3" s:StyleID="StyleAlignmentLeft">
-          <s:Data s:Type="String">ГУЗ СО «Новоузенская районная больница»</s:Data>
+          <s:Data s:Type="String">ГУЗ СО «Новобурасская районная больница»</s:Data>
         </s:Cell>
         <s:Cell s:Index="4" s:StyleID="HeaderStyle2">
-          <s:Data s:Type="String">96</s:Data>
+          <s:Data s:Type="String">120</s:Data>
         </s:Cell>
         <s:Cell s:Index="5" s:StyleID="HeaderStyle3">
-          <s:Data s:Type="String">9</s:Data>
+          <s:Data s:Type="String">18</s:Data>
         </s:Cell>
         <s:Cell s:Index="6" s:StyleID="HeaderStyle2">
-          <s:Data s:Type="String">144,5880</s:Data>
+          <s:Data s:Type="String">178,0060</s:Data>
         </s:Cell>
         <s:Cell s:Index="7" s:StyleID="HeaderStyle2">
-          <s:Data s:Type="String" />
+          <s:Data s:Type="String">14</s:Data>
         </s:Cell>
         <s:Cell s:Index="8" s:StyleID="HeaderStyle2">
-          <s:Data s:Type="String" />
+          <s:Data s:Type="String">134,8800</s:Data>
         </s:Cell>
         <s:Cell s:Index="9" s:StyleID="HeaderStyle2">
           <s:Data s:Type="String" />
@@ -1221,6 +1221,41 @@
       <s:Row>
         <s:Cell s:Index="1" s:StyleID="StyleAlignmentLeft">
           <s:Data s:Type="String">32</s:Data>
+        </s:Cell>
+        <s:Cell s:Index="2" s:StyleID="StyleAlignmentLeft">
+          <s:Data s:Type="String">Новоузенский</s:Data>
+        </s:Cell>
+        <s:Cell s:Index="3" s:StyleID="StyleAlignmentLeft">
+          <s:Data s:Type="String">ГУЗ СО «Новоузенская районная больница»</s:Data>
+        </s:Cell>
+        <s:Cell s:Index="4" s:StyleID="HeaderStyle2">
+          <s:Data s:Type="String">96</s:Data>
+        </s:Cell>
+        <s:Cell s:Index="5" s:StyleID="HeaderStyle3">
+          <s:Data s:Type="String">31</s:Data>
+        </s:Cell>
+        <s:Cell s:Index="6" s:StyleID="HeaderStyle2">
+          <s:Data s:Type="String">457,1090</s:Data>
+        </s:Cell>
+        <s:Cell s:Index="7" s:StyleID="HeaderStyle2">
+          <s:Data s:Type="String">16</s:Data>
+        </s:Cell>
+        <s:Cell s:Index="8" s:StyleID="HeaderStyle2">
+          <s:Data s:Type="String">247,2440</s:Data>
+        </s:Cell>
+        <s:Cell s:Index="9" s:StyleID="HeaderStyle2">
+          <s:Data s:Type="String" />
+        </s:Cell>
+        <s:Cell s:Index="10" s:StyleID="HeaderStyle2">
+          <s:Data s:Type="String" />
+        </s:Cell>
+        <s:Cell s:Index="11" s:StyleID="HeaderStyle2">
+          <s:Data s:Type="String" />
+        </s:Cell>
+      </s:Row>
+      <s:Row>
+        <s:Cell s:Index="1" s:StyleID="StyleAlignmentLeft">
+          <s:Data s:Type="String">33</s:Data>
         </s:Cell>
         <s:Cell s:Index="2" s:StyleID="StyleAlignmentLeft">
           <s:Data s:Type="String">Озинский</s:Data>
@@ -1255,7 +1290,7 @@
       </s:Row>
       <s:Row>
         <s:Cell s:Index="1" s:StyleID="StyleAlignmentLeft">
-          <s:Data s:Type="String">33</s:Data>
+          <s:Data s:Type="String">34</s:Data>
         </s:Cell>
         <s:Cell s:Index="2" s:StyleID="StyleAlignmentLeft">
           <s:Data s:Type="String">Петровский</s:Data>
@@ -1267,51 +1302,16 @@
           <s:Data s:Type="String">400</s:Data>
         </s:Cell>
         <s:Cell s:Index="5" s:StyleID="HeaderStyle3">
-          <s:Data s:Type="String">49</s:Data>
+          <s:Data s:Type="String">92</s:Data>
         </s:Cell>
         <s:Cell s:Index="6" s:StyleID="HeaderStyle2">
-          <s:Data s:Type="String">447,6040</s:Data>
+          <s:Data s:Type="String">855,1710</s:Data>
         </s:Cell>
         <s:Cell s:Index="7" s:StyleID="HeaderStyle2">
-          <s:Data s:Type="String" />
+          <s:Data s:Type="String">43</s:Data>
         </s:Cell>
         <s:Cell s:Index="8" s:StyleID="HeaderStyle2">
-          <s:Data s:Type="String" />
-        </s:Cell>
-        <s:Cell s:Index="9" s:StyleID="HeaderStyle2">
-          <s:Data s:Type="String" />
-        </s:Cell>
-        <s:Cell s:Index="10" s:StyleID="HeaderStyle2">
-          <s:Data s:Type="String" />
-        </s:Cell>
-        <s:Cell s:Index="11" s:StyleID="HeaderStyle2">
-          <s:Data s:Type="String" />
-        </s:Cell>
-      </s:Row>
-      <s:Row>
-        <s:Cell s:Index="1" s:StyleID="StyleAlignmentLeft">
-          <s:Data s:Type="String">34</s:Data>
-        </s:Cell>
-        <s:Cell s:Index="2" s:StyleID="StyleAlignmentLeft">
-          <s:Data s:Type="String">Питерский</s:Data>
-        </s:Cell>
-        <s:Cell s:Index="3" s:StyleID="StyleAlignmentLeft">
-          <s:Data s:Type="String">ГУЗ СО "Питерская районная больница"</s:Data>
-        </s:Cell>
-        <s:Cell s:Index="4" s:StyleID="HeaderStyle2">
-          <s:Data s:Type="String">150</s:Data>
-        </s:Cell>
-        <s:Cell s:Index="5" s:StyleID="HeaderStyle3">
-          <s:Data s:Type="String" />
-        </s:Cell>
-        <s:Cell s:Index="6" s:StyleID="HeaderStyle2">
-          <s:Data s:Type="String" />
-        </s:Cell>
-        <s:Cell s:Index="7" s:StyleID="HeaderStyle2">
-          <s:Data s:Type="String" />
-        </s:Cell>
-        <s:Cell s:Index="8" s:StyleID="HeaderStyle2">
-          <s:Data s:Type="String" />
+          <s:Data s:Type="String">395,4280</s:Data>
         </s:Cell>
         <s:Cell s:Index="9" s:StyleID="HeaderStyle2">
           <s:Data s:Type="String" />
@@ -1328,25 +1328,25 @@
           <s:Data s:Type="String">35</s:Data>
         </s:Cell>
         <s:Cell s:Index="2" s:StyleID="StyleAlignmentLeft">
-          <s:Data s:Type="String">Пугачевский</s:Data>
+          <s:Data s:Type="String">Питерский</s:Data>
         </s:Cell>
         <s:Cell s:Index="3" s:StyleID="StyleAlignmentLeft">
-          <s:Data s:Type="String">ГУЗ СО «Пугачевская районная больница»</s:Data>
+          <s:Data s:Type="String">ГУЗ СО "Питерская районная больница"</s:Data>
         </s:Cell>
         <s:Cell s:Index="4" s:StyleID="HeaderStyle2">
-          <s:Data s:Type="String">360</s:Data>
+          <s:Data s:Type="String">150</s:Data>
         </s:Cell>
         <s:Cell s:Index="5" s:StyleID="HeaderStyle3">
-          <s:Data s:Type="String">26</s:Data>
+          <s:Data s:Type="String">14</s:Data>
         </s:Cell>
         <s:Cell s:Index="6" s:StyleID="HeaderStyle2">
-          <s:Data s:Type="String">582,0240</s:Data>
+          <s:Data s:Type="String">306,5050</s:Data>
         </s:Cell>
         <s:Cell s:Index="7" s:StyleID="HeaderStyle2">
-          <s:Data s:Type="String" />
+          <s:Data s:Type="String">10</s:Data>
         </s:Cell>
         <s:Cell s:Index="8" s:StyleID="HeaderStyle2">
-          <s:Data s:Type="String" />
+          <s:Data s:Type="String">199,7900</s:Data>
         </s:Cell>
         <s:Cell s:Index="9" s:StyleID="HeaderStyle2">
           <s:Data s:Type="String" />
@@ -1363,25 +1363,25 @@
           <s:Data s:Type="String">36</s:Data>
         </s:Cell>
         <s:Cell s:Index="2" s:StyleID="StyleAlignmentLeft">
-          <s:Data s:Type="String">Ровенский</s:Data>
+          <s:Data s:Type="String">Пугачевский</s:Data>
         </s:Cell>
         <s:Cell s:Index="3" s:StyleID="StyleAlignmentLeft">
-          <s:Data s:Type="String">ГУЗ СО «Ровенская районная больница»</s:Data>
+          <s:Data s:Type="String">ГУЗ СО «Пугачевская районная больница»</s:Data>
         </s:Cell>
         <s:Cell s:Index="4" s:StyleID="HeaderStyle2">
-          <s:Data s:Type="String">168</s:Data>
+          <s:Data s:Type="String">360</s:Data>
         </s:Cell>
         <s:Cell s:Index="5" s:StyleID="HeaderStyle3">
-          <s:Data s:Type="String">14</s:Data>
+          <s:Data s:Type="String">87</s:Data>
         </s:Cell>
         <s:Cell s:Index="6" s:StyleID="HeaderStyle2">
-          <s:Data s:Type="String">285,1900</s:Data>
+          <s:Data s:Type="String">1866,2010</s:Data>
         </s:Cell>
         <s:Cell s:Index="7" s:StyleID="HeaderStyle2">
-          <s:Data s:Type="String">8</s:Data>
+          <s:Data s:Type="String">17</s:Data>
         </s:Cell>
         <s:Cell s:Index="8" s:StyleID="HeaderStyle2">
-          <s:Data s:Type="String">158,3700</s:Data>
+          <s:Data s:Type="String">390,4020</s:Data>
         </s:Cell>
         <s:Cell s:Index="9" s:StyleID="HeaderStyle2">
           <s:Data s:Type="String" />
@@ -1398,25 +1398,25 @@
           <s:Data s:Type="String">37</s:Data>
         </s:Cell>
         <s:Cell s:Index="2" s:StyleID="StyleAlignmentLeft">
-          <s:Data s:Type="String">Романовский</s:Data>
+          <s:Data s:Type="String">Ровенский</s:Data>
         </s:Cell>
         <s:Cell s:Index="3" s:StyleID="StyleAlignmentLeft">
-          <s:Data s:Type="String">ГУЗ СО "Романовская районная больница"</s:Data>
+          <s:Data s:Type="String">ГУЗ СО «Ровенская районная больница»</s:Data>
         </s:Cell>
         <s:Cell s:Index="4" s:StyleID="HeaderStyle2">
-          <s:Data s:Type="String">78</s:Data>
+          <s:Data s:Type="String">168</s:Data>
         </s:Cell>
         <s:Cell s:Index="5" s:StyleID="HeaderStyle3">
-          <s:Data s:Type="String" />
+          <s:Data s:Type="String">29</s:Data>
         </s:Cell>
         <s:Cell s:Index="6" s:StyleID="HeaderStyle2">
-          <s:Data s:Type="String" />
+          <s:Data s:Type="String">621,7900</s:Data>
         </s:Cell>
         <s:Cell s:Index="7" s:StyleID="HeaderStyle2">
-          <s:Data s:Type="String" />
+          <s:Data s:Type="String">24</s:Data>
         </s:Cell>
         <s:Cell s:Index="8" s:StyleID="HeaderStyle2">
-          <s:Data s:Type="String" />
+          <s:Data s:Type="String">505,8500</s:Data>
         </s:Cell>
         <s:Cell s:Index="9" s:StyleID="HeaderStyle2">
           <s:Data s:Type="String" />
@@ -1433,19 +1433,19 @@
           <s:Data s:Type="String">38</s:Data>
         </s:Cell>
         <s:Cell s:Index="2" s:StyleID="StyleAlignmentLeft">
-          <s:Data s:Type="String">Ртищевский</s:Data>
+          <s:Data s:Type="String">Романовский</s:Data>
         </s:Cell>
         <s:Cell s:Index="3" s:StyleID="StyleAlignmentLeft">
-          <s:Data s:Type="String">ГУЗ СО «Ртищевская районная больница»</s:Data>
+          <s:Data s:Type="String">ГУЗ СО "Романовская районная больница"</s:Data>
         </s:Cell>
         <s:Cell s:Index="4" s:StyleID="HeaderStyle2">
-          <s:Data s:Type="String">280</s:Data>
+          <s:Data s:Type="String">78</s:Data>
         </s:Cell>
         <s:Cell s:Index="5" s:StyleID="HeaderStyle3">
-          <s:Data s:Type="String">29</s:Data>
+          <s:Data s:Type="String">4</s:Data>
         </s:Cell>
         <s:Cell s:Index="6" s:StyleID="HeaderStyle2">
-          <s:Data s:Type="String">259,2500</s:Data>
+          <s:Data s:Type="String">79,5000</s:Data>
         </s:Cell>
         <s:Cell s:Index="7" s:StyleID="HeaderStyle2">
           <s:Data s:Type="String" />
@@ -1466,6 +1466,41 @@
       <s:Row>
         <s:Cell s:Index="1" s:StyleID="StyleAlignmentLeft">
           <s:Data s:Type="String">39</s:Data>
+        </s:Cell>
+        <s:Cell s:Index="2" s:StyleID="StyleAlignmentLeft">
+          <s:Data s:Type="String">Ртищевский</s:Data>
+        </s:Cell>
+        <s:Cell s:Index="3" s:StyleID="StyleAlignmentLeft">
+          <s:Data s:Type="String">ГУЗ СО «Ртищевская районная больница»</s:Data>
+        </s:Cell>
+        <s:Cell s:Index="4" s:StyleID="HeaderStyle2">
+          <s:Data s:Type="String">280</s:Data>
+        </s:Cell>
+        <s:Cell s:Index="5" s:StyleID="HeaderStyle3">
+          <s:Data s:Type="String">70</s:Data>
+        </s:Cell>
+        <s:Cell s:Index="6" s:StyleID="HeaderStyle2">
+          <s:Data s:Type="String">640,5450</s:Data>
+        </s:Cell>
+        <s:Cell s:Index="7" s:StyleID="HeaderStyle2">
+          <s:Data s:Type="String">13</s:Data>
+        </s:Cell>
+        <s:Cell s:Index="8" s:StyleID="HeaderStyle2">
+          <s:Data s:Type="String">111,2650</s:Data>
+        </s:Cell>
+        <s:Cell s:Index="9" s:StyleID="HeaderStyle2">
+          <s:Data s:Type="String" />
+        </s:Cell>
+        <s:Cell s:Index="10" s:StyleID="HeaderStyle2">
+          <s:Data s:Type="String" />
+        </s:Cell>
+        <s:Cell s:Index="11" s:StyleID="HeaderStyle2">
+          <s:Data s:Type="String" />
+        </s:Cell>
+      </s:Row>
+      <s:Row>
+        <s:Cell s:Index="1" s:StyleID="StyleAlignmentLeft">
+          <s:Data s:Type="String">40</s:Data>
         </s:Cell>
         <s:Cell s:Index="2" s:StyleID="StyleAlignmentLeft">
           <s:Data s:Type="String">Самойловский</s:Data>
@@ -1500,7 +1535,7 @@
       </s:Row>
       <s:Row>
         <s:Cell s:Index="1" s:StyleID="StyleAlignmentLeft">
-          <s:Data s:Type="String">40</s:Data>
+          <s:Data s:Type="String">41</s:Data>
         </s:Cell>
         <s:Cell s:Index="2" s:StyleID="StyleAlignmentLeft">
           <s:Data s:Type="String">Татищевский</s:Data>
@@ -1512,45 +1547,10 @@
           <s:Data s:Type="String">90</s:Data>
         </s:Cell>
         <s:Cell s:Index="5" s:StyleID="HeaderStyle3">
-          <s:Data s:Type="String" />
+          <s:Data s:Type="String">7</s:Data>
         </s:Cell>
         <s:Cell s:Index="6" s:StyleID="HeaderStyle2">
-          <s:Data s:Type="String" />
-        </s:Cell>
-        <s:Cell s:Index="7" s:StyleID="HeaderStyle2">
-          <s:Data s:Type="String" />
-        </s:Cell>
-        <s:Cell s:Index="8" s:StyleID="HeaderStyle2">
-          <s:Data s:Type="String" />
-        </s:Cell>
-        <s:Cell s:Index="9" s:StyleID="HeaderStyle2">
-          <s:Data s:Type="String" />
-        </s:Cell>
-        <s:Cell s:Index="10" s:StyleID="HeaderStyle2">
-          <s:Data s:Type="String" />
-        </s:Cell>
-        <s:Cell s:Index="11" s:StyleID="HeaderStyle2">
-          <s:Data s:Type="String" />
-        </s:Cell>
-      </s:Row>
-      <s:Row>
-        <s:Cell s:Index="1" s:StyleID="StyleAlignmentLeft">
-          <s:Data s:Type="String">41</s:Data>
-        </s:Cell>
-        <s:Cell s:Index="2" s:StyleID="StyleAlignmentLeft">
-          <s:Data s:Type="String">Советский</s:Data>
-        </s:Cell>
-        <s:Cell s:Index="3" s:StyleID="StyleAlignmentLeft">
-          <s:Data s:Type="String">ГУЗ СО «Советская районная больница»</s:Data>
-        </s:Cell>
-        <s:Cell s:Index="4" s:StyleID="HeaderStyle2">
-          <s:Data s:Type="String">220</s:Data>
-        </s:Cell>
-        <s:Cell s:Index="5" s:StyleID="HeaderStyle3">
-          <s:Data s:Type="String" />
-        </s:Cell>
-        <s:Cell s:Index="6" s:StyleID="HeaderStyle2">
-          <s:Data s:Type="String" />
+          <s:Data s:Type="String">152,3600</s:Data>
         </s:Cell>
         <s:Cell s:Index="7" s:StyleID="HeaderStyle2">
           <s:Data s:Type="String" />
@@ -1573,25 +1573,25 @@
           <s:Data s:Type="String">42</s:Data>
         </s:Cell>
         <s:Cell s:Index="2" s:StyleID="StyleAlignmentLeft">
-          <s:Data s:Type="String">Турковский</s:Data>
+          <s:Data s:Type="String">Советский</s:Data>
         </s:Cell>
         <s:Cell s:Index="3" s:StyleID="StyleAlignmentLeft">
-          <s:Data s:Type="String">ГУЗ СО «Турковская районная больница»</s:Data>
+          <s:Data s:Type="String">ГУЗ СО «Советская районная больница»</s:Data>
         </s:Cell>
         <s:Cell s:Index="4" s:StyleID="HeaderStyle2">
-          <s:Data s:Type="String">60</s:Data>
+          <s:Data s:Type="String">220</s:Data>
         </s:Cell>
         <s:Cell s:Index="5" s:StyleID="HeaderStyle3">
-          <s:Data s:Type="String">4</s:Data>
+          <s:Data s:Type="String">19</s:Data>
         </s:Cell>
         <s:Cell s:Index="6" s:StyleID="HeaderStyle2">
-          <s:Data s:Type="String">45,9260</s:Data>
+          <s:Data s:Type="String">391,3500</s:Data>
         </s:Cell>
         <s:Cell s:Index="7" s:StyleID="HeaderStyle2">
-          <s:Data s:Type="String" />
+          <s:Data s:Type="String">12</s:Data>
         </s:Cell>
         <s:Cell s:Index="8" s:StyleID="HeaderStyle2">
-          <s:Data s:Type="String" />
+          <s:Data s:Type="String">243,2500</s:Data>
         </s:Cell>
         <s:Cell s:Index="9" s:StyleID="HeaderStyle2">
           <s:Data s:Type="String" />
@@ -1608,25 +1608,25 @@
           <s:Data s:Type="String">43</s:Data>
         </s:Cell>
         <s:Cell s:Index="2" s:StyleID="StyleAlignmentLeft">
-          <s:Data s:Type="String">Федоровский</s:Data>
+          <s:Data s:Type="String">Турковский</s:Data>
         </s:Cell>
         <s:Cell s:Index="3" s:StyleID="StyleAlignmentLeft">
-          <s:Data s:Type="String">ГУЗ СО «Федоровская районная больница»</s:Data>
+          <s:Data s:Type="String">ГУЗ СО «Турковская районная больница»</s:Data>
         </s:Cell>
         <s:Cell s:Index="4" s:StyleID="HeaderStyle2">
-          <s:Data s:Type="String">324</s:Data>
+          <s:Data s:Type="String">60</s:Data>
         </s:Cell>
         <s:Cell s:Index="5" s:StyleID="HeaderStyle3">
-          <s:Data s:Type="String">29</s:Data>
+          <s:Data s:Type="String">13</s:Data>
         </s:Cell>
         <s:Cell s:Index="6" s:StyleID="HeaderStyle2">
-          <s:Data s:Type="String">364,3610</s:Data>
+          <s:Data s:Type="String">128,3110</s:Data>
         </s:Cell>
         <s:Cell s:Index="7" s:StyleID="HeaderStyle2">
-          <s:Data s:Type="String" />
+          <s:Data s:Type="String">8</s:Data>
         </s:Cell>
         <s:Cell s:Index="8" s:StyleID="HeaderStyle2">
-          <s:Data s:Type="String" />
+          <s:Data s:Type="String">77,7760</s:Data>
         </s:Cell>
         <s:Cell s:Index="9" s:StyleID="HeaderStyle2">
           <s:Data s:Type="String" />
@@ -1643,25 +1643,25 @@
           <s:Data s:Type="String">44</s:Data>
         </s:Cell>
         <s:Cell s:Index="2" s:StyleID="StyleAlignmentLeft">
-          <s:Data s:Type="String">Хвалынский</s:Data>
+          <s:Data s:Type="String">Федоровский</s:Data>
         </s:Cell>
         <s:Cell s:Index="3" s:StyleID="StyleAlignmentLeft">
-          <s:Data s:Type="String">ГУЗ СО "Хвалынская РБ им. Бржозовского"</s:Data>
+          <s:Data s:Type="String">ГУЗ СО «Федоровская районная больница»</s:Data>
         </s:Cell>
         <s:Cell s:Index="4" s:StyleID="HeaderStyle2">
-          <s:Data s:Type="String">500</s:Data>
+          <s:Data s:Type="String">324</s:Data>
         </s:Cell>
         <s:Cell s:Index="5" s:StyleID="HeaderStyle3">
-          <s:Data s:Type="String">18</s:Data>
+          <s:Data s:Type="String">79</s:Data>
         </s:Cell>
         <s:Cell s:Index="6" s:StyleID="HeaderStyle2">
-          <s:Data s:Type="String">196,8190</s:Data>
+          <s:Data s:Type="String">983,5410</s:Data>
         </s:Cell>
         <s:Cell s:Index="7" s:StyleID="HeaderStyle2">
-          <s:Data s:Type="String" />
+          <s:Data s:Type="String">30</s:Data>
         </s:Cell>
         <s:Cell s:Index="8" s:StyleID="HeaderStyle2">
-          <s:Data s:Type="String" />
+          <s:Data s:Type="String">374,8330</s:Data>
         </s:Cell>
         <s:Cell s:Index="9" s:StyleID="HeaderStyle2">
           <s:Data s:Type="String" />
@@ -1678,25 +1678,25 @@
           <s:Data s:Type="String">45</s:Data>
         </s:Cell>
         <s:Cell s:Index="2" s:StyleID="StyleAlignmentLeft">
-          <s:Data s:Type="String">Энгельсский, г. Энгельс</s:Data>
+          <s:Data s:Type="String">Хвалынский</s:Data>
         </s:Cell>
         <s:Cell s:Index="3" s:StyleID="StyleAlignmentLeft">
-          <s:Data s:Type="String">ГАУЗ СО «Энгельсская городская стоматологическая поликлинника»</s:Data>
+          <s:Data s:Type="String">ГУЗ СО "Хвалынская РБ им. Бржозовского"</s:Data>
         </s:Cell>
         <s:Cell s:Index="4" s:StyleID="HeaderStyle2">
-          <s:Data s:Type="String">3300</s:Data>
+          <s:Data s:Type="String">500</s:Data>
         </s:Cell>
         <s:Cell s:Index="5" s:StyleID="HeaderStyle3">
-          <s:Data s:Type="String">278</s:Data>
+          <s:Data s:Type="String">44</s:Data>
         </s:Cell>
         <s:Cell s:Index="6" s:StyleID="HeaderStyle2">
-          <s:Data s:Type="String">4116,1790</s:Data>
+          <s:Data s:Type="String">429,0700</s:Data>
         </s:Cell>
         <s:Cell s:Index="7" s:StyleID="HeaderStyle2">
-          <s:Data s:Type="String" />
+          <s:Data s:Type="String">22</s:Data>
         </s:Cell>
         <s:Cell s:Index="8" s:StyleID="HeaderStyle2">
-          <s:Data s:Type="String" />
+          <s:Data s:Type="String">226,4260</s:Data>
         </s:Cell>
         <s:Cell s:Index="9" s:StyleID="HeaderStyle2">
           <s:Data s:Type="String" />
@@ -1711,6 +1711,41 @@
       <s:Row>
         <s:Cell s:Index="1" s:StyleID="StyleAlignmentLeft">
           <s:Data s:Type="String">46</s:Data>
+        </s:Cell>
+        <s:Cell s:Index="2" s:StyleID="StyleAlignmentLeft">
+          <s:Data s:Type="String">Энгельсский, г. Энгельс</s:Data>
+        </s:Cell>
+        <s:Cell s:Index="3" s:StyleID="StyleAlignmentLeft">
+          <s:Data s:Type="String">ГАУЗ СО «Энгельсская городская стоматологическая поликлинника»</s:Data>
+        </s:Cell>
+        <s:Cell s:Index="4" s:StyleID="HeaderStyle2">
+          <s:Data s:Type="String">3300</s:Data>
+        </s:Cell>
+        <s:Cell s:Index="5" s:StyleID="HeaderStyle3">
+          <s:Data s:Type="String">611</s:Data>
+        </s:Cell>
+        <s:Cell s:Index="6" s:StyleID="HeaderStyle2">
+          <s:Data s:Type="String">10062,1490</s:Data>
+        </s:Cell>
+        <s:Cell s:Index="7" s:StyleID="HeaderStyle2">
+          <s:Data s:Type="String">358</s:Data>
+        </s:Cell>
+        <s:Cell s:Index="8" s:StyleID="HeaderStyle2">
+          <s:Data s:Type="String">5444,6920</s:Data>
+        </s:Cell>
+        <s:Cell s:Index="9" s:StyleID="HeaderStyle2">
+          <s:Data s:Type="String" />
+        </s:Cell>
+        <s:Cell s:Index="10" s:StyleID="HeaderStyle2">
+          <s:Data s:Type="String" />
+        </s:Cell>
+        <s:Cell s:Index="11" s:StyleID="HeaderStyle2">
+          <s:Data s:Type="String" />
+        </s:Cell>
+      </s:Row>
+      <s:Row>
+        <s:Cell s:Index="1" s:StyleID="StyleAlignmentLeft">
+          <s:Data s:Type="String">47</s:Data>
         </s:Cell>
         <s:Cell s:Index="2" s:StyleID="StyleAlignmentLeft">
           <s:Data s:Type="String">Энгельсский, г. Энгельс</s:Data>
@@ -1757,16 +1792,16 @@
           <s:Data s:Type="String">27901</s:Data>
         </s:Cell>
         <s:Cell s:Index="5" s:StyleID="HeaderStyle2">
-          <s:Data s:Type="String">2199</s:Data>
+          <s:Data s:Type="String">5395</s:Data>
         </s:Cell>
         <s:Cell s:Index="6" s:StyleID="HeaderStyle2">
-          <s:Data s:Type="String">46822,66858</s:Data>
+          <s:Data s:Type="String">117009,88283</s:Data>
         </s:Cell>
         <s:Cell s:Index="7" s:StyleID="HeaderStyle2">
-          <s:Data s:Type="String">424</s:Data>
+          <s:Data s:Type="String">2982</s:Data>
         </s:Cell>
         <s:Cell s:Index="8" s:StyleID="HeaderStyle2">
-          <s:Data s:Type="String">9420,83307</s:Data>
+          <s:Data s:Type="String">63259,28723</s:Data>
         </s:Cell>
         <s:Cell s:Index="9" s:StyleID="HeaderStyle2">
           <s:Data s:Type="String" />

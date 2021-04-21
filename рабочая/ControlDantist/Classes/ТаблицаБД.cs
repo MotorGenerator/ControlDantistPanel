@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Data;
 using System.Data.OleDb;
 using System.Data.SqlClient;
@@ -87,25 +85,28 @@ namespace ControlDantist.Classes
         }
 
         /// <summary>
-        /// Возвращает таблицу договоров
+        /// Возвращает таблицу 
         /// </summary>
         /// <param name="query"></param>
         /// <param name="nameTable"></param>
         /// <returns></returns>
         static public DataTable GetTableSQL(string query, string nameTable)
         {
-
-            SqlConnection con = new SqlConnection(ConnectDB.ConnectionString());
-            con.Open();
-
-            SqlCommand com = new SqlCommand(query, con);
-            com.CommandTimeout = 0;
-
-            //SqlDataAdapter da = new SqlDataAdapter(query, con);
-            SqlDataAdapter da = new SqlDataAdapter(com);
             DataSet ds = new DataSet();
-            da.Fill(ds, nameTable);
-            con.Close();
+
+            using (SqlConnection con = new SqlConnection(ConnectDB.ConnectionString()))
+            {
+                con.Open();
+
+                SqlCommand com = new SqlCommand(query, con);
+                com.CommandTimeout = 0;
+
+                //SqlDataAdapter da = new SqlDataAdapter(query, con);
+                SqlDataAdapter da = new SqlDataAdapter(com);
+               
+                da.Fill(ds, nameTable);
+                con.Close();
+            }
 
             return ds.Tables[0];
 

@@ -44,6 +44,9 @@ namespace ControlDantist.ValidateRegistrProject
                 string sKey = string.Empty;
                 sKey = dStringConnect.Key.Trim();
 
+                // Отключим проверку по ЭСРН.
+                //continue;
+
                 // Оставим участок кода для отработки быстроого подключения
                 // /К нужному району.
                 //if (sKey.Trim() != "Новобурасский".Trim())

@@ -206,7 +206,7 @@ namespace ControlDantist
                         string отчество = rowЛьготник["Отчество"].ToString().Trim();
 
                         //получим дату рождения
-                        string queryДатаДоговора = "";
+                        string queryДатаДоговора = Convert.ToDateTime(rowЛьготник["ДатаРождения"]).ToShortDateString();
 
                         //Запишем в реестр ФИО текущего льготника
                         errorReestr.ФИО = фамилия + " " + имя + " " + отчество;
@@ -3799,8 +3799,8 @@ namespace ControlDantist
                 // Получили имя класса.
                 fileName = openFileDialog1.FileName;
 
-                try
-                {
+                //try
+                //{
 
                     using (FileStream fstream = File.Open(fileName, FileMode.Open))
                     {
@@ -3809,12 +3809,12 @@ namespace ControlDantist
                         // Получим из файла словарь с договорами.
                         unload = (Dictionary<string, Unload>)binaryFormatter.Deserialize(fstream);
                     }
-                }
-                catch
-                {
-                    MessageBox.Show("Файл не является реестром проекта договоров", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
+                //}
+                //catch
+                //{
+                //    MessageBox.Show("Файл не является реестром проекта договоров", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                //    return;
+                //}
 
                 // Список проектов договоров отображаемых в письме.
                 List<DisplayContract> listContracts = new List<DisplayContract>();

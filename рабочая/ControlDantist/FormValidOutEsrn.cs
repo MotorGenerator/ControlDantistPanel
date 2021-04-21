@@ -499,13 +499,13 @@ namespace ControlDantist
                             }
 
                             // Установим дату рождения льготника.
-                            тЛЬготник.ДатаРождения = Convert.ToDateTime(itm.DateBirdthPerson).Date;
+                            //тЛЬготник.ДатаРождения = Convert.ToDateTime(itm.DateBirdthPerson).Date;
 
-                            // Дата выдачи паспорта.
-                            тЛЬготник.ДатаВыдачиПаспорта = Convert.ToDateTime(itm.DatePassword).Date;
+                            //// Дата выдачи паспорта.
+                            //тЛЬготник.ДатаВыдачиПаспорта = Convert.ToDateTime(itm.DatePassword).Date;
 
-                            // Дата выдачи документа.
-                            тЛЬготник.ДатаВыдачиДокумента = Convert.ToDateTime(itm.DateDoc).Date;
+                            //// Дата выдачи документа.
+                            //тЛЬготник.ДатаВыдачиДокумента = Convert.ToDateTime(itm.DateDoc).Date;
 
                         IValidBD<ТДоговор> validBDcontract = new ProjectContract(dc,тДоговор);
 
@@ -576,7 +576,7 @@ namespace ControlDantist
                         //if (formDialog.DialogResult == System.Windows.Forms.DialogResult.OK)
                         //{
                             // Завершшим транзакцию.
-                            scope.Complete();
+                           scope.Complete();
 
                             MessageBox.Show("Данные записаны");
                         //}

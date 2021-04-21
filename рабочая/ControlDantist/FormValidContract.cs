@@ -12,6 +12,7 @@ using ControlDantist.Find;
 using System.Linq;
 using ControlDantist.ValidPersonContract;
 
+
 namespace ControlDantist
 {
     public partial class FormValidContract : Form
@@ -2013,7 +2014,6 @@ namespace ControlDantist
                 {
                     this.dataGridView1.DataSource = listPerson;
 
-
                     this.dataGridView1.Columns[1].SortMode = DataGridViewColumnSortMode.Automatic;
 
                 }
@@ -2029,6 +2029,7 @@ namespace ControlDantist
 
                 this.dataGridView1.Columns["Фамилия"].Width = 150;
                 this.dataGridView1.Columns["Фамилия"].DisplayIndex = 1;
+                this.dataGridView1.Columns["Фамилия"].SortMode = DataGridViewColumnSortMode.Automatic;
 
                 this.dataGridView1.Columns["Имя"].Width = 150;
                 this.dataGridView1.Columns["Имя"].DisplayIndex = 2;
@@ -2089,7 +2090,11 @@ namespace ControlDantist
                 }
 
 
-                this.dataGridView1.Columns[1].SortMode = DataGridViewColumnSortMode.Automatic;
+                //this.dataGridView1.Columns[1].SortMode = DataGridViewColumnSortMode.Automatic;
+                foreach (DataGridViewColumn column in dataGridView1.Columns)
+                {
+                    column.SortMode = DataGridViewColumnSortMode.Automatic;
+                }
 
 
             }

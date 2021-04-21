@@ -34,6 +34,7 @@ namespace ControlDantist
             this.записатьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.договорОтменитьПроверкуToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.изменитьСтатусВНепрошедшийПроверкуToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.аннулироватьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.label1 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -42,7 +43,6 @@ namespace ControlDantist
             this.label3 = new System.Windows.Forms.Label();
             this.txtИмя = new System.Windows.Forms.TextBox();
             this.btnFind = new System.Windows.Forms.Button();
-            this.аннулироватьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -56,6 +56,7 @@ namespace ControlDantist
             this.dataGridView1.ContextMenuStrip = this.contextMenuStrip1;
             this.dataGridView1.Location = new System.Drawing.Point(1, 32);
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
             this.dataGridView1.Size = new System.Drawing.Size(926, 365);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
@@ -70,7 +71,7 @@ namespace ControlDantist
             this.изменитьСтатусВНепрошедшийПроверкуToolStripMenuItem,
             this.аннулироватьToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(351, 114);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(351, 92);
             this.contextMenuStrip1.Opening += new System.ComponentModel.CancelEventHandler(this.contextMenuStrip1_Opening);
             // 
             // записатьToolStripMenuItem
@@ -93,6 +94,13 @@ namespace ControlDantist
             this.изменитьСтатусВНепрошедшийПроверкуToolStripMenuItem.Size = new System.Drawing.Size(350, 22);
             this.изменитьСтатусВНепрошедшийПроверкуToolStripMenuItem.Text = "Изменить статус на \"НЕПРОШЕДШИЙ ПРОВЕРКУ\"";
             this.изменитьСтатусВНепрошедшийПроверкуToolStripMenuItem.Click += new System.EventHandler(this.изменитьСтатусВНепрошедшийПроверкуToolStripMenuItem_Click);
+            // 
+            // аннулироватьToolStripMenuItem
+            // 
+            this.аннулироватьToolStripMenuItem.Name = "аннулироватьToolStripMenuItem";
+            this.аннулироватьToolStripMenuItem.Size = new System.Drawing.Size(350, 22);
+            this.аннулироватьToolStripMenuItem.Text = "Аннулировать";
+            this.аннулироватьToolStripMenuItem.Click += new System.EventHandler(this.аннулироватьToolStripMenuItem_Click);
             // 
             // label1
             // 
@@ -164,13 +172,6 @@ namespace ControlDantist
             this.btnFind.Text = "Найти";
             this.btnFind.UseVisualStyleBackColor = true;
             this.btnFind.Click += new System.EventHandler(this.btnFind_Click);
-            // 
-            // аннулироватьToolStripMenuItem
-            // 
-            this.аннулироватьToolStripMenuItem.Name = "аннулироватьToolStripMenuItem";
-            this.аннулироватьToolStripMenuItem.Size = new System.Drawing.Size(350, 22);
-            this.аннулироватьToolStripMenuItem.Text = "Аннулировать";
-            this.аннулироватьToolStripMenuItem.Click += new System.EventHandler(this.аннулироватьToolStripMenuItem_Click);
             // 
             // FormValidContract
             // 
