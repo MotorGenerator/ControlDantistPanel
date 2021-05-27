@@ -6,7 +6,7 @@ using ControlDantist.ErrorHandlid;
 
 namespace ControlDantist.Classes
 {
-    class ТаблицаБД
+    public class ТаблицаБД
     {
         /// <summary>
         /// Возвращает код поликлинники

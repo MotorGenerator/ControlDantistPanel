@@ -37,16 +37,8 @@ namespace ControlDantist.ValidPersonContract
                             --inner join АктВыполненныхРабот
                             --on АктВыполненныхРабот.id_договор = Договор.id_договор
                              where ДоговорАрхив.ФлагПроверки = 1 and LOWER(RTRIM(LTRIM([Фамилия]))) = LOWER(LTRIM(RTRIM(@FistName))) and LOWER(LTRIM(RTRIM(Имя))) = LOWER(LTRIM(RTRIM(@Name))) 
-                            and((LOWER(LTRIM(RTRIM(Отчество))) = LOWER(LTRIM(RTRIM(@Surname)))) or Отчество is null) and ДатаРождения = @DR
-                            union
-                            select НомерДоговора,ДоговорAdd.ДатаАктаВыполненныхРабот from ЛьготникAdd
-                            inner join ДоговорAdd
-                            on ЛьготникAdd.id_льготник = ДоговорAdd.id_льготник
-                            --inner join АктВыполненныхРабот
-                            --on АктВыполненныхРабот.id_договор = ДоговорAdd.id_договор
-                             where ДоговорAdd.ФлагПроверки = 1 and LOWER(RTRIM(LTRIM([Фамилия]))) = LOWER(LTRIM(RTRIM(@FistName))) 
-                            and LOWER(LTRIM(RTRIM(Имя))) = LOWER(LTRIM(RTRIM(@Name))) 
-                            and((LOWER(LTRIM(RTRIM(Отчество))) = LOWER(LTRIM(RTRIM(@Surname)))) or Отчество is null) and ДатаРождения = @DR";
+                            and((LOWER(LTRIM(RTRIM(Отчество))) = LOWER(LTRIM(RTRIM(@Surname)))) or Отчество is null) and ДатаРождения = @DR ";
+                           
         }
     }
 }

@@ -35,6 +35,7 @@ namespace ControlDantist.WriteDB
 
             // Поиск договора.
             var contract = this.dc.ТДоговор.Where(w => w.НомерДоговора.Trim() == this.договор.НомерДоговора.Trim() && (w.ФлагПроверки == true || w.ФлагАнулирован == true)).OrderByDescending(w => w.id_договор).FirstOrDefault();//.//.//.FirstOrDefault();
+            //var contract = this.dc.ТДоговор.Where(w => w.НомерДоговора.Trim() == this.договор.НомерДоговора.Trim() && (w.ФлагПроверки == true)).OrderByDescending(w => w.id_договор).FirstOrDefault();//.//.//.FirstOrDefault();
 
             // Ели договор найден значит писать в БД нельзя.
             if (contract != null)

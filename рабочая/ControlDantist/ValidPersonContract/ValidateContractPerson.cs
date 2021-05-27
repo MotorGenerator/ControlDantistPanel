@@ -29,6 +29,7 @@ namespace ControlDantist.ValidPersonContract
             }
             else
             {
+                //throw new ArgumentNullException("Нет данных для ");
                 return;
             }
 
@@ -65,14 +66,14 @@ namespace ControlDantist.ValidPersonContract
 
                 // Возможно придется стирать
 
-                    // Проверка договоров по таблице Архив.
-                    IValidatePersonContract validatePersonContractArchiv = new ValidatePersonContractArchiv(famili, name, surname, dr);
-                    string queryPcArchiv = validatePersonContractArchiv.Execute();
+                // Проверка договоров по таблице Архив.
+                IValidatePersonContract validatePersonContractArchiv = new ValidatePersonContractArchiv(famili, name, surname, dr);
+                string queryPcArchiv = validatePersonContractArchiv.Execute();
 
-                    StringParametr stringParametrArchiv = new StringParametr();
-                    stringParametrArchiv.Query = queryPcArchiv;
+                StringParametr stringParametrArchiv = new StringParametr();
+                stringParametrArchiv.Query = queryPcArchiv;
 
-                    BuildingSpike(stringParametrArchiv, it.NumContract.Trim(), contr);
+                BuildingSpike(stringParametrArchiv, it.NumContract.Trim(), contr);
 
                 // КОнец.
 
@@ -119,6 +120,7 @@ namespace ControlDantist.ValidPersonContract
                 // Данные по текущему договору в таблице.
                 ValidItemsContract validItemsContract = new ValidItemsContract();
 
+                // Проверим на null поле таблицы.
                 if (DBNull.Value != row["НомерДоговора"])
                 {
 

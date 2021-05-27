@@ -195,13 +195,15 @@ namespace UnitTestControlDantistPanel
 
             //var listServicesMedical = smh.ServicesMedical();
 
-            List<ТВидУслуг> listResult = new List<ТВидУслуг>();
+            //List<ТВидУслуг> listResult = new List<ТВидУслуг>();
 
             // result.
            // Assert.AreEqual(listServicesMedical, listResult, "Тест не пройден");
 
 
         }
+
+
 
     }
 }

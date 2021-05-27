@@ -14,6 +14,8 @@ using ControlDantist.ReadRegistrProject;
 using ControlDantist.DataBaseContext;
 using ControlDantist.ReadRegistrProject;
 using System.Data.Entity;
+using ControlDantist.Querys;
+using ControlDantist.Classes;
 
 
 namespace UnitTestDentist
@@ -913,56 +915,56 @@ namespace UnitTestDentist
         [TestMethod]
         public void TestWriteContract()
         {
-            DateTime dr = new DateTime(1956, 1, 12);
+            //DateTime dr = new DateTime(1956, 1, 12);
 
-            PrintContractsValidate contr = new PrintContractsValidate();// ("Иванов", "Иван", "Иванович", dr);
+            //PrintContractsValidate contr = new PrintContractsValidate();// ("Иванов", "Иван", "Иванович", dr);
 
-            contr.ФИО_Номер_ТекущийДоговор = "Иванов Иван Иванович";
+            //contr.ФИО_Номер_ТекущийДоговор = "Иванов Иван Иванович";
 
-            contr.НомерТекущийДоговор = "2-3/2802";
+            //contr.НомерТекущийДоговор = "2-3/2802";
 
-            contr.listContracts = new List<ValidItemsContract>();
+            //contr.listContracts = new List<ValidItemsContract>();
 
-            List<ValidItemsContract> list = new List<ValidItemsContract>();
+            //List<ValidItemsContract> list = new List<ValidItemsContract>();
 
-            ValidItemsContract it = new ValidItemsContract();
-            it.CurrentNumContract = "8/7184";
-            it.DateContract = "17.08.2009";
+            //ValidItemsContract it = new ValidItemsContract();
+            //it.CurrentNumContract = "8/7184";
+            //it.DateContract = "17.08.2009";
 
-            it.IdContract = 124668;
+            //it.IdContract = 124668;
 
-            it.NumContract = "2-2/9182";
-            it.flag2019Add = true;
+            //it.NumContract = "2-2/9182";
+            //it.flag2019Add = true;
 
-            list.Add(it);
+            //list.Add(it);
 
-            ValidItemsContract it2 = new ValidItemsContract();
-            it2.CurrentNumContract = "8/7184";
-            it2.DateContract = "01.01.1900";
+            //ValidItemsContract it2 = new ValidItemsContract();
+            //it2.CurrentNumContract = "8/7184";
+            //it2.DateContract = "01.01.1900";
 
-            it.IdContract = 3311;
+            //it.IdContract = 3311;
 
-            it2.NumContract = "2-2/9183";
-            it2.flag2019Add = false;
+            //it2.NumContract = "2-2/9183";
+            //it2.flag2019Add = false;
 
-            list.Add(it2);
+            //list.Add(it2);
 
-            ValidItemsContract it3 = new ValidItemsContract();
-            it3.CurrentNumContract = "8/7184";
-            it3.IdContract = 3483;
-            it3.DateContract = "14.06.2020";
+            //ValidItemsContract it3 = new ValidItemsContract();
+            //it3.CurrentNumContract = "8/7184";
+            //it3.IdContract = 3483;
+            //it3.DateContract = "14.06.2020";
 
-            it3.NumContract = "2-2/9184";
-            it3.flag2019Add = false;
+            //it3.NumContract = "2-2/9184";
+            //it3.flag2019Add = false;
 
-            list.Add(it3);
+            //list.Add(it3);
 
-            contr.listContracts.AddRange(list);
+            //contr.listContracts.AddRange(list);
 
-            IWriteNumContract writeNumContract = new WriteNumContract(contr.listContracts);
-            contr.НомераДоговоров = writeNumContract.Write();
+            //IWriteNumContract writeNumContract = new WriteNumContract(contr.listContracts);
+            //contr.НомераДоговоров = writeNumContract.Write();
 
-            var test = "";
+            //var test = "";
 
         }
 
@@ -1056,100 +1058,129 @@ namespace UnitTestDentist
 
             //list.Add(it2);
 
-            ValideContract it1 = new ValideContract();
+            //ValideContract it1 = new ValideContract();
 
-            it1.id_договор = "19462";
-            it1.IdContract = 19462;
-            it1.Фамилия = "Щеглова";
-            it1.Имя = "Любовь";
-            it1.Отчество = "Петровна";
-            it1.НомерДоговора = "1/9370";
-            it1.НомерАкта = "1/9370/8501";
-            it1.Год = 1;
+            //it1.id_договор = "19462";
+            //it1.IdContract = 19462;
+            //it1.Фамилия = "Щеглова";
+            //it1.Имя = "Любовь";
+            //it1.Отчество = "Петровна";
+            //it1.НомерДоговора = "1/9370";
+            //it1.НомерАкта = "1/9370/8501";
+            //it1.Год = 1;
 
-            list.Add(it1);
+            //list.Add(it1);
 
-            ValideContract it2 = new ValideContract();
+            //ValideContract it2 = new ValideContract();
 
-            it2.id_договор = "641";
-            it2.IdContract = 641;
-            it2.Фамилия = "Старикова";
-            it2.Имя = "Лидия";
-            it2.Отчество = "Александровна";
-            it2.НомерДоговора = "1/9370";
-            it2.НомерАкта = "1/9370/8501";
-            it2.Год = 2019;
+            //it2.id_договор = "641";
+            //it2.IdContract = 641;
+            //it2.Фамилия = "Старикова";
+            //it2.Имя = "Лидия";
+            //it2.Отчество = "Александровна";
+            //it2.НомерДоговора = "1/9370";
+            //it2.НомерАкта = "1/9370/8501";
+            //it2.Год = 2019;
 
-            list.Add(it2);
+            //list.Add(it2);
 
-            CompareContractForNumber.Compare(list);
+            //CompareContractForNumber.Compare(list);
         }
 
         [TestMethod]
        public void WriteToWordContract()
         {
 
-            //Узнаем содержатся ли ещё договора у текущего льготника
-            using (SqlConnection con = new SqlConnection("Data Source=10.159.102.21;Initial Catalog=Dentists;User ID=admin_dantist;Password=12A86Sql"))
-            {
-                con.Open();
+            ////Узнаем содержатся ли ещё договора у текущего льготника
+            //using (SqlConnection con = new SqlConnection("Data Source=10.159.102.21;Initial Catalog=Dentists;User ID=admin_dantist;Password=12A86Sql"))
+            //{
+            //    con.Open();
 
-                SqlTransaction transact = con.BeginTransaction();
+            //    SqlTransaction transact = con.BeginTransaction();
 
-                // Проверим есть ли у данного льготника ещё заключенные договора.
-                ValidContractForPerson validContract = new ValidContractForPerson("Щеглова", "Любовь", "Петровна".Do(x => x, ""), Convert.ToDateTime("04.07.1951"));
-                //validContract.listContracts = listContracts;
-                validContract.SetSqlConnection(con);
-                validContract.SetSqlTransaction(transact);
-                validContract.SetNumContract("3/6334");
-                PrintContractsValidate договор = validContract.GetContract();
+            //    // Проверим есть ли у данного льготника ещё заключенные договора.
+            //    ValidContractForPerson validContract = new ValidContractForPerson("Щеглова", "Любовь", "Петровна".Do(x => x, ""), Convert.ToDateTime("04.07.1951"));
+            //    //validContract.listContracts = listContracts;
+            //    validContract.SetSqlConnection(con);
+            //    validContract.SetSqlTransaction(transact);
+            //    validContract.SetNumContract("3/6334");
+            //    PrintContractsValidate договор = validContract.GetContract();
 
-            }
+            //}
         }
 
         [TestMethod]
         public void WriteTaun()
         {
-            // Создадим таблицу тип DataTable.
-            DataTable booksTable = new DataTable("НаселенныйПункт");
-            // создаем столбцы для таблицы Books
-            DataColumn idColumn = new DataColumn("Id", Type.GetType("System.Int32"));
-            idColumn.Unique = true; // столбец будет иметь уникальное значение
-            idColumn.AllowDBNull = false; // не может принимать null
-            idColumn.AutoIncrement = true; // будет автоинкрементироваться
-            idColumn.AutoIncrementSeed = 1; // начальное значение
-            idColumn.AutoIncrementStep = 1; // приращении при добавлении новой строки
+            //// Создадим таблицу тип DataTable.
+            //DataTable booksTable = new DataTable("НаселенныйПункт");
+            //// создаем столбцы для таблицы Books
+            //DataColumn idColumn = new DataColumn("Id", Type.GetType("System.Int32"));
+            //idColumn.Unique = true; // столбец будет иметь уникальное значение
+            //idColumn.AllowDBNull = false; // не может принимать null
+            //idColumn.AutoIncrement = true; // будет автоинкрементироваться
+            //idColumn.AutoIncrementSeed = 1; // начальное значение
+            //idColumn.AutoIncrementStep = 1; // приращении при добавлении новой строки
 
-            DataColumn nameColumn = new DataColumn("Name", Type.GetType("System.String"));
+            //DataColumn nameColumn = new DataColumn("Name", Type.GetType("System.String"));
 
-            booksTable.Columns.Add(idColumn);
-            booksTable.Columns.Add(nameColumn);
+            //booksTable.Columns.Add(idColumn);
+            //booksTable.Columns.Add(nameColumn);
 
-            // Добавим запись.
-            DataRow row = booksTable.NewRow();
+            //// Добавим запись.
+            //DataRow row = booksTable.NewRow();
 
-            row["Id"] = 1;
-            row["Name"] = "Волгск";
+            //row["Id"] = 1;
+            //row["Name"] = "Волгск";
 
-            booksTable.Rows.Add(row); // добавляем первую строку
+            //booksTable.Rows.Add(row); // добавляем первую строку
 
 
-            // Прочитаем населенный пункт из реестра проектов договоров.
-            DataTable tabSity = booksTable;
-            DContext dc = new DContext(ConnectDB.ConnectionString());
+            //// Прочитаем населенный пункт из реестра проектов договоров.
+            //DataTable tabSity = booksTable;
+            //DContext dc = new DContext(ConnectDB.ConnectionString());
 
-            ReadНаселенныйПункт readНаселенныйПункт = new ReadНаселенныйПункт(dc, tabSity);
-            ТНаселённыйПункт населённыйПункт = readНаселенныйПункт.Get();
+            //ReadНаселенныйПункт readНаселенныйПункт = new ReadНаселенныйПункт(dc, tabSity);
+            //ТНаселённыйПункт населённыйПункт = readНаселенныйПункт.Get();
 
             
 
-            //using (var dc = new DContext(ConnectDB.ConnectionString()))
-            //{
+            ////using (var dc = new DContext(ConnectDB.ConnectionString()))
+            ////{
 
-            //    // Населенный пункт в которм прописан льготник.
-            //    ReadНаселенныйПункт readНаселенныйПункт = new ReadНаселенныйПункт(dc, tabSity);
-            //    ТНаселённыйПункт населённыйПункт = readНаселенныйПункт.GetТНаселённыйПункт();
-            //}
+            ////    // Населенный пункт в которм прописан льготник.
+            ////    ReadНаселенныйПункт readНаселенныйПункт = new ReadНаселенныйПункт(dc, tabSity);
+            ////    ТНаселённыйПункт населённыйПункт = readНаселенныйПункт.GetТНаселённыйПункт();
+            ////}
+        }
+
+        /// <summary>
+        /// Тест с номером контракта.
+        /// </summary>
+        [TestMethod]
+        public void TastDataTableFindActNumderContract()
+        {
+            ////arrange
+            //string numContract = "эсп-1/4507";
+            string numContract = "эсп-1/45071";
+
+            string sConnect = "Data Source=10.159.102.21;Initial Catalog=Dentists;User ID=admin_dantist;Password=12A86Sql";
+
+            // Для теста.
+            SqlConnection con = new SqlConnection(sConnect);
+
+            //// Акт.
+            IQuery query = new FindPaysContract(numContract);
+
+            System.Data.DataTable dataTableAct = ТаблицаБД.GetTableSQL(query.Query(), "НомераАкта",con);
+
+            if(dataTableAct != null && dataTableAct.Rows != null && dataTableAct.Rows.Count > 0)
+            {
+                string operation = "Insert into DB";
+            }
+
+            string iTest = "";
+
         }
     }
 }

@@ -1669,12 +1669,13 @@ namespace ControlDantist
                     StringParametr stringParametr = new StringParametr();
                     stringParametr.Query = queryTo2019;
 
-                    // Поиск льготников по таблицам NameTableAdd.
-                    IFindPerson findPerson2019Add = new FindPersonFioTableAdd(personFamili, personName);
-                    string query2019Add = findPerson2019Add.Query();
+                    // Все что ранеьше 2020 года убираем из поиска.
+                    //// Поиск льготников по таблицам NameTableAdd.
+                    //IFindPerson findPerson2019Add = new FindPersonFioTableAdd(personFamili, personName);
+                    //string query2019Add = findPerson2019Add.Query();
 
-                    StringParametr stringParametr2019Add = new StringParametr();
-                    stringParametr2019Add.Query = query2019Add;
+                    //StringParametr stringParametr2019Add = new StringParametr();
+                    //stringParametr2019Add.Query = query2019Add;
 
                     //// Поиск льготников по таблицам БД 2019 год.
                     //IFindPerson findPerson2019 = new FindPersonFio2019(personFamili, personName);
@@ -1683,12 +1684,12 @@ namespace ControlDantist
                     //StringParametr stringParametr2019 = new StringParametr();
                     //stringParametr2019.Query = query2019;
 
-                    // Поиск льгот ника по позже 2019 года.
-                    IFindPerson findPerson2019Afftar = new FIndPersonFio2019Aftar(personFamili, personName);
-                    string query2019Aftar = findPerson2019Afftar.Query();
+                    //// Поиск льгот ника по позже 2019 года.
+                    //IFindPerson findPerson2019Afftar = new FIndPersonFio2019Aftar(personFamili, personName);
+                    //string query2019Aftar = findPerson2019Afftar.Query();
 
-                    StringParametr stringParametr2019Aftar = new StringParametr();
-                    stringParametr2019Aftar.Query = query2019Aftar;
+                    //StringParametr stringParametr2019Aftar = new StringParametr();
+                    //stringParametr2019Aftar.Query = query2019Aftar;
 
                     IFindPerson findPersonFio2021 = new FindPersonFioValidate2021(personFamili, personName);
                     string query2021Fio = findPersonFio2021.Query();
@@ -1701,13 +1702,13 @@ namespace ControlDantist
                     ExecuteFind(stringParametr);
 
                     // Выполнинм поиск льготников 2019 по таблицам TableName2019 года.
-                    ExecuteFind(stringParametr2019Add);
+                    //ExecuteFind(stringParametr2019Add);
 
                     // Выполнинм поиск льготников 2019 по таблицам базы данных года.
                     //ExecuteFind(stringParametr2019);
 
                     // Выполнинм поиск льготников после 2019 по таблицам базы данных года.
-                    ExecuteFind(stringParametr2019Aftar);
+                    //ExecuteFind(stringParametr2019Aftar);
 
                     ExecuteFind(stringParametrfindPersonFio2021);
 
@@ -1799,12 +1800,12 @@ namespace ControlDantist
                     StringParametr stringParametr = new StringParametr();
                     stringParametr.Query = queryTo2019;
 
-                    // Поиск льготников по таблицам NameTableAdd.
-                    IFindPerson findPerson2019Add = new FindPersonFioTableAddNoValid(personFamili, personName);
-                    string query2019Add = findPerson2019Add.Query();
+                    //// Поиск льготников по таблицам NameTableAdd.
+                    //IFindPerson findPerson2019Add = new FindPersonFioTableAddNoValid(personFamili, personName);
+                    //string query2019Add = findPerson2019Add.Query();
 
-                    StringParametr stringParametr2019Add = new StringParametr();
-                    stringParametr2019Add.Query = query2019Add;
+                    //StringParametr stringParametr2019Add = new StringParametr();
+                    //stringParametr2019Add.Query = query2019Add;
 
                     //// Поиск льготников по таблицам БД 2019 год.
                     //IFindPerson findPerson2019 = new FindPersonFio2019NoValid(personFamili, personName);
@@ -1813,12 +1814,12 @@ namespace ControlDantist
                     //StringParametr stringParametr2019 = new StringParametr();
                     //stringParametr2019.Query = query2019;
 
-                    // Поиск льгот ника по позже 2019 года.
-                    IFindPerson findPerson2019Afftar = new FIndPersonFio2019AftarNoValid(personFamili, personName);
-                    string query2019Aftar = findPerson2019Afftar.Query();
+                    //// Поиск льгот ника по позже 2019 года.
+                    //IFindPerson findPerson2019Afftar = new FIndPersonFio2019AftarNoValid(personFamili, personName);
+                    //string query2019Aftar = findPerson2019Afftar.Query();
 
-                    StringParametr stringParametr2019Aftar = new StringParametr();
-                    stringParametr2019Aftar.Query = query2019Aftar;
+                    //StringParametr stringParametr2019Aftar = new StringParametr();
+                    //stringParametr2019Aftar.Query = query2019Aftar;
 
                     // Поиск льготника по Фамилии и имени в таблицах 2021.
                     IFindPerson findPerson2021FioNoValid = new FindPersonFioNoValid2021(personFamili, personName);
@@ -1831,13 +1832,13 @@ namespace ControlDantist
                     ExecuteFind(stringParametr);
 
                     // Выполнинм поиск льготников 2019 по таблицам TableName2019 года.
-                    ExecuteFind(stringParametr2019Add);
+                    //ExecuteFind(stringParametr2019Add);
 
                     // Выполнинм поиск льготников 2019 по таблицам базы данных года.
                     //ExecuteFind(stringParametr2019);
 
                     // Выполнинм поиск льготников после 2019 по таблицам базы данных 2020 года.
-                    ExecuteFind(stringParametr2019Aftar);
+                    // ExecuteFind(stringParametr2019Aftar);
 
                     // Выполнинм поиск льготников после 2020 по таблицам базы данных 2021 года.
                     ExecuteFind(stringfindPerson2021FioNoValid);

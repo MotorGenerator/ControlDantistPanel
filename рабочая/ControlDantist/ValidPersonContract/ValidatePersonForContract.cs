@@ -27,26 +27,15 @@ namespace ControlDantist.ValidPersonContract
                             declare @Surname nvarchar(100)
                             declare @DR date
                             set @FistName = '" + this.famili + "' " +
-                            " set @Name = '"+ name +"' " +
-                            " set @Surname = '"+ this.secondName +"' " +
-                            "set @DR = '"+ Время.Дата(this.dateBirth.ToShortDateString()) + "' " +
+                            " set @Name = '" + name + "' " +
+                            " set @Surname = '" + this.secondName + "' " +
+                            "set @DR = '" + Время.Дата(this.dateBirth.ToShortDateString()) + "' " +
                             @" select НомерДоговора, Договор.ДатаАктаВыполненныхРабот from Льготник
                             inner join Договор
                             on Льготник.id_льготник = Договор.id_льготник
-                            --inner join АктВыполненныхРабот
-                            --on АктВыполненныхРабот.id_договор = Договор.id_договор
-                             where Договор.ФлагПроверки = 1 and LOWER(RTRIM(LTRIM([Фамилия]))) = LOWER(LTRIM(RTRIM(@FistName))) and LOWER(LTRIM(RTRIM(Имя))) = LOWER(LTRIM(RTRIM(@Name))) 
-                            and((LOWER(LTRIM(RTRIM(Отчество))) = LOWER(LTRIM(RTRIM(@Surname)))) or Отчество is null) and ДатаРождения = @DR
-                            union
-                            select НомерДоговора,ДоговорAdd.ДатаАктаВыполненныхРабот from ЛьготникAdd
-                            inner join ДоговорAdd
-                            on ЛьготникAdd.id_льготник = ДоговорAdd.id_льготник
-                            --inner join АктВыполненныхРабот
-                            --on АктВыполненныхРабот.id_договор = ДоговорAdd.id_договор
-                             where ДоговорAdd.ФлагПроверки = 1 and LOWER(RTRIM(LTRIM([Фамилия]))) = LOWER(LTRIM(RTRIM(@FistName))) 
-                            and LOWER(LTRIM(RTRIM(Имя))) = LOWER(LTRIM(RTRIM(@Name))) 
+                            where Договор.ФлагПроверки = 1 and LOWER(RTRIM(LTRIM([Фамилия]))) = LOWER(LTRIM(RTRIM(@FistName))) and LOWER(LTRIM(RTRIM(Имя))) = LOWER(LTRIM(RTRIM(@Name))) 
                             and((LOWER(LTRIM(RTRIM(Отчество))) = LOWER(LTRIM(RTRIM(@Surname)))) or Отчество is null) and ДатаРождения = @DR";
-
+                            
         }
     }
 }

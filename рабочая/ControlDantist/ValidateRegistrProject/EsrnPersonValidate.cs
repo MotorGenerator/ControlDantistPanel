@@ -49,17 +49,17 @@ namespace ControlDantist.ValidateRegistrProject
 
                 // Оставим участок кода для отработки быстроого подключения
                 // /К нужному району.
-                //if (sKey.Trim() != "Новобурасский".Trim())
-                //{
+                if (sKey.Trim() != "Ленинский".Trim())
+                {
 
-                // Отключим проверку договоров по ЭСРН.
-                //var sTestTestt = "";
-                //continue;
-                //}
-                //else
-                //{
-                //    var testConnecrt = "Новобурасский";
-                //}
+                   //Отключим проверку договоров по ЭСРН.
+                   var sTestTestt = "";
+                    continue;
+                }
+                else
+                {
+                    var testConnecrt = "Ленинский";
+                }
 
                 // Переменная хранит строку подключения к БД.
                 string sConnection = string.Empty;
@@ -123,13 +123,10 @@ namespace ControlDantist.ValidateRegistrProject
                     // Проверка список договоров.
                     var listEsrnPerson = this.list;
 
-                    //// Пометим прошедших проверку.
-                    //CompareRegistr compareRegistr = new CompareRegistr(this.list);
-                    //compareRegistr.Compare(tabФИО, tabФиоPassword);
-
+                    // Пометим прошедших проверку.
                     //if (tabФИО?.Rows?.Count > 1 && tabФиоPassword?.Rows?.Count > 1)
-                        if (tabФИО?.Rows?.Count >=1 || tabФиоPassword?.Rows?.Count >= 1)
-                        {
+                    if (tabФИО?.Rows?.Count >=1 || tabФиоPassword?.Rows?.Count >= 1)
+                    { 
                         // Пометим прошедших проверку.
                         CompareRegistr compareRegistr = new CompareRegistr(this.list);
                         compareRegistr.Compare(tabФИО, tabФиоPassword);
