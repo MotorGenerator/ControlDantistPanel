@@ -1088,7 +1088,7 @@ namespace UnitTestDentist
         }
 
         [TestMethod]
-       public void WriteToWordContract()
+        public void WriteToWordContract()
         {
 
             ////Узнаем содержатся ли ещё договора у текущего льготника
@@ -1143,7 +1143,7 @@ namespace UnitTestDentist
             //ReadНаселенныйПункт readНаселенныйПункт = new ReadНаселенныйПункт(dc, tabSity);
             //ТНаселённыйПункт населённыйПункт = readНаселенныйПункт.Get();
 
-            
+
 
             ////using (var dc = new DContext(ConnectDB.ConnectionString()))
             ////{
@@ -1160,27 +1160,46 @@ namespace UnitTestDentist
         [TestMethod]
         public void TastDataTableFindActNumderContract()
         {
-            ////arrange
-            //string numContract = "эсп-1/4507";
-            string numContract = "эсп-1/45071";
+            //////arrange
+            ////string numContract = "эсп-1/4507";
+            //string numContract = "эсп-1/45071";
 
-            string sConnect = "Data Source=10.159.102.21;Initial Catalog=Dentists;User ID=admin_dantist;Password=12A86Sql";
+            //string sConnect = "Data Source=10.159.102.21;Initial Catalog=Dentists;User ID=admin_dantist;Password=12A86Sql";
 
-            // Для теста.
-            SqlConnection con = new SqlConnection(sConnect);
+            //// Для теста.
+            //SqlConnection con = new SqlConnection(sConnect);
 
-            //// Акт.
-            IQuery query = new FindPaysContract(numContract);
+            ////// Акт.
+            //IQuery query = new FindPaysContract(numContract);
 
-            System.Data.DataTable dataTableAct = ТаблицаБД.GetTableSQL(query.Query(), "НомераАкта",con);
+            //System.Data.DataTable dataTableAct = ТаблицаБД.GetTableSQL(query.Query(), "НомераАкта",con);
 
-            if(dataTableAct != null && dataTableAct.Rows != null && dataTableAct.Rows.Count > 0)
-            {
-                string operation = "Insert into DB";
-            }
+            //if(dataTableAct != null && dataTableAct.Rows != null && dataTableAct.Rows.Count > 0)
+            //{
+            //    string operation = "Insert into DB";
+            //}
 
-            string iTest = "";
-
+            //string iTest = "";
         }
+
+        [TestMethod]
+        public void TestDAteYear()
+        {
+            DateTime dtStart = new DateTime(2019, 9, 24);
+
+            DateTime dtEnd = DateTime.Now;
+
+            int test = Years(dtStart, dtEnd);
+
+            string sTestA = "";
+        }
+
+        private int Years(DateTime start, DateTime end)
+        {
+            return (end.Year - start.Year - 1) +
+                  (((end.Month > start.Month) ||
+                  ((end.Month == start.Month) && (end.Day >= start.Day))) ? 1 : 0);
+        }
+
     }
 }

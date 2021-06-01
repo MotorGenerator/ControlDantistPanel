@@ -34,15 +34,40 @@ namespace ControlDantist.WriteDB
             bool flagWriteDB = false;
 
             // Поиск договора.
-            var contract = this.dc.ТДоговор.Where(w => w.НомерДоговора.Trim() == this.договор.НомерДоговора.Trim() && (w.ФлагПроверки == true || w.ФлагАнулирован == true)).OrderByDescending(w => w.id_договор).FirstOrDefault();//.//.//.FirstOrDefault();
-            //var contract = this.dc.ТДоговор.Where(w => w.НомерДоговора.Trim() == this.договор.НомерДоговора.Trim() && (w.ФлагПроверки == true)).OrderByDescending(w => w.id_договор).FirstOrDefault();//.//.//.FirstOrDefault();
+            //var contract = this.dc.ТДоговор.Where(w => w.НомерДоговора.Trim() == this.договор.НомерДоговора.Trim() && (w.ФлагПроверки == true || w.ФлагАнулирован == true)).OrderByDescending(w => w.id_договор).FirstOrDefault();
+            var contract = this.dc.ТДоговор.Where(w => w.НомерДоговора.Trim() == this.договор.НомерДоговора.Trim()).OrderByDescending(w => w.id_договор).FirstOrDefault();
 
             // Ели договор найден значит писать в БД нельзя.
             if (contract != null)
             {
-                  flagWriteDB = false;
+                bool flag = false;
 
-                  this.договор = contract;
+                // Проверим имеет ли договор флаг проверки = true.
+                Func<ТДоговор, bool> validTrue = ExecContractValid;
+
+                if (validTrue(contract) == true)
+                {
+                    flag = true;
+                }
+
+                Func<ТДоговор, bool> execCanceled = ExecContractAnulirovan;
+
+                if(execCanceled(contract) == true)
+                {
+                    flag = true;
+                }
+
+                if (flag == true)
+                {
+                    flagWriteDB = false;
+
+                    this.договор = contract;
+                }
+                else
+                {
+                    // Договор записать можно.
+                    flagWriteDB = true;
+                }
             }
             else
             {
@@ -51,6 +76,42 @@ namespace ControlDantist.WriteDB
             }
 
             return flagWriteDB;
+        }
+
+        /// <summary>
+        /// Проверяет записанный договор прошел проверку или нет.
+        /// </summary>
+        /// <param name="contract"></param>
+        /// <returns></returns>
+        private bool ExecContractValid(ТДоговор contract)
+        {
+            bool flagValid = false;
+
+            // Если договор прошёл проверку писать нельзя.
+            if (contract.ФлагПроверки == true)
+            {
+                flagValid = true;
+            }
+
+            return flagValid;
+        }
+
+        /// <summary>
+        /// Проверяет анулирован договор или нет.
+        /// </summary>
+        /// <param name="contract"></param>
+        /// <returns></returns>
+        private bool ExecContractAnulirovan(ТДоговор contract)
+        {
+            bool flagExecAct = false;
+
+            // Если договор прошёл проверку писать нельзя.
+            if (contract.ФлагАнулирован == true)
+            {
+                flagExecAct = true;
+            }
+
+            return flagExecAct;
         }
 
         ///// <summary>

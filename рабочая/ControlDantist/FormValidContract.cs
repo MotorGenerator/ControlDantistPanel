@@ -359,7 +359,9 @@ namespace ControlDantist
                 // Заполним список результатами поиска.  
                 listDisplay.AddRange(showResultPerson.DisplayDate());
 
-                var test = listDisplay.GroupBy(w => w.НомерДоговора);
+                //var test = listDisplay.GroupBy(w => w.НомерДоговора);
+
+                var test = listDisplay;
 
             }
 
@@ -1558,6 +1560,8 @@ namespace ControlDantist
 
                     if (read["flagАнулирован"] != DBNull.Value && read["flagАнулирован"].ToString().Trim() != "NULL")
                     {
+                        var test = Convert.ToBoolean(read["flagАнулирован"]);
+
                         it.flagАнулирован = Convert.ToBoolean(read["flagАнулирован"]);
                     }
 
@@ -1593,18 +1597,18 @@ namespace ControlDantist
                     personFamili = this.textBox2.Text.Trim();
 
                     // Поиск льготников до 2019 года.
-                    IFindPerson findPersonTo2019 = new FindPersonFamiliTo2019(personFamili);
-                    string queryTo2019 = findPersonTo2019.Query();
+                    //IFindPerson findPersonTo2019 = new FindPersonFamiliTo2019(personFamili);
+                    //string queryTo2019 = findPersonTo2019.Query();
 
-                    StringParametr stringParametr = new StringParametr();
-                    stringParametr.Query = queryTo2019;
+                    //StringParametr stringParametr = new StringParametr();
+                    //stringParametr.Query = queryTo2019;
 
-                    // Поиск льготников по таблицам NameTableAdd.
-                    IFindPerson findPerson2019Add = new FindPersonFamiliTableAdd(personFamili);
-                    string query2019Add = findPerson2019Add.Query();
+                    //// Поиск льготников по таблицам NameTableAdd.
+                    //IFindPerson findPerson2019Add = new FindPersonFamiliTableAdd(personFamili);
+                    //string query2019Add = findPerson2019Add.Query();
 
-                    StringParametr stringParametr2019Add = new StringParametr();
-                    stringParametr2019Add.Query = query2019Add;
+                    //StringParametr stringParametr2019Add = new StringParametr();
+                    //stringParametr2019Add.Query = query2019Add;
 
                     //// Поиск льготников по таблицам БД 2019 год.
                     //IFindPerson findPerson2019 = new FindPerson2019(personFamili);
@@ -1628,10 +1632,10 @@ namespace ControlDantist
                     stringfindPersonFamilyValidTrue2021.Query = queryFindPerson2021FamilyTrue;
 
                     // Выполнинм поиск льготников до 2019 года.
-                    ExecuteFind(stringParametr);
+                    //ExecuteFind(stringParametr);
 
-                    // Выполнинм поиск льготников 2019 по таблицам TableName2019 года.
-                    ExecuteFind(stringParametr2019Add);
+                    //// Выполнинм поиск льготников 2019 по таблицам TableName2019 года.
+                    //ExecuteFind(stringParametr2019Add);
 
                     // Выполнинм поиск льготников 2019 по таблицам базы данных года.
                     //ExecuteFind(stringParametr2019);
@@ -1663,11 +1667,11 @@ namespace ControlDantist
                     personName = this.txtИмя.Text.Trim();
 
                     // Поиск льготников до 2019 года.
-                    IFindPerson findPersonTo2019 = new FindPersonFioTo2019(personFamili,personName);
-                    string queryTo2019 = findPersonTo2019.Query();
+                    //IFindPerson findPersonTo2019 = new FindPersonFioTo2019(personFamili,personName);
+                    //string queryTo2019 = findPersonTo2019.Query();
 
-                    StringParametr stringParametr = new StringParametr();
-                    stringParametr.Query = queryTo2019;
+                    //StringParametr stringParametr = new StringParametr();
+                    //stringParametr.Query = queryTo2019;
 
                     // Все что ранеьше 2020 года убираем из поиска.
                     //// Поиск льготников по таблицам NameTableAdd.
@@ -1685,11 +1689,11 @@ namespace ControlDantist
                     //stringParametr2019.Query = query2019;
 
                     //// Поиск льгот ника по позже 2019 года.
-                    //IFindPerson findPerson2019Afftar = new FIndPersonFio2019Aftar(personFamili, personName);
-                    //string query2019Aftar = findPerson2019Afftar.Query();
+                    IFindPerson findPerson2019Afftar = new FIndPersonFio2019Aftar(personFamili, personName);
+                    string query2019Aftar = findPerson2019Afftar.Query();
 
-                    //StringParametr stringParametr2019Aftar = new StringParametr();
-                    //stringParametr2019Aftar.Query = query2019Aftar;
+                    StringParametr stringParametr2019Aftar = new StringParametr();
+                    stringParametr2019Aftar.Query = query2019Aftar;
 
                     IFindPerson findPersonFio2021 = new FindPersonFioValidate2021(personFamili, personName);
                     string query2021Fio = findPersonFio2021.Query();
@@ -1699,7 +1703,7 @@ namespace ControlDantist
                     
 
                     // Выполнинм поиск льготников до 2019 года.
-                    ExecuteFind(stringParametr);
+                    //ExecuteFind(stringParametr);
 
                     // Выполнинм поиск льготников 2019 по таблицам TableName2019 года.
                     //ExecuteFind(stringParametr2019Add);
@@ -1728,19 +1732,19 @@ namespace ControlDantist
 
                     personFamili = this.textBox2.Text.Trim();
 
-                    // Поиск льготников до 2019 года.
-                    IFindPerson findPersonTo2019 = new FindPersonFamiliTo2019NoValid(personFamili);
-                    string queryTo2019 = findPersonTo2019.Query();
+                    //// Поиск льготников до 2019 года.
+                    //IFindPerson findPersonTo2019 = new FindPersonFamiliTo2019NoValid(personFamili);
+                    //string queryTo2019 = findPersonTo2019.Query();
 
-                    StringParametr stringParametr = new StringParametr();
-                    stringParametr.Query = queryTo2019;
+                    //StringParametr stringParametr = new StringParametr();
+                    //stringParametr.Query = queryTo2019;
 
-                    // Поиск льготников по таблицам NameTableAdd 2019 год.
-                    IFindPerson findPerson2019Add = new FindPersonFamiliTableAddNoValid(personFamili);
-                    string query2019Add = findPerson2019Add.Query();
+                    //// Поиск льготников по таблицам NameTableAdd 2019 год.
+                    //IFindPerson findPerson2019Add = new FindPersonFamiliTableAddNoValid(personFamili);
+                    //string query2019Add = findPerson2019Add.Query();
 
-                    StringParametr stringParametr2019Add = new StringParametr();
-                    stringParametr2019Add.Query = query2019Add;
+                    //StringParametr stringParametr2019Add = new StringParametr();
+                    //stringParametr2019Add.Query = query2019Add;
 
                     //// Поиск льготников по таблицам БД 2019 год.
                     //IFindPerson findPerson2019 = new FindPersonFamili2019NoValid(personFamili);
@@ -1763,10 +1767,10 @@ namespace ControlDantist
                     stringParametrFamiliNoValid2021.Query = queryFamiliNoValid2021;
 
                     // Выполнинм поиск льготников до 2019 года.
-                    ExecuteFind(stringParametr);
+                    //ExecuteFind(stringParametr);
 
-                    // Выполнинм поиск льготников 2019 по таблицам TableName2019 года.
-                    ExecuteFind(stringParametr2019Add);
+                    //Выполнинм поиск льготников 2019 по таблицам TableName2019 года.
+                    //ExecuteFind(stringParametr2019Add);
 
                     // Выполнинм поиск льготников 2019 по таблицам базы данных года.
                     //ExecuteFind(stringParametr2019);
@@ -1794,11 +1798,11 @@ namespace ControlDantist
                     personName = this.txtИмя.Text.Trim();
 
                     // Поиск льготников до 2019 года.
-                    IFindPerson findPersonTo2019 = new FindPersonFioTo2019NoValid(personFamili, personName);
-                    string queryTo2019 = findPersonTo2019.Query();
+                    //IFindPerson findPersonTo2019 = new FindPersonFioTo2019NoValid(personFamili, personName);
+                    //string queryTo2019 = findPersonTo2019.Query();
 
-                    StringParametr stringParametr = new StringParametr();
-                    stringParametr.Query = queryTo2019;
+                    //StringParametr stringParametr = new StringParametr();
+                    //stringParametr.Query = queryTo2019;
 
                     //// Поиск льготников по таблицам NameTableAdd.
                     //IFindPerson findPerson2019Add = new FindPersonFioTableAddNoValid(personFamili, personName);
@@ -1815,11 +1819,11 @@ namespace ControlDantist
                     //stringParametr2019.Query = query2019;
 
                     //// Поиск льгот ника по позже 2019 года.
-                    //IFindPerson findPerson2019Afftar = new FIndPersonFio2019AftarNoValid(personFamili, personName);
-                    //string query2019Aftar = findPerson2019Afftar.Query();
+                    IFindPerson findPerson2019Afftar = new FIndPersonFio2019AftarNoValid(personFamili, personName);
+                    string query2019Aftar = findPerson2019Afftar.Query();
 
-                    //StringParametr stringParametr2019Aftar = new StringParametr();
-                    //stringParametr2019Aftar.Query = query2019Aftar;
+                    StringParametr stringParametr2019Aftar = new StringParametr();
+                    stringParametr2019Aftar.Query = query2019Aftar;
 
                     // Поиск льготника по Фамилии и имени в таблицах 2021.
                     IFindPerson findPerson2021FioNoValid = new FindPersonFioNoValid2021(personFamili, personName);
@@ -1829,7 +1833,7 @@ namespace ControlDantist
                     stringfindPerson2021FioNoValid.Query = queryFindPersonFio2021NoValid;
 
                     // Выполнинм поиск льготников до 2019 года.
-                    ExecuteFind(stringParametr);
+                    //ExecuteFind(stringParametr);
 
                     // Выполнинм поиск льготников 2019 по таблицам TableName2019 года.
                     //ExecuteFind(stringParametr2019Add);
@@ -1857,7 +1861,8 @@ namespace ControlDantist
                               "ON dbo.Договор.id_льготник = dbo.Льготник.id_льготник INNER JOIN " +
                               "dbo.ЛьготнаяКатегория ON dbo.Льготник.id_льготнойКатегории = dbo.ЛьготнаяКатегория.id_льготнойКатегории INNER JOIN " +
                               "dbo.УслугиПоДоговору ON dbo.Договор.id_договор = dbo.УслугиПоДоговору.id_договор " +
-                              "where Договор.ФлагПроверки = 'False' and Льготник.Фамилия = '" + this.textBox2.Text + "' " + // and Льготник.Имя = '" + this.txtИмя.Text.Trim() + "' " +
+                              "where Договор.ФлагПроверки = 'False' " + " or (Договор.ФлагПроверки = 'False' and flagАнулирован = 0)  " +
+                              "and Льготник.Фамилия = '" + this.textBox2.Text + "' " + // and Льготник.Имя = '" + this.txtИмя.Text.Trim() + "' " +
                               "Group by Договор.id_договор,Договор.НомерДоговора, Льготник.Фамилия, Льготник.Имя, Льготник.Отчество, ЛьготнаяКатегория.ЛьготнаяКатегория,Договор.ДатаЗаписиДоговора,Договор.logWrite,Договор.НомерРеестра,Договор.НомерСчётФактрура ";
                 }
                 else if (this.textBox2.Text.Trim().Length > 0 && this.txtИмя.Text.Trim().Length > 0)
@@ -1867,7 +1872,8 @@ namespace ControlDantist
                               "ON dbo.Договор.id_льготник = dbo.Льготник.id_льготник INNER JOIN " +
                               "dbo.ЛьготнаяКатегория ON dbo.Льготник.id_льготнойКатегории = dbo.ЛьготнаяКатегория.id_льготнойКатегории INNER JOIN " +
                               "dbo.УслугиПоДоговору ON dbo.Договор.id_договор = dbo.УслугиПоДоговору.id_договор " +
-                              "where Договор.ФлагПроверки = 'False' and Льготник.Фамилия = '" + this.textBox2.Text + "'  and Льготник.Имя = '" + this.txtИмя.Text.Trim() + "' " +
+                              "where Договор.ФлагПроверки = 'False' " + " or (Договор.ФлагПроверки = 'False' and flagАнулирован = 0)  " +
+                              "and Льготник.Фамилия = '" + this.textBox2.Text + "'  and Льготник.Имя = '" + this.txtИмя.Text.Trim() + "' " +
                               "Group by Договор.id_договор,Договор.НомерДоговора, Льготник.Фамилия, Льготник.Имя, Льготник.Отчество, ЛьготнаяКатегория.ЛьготнаяКатегория,Договор.ДатаЗаписиДоговора,Договор.logWrite,Договор.НомерРеестра,Договор.НомерСчётФактрура ";
                 }
 
@@ -1875,12 +1881,15 @@ namespace ControlDantist
 
             using (SqlConnection con = new SqlConnection(ConnectDB.ConnectionString()))
             {
+                /*
+
                 if (flagExecute == false)
                 {
                     con.Open();
                     SqlTransaction transact = con.BeginTransaction();
 
-                    //DataTable dtContract = ТаблицаБД.GetTableSQL(query, "ТаблицаДоговоров", con, transact);
+                    var queryScript = query;
+
                     SqlCommand com = new SqlCommand(query, con);
                     com.Transaction = transact;
 
@@ -1974,24 +1983,15 @@ namespace ControlDantist
                         {
                             if (read["НомерАкта"] != DBNull.Value)// && read["НомерАкта"] != null)
                             {
-                                //var asd = read["НомерАкта"].Do(x => x, "").ToString().Trim();
-
                                 it.НомерАкта = read["НомерАкта"].ToString().Trim();
                             }
 
                             if (read["ДатаПодписания"] != DBNull.Value)// && read["НомерАкта"] != null)
                             {
-                                //var asd = read["ДатаПодписания"].Do(x => x, "").ToString().Trim();
-
                                 it.ДатаПодписания = Convert.ToDateTime(read["ДатаПодписания"]).ToShortDateString().Trim();
                             }
                         }
 
-                        //// Проверирм есть ли такой столбей в DataGrid.
-                        //if (this.dataGridView1.Columns.Contains("flag2019AddWrite") == true)
-                        //{
-                        //if (tab.Columns.Count == 12)
-                        //{
                         if (read["flag2019AddWrite"] != DBNull.Value)
                         {
                             it.flag2019AddWrite = Convert.ToBoolean(read["flag2019AddWrite"]);
@@ -2001,22 +2001,22 @@ namespace ControlDantist
                         {
                             it.flagАнулирован = Convert.ToBoolean(read["flagАнулирован"]);
                         }
-                        //}
-                        //}
-
-                     
-
+       
                         listPerson.Add(it);
                     }
 
                 }
+                */
+
+                var listCount = listPerson.ToList();
+
+                var listCountA = listPerson.Where(w=>w.flagАнулирован == true).ToList();
 
                 if (flagExecute == false)
                 {
                     this.dataGridView1.DataSource = listPerson;
 
                     this.dataGridView1.Columns[1].SortMode = DataGridViewColumnSortMode.Automatic;
-
                 }
                 else
                 {

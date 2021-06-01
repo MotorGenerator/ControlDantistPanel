@@ -52,7 +52,7 @@ namespace ControlDantist.ValidateRegistrProject
                 if (sKey.Trim() != "Ленинский".Trim())
                 {
 
-                   //Отключим проверку договоров по ЭСРН.
+                   //Отключим проверку договоров по ЭСРН кроме Ленинского района.
                    var sTestTestt = "";
                     continue;
                 }

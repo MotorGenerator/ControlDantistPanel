@@ -113,14 +113,21 @@ namespace ControlDantist
             this.lblДоговор.Text = rowL["НомерДоговора"].ToString().Trim();
             string дата = Convert.ToDateTime(rowL["ДатаДоговора"]).ToShortDateString().Trim();
 
-            if (дата == "01.01.1900")
-            {
-                this.lblДатаДоговора.Text = "Договор не подписан";
-            }
-            else
-            {
-                this.lblДатаДоговора.Text = дата;
-            }
+            //ДатаПроверки rowL["ФлагПроверки"]
+
+            Func<DataRow, string> validDateContract = ValidDate;
+
+            this.lblДатаДоговора.Text = validDateContract(rowL);
+
+            // Привяжем делегат и обработчик события.
+            //if (дата == "01.01.1900")
+            //{
+            //    this.lblДатаДоговора.Text = "Договор не подписан";
+            //}
+            //else
+            //{
+            //    this.lblДатаДоговора.Text = дата;
+            //}
 
             //Получим и выведим на форму ФИО льготника
             string фамилия = rowL["Фамилия"].ToString().Trim();
@@ -164,6 +171,8 @@ namespace ControlDantist
 
             bool flagStatus = Convert.ToBoolean(rowL["ФлагПроверки"]);
 
+            //ДатаПроверки rowL["ФлагПроверки"]
+
             if (flagStatus == true)
             {
                 txtStatus.Text  = " Договор прошёл проверку ";
@@ -179,6 +188,44 @@ namespace ControlDantist
         private void btnClose_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private string ValidDate(DataRow rowL)
+        {
+            // Переменная для хранения даты проверки договора.
+            string text = string.Empty;
+
+            bool flag = Convert.ToBoolean(rowL["ФлагПроверки"]);
+
+            if (flag == true)
+            {
+                string date = Convert.ToDateTime(rowL["ДатаДоговора"]).ToShortDateString().Trim();
+
+                string dateValid = Convert.ToDateTime(rowL["ДатаПроверки"]).ToShortDateString().Trim();
+
+                if (date != null)
+                {
+                    if (date == "01.01.1900")
+                    {
+                        text = dateValid;
+                    }
+                    else
+                    {
+                        text = date;
+                    }
+                }
+                else
+                {
+                    text = "Договор не подписан";
+                }
+            }
+            else
+            {
+                text = "Договор не подписан";
+            }
+
+            return text;
+
         }
     }
 }

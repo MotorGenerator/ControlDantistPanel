@@ -801,6 +801,8 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Querys\FindActForCnotractDate.cs" />
+    <Compile Include="Querys\FindActForContract.cs" />
     <Compile Include="Querys\FindPaysContract.cs" />
     <Compile Include="Querys\IQuery.cs" />
     <Compile Include="ReadRegistrProject\DataRowExtensions.cs" />
@@ -981,6 +983,7 @@
     <Compile Include="WriteDB\IValidBD.cs" />
     <Compile Include="WriteDB\PersonWriteDB.cs" />
     <Compile Include="WriteDB\ProjectContract.cs" />
+    <Compile Include="WriteDB\ValidContractDateAct.cs" />
     <Compile Include="WriteDB\ValidContractForPerson.cs" />
     <Compile Include="СhangeAkt.cs">
       <SubType>Form</SubType>
