@@ -224,28 +224,28 @@ namespace ControlDantist
                 // Переменная для хранения номера договора который необходимо найти.
                 string numContract = this.textBox1.Text;
 
-                // Поиск льготника прошедшего проверку по номеру договора.
-                IFindPerson findPerson = new FindContractTo2019(this.textBox1.Text);
-                string queryTo2019 = findPerson.Query();
+                //// Поиск льготника прошедшего проверку по номеру договора.
+                //IFindPerson findPerson = new FindContractTo2019(this.textBox1.Text);
+                //string queryTo2019 = findPerson.Query();
 
-                StringParametr stringParametr = new StringParametr();
-                stringParametr.Query = queryTo2019;
+                //StringParametr stringParametr = new StringParametr();
+                //stringParametr.Query = queryTo2019;
 
                 // Поиск номера договора за 2019 год по таблицам TableAdd.
-                IFindPerson fintPerson2019Add = new FindContract2019Add(numContract);
-                string query2019Add = fintPerson2019Add.Query();
+                //IFindPerson fintPerson2019Add = new FindContract2019Add(numContract);
+                //string query2019Add = fintPerson2019Add.Query();
 
-                StringParametr stringParametr2019Add = new StringParametr();
-                stringParametr2019Add.Query = query2019Add;
+                //StringParametr stringParametr2019Add = new StringParametr();
+                //stringParametr2019Add.Query = query2019Add;
 
                 // Пока скроем поиск льготников в основной таблице за 2019 год.
                 //  Поиск номера договора за 2019 год по обычным таблицам.
-                IFindPerson findPerson2019 = new FindContract2019(numContract);
-                string query2019 = findPerson2019.Query();
+                //IFindPerson findPerson2019 = new FindContract2019(numContract);
+                //string query2019 = findPerson2019.Query();
 
 
-                StringParametr stringParametr2019 = new StringParametr();
-                stringParametr2019.Query = query2019;
+                //StringParametr stringParametr2019 = new StringParametr();
+                //stringParametr2019.Query = query2019;
 
                 // Поиск номера договора позже 2019 года.
                 IFindPerson fintPersonAftar2019 = new FindPersonAftar2019(numContract);
@@ -262,14 +262,14 @@ namespace ControlDantist
                 stringParametr2021.Query = query2021;
 
 
-                // Выполним запрос до 2019 года.
-                listTempDisplay.AddRange(ExecuteQuery(stringParametr));
+                //// Выполним запрос до 2019 года.
+                //listTempDisplay.AddRange(ExecuteQuery(stringParametr));
 
-                // Выполним запрос 2019 года таблицы Add.
-                listTempDisplay.AddRange(ExecuteQuery(stringParametr2019Add));
+                //// Выполним запрос 2019 года таблицы Add.
+                //listTempDisplay.AddRange(ExecuteQuery(stringParametr2019Add));
 
-                // Выполним запрос 2019 года.
-                listTempDisplay.AddRange(ExecuteQuery(stringParametr2019));
+                //// Выполним запрос 2019 года.
+                //listTempDisplay.AddRange(ExecuteQuery(stringParametr2019));
 
                 // Выполним запрос больше 2019 года.
                 listTempDisplay.AddRange(ExecuteQuery(stringParametr2019Aftar));
@@ -1842,7 +1842,7 @@ namespace ControlDantist
                     //ExecuteFind(stringParametr2019);
 
                     // Выполнинм поиск льготников после 2019 по таблицам базы данных 2020 года.
-                    // ExecuteFind(stringParametr2019Aftar);
+                    ExecuteFind(stringParametr2019Aftar);
 
                     // Выполнинм поиск льготников после 2020 по таблицам базы данных 2021 года.
                     ExecuteFind(stringfindPerson2021FioNoValid);
@@ -2090,14 +2090,11 @@ namespace ControlDantist
                     }
                 }
 
-
                 //this.dataGridView1.Columns[1].SortMode = DataGridViewColumnSortMode.Automatic;
                 foreach (DataGridViewColumn column in dataGridView1.Columns)
                 {
                     column.SortMode = DataGridViewColumnSortMode.Automatic;
                 }
-
-
             }
         }
 
